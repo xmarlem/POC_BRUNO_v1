@@ -1,0 +1,72 @@
+<md-sidenav-container>
+
+    <div id="fuse-main-content" fxFlexFill>
+
+        <!-- TOOLBAR: Above -->
+        <ng-container *ngIf="fuseSettings.layout.toolbar === 'above'">
+            <fuse-toolbar class="above" [class]="fuseSettings.colorClasses.toolbar"></fuse-toolbar>
+        </ng-container>
+        <!-- / TOOLBAR: Above -->
+
+        <!-- NAVBAR: Top -->
+        <fuse-navbar-horizontal class="top-navbar" fxHide fxShow.gt-md
+                                [class]="fuseSettings.colorClasses.navbar"
+                                *ngIf="fuseSettings.layout.navigation === 'top'">
+        </fuse-navbar-horizontal>
+        <!-- / NAVBAR: Top -->
+
+        <div id="wrapper">
+
+            <!-- NAVBAR: Left -->
+            <fuse-navbar-vertical [folded]="false"
+                                  fxShow [fxHide.gt-md]="fuseSettings.layout.navigation === 'top'"
+                                  class="left-navbar" [class]="fuseSettings.colorClasses.navbar"
+                                  *ngIf="fuseSettings.layout.navigation === 'left' || fuseSettings.layout.navigation === 'top'">
+            </fuse-navbar-vertical>
+            <!-- / NAVBAR: Left -->
+
+            <div class="content-wrapper">
+
+                <!-- TOOLBAR: Below -->
+                <ng-container *ngIf="fuseSettings.layout.toolbar === 'below'">
+                    <fuse-toolbar class="below" [class]="fuseSettings.colorClasses.toolbar"></fuse-toolbar>
+                </ng-container>
+                <!-- / TOOLBAR: Below -->
+
+                <fuse-content></fuse-content>
+
+                <!-- FOOTER: Below -->
+                <ng-container *ngIf="fuseSettings.layout.footer === 'below'">
+                    <fuse-footer class="below" [class]="fuseSettings.colorClasses.footer"></fuse-footer>
+                </ng-container>
+                <!-- / FOOTER: Below -->
+
+            </div>
+
+            <!-- NAVBAR: Right -->
+            <fuse-navbar-vertical [folded]="false"
+                                  class="right-navbar"
+                                  [class]="fuseSettings.colorClasses.navbar"
+                                  *ngIf="fuseSettings.layout.navigation === 'right'">
+            </fuse-navbar-vertical>
+            <!-- / NAVBAR: Right -->
+
+        </div>
+
+        <!-- FOOTER: Above -->
+        <ng-container *ngIf="fuseSettings.layout.footer === 'above'">
+            <fuse-footer class="above" [class]="fuseSettings.colorClasses.footer"></fuse-footer>
+        </ng-container>
+        <!-- FOOTER: Above -->
+
+    </div>
+
+    <!-- QUICK PANEL -->
+    <md-sidenav fuseMdSidenavHelper="quick-panel" align="end">
+        <fuse-quick-panel></fuse-quick-panel>
+    </md-sidenav>
+    <!-- / QUICK PANEL -->
+
+</md-sidenav-container>
+
+<fuse-theme-options></fuse-theme-options>

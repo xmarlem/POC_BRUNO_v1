@@ -1,0 +1,12 @@
+<a class="nav-link" md-ripple (click)="toggleOpen($event)">
+    <md-icon class="nav-link-icon" *ngIf="item.icon">{{item.icon}}</md-icon>
+    <span class="nav-link-title">{{item.title}}</span>
+    <md-icon class="collapse-arrow">keyboard_arrow_right</md-icon>
+</a>
+<div class="children" [@slideInOut]="isOpen">
+    <ng-container *ngFor="let item of item.children">
+        <fuse-nav-vertical-item *ngIf="item.type=='item'" [item]="item"></fuse-nav-vertical-item>
+        <fuse-nav-vertical-collapse *ngIf="item.type=='collapse'" [item]="item"></fuse-nav-vertical-collapse>
+        <fuse-nav-vertical-group *ngIf="item.type=='group'" [item]="item"></fuse-nav-vertical-group>
+    </ng-container>
+</div>

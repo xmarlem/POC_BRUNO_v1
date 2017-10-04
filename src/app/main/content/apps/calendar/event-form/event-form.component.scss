@@ -1,0 +1,13 @@
+.event-form-dialog {
+
+    .mat-dialog-container {
+        padding: 0;
+        width: 480px;
+    }
+
+    .dialog-content-wrapper {
+        max-height: 85vh;
+        display: flex;
+        flex-direction: column;
+    }
+}
