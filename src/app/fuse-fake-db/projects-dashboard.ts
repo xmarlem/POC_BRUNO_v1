@@ -2,16 +2,7 @@ export class ProjectsDashboardDb
 {
     public static projects = [
         {
-            'name': 'ACME Corp. Backend App'
-        },
-        {
-            'name': 'ACME Corp. Frontend App'
-        },
-        {
-            'name': 'Creapond'
-        },
-        {
-            'name': 'Withinpixels'
+            'name': 'The Puzzle Project!'
         }
     ];
 
@@ -1950,7 +1941,7 @@ export class ProjectsDashboardDb
         'weatherWidget': {
             'locations'      : {
                 'NewYork': {
-                    'name'           : 'New York',
+                    'name'           : 'Zurich',
                     'icon'           : 'icon-rainy2',
                     'temp'           : {
                         'C': '22',
