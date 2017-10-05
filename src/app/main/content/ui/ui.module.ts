@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 
 import { UIFormsModule } from './forms/forms.module';
+//begin ML
+import { UIMyProfileModule } from './my-profile/my-profile.module';
+//end ML
 import { UIIconsModule } from './icons/icons.module';
 import { UITypographyModule } from './typography/typography.module';
 import { UIHelperClassesModule } from './helper-classes/helper-classes.module';
@@ -14,7 +17,10 @@ import { UIColorsModule } from './colors/colors.module';
         UITypographyModule,
         UIHelperClassesModule,
         UIPageLayoutsModule,
-        UIColorsModule
+        UIColorsModule,
+        //begin ML
+        UIMyProfileModule,
+        //end ML
     ]
 })
 export class UIModule

@@ -23,6 +23,13 @@ export class NavigationModel
                         ]
                     },
                     {
+                        'title': 'My Profile',
+                        'type' : 'item',
+                        'icon' : 'web_asset',
+                        'url'  : '/ui/my-profile'
+                    },
+
+                    {
                         'title': 'Calendar',
                         'type' : 'item',
                         'icon' : 'today',

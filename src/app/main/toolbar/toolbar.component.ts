@@ -53,7 +53,17 @@ export class FuseToolbarComponent
             {
                 'id'   : 'en',
                 'title': 'English',
-                'flag' : 'us'
+                'flag' : 'en'
+            },
+            {
+                'id'   : 'de',
+                'title': 'Deutch',
+                'flag' : 'de'
+            },
+            {
+                'id'   : 'it',
+                'title': 'Italian',
+                'flag' : 'it'
             },
             {
                 'id'   : 'es',

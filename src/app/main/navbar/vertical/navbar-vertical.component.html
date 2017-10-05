@@ -1,10 +1,13 @@
 <div class="navbar-header">
 
+    <!-- LOGO in alto -->
     <div class="logo">
+<!--        <img class="logo-icon" src="assets/images/logos/fuse.svg"> -->
         <img class="logo-icon" src="assets/images/logos/fuse.svg">
-        <span class="logo-text">FUSE</span>
+        <span class="logo-text">Puzzle!</span>
     </div>
 
+<!-- BOTTONE MENU in alto a destra affianco il logo -->
     <button md-button class="toggle-button-navbar mat-icon-button" fuseNavbarVertical="toggleFold" fxHide.lt-lg>
         <md-icon>menu</md-icon>
     </button>
@@ -15,6 +18,21 @@
 
 </div>
 
+
+<!--  begin ML -->
+<div id="card-profilo" >
+    <div class="header p-24" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between end">
+            <div class="user-info" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-sm="row"
+                 fxLayoutAlign.gt-sm="start center">
+                <img class="profile-image avatar huge" src="assets/images/avatars/profilo_marco.jpg"
+                     *fuseIfOnDom >
+                <div class="name" *fuseIfOnDom >Marco Lembo</div>
+            </div>
+    </div>
+</div>
+<!--  end ML -->
+
+<!-- NAV BAR -->
 <div class="navbar-content" fusePerfectScrollbar>
     <fuse-navigation layout="vertical"></fuse-navigation>
 </div>

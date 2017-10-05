@@ -1,0 +1,367 @@
+<div id="forms" class="page-layout simple fullwidth" fxLayout="column" fusePerfectScrollbar>
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg p-24 h-160" fxLayout="row" fxLayoutAlign="start center">
+        <div fxLayout="column" fxLayoutAlign="center start">
+            <div class="black-fg" fxLayout="row" fxLayoutAlign="start center">
+                <md-icon class="secondary-text s-16">home</md-icon>
+                <md-icon class="secondary-text s-16">chevron_right</md-icon>
+                <span class="secondary-text">Info</span>
+            </div>
+            <div class="h1 mt-16">My Profile</div>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+
+<!-- begin ML -->
+
+
+
+<!-- TEST ___ con accordion e space... -->
+<!--
+    <div class="content p-24">
+        <div fxLayout="column" fxLayoutAlign="start start" fxLayout.gt-md="row"> 
+
+            <md-accordion fxLayout="column" fxFlex="1 0 auto">
+                <! PERSONAL INFORMATION -
+                <md-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+                    <md-expansion-panel-header>
+                        <md-panel-title>
+                            Personal data
+                        </md-panel-title>
+                        <md-panel-description fxLayoutAlign="space-between center">
+                            your data here
+                            <md-icon>account_circle</md-icon>
+                        </md-panel-description>
+                    </md-expansion-panel-header>
+
+                    <div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+                        <md-form-field fxFlex="2 2 10em">
+                            <input mdInput placeholder="First name" value="Marco">
+                        </md-form-field>
+
+                        <md-form-field fxFlex="2 2 10em">
+                            <input mdInput placeholder="Last name" value="Lembo">
+                        </md-form-field>
+
+                        <md-form-field fxFlex="1 1 5em">
+                            <input mdInput placeholder="Org Unit Code" value="SJSF 4">
+                        </md-form-field>
+
+                        <md-form-field fxFlex="3 3 20em">
+                            <input mdInput type="email" placeholder="E-mail" value="marco.lembo@credit-suisse.com" >
+                        </md-form-field>
+
+                        <md-form-field fxFlex="1 1 5em">
+                            <input mdInput placeholder="Employee Id" maxlength="7" value="F197023">
+                        </md-form-field>
+                    </div>
+
+                    <md-action-row>
+                        <button md-button color="primary" (click)="nextStep()">Next</button>
+                    </md-action-row>
+                </md-expansion-panel>
+
+                <!CURRENT SKILLS -
+                <md-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+                    <md-expansion-panel-header>
+                        <md-panel-title>
+                            Current Skills
+                        </md-panel-title>
+                        <md-panel-description fxLayoutAlign="space-between center">
+                            Type your current skills here
+                            <md-icon >map</md-icon>
+                        </md-panel-description>
+                    </md-expansion-panel-header>
+
+                    <md-form-field>
+                        <input mdInput placeholder="Country">
+                    </md-form-field>
+
+                    <md-action-row>
+                        <button md-button color="warn" (click)="prevStep()">Previous</button>
+                        <button md-button color="primary" (click)="nextStep()">Next</button>
+                    </md-action-row>
+                </md-expansion-panel>
+
+                <! ASPIRATIONAL SKILLS -
+                <md-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
+                    <md-expansion-panel-header>
+                        <md-panel-title>
+                            Aspirational Skills
+                        </md-panel-title>
+                        <md-panel-description fxLayoutAlign="space-between center">
+                            Type your aspirational skills here
+                            <md-icon>date_range</md-icon>
+                        </md-panel-description>
+                    </md-expansion-panel-header>
+
+                    <md-form-field>
+                        <input mdInput placeholder="Date" [mdDatepicker]="picker" (focus)="picker.open()" readonly>
+                    </md-form-field>
+                    <md-datepicker #picker></md-datepicker>
+
+                    <md-action-row>
+                        <button md-button color="warn" (click)="prevStep()">Previous</button>
+                        <button md-button color="primary" (click)="nextStep()">End</button>
+                    </md-action-row>
+                </md-expansion-panel>
+
+            </md-accordion>
+        </div>
+    </div>
+
+-->
+
+
+    <div class="content p-24">
+
+        <p class="mb-32">
+        Here you can enter your personal data, current and aspirational skills.
+        </p>
+
+        <div fxLayout="column" fxLayoutAlign="start start"> <!-- fxLayout.gt-md="row"> -->
+            <form class="md-white-bg mat-elevation-z4 p-24 mr-24 mb-24" fxLayout="column" fxLayoutAlign="start"
+                  fxFlex="1 0 auto" name="form" [formGroup]="form">
+
+
+                <div class="h2 mb-24">Personal Info</div>
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+                    <md-input-container fxFlex="100">
+                        <input mdInput placeholder="Company" value="Credit Suisse">
+                    </md-input-container>
+
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+                    <md-input-container fxFlex="50">
+                        <input mdInput placeholder="First name" value="Marco">
+                        <md-error *ngIf="formErrors.firstName.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                    <md-input-container fxFlex="50">
+                        <input mdInput placeholder="Last name" value="Lembo">
+                        <md-error *ngIf="formErrors.lastName.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto" fxLayoutWrap>
+
+                    <md-input-container fxFlex="100">
+                        <textarea mdInput placeholder="Office Address">Uetlibergstrasse 233</textarea>
+                        <md-error *ngIf="formErrors.address.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+                    <md-input-container fxFlex="33">
+                        <input mdInput placeholder="City" value="Zürich">
+                        <md-error *ngIf="formErrors.city.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                    <md-input-container fxFlex="34">
+                        <input mdInput placeholder="State" value="Switzerland">
+                        <md-error *ngIf="formErrors.state.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                    <md-input-container fxFlex="33">
+                        <input mdInput #postalCode placeholder="Postal Code" value="8070">
+                        <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
+                        <md-error *ngIf="formErrors.postalCode.maxlength">
+                            Postal Code needs to be max. {{formErrors.postalCode.maxlength.requiredLength}} characters
+                        </md-error>
+                    </md-input-container>
+
+                </div>
+            </form>
+<!-- CURRENT SKILLS -->
+            <form class="md-white-bg mat-elevation-z4 p-24 mr-24 mb-24" fxLayout="column" fxLayoutAlign="start"
+                  fxFlex="1 0 auto" name="form" [formGroup]="form">
+
+                <div class="h2 mb-24">Current Skills</div>
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+                    <md-input-container fxFlex="50">
+                        <input mdInput placeholder="First name" formControlName="firstName">
+                        <md-error *ngIf="formErrors.firstName.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                    <md-input-container fxFlex="50">
+                        <input mdInput placeholder="Last name" formControlName="lastName">
+                        <md-error *ngIf="formErrors.lastName.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto" fxLayoutWrap>
+
+                    <md-input-container fxFlex="100">
+                        <textarea mdInput placeholder="Address" formControlName="address">
+                            1600 Amphitheatre Pkwy
+                        </textarea>
+                        <md-error *ngIf="formErrors.address.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                    <md-input-container fxFlex="100">
+                        <textarea mdInput placeholder="Address 2" formControlName="address2"></textarea>
+                        <md-error *ngIf="formErrors.address2.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+                    <md-input-container fxFlex="33">
+                        <input mdInput placeholder="City" formControlName="city">
+                        <md-error *ngIf="formErrors.city.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                    <md-input-container fxFlex="34">
+                        <input mdInput placeholder="State" formControlName="state">
+                        <md-error *ngIf="formErrors.state.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                    <md-input-container fxFlex="33">
+                        <input mdInput #postalCode placeholder="Postal Code" value="94043"
+                               formControlName="postalCode">
+                        <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
+                        <md-error *ngIf="formErrors.postalCode.maxlength">
+                            Postal Code needs to be max. {{formErrors.postalCode.maxlength.requiredLength}} characters
+                        </md-error>
+                    </md-input-container>
+
+                </div>
+            </form>
+            <form class="md-white-bg mat-elevation-z4 p-24 mr-24 mb-24" fxLayout="column" fxLayoutAlign="start"
+                  fxFlex="1 0 auto" name="form" [formGroup]="form">
+
+                <div class="h2 mb-24">Aspirational Skills</div>
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+                    <md-input-container fxFlex="100">
+                        <input mdInput placeholder="Company (disabled)" formControlName="company">
+                    </md-input-container>
+
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+                    <md-input-container fxFlex="50">
+                        <input mdInput placeholder="First name" formControlName="firstName">
+                        <md-error *ngIf="formErrors.firstName.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                    <md-input-container fxFlex="50">
+                        <input mdInput placeholder="Last name" formControlName="lastName">
+                        <md-error *ngIf="formErrors.lastName.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto" fxLayoutWrap>
+
+                    <md-input-container fxFlex="100">
+                        <textarea mdInput placeholder="Address" formControlName="address">
+                            1600 Amphitheatre Pkwy
+                        </textarea>
+                        <md-error *ngIf="formErrors.address.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                    <md-input-container fxFlex="100">
+                        <textarea mdInput placeholder="Address 2" formControlName="address2"></textarea>
+                        <md-error *ngIf="formErrors.address2.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+                    <md-input-container fxFlex="33">
+                        <input mdInput placeholder="City" formControlName="city">
+                        <md-error *ngIf="formErrors.city.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                    <md-input-container fxFlex="34">
+                        <input mdInput placeholder="State" formControlName="state">
+                        <md-error *ngIf="formErrors.state.required">
+                            Required
+                        </md-error>
+                    </md-input-container>
+
+                    <md-input-container fxFlex="33">
+                        <input mdInput #postalCode placeholder="Postal Code" value="94043"
+                               formControlName="postalCode">
+                        <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
+                        <md-error *ngIf="formErrors.postalCode.maxlength">
+                            Postal Code needs to be max. {{formErrors.postalCode.maxlength.requiredLength}} characters
+                        </md-error>
+                    </md-input-container>
+
+                </div>
+            </form>            
+        </div>
+<!--
+
+            <div class="form-errors-model md-white-bg p-24 mat-elevation-z4">
+
+                <div class="h2 mb-24">Reactive Form Errors Model</div>
+
+                <pre><code>{{formErrors | json}}</code></pre>
+            </div>
+-->
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>
+
+

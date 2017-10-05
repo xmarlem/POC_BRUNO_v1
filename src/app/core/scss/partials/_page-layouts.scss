@@ -11,7 +11,10 @@ $carded-header-height-without-toolbar: $carded-header-height - $carded-toolbar-h
 $carded-header-height-without-toolbar-sm: $carded-header-height-sm - $carded-toolbar-height;
 
 // Top bg image
+// begin ML
 $top-bg-image: url('assets/images/backgrounds/header-bg.png');
+//$top-bg-image: url('assets/images/backgrounds/header-bg_cs.png');
+// end ML
 
 .page-layout {
     position: relative;
