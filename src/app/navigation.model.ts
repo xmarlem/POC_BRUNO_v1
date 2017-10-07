@@ -11,16 +11,10 @@ export class NavigationModel
                 'icon'    : 'apps',
                 'children': [
                     {
-                        'title'   : 'Dashboards',
-                        'type'    : 'collapse',
-                        'icon'    : 'dashboard',
-                        'children': [
-                            {
-                                'type' : 'item',
-                                'title': 'Project',
-                                'url'  : '/apps/dashboards/project'
-                            }
-                        ]
+                        'title': 'Dashboard',
+                        'type' : 'item',
+                        'icon' : 'dashboard',
+                        'url'  : '/apps/dashboards/project'
                     },
                     {
                         'title': 'My Profile',

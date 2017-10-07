@@ -17,106 +17,6 @@
 
 <!-- begin ML -->
 
-
-
-<!-- TEST ___ con accordion e space... -->
-<!--
-    <div class="content p-24">
-        <div fxLayout="column" fxLayoutAlign="start start" fxLayout.gt-md="row"> 
-
-            <md-accordion fxLayout="column" fxFlex="1 0 auto">
-                <! PERSONAL INFORMATION -
-                <md-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
-                    <md-expansion-panel-header>
-                        <md-panel-title>
-                            Personal data
-                        </md-panel-title>
-                        <md-panel-description fxLayoutAlign="space-between center">
-                            your data here
-                            <md-icon>account_circle</md-icon>
-                        </md-panel-description>
-                    </md-expansion-panel-header>
-
-                    <div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="start center" fxFlex="1 0 auto">
-
-                        <md-form-field fxFlex="2 2 10em">
-                            <input mdInput placeholder="First name" value="Marco">
-                        </md-form-field>
-
-                        <md-form-field fxFlex="2 2 10em">
-                            <input mdInput placeholder="Last name" value="Lembo">
-                        </md-form-field>
-
-                        <md-form-field fxFlex="1 1 5em">
-                            <input mdInput placeholder="Org Unit Code" value="SJSF 4">
-                        </md-form-field>
-
-                        <md-form-field fxFlex="3 3 20em">
-                            <input mdInput type="email" placeholder="E-mail" value="marco.lembo@credit-suisse.com" >
-                        </md-form-field>
-
-                        <md-form-field fxFlex="1 1 5em">
-                            <input mdInput placeholder="Employee Id" maxlength="7" value="F197023">
-                        </md-form-field>
-                    </div>
-
-                    <md-action-row>
-                        <button md-button color="primary" (click)="nextStep()">Next</button>
-                    </md-action-row>
-                </md-expansion-panel>
-
-                <!CURRENT SKILLS -
-                <md-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
-                    <md-expansion-panel-header>
-                        <md-panel-title>
-                            Current Skills
-                        </md-panel-title>
-                        <md-panel-description fxLayoutAlign="space-between center">
-                            Type your current skills here
-                            <md-icon >map</md-icon>
-                        </md-panel-description>
-                    </md-expansion-panel-header>
-
-                    <md-form-field>
-                        <input mdInput placeholder="Country">
-                    </md-form-field>
-
-                    <md-action-row>
-                        <button md-button color="warn" (click)="prevStep()">Previous</button>
-                        <button md-button color="primary" (click)="nextStep()">Next</button>
-                    </md-action-row>
-                </md-expansion-panel>
-
-                <! ASPIRATIONAL SKILLS -
-                <md-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
-                    <md-expansion-panel-header>
-                        <md-panel-title>
-                            Aspirational Skills
-                        </md-panel-title>
-                        <md-panel-description fxLayoutAlign="space-between center">
-                            Type your aspirational skills here
-                            <md-icon>date_range</md-icon>
-                        </md-panel-description>
-                    </md-expansion-panel-header>
-
-                    <md-form-field>
-                        <input mdInput placeholder="Date" [mdDatepicker]="picker" (focus)="picker.open()" readonly>
-                    </md-form-field>
-                    <md-datepicker #picker></md-datepicker>
-
-                    <md-action-row>
-                        <button md-button color="warn" (click)="prevStep()">Previous</button>
-                        <button md-button color="primary" (click)="nextStep()">End</button>
-                    </md-action-row>
-                </md-expansion-panel>
-
-            </md-accordion>
-        </div>
-    </div>
-
--->
-
-
     <div class="content p-24">
 
         <p class="mb-32">
@@ -200,75 +100,51 @@
 
                 <div class="h2 mb-24">Current Skills</div>
 
-                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                <!-- ADD Skill BUTTON -->
+                <div class="file-uploader">
+                    <input hidden type="file" #fileInput/>
+                    <button md-mini-fab color="accent"
+                            class="add-skill-button"
+                            (click)="addSkill()"
 
+                            aria-label="Add Skill">
+                        <md-icon>add</md-icon>
+                    </button>
+                </div>
+                <!-- / ADD Skill BUTTON -->
+
+
+                <div class="p-10" fxLayout="row" fxLayoutWrap fxLayout.ls-sm="column" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                    <md-card *ngFor="let skill of currentSkills" >
+
+                        <md-card-content>
+                            <!-- SKILL -->
+                            <md-form-field>
+                                <input type="text" placeholder="Skill" mdInput [mdAutocomplete]="auto" [formControl]="myControl">
+                            </md-form-field>
+
+                            <md-autocomplete #auto="mdAutocomplete">
+                               <md-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                  {{ option }}
+                               </md-option>
+                            </md-autocomplete>
+
+                            <!-- Proficiency -->
+                            <div fxLayout="column">
+                                <span class="mat-caption md-primary-100-fg hint-text">Proficiency</span>
+                                <md-slider placeholder="Proficiency" min="1" max="5" tick-interval="5" value="1" thumb-label="true">
+                                </md-slider>
+                            </div>
+                        </md-card-content>
+                        <md-card-actions>
+                            <button md-button (click)="removeSkill(skill)">Remove</button>
+                        </md-card-actions>
+
+                    </md-card>
 
                 </div>
 
-                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
 
-                    <md-input-container fxFlex="50">
-                        <input mdInput placeholder="First name" formControlName="firstName">
-                        <md-error *ngIf="formErrors.firstName.required">
-                            Required
-                        </md-error>
-                    </md-input-container>
-
-                    <md-input-container fxFlex="50">
-                        <input mdInput placeholder="Last name" formControlName="lastName">
-                        <md-error *ngIf="formErrors.lastName.required">
-                            Required
-                        </md-error>
-                    </md-input-container>
-
-                </div>
-
-                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto" fxLayoutWrap>
-
-                    <md-input-container fxFlex="100">
-                        <textarea mdInput placeholder="Address" formControlName="address">
-                            1600 Amphitheatre Pkwy
-                        </textarea>
-                        <md-error *ngIf="formErrors.address.required">
-                            Required
-                        </md-error>
-                    </md-input-container>
-
-                    <md-input-container fxFlex="100">
-                        <textarea mdInput placeholder="Address 2" formControlName="address2"></textarea>
-                        <md-error *ngIf="formErrors.address2.required">
-                            Required
-                        </md-error>
-                    </md-input-container>
-
-                </div>
-
-                <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
-
-                    <md-input-container fxFlex="33">
-                        <input mdInput placeholder="City" formControlName="city">
-                        <md-error *ngIf="formErrors.city.required">
-                            Required
-                        </md-error>
-                    </md-input-container>
-
-                    <md-input-container fxFlex="34">
-                        <input mdInput placeholder="State" formControlName="state">
-                        <md-error *ngIf="formErrors.state.required">
-                            Required
-                        </md-error>
-                    </md-input-container>
-
-                    <md-input-container fxFlex="33">
-                        <input mdInput #postalCode placeholder="Postal Code" value="94043"
-                               formControlName="postalCode">
-                        <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
-                        <md-error *ngIf="formErrors.postalCode.maxlength">
-                            Postal Code needs to be max. {{formErrors.postalCode.maxlength.requiredLength}} characters
-                        </md-error>
-                    </md-input-container>
-
-                </div>
             </form>
             <form class="md-white-bg mat-elevation-z4 p-24 mr-24 mb-24" fxLayout="column" fxLayoutAlign="start"
                   fxFlex="1 0 auto" name="form" [formGroup]="form">

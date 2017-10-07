@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild, ElementRef, ViewContainerRef, Inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { fuseAnimations } from '../../../../core/animations';
+
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/map';
 
 //ML
-import {MatChipsModule} from '@angular/material';
+//import { SkillsService } from './skills.service';
 
 @Component({
     selector   : 'my-profile',
@@ -38,6 +43,53 @@ export class MyProfileComponent implements OnInit
     }
 
 
+    //==========================
+    //
+    //for CURRENT SKILLS
+    //
+    //==========================
+ 
+    currentSkills = [];
+    options = ['C++', 'Java', 'Angular', 'Oracle', 'Credit Risk', 'Problem Solving', 'SAS', 'Global Markets', 'Front Office', 'SCRUM', 'Agile development', 'Python' ];
+    myControl: FormControl = new FormControl();
+    filteredOptions: Observable<string[]>;
+
+    addSkill(){
+        //console.log(this.skillsService.skills);
+
+        var el = 
+            {
+                id: Date.now(),
+                skill: '',
+                proficiency: ''
+            };
+
+        //console.log("Elemento aggiunto: " + el.id);
+
+        this.currentSkills.push(el);
+
+
+    }
+    removeSkill(skill){
+//      console.log("Skill passato: " + skill);
+//        console.log("Skills presenti in cache: " + this.currentSkills);
+        var index = this.currentSkills.indexOf(skill);
+
+//        console.log("Dovrei eliminare: " + index);
+        if (index > -1){
+            this.currentSkills.splice(index, 1);
+        }
+    }
+
+
+    //==========================
+    //
+    //for ASPIRATIONAL SKILLS
+    //
+    //==========================
+
+
+
 
     //end ML
 
@@ -55,8 +107,26 @@ export class MyProfileComponent implements OnInit
         };
     }
 
+    //SKILLS
+    filter(val: string): string[] 
+    {
+      return this.options.filter(option =>
+        option.toLowerCase().indexOf(val.toLowerCase()) === 0);
+    }
+
+
     ngOnInit()
     {
+
+
+      // SKILLS ------- 
+        console.log(this.myControl);
+        this.filteredOptions = this.myControl.valueChanges.startWith(null).map(val => val ? this.filter(val) : this.options.slice());
+        console.log(this.filteredOptions);
+
+      // ==============
+
+
         this.form = this.formBuilder.group({
             company   : [
                 {
