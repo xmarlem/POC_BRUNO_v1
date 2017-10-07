@@ -4,7 +4,8 @@
 
         form {
             width: 100%;
-            max-width: 800px !important;
+//            max-width: 800px !important;
+            max-width: auto !important;
         }
 
         .form-errors-model {
@@ -16,9 +17,24 @@
         }
 
     }
+
+
+
+
 }
 
 
+.skillCard {
+    
+    margin-bottom: 8px;
+}
+
 .add-skill-button {
     z-index: 999;
+}
+
+
+.percentage {
+    border-radius: 10px;
+    margin-bottom: 20px;   
 }

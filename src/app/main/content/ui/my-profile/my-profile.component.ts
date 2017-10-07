@@ -50,14 +50,51 @@ export class MyProfileComponent implements OnInit
     //==========================
  
     currentSkills = [];
+    aspirationalSkills = [];
     options = ['C++', 'Java', 'Angular', 'Oracle', 'Credit Risk', 'Problem Solving', 'SAS', 'Global Markets', 'Front Office', 'SCRUM', 'Agile development', 'Python' ];
-    myControl: FormControl = new FormControl();
-    filteredOptions: Observable<string[]>;
+    myCurrentSkillsControl: FormControl = new FormControl();
+    myAspirationalSkillsControl: FormControl = new FormControl();
 
-    addSkill(){
+    currentSkillsFilteredOptions: Observable<string[]>;
+    aspirationalSkillsFilteredOptions: Observable<string[]>;
+
+   
+    addCurrentSkill(){
+        //console.log(this.skillsService.skills);
+        //this.currentSkillsFilteredOptions = '';
+
+        let el = 
+            {
+                id: Date.now(),
+                skill: 'None',
+                proficiency: ''
+            };
+        console.log(el);
+
+
+        this.currentSkills.push(el);
+
+        console.log('Elementi: %0', this.currentSkills);
+
+    }
+    removeCurrentSkill(skill){
+//      console.log("Skill passato: " + skill);
+//        console.log("Skills presenti in cache: " + this.currentSkills);
+        let index = this.currentSkills.indexOf(skill);
+
+//        console.log("Dovrei eliminare: " + index);
+        if (index > -1){
+            this.currentSkills.splice(index, 1);
+        }
+
+        console.log('Elementi: %0', this.currentSkills);
+
+    }
+
+    addAspirationalSkill(){
         //console.log(this.skillsService.skills);
 
-        var el = 
+        let el = 
             {
                 id: Date.now(),
                 skill: '',
@@ -66,18 +103,14 @@ export class MyProfileComponent implements OnInit
 
         //console.log("Elemento aggiunto: " + el.id);
 
-        this.currentSkills.push(el);
+        this.aspirationalSkills.push(el);
 
 
     }
-    removeSkill(skill){
-//      console.log("Skill passato: " + skill);
-//        console.log("Skills presenti in cache: " + this.currentSkills);
-        var index = this.currentSkills.indexOf(skill);
-
-//        console.log("Dovrei eliminare: " + index);
+    removeAspirationalSkill(skill){
+        let index = this.aspirationalSkills.indexOf(skill);
         if (index > -1){
-            this.currentSkills.splice(index, 1);
+            this.aspirationalSkills.splice(index, 1);
         }
     }
 
@@ -110,6 +143,7 @@ export class MyProfileComponent implements OnInit
     //SKILLS
     filter(val: string): string[] 
     {
+      console.log("in filter.. "+ val);
       return this.options.filter(option =>
         option.toLowerCase().indexOf(val.toLowerCase()) === 0);
     }
@@ -120,9 +154,8 @@ export class MyProfileComponent implements OnInit
 
 
       // SKILLS ------- 
-        console.log(this.myControl);
-        this.filteredOptions = this.myControl.valueChanges.startWith(null).map(val => val ? this.filter(val) : this.options.slice());
-        console.log(this.filteredOptions);
+        this.currentSkillsFilteredOptions = this.myCurrentSkillsControl.valueChanges.startWith(null).map(val => val ? this.filter(val) : this.options.slice());
+        this.aspirationalSkillsFilteredOptions = this.myAspirationalSkillsControl.valueChanges.startWith(null).map(val => val ? this.filter(val) : this.options.slice());
 
       // ==============
 
