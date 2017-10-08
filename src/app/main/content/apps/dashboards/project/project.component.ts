@@ -220,6 +220,15 @@ export class FuseProjectComponent implements OnInit, OnDestroy
        // this.todoService.updateTodo(this.todo);
     }
 
+    selectTodos(filterParameter?, filterValue?)
+    {
+        //this.todoService.selectTodos(filterParameter, filterValue);
+    }
+
+    deselectTodos()
+    {
+        //this.todoService.deselectTodos();
+    }
 
 
 
