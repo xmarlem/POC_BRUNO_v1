@@ -13,20 +13,12 @@ export class QuickPanelFakeDb
 
     public static events = [
         {
-            'title' : 'Group Meeting',
-            'detail': 'In 32 Minutes, Room 1B'
+            'title' : 'Job interview for Digitalization',
+            'detail': 'In 32 Minutes, UH2 15th floor Red'
         },
         {
-            'title' : 'Public Beta Release',
-            'detail': '11:00 PM'
-        },
-        {
-            'title' : 'Dinner with David',
-            'detail': '17:30 PM'
-        },
-        {
-            'title' : 'Q&A Session',
-            'detail': '20:30 PM'
+            'title' : 'Job interview for SUB',
+            'detail': '20.10.2017 11:00 AM'
         }
     ];
 }

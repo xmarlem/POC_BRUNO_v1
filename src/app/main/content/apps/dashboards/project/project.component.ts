@@ -1,10 +1,27 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { ProjectsDashboardService } from './projects.service';
 import * as shape from 'd3-shape';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { DataSource } from '@angular/cdk/collections';
+
+
+
+//MLML
+//import { TodoService } from '../../todo/todo.service';
+//import { FormControl } from '@angular/forms';
+//import { FuseTodoListComponent } from '../../todo/todo-list/todo-list.component';
+//MLMLML END
+//import { FuseTodoListItemComponent } from '../../todo/todo-list/todo-list-item/todo-list-item.component';
+import { Job } from './job.model';
+
+
 import { fuseAnimations } from '../../../../../core/animations';
+
+
+
+
+
 
 @Component({
     selector     : 'fuse-project',
@@ -28,6 +45,18 @@ export class FuseProjectComponent implements OnInit, OnDestroy
 
     dateNow = Date.now();
 
+
+    //BEGIN ML
+    // Top job positions
+    jobs: any[];
+    tags: any[];
+    @Input() job: Job;
+
+    //END ML
+
+
+
+
     constructor(private projectsDashboardService: ProjectsDashboardService)
     {
         this.projects = this.projectsDashboardService.projects;
@@ -35,6 +64,14 @@ export class FuseProjectComponent implements OnInit, OnDestroy
         this.selectedProject = this.projects[0];
 
         this.widgets = this.projectsDashboardService.widgets;
+
+
+        //MLMLMLLM
+        this.jobs = this.projectsDashboardService.jobs;
+        console.log(this.jobs);
+        this.tags = [1, 4];
+
+        //MLMLMLM END
 
         /**
          * Widget 5
@@ -139,6 +176,54 @@ export class FuseProjectComponent implements OnInit, OnDestroy
 
     }
 
+// BEGIN ML --- OPEN POSITIONS --- JOBS
+
+    toggleSelectAll()
+    {
+//        this.todoService.toggleSelectAll();
+    }
+
+    getColor(job){
+        return("rgba('112, 219, 112," + job.completed+")");
+    }
+
+    /**
+     * Toggle star
+     */
+    toggleStar(event)
+    {
+        event.stopPropagation();
+
+        this.job.toggleStar();
+      //  this.todoService.updateTodo(this.todo);
+    }
+
+    /**
+     * Toggle Important
+     */
+    toggleImportant(event)
+    {
+        event.stopPropagation();
+
+        this.job.toggleImportant();
+      //  this.todoService.updateTodo(this.todo);
+    }
+
+    /**
+     * Toggle Completed
+     */
+    toggleCompleted(event)
+    {
+        event.stopPropagation();
+
+        this.job.toggleCompleted();
+       // this.todoService.updateTodo(this.todo);
+    }
+
+
+
+
+// END ML --- OPEN POSITIONS --- JOBS --- 
     ngOnInit()
     {
         /**

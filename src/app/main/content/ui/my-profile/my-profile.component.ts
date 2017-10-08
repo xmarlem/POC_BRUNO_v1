@@ -69,10 +69,10 @@ export class MyProfileComponent implements OnInit
                 skill: 'None',
                 proficiency: ''
             };
-        console.log(el);
+//        console.log(el);
 
 
-        this.currentSkills.push(el);
+        this.currentSkills.unshift(el);
 
         console.log('Elementi: %0', this.currentSkills);
 
@@ -103,7 +103,7 @@ export class MyProfileComponent implements OnInit
 
         //console.log("Elemento aggiunto: " + el.id);
 
-        this.aspirationalSkills.push(el);
+        this.aspirationalSkills.unshift(el);
 
 
     }

@@ -46,6 +46,7 @@ export class FuseFakeDbService implements InMemoryDbService
             'icons'                      : IconsFakeDb.icons,
             'projects-dashboard-projects': ProjectsDashboardDb.projects,
             'projects-dashboard-widgets' : ProjectsDashboardDb.widgets,
+            'projects-dashboard-jobPositions' : ProjectsDashboardDb.jobPositions,
             'scrumboard-boards'          : ScrumboardFakeDb.boards,
             'skills'                     : SkillsFakeDb.skills
         };

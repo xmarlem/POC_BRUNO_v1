@@ -9,6 +9,10 @@ export class ProjectsDashboardService implements Resolve<any>
     projects: any[];
     widgets: any[];
 
+    //MLMLML
+    jobs: any[];
+    //MLMLML
+
     constructor(
         private http: HttpClient
     )
@@ -28,7 +32,9 @@ export class ProjectsDashboardService implements Resolve<any>
 
             Promise.all([
                 this.getProjects(),
-                this.getWidgets()
+                this.getWidgets(),
+                //MLMLMLMML
+                this.getJobPositions()
             ]).then(
                 () => {
                     resolve();
@@ -59,4 +65,24 @@ export class ProjectsDashboardService implements Resolve<any>
                 }, reject);
         });
     }
+
+
+    //MLMLMLML
+    getJobPositions(): Promise<any>
+    {
+        return new Promise((resolve, reject) => {
+            this.http.get('api/projects-dashboard-jobPositions')
+                .subscribe((response: any) => {
+                    this.jobs = response.data;
+                    resolve(response.data);
+                }, reject);
+        });
+
+    }
+
+
+
+
+
+
 }

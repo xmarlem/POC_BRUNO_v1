@@ -31,8 +31,8 @@ export class CalendarFakeDb
                     },
                     draggable: true,
                     meta     : {
-                        location: 'Los Angeles',
-                        notes   : 'Eos eu verear adipiscing, ex ornatus denique iracundia sed, quodsi oportere appellantur an pri.'
+                        location: 'Zurich',
+                        notes   : 'Appointment in UH2 with Mr. John Doe'
                     }
                 },
                 {
@@ -68,8 +68,8 @@ export class CalendarFakeDb
                     },
                     draggable: true,
                     meta     : {
-                        location: 'Los Angeles',
-                        notes   : 'Eos eu verear adipiscing, ex ornatus denique iracundia sed, quodsi oportere appellantur an pri.'
+                        location: 'Zurich',
+                        notes   : 'Workshop for the Puzzle project.'
                     }
                 },
                 {

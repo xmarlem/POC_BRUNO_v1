@@ -6,16 +6,88 @@ export class ProjectsDashboardDb
         }
     ];
 
+
+    public static jobPositions = [
+        {
+            'id'       : '561551bd7fe2ff461101c192',
+            'title'    : 'Director in Asset Management Strategy',
+            'notes'    : 'United States-NY-New York|Private Banking and Wealth Management|Job ID102231|Job Posted: 06-Oct-2017',
+            'startDate': 'Wednesday, November 29, 2017 3:17 PM',
+            'dueDate'  : null,
+            'completed': 1,
+            'starred'  : true,
+            'important': false,
+            'deleted'  : false,
+            'tags'     : [1]
+        },
+        {
+            'id'       : '561551bd4ac1e7eb77a3a750',
+            'title'    : 'Senior Quantitative Analyst – Counterparty Credit Risk 80-100% ',
+            'notes'    : 'Switzerland-Region Zurich-Zürich|Corporate Functions|Job ID104230|Job Posted: 06-Oct-2017',
+            'startDate': 'Sunday, February 1, 2015 1:30 PM',
+            'dueDate'  : 'Friday, December 30, 2016 10:07 AM',
+            'completed': 0.8,
+            'starred'  : false,
+            'important': true,
+            'deleted'  : false,
+            'tags'     : [
+                {
+                    'id'   : 5,
+                    'name' : 'mobile',
+                    'label': 'Mobile',
+                    'color': '#9C27B0'
+                }
+            ]
+        },
+        {
+            'id'       : '561551bd4ac1e7eb77a3a750',
+            'title'    : 'Junior Operational Risk Manager – Incidents & Systems #103409',
+            'notes'    : 'Switzerland-Region Zurich-Zürich|Corporate Functions|Job ID103409|Job Posted: 06-Oct-2017',
+            'startDate': 'Sunday, February 1, 2015 1:30 PM',
+            'dueDate'  : 'Friday, December 30, 2016 10:07 AM',
+            'completed': 0.3,
+            'starred'  : false,
+            'important': true,
+            'deleted'  : false,
+            'tags'     : [1, 4]
+        },
+        {
+            'id'       : '561551bd4ac1e7eb77a3a750',
+            'title'    : 'Security Engineer',
+            'notes'    : 'Poland-Wroclaw-Wroclaw|Technology [IT]|Job ID104954|Job Posted: 06-Oct-2017',
+            'startDate': 'Sunday, February 1, 2015 1:30 PM',
+            'dueDate'  : 'Friday, December 30, 2016 10:07 AM',
+            'completed': false,
+            'starred'  : false,
+            'important': true,
+            'deleted'  : false,
+            'tags'     : [1, 4]
+        },
+        {
+            'id'       : '561551bd4ac1e7eb77a3a750',
+            'title'    : 'JAP Consultant',
+            'notes'    : 'Poland-Warsaw-Warsaw|Technology [IT]|Job ID093381|Job Posted: 06-Oct-2017',
+            'startDate': 'Sunday, February 1, 2015 1:30 PM',
+            'dueDate'  : 'Friday, December 30, 2016 10:07 AM',
+            'completed': false,
+            'starred'  : false,
+            'important': true,
+            'deleted'  : false,
+            'tags'     : [1, 4]
+        }
+
+    ];
+
     public static widgets = {
         'widget1'      : {
             'ranges'      : {
-                'DY' : 'Yesterday',
-                'DT' : 'Today',
-                'DTM': 'Tomorrow'
+                'DY' : 'Year',
+                'DT' : 'Month',
+                'DTM': 'Day'
             },
             'currentRange': 'DT',
             'data'        : {
-                'label': 'DUE TASKS',
+                'label': 'NEW OPEN POSITIONS',
                 'count': {
                     'DY' : 21,
                     'DT' : 25,
@@ -31,7 +103,7 @@ export class ProjectsDashboardDb
 
                 }
             },
-            'detail'      : 'You can show some detailed information about this widget in here.'
+            'detail'      : 'Number of new open positions!'
         },
         'widget2'      : {
             'title' : 'Overdue',

@@ -6,6 +6,9 @@ import { ProjectsDashboardService } from './projects.service';
 import { FuseWidgetModule } from '../../../../../core/components/widget/widget.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
+import { JobListComponentComponent } from './job-list-component/job-list-component.component';
+
+
 const routes: Routes = [
     {
         path     : 'apps/dashboards/project',
@@ -24,10 +27,13 @@ const routes: Routes = [
         NgxChartsModule
     ],
     declarations: [
-        FuseProjectComponent
+        FuseProjectComponent,
+        JobListComponentComponent
+
     ],
     providers   : [
-        ProjectsDashboardService
+        ProjectsDashboardService,
+
     ]
 })
 export class ProjectModule
