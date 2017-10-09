@@ -103,7 +103,7 @@ export class ProjectsDashboardDb
 
                 }
             },
-            'detail'      : 'Number of new open positions!'
+            'detail'      : 'Number of new open job positions inserted in the current month!'
         },
         'widget2'      : {
             'title' : 'Overdue',
@@ -1123,7 +1123,7 @@ export class ProjectsDashboardDb
             }
         },
         'widget6'      : {
-            'title'      : 'Task Distribution',
+            'title'      : 'Programming languages in highest demand',
             'ranges'     : {
                 'TW': 'This Week',
                 'LW': 'Last Week',
@@ -1132,56 +1132,73 @@ export class ProjectsDashboardDb
             'mainChart'  : {
                 'TW': [
                     {
-                        'name' : 'Frontend',
-                        'value': 15
+                        'name' : 'C++',
+                        'value': 10
                     },
                     {
-                        'name' : 'Backend',
+                        'name' : 'Java',
                         'value': 20
                     },
                     {
-                        'name' : 'API',
-                        'value': 38
+                        'name' : 'Python',
+                        'value': 15
                     },
                     {
-                        'name' : 'Issues',
-                        'value': 27
+                        'name' : 'C#',
+                        'value': 18
+                    },
+                    {
+                        'name' : 'Go',
+                        'value': 5
+                    },
+                    {
+                        'name' : 'Javascript',
+                        'value': 32
                     }
+
                 ],
                 'LW': [
                     {
-                        'name' : 'Frontend',
-                        'value': 19
+                        'name' : 'C++',
+                        'value': 10
                     },
                     {
-                        'name' : 'Backend',
-                        'value': 16
+                        'name' : 'Java',
+                        'value': 20
                     },
                     {
-                        'name' : 'API',
+                        'name' : 'Go',
+                        'value': 5
+                    },
+                    {
+                        'name' : 'Javascript',
                         'value': 42
                     },
                     {
-                        'name' : 'Issues',
+                        'name' : 'Python',
                         'value': 23
                     }
                 ],
                 '2W': [
                     {
-                        'name' : 'Frontend',
-                        'value': 18
+                        'name' : 'C++',
+                        'value': 12
                     },
                     {
-                        'name' : 'Backend',
-                        'value': 17
+                        'name' : 'Java',
+                        'value': 28
                     },
                     {
-                        'name' : 'API',
-                        'value': 40
+                        'name' : 'Go',
+                        'value': 7
                     },
                     {
-                        'name' : 'Issues',
-                        'value': 25
+                        'name' : 'Javascript',
+                        'value': 37
+                    },
+                    {
+                        'name' : 'Python',
+                        'value': 21
                     }
                 ]
             },
@@ -1203,7 +1220,7 @@ export class ProjectsDashboardDb
             }
         },
         'widget7'      : {
-            'title'   : 'Schedule',
+            'title'   : 'Recently started projects',
             'ranges'  : {
                 'T' : 'Today',
                 'TM': 'Tomorrow'
@@ -1211,29 +1228,14 @@ export class ProjectsDashboardDb
             'schedule': {
                 'T' : [
                     {
-                        'title'   : 'Group Meeting',
-                        'time'    : 'In 32 minutes',
-                        'location': 'Room 1B'
+                        'title'   : 'Test Data Shop',
+                        'time'    : 'June 1, 2017',
+                        'location': 'SUB'
                     },
                     {
-                        'title': 'Coffee Break',
-                        'time' : '10:30 AM'
-                    },
-                    {
-                        'title': 'Public Beta Release',
-                        'time' : '11:00 AM'
-                    },
-                    {
-                        'title': 'Lunch',
-                        'time' : '12:10 PM'
-                    },
-                    {
-                        'title': 'Dinner with David',
-                        'time' : '17:30 PM'
-                    },
-                    {
-                        'title': 'Jane\'s Birthday Party',
-                        'time' : '19:30 PM'
+                        'title': 'Service Virtualization',
+                        'time'    : 'May 1, 2017',
+                        'location': 'SUB'
                     },
                     {
                         'title': 'Overseer\'s Retirement Party',
