@@ -403,15 +403,17 @@
 
 
                       <!-- CENTER -->
-                      <div class="center page-layout carded fullwidth m-24" >
+                      <div style="width: auto; min-width: auto;" class="center page-layout carded m-24"  fxLayout="column" >
 
                         <!-- CONTENT -->                       
-                        <div class="content-card md-white-bg" > <!-- [ngClass]="{'current-todo-selected':currentTodo}"> -->
+                        <div class="content-card md-white-bg" fxFlex> <!-- [ngClass]="{'current-todo-selected':currentTodo}"> -->
 
                             <!-- CONTENT TOOLBAR -->
-                            <md-toolbar class="toolbar px-24 py-8">
-                                <div class="todo-selection" fxFlex="row" fxLayoutAlign="start center">
-                                    <md-checkbox (click)="toggleSelectAll()">Open positions matching on your skills!!</md-checkbox>
+                            <md-toolbar class="toolbar px-24 py-8" flexLayout="row">
+                                <div class="todo-selection" fxFlex fxLayoutAlign="start center" >
+                                    <md-checkbox (click)="toggleSelectAll()"></md-checkbox>
+                                    
+                                    <span class="px-24" fxFlex>Open positions matching on your skills!!</span>
 
                                     <button md-icon-button [mdMenuTriggerFor]="selectMenu">
                                         <md-icon>arrow_drop_down</md-icon>
