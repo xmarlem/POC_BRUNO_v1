@@ -3,33 +3,33 @@ export class TodoFakeDb
     public static todos = [
         {
             'id'       : '561551bd7fe2ff461101c192',
-            'title'    : 'Proident tempor est nulla irure ad est',
-            'notes'    : 'Id nulla nulla proident deserunt deserunt proident in quis. Cillum reprehenderit labore id anim laborum.',
-            'startDate': 'Wednesday, January 29, 2014 3:17 PM',
+            'title'    : 'IT Business Analyst - Credit Risk',
+            'notes'    : 'India-Bangalore-Bangalore |   Full-time | Technology [IT] | Job ID 095940.',
+            'startDate': 'Wednesday, January 29, 2017 3:17 PM',
             'dueDate'  : null,
             'completed': false,
             'starred'  : false,
             'important': false,
             'deleted'  : false,
-            'tags'     : [1]
+            'tags'     : [3, 1, 4]
         },
         {
             'id'       : '561551bd4ac1e7eb77a3a750',
-            'title'    : 'Magna quis irure quis ea pariatur laborum',
-            'notes'    : '',
-            'startDate': 'Sunday, February 1, 2015 1:30 PM',
-            'dueDate'  : 'Friday, December 30, 2016 10:07 AM',
+            'title'    : 'Senior Software Engineer (SE) / Solution Architect (SA) in an Agile Team 80 - 100 %',
+            'notes'    : 'Switzerland-Region Zurich-Zürich |   Full-time | Technology [IT] | Job ID 100763',
+            'startDate': 'Sunday, February 1, 2017 1:30 PM',
+            'dueDate'  : 'Friday, December 30, 2017 10:07 AM',
             'completed': false,
             'starred'  : false,
             'important': true,
             'deleted'  : false,
-            'tags'     : [1, 4]
+            'tags'     : [1, 3]
         },
         {
             'id'       : '561551bd917bfec2ddef2d49',
-            'title'    : 'Ullamco duis commodo sint ad aliqua aute',
-            'notes'    : 'Sunt laborum enim nostrud ea fugiat cillum mollit aliqua exercitation ad elit.',
-            'startDate': 'Friday, April 11, 2014 3:43 AM',
+            'title'    : 'Risk Management Reporter',
+            'notes'    : 'India-Mumbai-Mumbai |   Full-time | Corporate Functions | Job ID 100939',
+            'startDate': 'Friday, April 11, 2017 3:43 AM',
             'dueDate'  : 'Wednesday, July 26, 2017 11:14 AM',
             'completed': false,
             'starred'  : true,
@@ -39,32 +39,32 @@ export class TodoFakeDb
         },
         {
             'id'       : '561551bdeeb2fd6877e18c29',
-            'title'    : 'Eiusmod non occaecat pariatur Lorem in ex',
-            'notes'    : 'Nostrud anim mollit incididunt qui qui sit commodo duis. Anim amet irure aliquip duis nostrud sit quis fugiat ullamco non dolor labore. Lorem sunt voluptate laboris culpa proident. Aute eiusmod aliqua exercitation irure exercitation qui laboris mollit occaecat eu occaecat fugiat.',
+            'title'    : 'JAP Consultant',
+            'notes'    : 'Poland-Warsaw-Warsaw |   Full-time | Technology [IT] | Job ID 093381',
             'startDate': 'Wednesday, May 7, 2014 4:14 AM',
             'dueDate'  : 'Friday, December 15, 2017 4:01 AM',
             'completed': true,
             'starred'  : true,
             'important': false,
             'deleted'  : false,
-            'tags'     : [2]
+            'tags'     : [1, 3]
         },
         {
             'id'       : '561551bdf38eae0134ae43d4',
-            'title'    : 'Lorem magna cillum consequat consequat mollit',
-            'notes'    : 'Velit ipsum proident ea incididunt et. Consectetur eiusmod laborum voluptate duis occaecat ullamco sint enim proident.',
-            'startDate': 'Sunday, August 23, 2015 11:19 PM',
+            'title'    : 'Front Office Developer',
+            'notes'    : 'Hong Kong-Hong Kong-Hong Kong | Singapore | Full-time | Technology [IT] | Job ID 103578',
+            'startDate': 'Sunday, August 23, 2017 11:19 PM',
             'dueDate'  : 'Friday, July 8, 2016 10:49 AM',
             'completed': false,
             'starred'  : false,
             'important': false,
             'deleted'  : false,
-            'tags'     : [5, 4]
+            'tags'     : [5, 3]
         },
         {
             'id'       : '561551bd32f1588c814a0ccd',
-            'title'    : 'Quis irure cupidatat ad consequat reprehenderit excepteur',
-            'notes'    : 'Esse nisi mollit aliquip mollit aute consequat adipisicing. Do excepteur dolore proident cupidatat pariatur irure consequat incididunt.',
+            'title'    : 'C# Database Developer',
+            'notes'    : 'United States-NY-New York |   Full-time | Technology [IT] | Job ID 095667',
             'startDate': 'Sunday, June 7, 2015 10:49 AM',
             'dueDate'  : 'Monday, January 9, 2017 8:34 AM',
             'completed': false,
@@ -278,7 +278,7 @@ export class TodoFakeDb
         {
             'id'    : 4,
             'handle': 'completed',
-            'title' : 'Done',
+            'title' : 'Matched',
             'icon'  : 'check'
         },
         {
@@ -304,14 +304,14 @@ export class TodoFakeDb
         },
         {
             'id'    : 3,
-            'handle': 'api',
-            'title' : 'API',
+            'handle': 'it',
+            'title' : 'IT',
             'color' : '#FF9800'
         },
         {
             'id'    : 4,
-            'handle': 'issue',
-            'title' : 'Issue',
+            'handle': 'credit risk',
+            'title' : 'Credit Risk',
             'color' : '#0091EA'
         },
         {

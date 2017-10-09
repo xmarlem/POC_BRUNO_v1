@@ -1238,8 +1238,9 @@ export class ProjectsDashboardDb
                         'location': 'SUB'
                     },
                     {
-                        'title': 'Overseer\'s Retirement Party',
-                        'time' : '21:30 PM'
+                        'title': 'The Puzzle Project',
+                        'time' : 'October 16, 2017',
+                        'location': 'SUB'
                     }
                 ],
                 'TM': [

@@ -36,6 +36,17 @@ export class NavigationModel
                         'url'  : '/apps/contacts'
                     },
                     {
+                        'title': 'Manage Job positions',
+                        'type' : 'item',
+                        'icon' : 'check_box',
+                        'url'  : '/apps/todo',
+                        'badge': {
+                            'title': 3,
+                            'bg'   : '#FF6F00',
+                            'fg'   : '#FFFFFF'
+                        }
+                    },                    
+                    {
                         'title': 'Mail',
                         'type' : 'item',
                         'icon' : 'email',
@@ -56,29 +67,6 @@ export class NavigationModel
                             'bg'   : '#09d261',
                             'fg'   : '#FFFFFF'
                         }
-                    },
-                    {
-                        'title': 'File Manager',
-                        'type' : 'item',
-                        'icon' : 'folder',
-                        'url'  : '/apps/file-manager'
-                    },
-                    {
-                        'title': 'To-Do',
-                        'type' : 'item',
-                        'icon' : 'check_box',
-                        'url'  : '/apps/todo',
-                        'badge': {
-                            'title': 3,
-                            'bg'   : '#FF6F00',
-                            'fg'   : '#FFFFFF'
-                        }
-                    },
-                    {
-                        'title': 'Scrumboard',
-                        'type' : 'item',
-                        'icon' : 'assessment',
-                        'url'  : '/apps/scrumboard'
                     }
                 ]
             }

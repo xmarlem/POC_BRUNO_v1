@@ -15,7 +15,7 @@
                 aria-label="Toggle completed" fxFlex="0 1 auto">
             <md-icon *ngIf="todo.completed">check_box</md-icon>
             <md-icon *ngIf="!todo.completed">check_box_outline_blank</md-icon>
-            <span>Mark as Done</span>
+            <span>Mark as "Assigned"</span>
         </button>
 
         <div class="actions" fxLayout="row" fxLayoutAlign="start center">
@@ -90,12 +90,12 @@
                 </md-form-field>
 
             </div>
-
+<!-- JOB POSITION DESCRIPTION -->
             <md-input-container class="" fxFill>
                 <textarea mdInput #notes
                           name="notes"
                           formControlName="notes"
-                          placeholder="Notes"
+                          placeholder="Job description"
                           maxlength="500"
                           mdTextareaAutosize
                           mdAutosizeMinRows="1"

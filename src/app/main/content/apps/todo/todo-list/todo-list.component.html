@@ -1,5 +1,5 @@
 <div *ngIf="todos.length === 0" fxLayout="column" fxLayoutAlign="center center" fxFlex>
-    <span class="hint-text mat-h3">There are no todos!</span>
+    <span class="hint-text mat-h3">There are no job positions!</span>
 </div>
 <div class="todo-list" ngxDroppable [model]="todos" (out)="onDrop($event)" *fuseIfOnDom [@animateStagger]="{value:'50'}">
     <fuse-todo-list-item class="todo-list-item has-handle"

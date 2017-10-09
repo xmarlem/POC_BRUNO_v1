@@ -3,11 +3,11 @@
      class="header p-24 md-accent-bg" class.gt-md="header p-24 white-fg">
     <div class="logo" fxFlex fxLayout="row" fxLayoutAlign="start center">
         <md-icon class="logo-icon s-32" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">check_box</md-icon>
-        <span class="logo-text" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">To-do</span>
+        <span class="logo-text" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">Manage Job Positions</span>
     </div>
 
     <div class="account" fxLayout="column" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'300ms'}}">
-        <div class="title">John Doe</div>
+        <div class="title">Marco Lembo</div>
         <md-select class="account-selection" placeholder="Todo Selection"
                    floatPlaceholder="never"
                    [ngModel]="selectedAccount">
@@ -28,7 +28,7 @@
                 class="mat-accent add-todo-button"
                 (click)="newTodo()"
                 aria-label="ADD TASK">
-            ADD TASK
+            ADD JOB POSITION
         </button>
     </div>
 
