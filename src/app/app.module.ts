@@ -22,6 +22,11 @@ import { ServicesModule } from './main/content/services/services.module';
 import { FuseAngularMaterialModule } from './main/content/components/angular-material/angular-material.module';
 import { MarkdownModule } from 'angular2-markdown';
 
+//MLMLML
+//import {FuseLogin2Component} from './main/content/pages/authentication/login-2/login-2.component';
+import { UsersComponent } from './users/users.component';
+
+
 const appRoutes: Routes = [
     {
         path        : 'apps/mail',
@@ -47,19 +52,25 @@ const appRoutes: Routes = [
         path        : 'apps/contacts',
         loadChildren: './main/content/apps/contacts/contacts.module#FuseContactsModule'
     },
-    {
-        path        : 'apps/scrumboard',
-        loadChildren: './main/content/apps/scrumboard/scrumboard.module#FuseScrumboardModule'
-    },
+    // {
+    //     path        : 'apps/scrumboard',
+    //     loadChildren: './main/content/apps/scrumboard/scrumboard.module#FuseScrumboardModule'
+    // },
+    // {
+    //      path      : '**',
+    //      redirectTo: 'apps/dashboards/project'
+    // },
     {
         path      : '**',
         redirectTo: 'apps/dashboards/project'
     }
+
 ];
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        UsersComponent
     ],
     imports     : [
         BrowserModule,

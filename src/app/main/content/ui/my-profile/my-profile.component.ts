@@ -60,8 +60,8 @@ export class MyProfileComponent implements OnInit
 
    
     addCurrentSkill(){
-        //console.log(this.skillsService.skills);
-        //this.currentSkillsFilteredOptions = '';
+        //this.myCurrentSkillsControl.reset("");
+
 
         let el = 
             {
@@ -143,7 +143,8 @@ export class MyProfileComponent implements OnInit
     //SKILLS
     filter(val: string): string[] 
     {
-      console.log("in filter.. "+ val);
+      //console.log("in filter.. "+ val);
+      //questo e' l'operazione di filtering on a typescript array. The argument is the filtering criteria, as anonymous function.
       return this.options.filter(option =>
         option.toLowerCase().indexOf(val.toLowerCase()) === 0);
     }
