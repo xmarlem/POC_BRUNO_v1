@@ -14,11 +14,10 @@ import { DataSource } from '@angular/cdk/collections';
 //MLMLML END
 //import { FuseTodoListItemComponent } from '../../todo/todo-list/todo-list-item/todo-list-item.component';
 import { Job } from './job.model';
-
-
 import { fuseAnimations } from '../../../../../core/animations';
 
 
+import { FusePriceTablesComponent } from "../../../components/price-tables/price-tables.component";
 
 
 

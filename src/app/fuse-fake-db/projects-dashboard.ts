@@ -83,22 +83,22 @@ export class ProjectsDashboardDb
             'ranges'      : {
                 'DY' : 'Year',
                 'DT' : 'Month',
-                'DTM': 'Day'
+                'DTM': 'Today'
             },
             'currentRange': 'DT',
             'data'        : {
                 'label': 'NEW OPEN POSITIONS',
                 'count': {
-                    'DY' : 21,
+                    'DY' : 55,
                     'DT' : 25,
-                    'DTM': 19
+                    'DTM': 5
                 },
                 'extra': {
-                    'label': 'Completed',
+                    'label': 'Open today',
                     'count': {
-                        'DY' : 6,
-                        'DT' : 7,
-                        'DTM': '-'
+                        'DY' : 5,
+                        'DT' : 5,
+                        'DTM': 5
                     }
 
                 }
@@ -106,16 +106,16 @@ export class ProjectsDashboardDb
             'detail'      : 'Number of new open job positions inserted in the current month!'
         },
         'widget2'      : {
-            'title' : 'Overdue',
+            'title' : 'Project started',
             'data'  : {
-                'label': 'TASKS',
+                'label': 'PROJECTS',
                 'count': 4,
                 'extra': {
-                    'label': 'Yesterday\'s overdue',
+                    'label': 'This month',
                     'count': 2
                 }
             },
-            'detail': 'You can show some detailed information about this widget in here.'
+            'detail': 'This is the number of projects recently started in Credit Suisse.'
         },
         'widget3'      : {
             'title' : 'Issues',
@@ -1123,7 +1123,7 @@ export class ProjectsDashboardDb
             }
         },
         'widget6'      : {
-            'title'      : 'Programming languages in highest demand',
+            'title'      : 'Most in-demand Programming languages',
             'ranges'     : {
                 'TW': 'This Week',
                 'LW': 'Last Week',
@@ -1203,19 +1203,19 @@ export class ProjectsDashboardDb
                 ]
             },
             'footerLeft' : {
-                'title': 'Tasks Added',
+                'title': 'Total',
                 'count': {
-                    '2W': 487,
-                    'LW': 526,
-                    'TW': 594
+                    '2W': 70,
+                    'LW': 70,
+                    'TW': 70
                 }
             },
             'footerRight': {
-                'title': 'Tasks Completed',
+                'title': 'Year',
                 'count': {
-                    '2W': 193,
-                    'LW': 260,
-                    'TW': 287
+                    '2W': 2017,
+                    'LW': 2017,
+                    'TW': 2017
                 }
             }
         },
@@ -1276,26 +1276,26 @@ export class ProjectsDashboardDb
             }
         },
         'widget8'      : {
-            'title'    : 'Budget Distribution',
+            'title'    : 'Most in-demand job positions',
             'mainChart': [
                 {
-                    'name' : 'Wireframing',
+                    'name' : 'Jap Developer',
                     'value': 12
                 },
                 {
-                    'name' : 'Design',
+                    'name' : 'Financial Analyst',
                     'value': 17
                 },
                 {
-                    'name' : 'Coding',
+                    'name' : 'Test Automation Manager',
                     'value': 28
                 },
                 {
-                    'name' : 'Marketing',
+                    'name' : 'Solution Architect',
                     'value': 25
                 },
                 {
-                    'name' : 'Extra',
+                    'name' : 'Sr Oracle DB Developer',
                     'value': 15
                 }
             ]

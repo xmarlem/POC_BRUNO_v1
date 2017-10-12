@@ -8,6 +8,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { JobListComponentComponent } from './job-list-component/job-list-component.component';
 
+//ML 
+import { ComponentsModule } from '../../../components/components.module';
+import { FusePriceTablesComponent } from 'app/main/content/components/price-tables/price-tables.component';
 
 const routes: Routes = [
     {
@@ -24,11 +27,14 @@ const routes: Routes = [
         SharedModule,
         RouterModule.forChild(routes),
         FuseWidgetModule,
-        NgxChartsModule
+        NgxChartsModule,
+        //MLML -- to include prices table component
+        ComponentsModule
     ],
     declarations: [
         FuseProjectComponent,
-        JobListComponentComponent
+        JobListComponentComponent        
+
 
     ],
     providers   : [

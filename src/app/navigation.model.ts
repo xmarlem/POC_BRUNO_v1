@@ -14,7 +14,13 @@ export class NavigationModel
                         'title': 'Dashboard',
                         'type' : 'item',
                         'icon' : 'dashboard',
-                        'url'  : '/apps/dashboards/project'
+                        'url'  : '/apps/dashboards/project',
+                        'badge': {
+                            'title': 3,
+                            'bg'   : '#F44336',
+                            'fg'   : '#FFFFFF'
+                        }
+                        
                     },
                     {
                         'title': 'My Profile',
@@ -27,7 +33,12 @@ export class NavigationModel
                         'title': 'My Job interviews',
                         'type' : 'item',
                         'icon' : 'today',
-                        'url'  : '/apps/calendar'
+                        'url'  : '/apps/calendar',
+                        'badge': {
+                            'title': 2,
+                            'bg'   : '#F44336',
+                            'fg'   : '#FFFFFF'
+                        }
                     },
                     {
                         'title': 'CS Contacts',
@@ -39,12 +50,7 @@ export class NavigationModel
                         'title': 'Manage Job positions',
                         'type' : 'item',
                         'icon' : 'check_box',
-                        'url'  : '/apps/todo',
-                        'badge': {
-                            'title': 3,
-                            'bg'   : '#FF6F00',
-                            'fg'   : '#FFFFFF'
-                        }
+                        'url'  : '/apps/todo'
                     },                    
                     {
                         'title': 'Mail',
@@ -64,7 +70,7 @@ export class NavigationModel
                         'url'  : '/apps/chat',
                         'badge': {
                             'title': 13,
-                            'bg'   : '#09d261',
+                            'bg'   : '#FF6F00',
                             'fg'   : '#FFFFFF'
                         }
                     }

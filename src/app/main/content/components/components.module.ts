@@ -61,7 +61,11 @@ const routes = [
         FuseSearchBarDocsComponent,
         FuseShortcutsDocsComponent,
         FuseWidgetDocsComponent
+    ],
+    exports: [
+        FusePriceTablesComponent
     ]
+    
 })
 export class ComponentsModule
 {
