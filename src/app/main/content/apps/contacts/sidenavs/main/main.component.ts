@@ -29,3 +29,4 @@ export class FuseContactsMainSidenavComponent implements OnInit
         this.contactsService.onFilterChanged.next(this.filterBy);
     }
 }
+    

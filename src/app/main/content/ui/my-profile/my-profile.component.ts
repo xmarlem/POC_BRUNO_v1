@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, ViewContainerRef, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, FormArray} from '@angular/forms';
 import { fuseAnimations } from '../../../../core/animations';
 
 import {Observable} from 'rxjs/Observable';
@@ -48,9 +48,14 @@ export class MyProfileComponent implements OnInit
     //for CURRENT SKILLS
     //
     //==========================
- 
-    currentSkills = [];
-    aspirationalSkills = [];
+    //form group per gruppo di skills
+    formCurrentSkills: FormGroup;
+    formAspirationalSkills: FormGroup;
+
+
+
+    currentSkillsInputItemArray: Array<FormControl>;
+//    aspirationalSkills = [];
     options = ['C++', 'Java', 'Angular', 'Oracle', 'Credit Risk', 'Problem Solving', 'SAS', 'Global Markets', 'Front Office', 'SCRUM', 'Agile development', 'Python' ];
     myCurrentSkillsControl: FormControl = new FormControl();
     myAspirationalSkillsControl: FormControl = new FormControl();
@@ -60,58 +65,30 @@ export class MyProfileComponent implements OnInit
 
    
     addCurrentSkill(){
-        //this.myCurrentSkillsControl.reset("");
-
-
-        let el = 
-            {
-                id: Date.now(),
-                skill: 'None',
-                proficiency: ''
-            };
-//        console.log(el);
-
-
-        this.currentSkills.unshift(el);
-
-        console.log('Elementi: %0', this.currentSkills);
+        let skills = <FormArray>this.currentSkills;
+        skills.push(this.formBuilder.group({
+            skillName: [''],
+            proficiency: ['']
+        }));
 
     }
-    removeCurrentSkill(skill){
-//      console.log("Skill passato: " + skill);
-//        console.log("Skills presenti in cache: " + this.currentSkills);
-        let index = this.currentSkills.indexOf(skill);
+    removeCurrentSkill(i){
 
-//        console.log("Dovrei eliminare: " + index);
-        if (index > -1){
-            this.currentSkills.splice(index, 1);
-        }
-
-        console.log('Elementi: %0', this.currentSkills);
-
+        let skills = <FormArray>this.currentSkills;
+        skills.removeAt(i);
     }
 
     addAspirationalSkill(){
-        //console.log(this.skillsService.skills);
-
-        let el = 
-            {
-                id: Date.now(),
-                skill: '',
-                proficiency: ''
-            };
-
-        //console.log("Elemento aggiunto: " + el.id);
-
-        this.aspirationalSkills.unshift(el);
-
+        let skills = <FormArray>this.aspirationalSkills;
+        skills.push(this.formBuilder.group({
+            skillName: [''],
+            proficiency: ['']
+        }));
 
     }
-    removeAspirationalSkill(skill){
-        let index = this.aspirationalSkills.indexOf(skill);
-        if (index > -1){
-            this.aspirationalSkills.splice(index, 1);
-        }
+    removeAspirationalSkill(i){
+        let skills = <FormArray>this.aspirationalSkills;
+        skills.removeAt(i);
     }
 
 
@@ -149,12 +126,59 @@ export class MyProfileComponent implements OnInit
         option.toLowerCase().indexOf(val.toLowerCase()) === 0);
     }
 
+    //property for getSkills
+    get currentSkills(): FormArray { return this.formCurrentSkills.get('skills') as FormArray; }
+
+    get aspirationalSkills(): FormArray { return this.formAspirationalSkills.get('skills') as FormArray; }
 
     ngOnInit()
     {
+        this.currentSkillsInputItemArray = new Array<FormControl>();
+        
+      //form group SKILLS ------- 
+        this.formCurrentSkills = this.formBuilder.group({
+            skills: this.formBuilder.array([
+                this.formBuilder.group({
+                    skillName: [''],
+                    proficiency: ['']
+                })
+            ])
+        });
+
+        for (var index = 0; index < this.currentSkillsInputItemArray.length; index++) {
+            let a:FormArray = this.formCurrentSkills.get('skills') as FormArray;
+
+            this.currentSkillsInputItemArray.push(a.at(index).get('skillName') as FormControl);
+            
+        }
+
+        console.log("Array of Form Control: " + this.currentSkillsInputItemArray);
+
+        
+
+//        console.log(this.formCurrentSkills);
+
+        this.formAspirationalSkills = this.formBuilder.group({
+            skills: this.formBuilder.array([
+                this.formBuilder.group({
+                    skillName: [''],
+                    proficiency: ['']
+                })
+            ])
+        });
 
 
-      // SKILLS ------- 
+
+        let skillsArray: FormArray = this.formCurrentSkills.get('skills') as FormArray;
+        //console.log(skillsArray);
+        for (var index = 0; index < skillsArray.length; index++) {
+            var element:FormControl = skillsArray.at(index).get('skillName') as FormControl;
+            console.log(element);
+            element.valueChanges.startWith(null).map(val => val ? this.filter(val) : this.options.slice());
+        }
+
+
+
         this.currentSkillsFilteredOptions = this.myCurrentSkillsControl.valueChanges.startWith(null).map(val => val ? this.filter(val) : this.options.slice());
         this.aspirationalSkillsFilteredOptions = this.myAspirationalSkillsControl.valueChanges.startWith(null).map(val => val ? this.filter(val) : this.options.slice());
 
