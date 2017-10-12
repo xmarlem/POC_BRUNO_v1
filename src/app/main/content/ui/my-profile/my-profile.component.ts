@@ -129,8 +129,7 @@ export class MyProfileComponent implements OnInit
     }
 
     //property for getSkills
-    get currentSkills(): FormArray { return this.formCurrentSkills.get('skills') as FormArray; }
-
+    get currentSkills(): FormArray { return this.formCurrentSkills.get('skills') as FormArray; }    
     get aspirationalSkills(): FormArray { return this.formAspirationalSkills.get('skills') as FormArray; }
 
     ngOnInit()
@@ -146,6 +145,7 @@ export class MyProfileComponent implements OnInit
                 })
             ])
         });
+
 
         for (var index = 0; index < this.currentSkillsInputItemArray.length; index++) {
             let a:FormArray = this.formCurrentSkills.get('skills') as FormArray;

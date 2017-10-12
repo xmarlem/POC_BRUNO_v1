@@ -115,7 +115,7 @@
 
                 <div [formGroup]="formCurrentSkills" class="p-10" fxLayoutGap="8px" fxLayout="row" fxLayout.ls-sm="column" fxLayoutWrap fxLayoutAlign="start center" fxFlew="1 0 auto">
                     <div formArrayName="skills" fxLayout="row" fxLayoutWrap fxLayoutGap="8px">
-                        <md-card class="skillCard" *ngFor="let skill of formCurrentSkills.controls.skills.controls; let i=index;"  >
+                        <md-card class="skillCard" *ngFor="let skill of formCurrentSkills.get('skills')['controls']; let i=index;"  >
                             <md-card-content [formGroupName]="i">
                                 <md-form-field>
                                     <input type="text" [mdAutocomplete]="auto" placeholder="Skill" mdInput empty formControlName="skillName" >
@@ -164,7 +164,7 @@
 
                 <div [formGroup]="formAspirationalSkills" class="p-10" fxLayoutGap="8px" fxLayout="column" fxLayout.ls-sm="column" fxLayoutWrap fxLayoutAlign="start start" fxFlew="1 0 auto">
                     <div formArrayName="skills" fxLayout="row" fxLayoutWrap fxLayoutGap="8px">
-                        <md-card class="skillCard" *ngFor="let skill of formAspirationalSkills.controls.skills.controls; let i=index;"  >
+                        <md-card class="skillCard" *ngFor="let skill of formAspirationalSkills.get('skills')['controls']; let i=index;"  >
                             <md-card-content [formGroupName]="i">
                                 <md-form-field>
                                     <input type="text" [mdAutocomplete]="auto" placeholder="Skill" mdInput empty >

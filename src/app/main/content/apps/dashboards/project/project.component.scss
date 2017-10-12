@@ -213,7 +213,7 @@ a.lighter {
             position: relative;
             background-color: #FFFFFF;
             //width: 280px;
-            width: 365px;
+            width: 320px;
             border-radius: 2px;
             margin: 24px 24px 0 0;
             overflow: hidden;
@@ -236,7 +236,11 @@ a.lighter {
                     transform: translateX(-50%);
                     font-size: 11px;
                     font-weight: 500;
-                    padding: 6px 8px;
+                    padding: 18px 8px;
+                    background-image: url('../../../../../../assets/images/backgrounds/sticker-new.png');
+                    background-position: 104% 20%;
+                    background-size: 254%;
+                    background-color: none;
                 }    
                 .price {
                     padding: 32px 32px 16px 32px;
