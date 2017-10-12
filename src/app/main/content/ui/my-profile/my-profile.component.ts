@@ -65,7 +65,9 @@ export class MyProfileComponent implements OnInit
 
    
     addCurrentSkill(){
+        //prendo i current skills dal FormArray nel FormGroup e gli aggiungo un nuovo elemento
         let skills = <FormArray>this.currentSkills;
+        //lo faccio con una semplice push e lo costruisco tramite il formbuilder
         skills.push(this.formBuilder.group({
             skillName: [''],
             proficiency: ['']
