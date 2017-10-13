@@ -22,10 +22,12 @@ import { ServicesModule } from './main/content/services/services.module';
 import { FuseAngularMaterialModule } from './main/content/components/angular-material/angular-material.module';
 import { MarkdownModule } from 'angular2-markdown';
 
-//MLMLML
-//import {FuseLogin2Component} from './main/content/pages/authentication/login-2/login-2.component';
+//MLMLMLML
 import { UsersComponent } from './users/users.component';
-
+import { AngularFireAuthModule } from 'angularfire2/auth'
+import { AngularFireModule } from 'angularfire2';
+import { environment } from 'environments/environment';
+import { AuthGuard } from 'app/users/authguard/authguard.service';
 
 const appRoutes: Routes = [
     {
@@ -95,12 +97,19 @@ const appRoutes: Routes = [
         ServicesModule,
         ComponentsModule,
         FuseAngularMaterialModule,
-        ComponentsThirdPartyModule
+        ComponentsThirdPartyModule,
+        //MLML
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireAuthModule
+
     ],
     providers   : [
         FuseSplashScreenService,
         FuseConfigService,
-        FuseNavigationService
+        FuseNavigationService,
+        //MLMMLML
+        AuthGuard
+        
     ],
     bootstrap   : [
         AppComponent

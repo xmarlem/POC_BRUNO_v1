@@ -11,6 +11,10 @@ import { JobListComponentComponent } from './job-list-component/job-list-compone
 //ML 
 import { ComponentsModule } from '../../../components/components.module';
 import { FusePriceTablesComponent } from 'app/main/content/components/price-tables/price-tables.component';
+//MLML 
+import {AuthGuard} from '../../../../../users/authguard/authguard.service';
+
+
 
 const routes: Routes = [
     {
@@ -18,7 +22,9 @@ const routes: Routes = [
         component: FuseProjectComponent,
         resolve  : {
             data: ProjectsDashboardService
-        }
+        },
+        canActivate: [AuthGuard]
+
     }
 ];
 
@@ -39,6 +45,8 @@ const routes: Routes = [
     ],
     providers   : [
         ProjectsDashboardService,
+        //MLMLML
+        AuthGuard
 
     ]
 })

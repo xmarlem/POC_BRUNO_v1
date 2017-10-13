@@ -11,6 +11,8 @@ import { FuseSearchBarDocsComponent } from 'app/main/content/components/search-b
 import { FuseWidgetDocsComponent } from './widget/widget.component';
 import { FuseWidgetModule } from '../../../core/components/widget/widget.module';
 
+
+
 const routes = [
     {
         path     : 'components/countdown',
