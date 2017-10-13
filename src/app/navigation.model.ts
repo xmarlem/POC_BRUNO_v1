@@ -62,17 +62,6 @@ export class NavigationModel
                             'bg'   : '#F44336',
                             'fg'   : '#FFFFFF'
                         }
-                    },
-                    {
-                        'title': 'Chat',
-                        'type' : 'item',
-                        'icon' : 'chat',
-                        'url'  : '/apps/chat',
-                        'badge': {
-                            'title': 13,
-                            'bg'   : '#FF6F00',
-                            'fg'   : '#FFFFFF'
-                        }
                     }
                 ]
             }
