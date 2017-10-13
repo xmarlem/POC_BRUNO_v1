@@ -1301,7 +1301,7 @@ export class ProjectsDashboardDb
             ]
         },
         'widget9'      : {
-            'title'         : 'Spent',
+            'title'         : 'Budget',
             'ranges'        : {
                 'TW': 'This Week',
                 'LW': 'Last Week',
