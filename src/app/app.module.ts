@@ -24,10 +24,11 @@ import { MarkdownModule } from 'angular2-markdown';
 
 //MLMLMLML
 import { UsersComponent } from './users/users.component';
-import { AngularFireAuthModule } from 'angularfire2/auth'
 import { AngularFireModule } from 'angularfire2';
 import { environment } from 'environments/environment';
 import { AuthGuard } from 'app/users/authguard/authguard.service';
+import { MessageService} from 'primeng/components/common/messageservice';
+
 
 const appRoutes: Routes = [
     {
@@ -99,16 +100,15 @@ const appRoutes: Routes = [
         FuseAngularMaterialModule,
         ComponentsThirdPartyModule,
         //MLML
-        AngularFireModule.initializeApp(environment.firebase),
-        AngularFireAuthModule
-
+        AngularFireModule.initializeApp(environment.firebase)
     ],
     providers   : [
         FuseSplashScreenService,
         FuseConfigService,
         FuseNavigationService,
         //MLMMLML
-        AuthGuard
+        AuthGuard,
+        MessageService
         
     ],
     bootstrap   : [

@@ -3,6 +3,8 @@ import { SharedModule } from '../../../../../core/modules/shared.module';
 import { RouterModule } from '@angular/router';
 
 import { FuseLogin2Component } from './login-2.component';
+import { GrowlModule, MessagesModule } from 'primeng/primeng';
+
 
 const routes = [
     {
@@ -17,7 +19,9 @@ const routes = [
     ],
     imports     : [
         SharedModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        MessagesModule,
+        GrowlModule
     ]
 })
 
