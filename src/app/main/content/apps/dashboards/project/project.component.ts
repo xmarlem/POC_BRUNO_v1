@@ -18,6 +18,7 @@ import { fuseAnimations } from '../../../../../core/animations';
 
 
 import { FusePriceTablesComponent } from "../../../components/price-tables/price-tables.component";
+import { MdSnackBar } from '@angular/material';
 
 
 
@@ -56,7 +57,8 @@ export class FuseProjectComponent implements OnInit, OnDestroy
 
 
 
-    constructor(private projectsDashboardService: ProjectsDashboardService)
+    constructor(private projectsDashboardService: ProjectsDashboardService,
+                private snackBar: MdSnackBar)
     {
         this.projects = this.projectsDashboardService.projects;
 
@@ -240,6 +242,12 @@ export class FuseProjectComponent implements OnInit, OnDestroy
         this.widget11.onContactsChanged = new BehaviorSubject({});
         this.widget11.onContactsChanged.next(this.widgets.widget11.table.rows);
         this.widget11.dataSource = new FilesDataSource(this.widget11);
+
+
+        //TEST MLMLMLLML
+        setTimeout( () => this.snackBar.open("A new position macthing to your job profile is available","Info!", { duration: 5000,}), 5000);
+
+
     }
 
     ngOnDestroy()

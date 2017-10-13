@@ -23,6 +23,12 @@ import { Md2Module } from 'md2';
 import { CookieService } from 'ngx-cookie-service';
 import { MarkdownModule } from 'angular2-markdown';
 
+//ML
+import { AuthService } from '../services/auth-service.service';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { GrowlModule, MessagesModule } from 'primeng/primeng';
+
+
 @NgModule({
     declarations   : [
         FuseMdSidenavHelperDirective,
@@ -45,7 +51,11 @@ import { MarkdownModule } from 'angular2-markdown';
         NgxDnDModule,
         NgxDatatableModule,
         Md2Module,
-        MarkdownModule
+        MarkdownModule,
+        //ML
+        AngularFireAuthModule,
+        GrowlModule
+        
     ],
     exports        : [
         FlexLayoutModule,
@@ -74,7 +84,8 @@ import { MarkdownModule } from 'angular2-markdown';
         CookieService,
         FuseMatchMedia,
         FuseNavbarVerticalService,
-        FuseMdSidenavHelperService
+        FuseMdSidenavHelperService,
+        AuthService
     ]
 })
 
