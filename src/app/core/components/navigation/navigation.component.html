@@ -5,11 +5,9 @@
     <ng-container *ngIf="layout === 'vertical'">
 
         <ng-container *ngFor="let item of navigationModel">
-
             <fuse-nav-vertical-group *ngIf="item.type=='group'" [item]="item"></fuse-nav-vertical-group>
             <fuse-nav-vertical-collapse *ngIf="item.type=='collapse'" [item]="item"></fuse-nav-vertical-collapse>
             <fuse-nav-vertical-item *ngIf="item.type=='item'" [item]="item"></fuse-nav-vertical-item>
-
         </ng-container>
 
     </ng-container>

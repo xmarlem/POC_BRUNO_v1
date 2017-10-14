@@ -89,10 +89,12 @@ export class FuseLogin2Component implements OnInit
     login(){
         let email:string = this.loginForm.get('email').value;
         let password:string = this.loginForm.get('password').value;
-        console.log('In login:', email, password );
+        //console.log('In login:', email, password );
         this.authService.login(email,password)
             .then( user => {
+                //Here I store the user in the localStorage
                 localStorage.setItem('currentUser', JSON.stringify(user));
+                console.log(localStorage.getItem('currentUser'));
                 this.router.navigate(['']);
             })
             .catch( err => {

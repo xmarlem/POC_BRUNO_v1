@@ -58,7 +58,7 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
             // User's shortcut items
             this.shortcutItems = [
                 {
-                    'title': 'Calendar',
+                    'title': 'My Job Interviews',
                     'type' : 'nav-item',
                     'icon' : 'today',
                     'url'  : '/apps/calendar'
@@ -70,13 +70,13 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
                     'url'  : '/apps/mail'
                 },
                 {
-                    'title': 'Contacts',
+                    'title': 'CS Contacts',
                     'type' : 'nav-item',
                     'icon' : 'account_box',
                     'url'  : '/apps/contacts'
                 },
                 {
-                    'title': 'To-Do',
+                    'title': 'Manage Job Positions',
                     'type' : 'nav-item',
                     'icon' : 'check_box',
                     'url'  : '/apps/todo'

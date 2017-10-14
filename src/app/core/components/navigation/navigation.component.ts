@@ -13,6 +13,7 @@ export class FuseNavigationComponent implements OnDestroy
     navigationModel: any[];
     navigationModelChangeSubscription: Subscription;
 
+
     @Input('layout') layout = 'vertical';
 
     constructor(private fuseNavigationService: FuseNavigationService)

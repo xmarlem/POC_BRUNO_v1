@@ -17,14 +17,11 @@ export class AuthService {
 
   login(email:string, password:string):Promise<any>{
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
-//       .then((user) => {
-//         console.log("login ok!"+ user);
-// //        this.currentUser = user;
-//         localStorage.setItem('currentUser', JSON.stringify(user));
-//       } )
-//       .catch((err) => {
-//         console.log(err.message);
-//       }
-//       );
   }
+
+  // logout():Promise<any> {
+  //   return this.afAuth.auth.signOut();
+  // }
+
+
 }
