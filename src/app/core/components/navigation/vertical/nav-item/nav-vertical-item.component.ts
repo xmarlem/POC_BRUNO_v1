@@ -15,6 +15,7 @@ export class FuseNavVerticalItemComponent implements OnInit
         return JSON.parse(localStorage.getItem('currentUser'));
     }
 
+    //TODO: da aggiustare!! E' hardcoded---- bisogna inserire la gestione dei ruoli
     checkMenuItem(url):boolean{
         let u = this.user;
         if(u){

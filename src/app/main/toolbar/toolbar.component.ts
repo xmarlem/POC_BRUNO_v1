@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { FuseConfigService } from '../../core/services/config.service';
+import { AuthenticationService } from 'app/core/users/authentication.service';
 
 @Component({
     selector   : 'fuse-toolbar',
@@ -16,11 +17,19 @@ export class FuseToolbarComponent
     showSpinner: boolean;
     horizontalNav: boolean;
 
+    //MLML
+    currentUser:any;
+
     constructor(
         private router: Router,
-        private fuseConfig: FuseConfigService
+        private fuseConfig: FuseConfigService,
+        private authenticationService: AuthenticationService
     )
     {
+        //MLML
+        this.currentUser = this.authenticationService.currentUser;
+
+
         this.userStatusOptions = [
             {
                 'title': 'Online',

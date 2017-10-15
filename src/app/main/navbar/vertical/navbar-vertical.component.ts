@@ -102,7 +102,6 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
         this.authService.onCurrentUser
         .subscribe(
             (user) => {
-               //console.log(user);
                 this.currentUser= user;
             }
         )
@@ -112,12 +111,8 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
 
     ngOnInit()
     {
-        let user:any = JSON.parse(localStorage.getItem('currentUser'));
-        console.log("User trovato in localstorage: " + user);
-        if(user){
-            this.currentUser = user;
-            console.log("DENTRO..." + this.currentUser.urlPhoto);
-        }
+        //load the current user
+        this.currentUser = this.authService.currentUser;
 
 
         this.isClosed = false;
@@ -275,5 +270,8 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
     ngOnDestroy()
     {
         this.matchMediaWatcher.unsubscribe();
+
+        //MLML
+        this.authService.onCurrentUser.unsubscribe();
     }
 }

@@ -25,8 +25,10 @@
             <div class="user-info" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-sm="row"
                  fxLayoutAlign.gt-sm="start center">
                 <img class="profile-image avatar huge" src="{{currentUser?.urlPhoto}}"
-                     *fuseIfOnDom >
+                *fuseIfOnDom >
+                <!-- <img class="profile-image avatar huge" src="" -->
                 <div class="name" *fuseIfOnDom >{{currentUser?.name}} {{currentUser?.surname}} </div>
+                <!-- <div class="name" *fuseIfOnDom >Marco Lembo </div> -->
             </div>
     </div>
 </div>

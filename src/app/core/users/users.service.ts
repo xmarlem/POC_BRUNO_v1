@@ -40,6 +40,8 @@ export class UsersService {
         );
                 
     }
+
+  
   getUserByEmail(email:string){ //:Promise<firebase.firestore.QuerySnapshot>{
 
     return this.users.find( u => u.email === email);

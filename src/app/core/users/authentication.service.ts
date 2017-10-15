@@ -9,6 +9,7 @@ export class AuthenticationService {
     
     //current user
     onCurrentUser: BehaviorSubject<any>;
+    onCurrentUserValidationErrors: BehaviorSubject<any>;
     currentUser: any;
     
     //MLML
@@ -19,6 +20,9 @@ constructor(
         ) 
         { 
             this.onCurrentUser = new BehaviorSubject<any>(this.currentUser);
+            this.onCurrentUserValidationErrors = new BehaviorSubject<any>("");
+            //if the user is already logged in (already stored in localStorage) i load it.
+            this.loadCurrentUser();
         }
 
 login(email:string, password:string){
@@ -36,8 +40,19 @@ login(email:string, password:string){
             }
             
         )
+        .catch(
+            (err) => {
+                this.onCurrentUserValidationErrors.next(err);
+            }
+        )
 }
         
+loadCurrentUser(){
+    let user = JSON.parse(localStorage.getItem('currentUser'));
+    if(user){
+        this.currentUser = user;
+    }
+}
 
 // login(email:string, password:string):Promise<any>{
 //     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
