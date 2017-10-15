@@ -10,6 +10,7 @@ import { AuthenticationService } from 'app/core/users/authentication.service';
 
 import {Message} from 'primeng/primeng';
 import { MdSnackBar } from '@angular/material';
+import { Subscription } from 'rxjs/Subscription';
 
 
 
@@ -28,6 +29,8 @@ export class FuseLogin2Component implements OnInit
 
     msgs: Message[] = [];
 
+    //MLML
+    onCurrentUser: Subscription;
 
     constructor(
         private fuseConfig: FuseConfigService,
@@ -50,6 +53,22 @@ export class FuseLogin2Component implements OnInit
             email   : {},
             password: {}
         };
+
+        //MLML
+        this.authService.onCurrentUser
+            .subscribe(
+                (u) => {
+                    console.log("OnNext event received... in onCurrentUser, am about to navigate to home " );
+                    this.router.navigate(['']);                    
+                },
+                (err) => {
+                    this.messageService.add({severity:'error', summary:'Error', detail:err.message});
+                    this.snackBar.open(err.message,"Error!", {
+                        duration: 2000,
+                    })    
+                }
+            )
+
     }
 
     ngOnInit()
@@ -93,23 +112,24 @@ export class FuseLogin2Component implements OnInit
     login(){
         let email:string = this.loginForm.get('email').value;
         let password:string = this.loginForm.get('password').value;
-        //console.log('In login:', email, password );
-        this.authService.login(email,password)
-            .then( user => {
-                //Here I store the user in the localStorage
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                this.authService.setUser(user);
-                console.log(localStorage.getItem('currentUser'));
-                this.router.navigate(['']);
-            })
-            .catch( err => {
-                this.messageService.add({severity:'error', summary:'Error', detail:err.message});
-                this.snackBar.open(err.message,"Error!", {
-                    duration: 2000,
-                })
-            });
+        this.authService.login(email, password);
 
-//            this.messageService.add({severity:'error', summary:'Service Message', detail:'Via MessageService'});            
+        // //console.log('In login:', email, password );
+        // this.authService.login(email,password)
+        //     .then( user => {
+        //         //Here I store the user in the localStorage
+        //         localStorage.setItem('currentUser', JSON.stringify(user));
+        //         //this.authService.setUser(user);
+        //         console.log(localStorage.getItem('currentUser'));
+        //         this.router.navigate(['']);
+        //     })
+        //     .catch( err => {
+        //         this.messageService.add({severity:'error', summary:'Error', detail:err.message});
+        //         this.snackBar.open(err.message,"Error!", {
+        //             duration: 2000,
+        //         })
+        //     });
+
     }
 
 }

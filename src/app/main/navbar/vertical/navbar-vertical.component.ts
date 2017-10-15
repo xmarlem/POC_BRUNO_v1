@@ -8,7 +8,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { FuseNavigationService } from '../../../core/components/navigation/navigation.service';
 import { FusePerfectScrollbarDirective } from '../../../core/directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
 import { animate, AnimationBuilder, AnimationPlayer, style } from '@angular/animations';
-import { AuthenticationService } from 'app/core/users/authentication.service';
+import { AuthenticationService } from 'app/core/users/authentication.service';  //MLML
 
 
 
@@ -33,7 +33,13 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
     player: AnimationPlayer;  
 
 // //MLML
-//     user:any;
+    currentUser:any = {
+        'email': '', 
+        'name': 'User', 
+        'surname': '',
+        'urlPhoto': 'assets/images/avatars/profile.jpg'};
+    onCurrentUser: Subscription;
+    
 // //MLML
 
     constructor(
@@ -46,8 +52,8 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
         private _renderer: Renderer2,
         private _elementRef: ElementRef,
         private animationBuilder: AnimationBuilder,
-        // //MLML
-        // private authService: AuthenticationService
+        //MLML
+        private authService: AuthenticationService
     )
     {
 
@@ -90,14 +96,29 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
                 }
             }
         );
+
+
+        // //MLML
+        this.authService.onCurrentUser
+        .subscribe(
+            (user) => {
+               //console.log(user);
+                this.currentUser= user;
+            }
+        )
+        // //MLML
+    
     }
 
     ngOnInit()
     {
-        // //MLML
-        // this.user = this.authService.currentUser;
-        // console.log("Ustente: " + this.user);
-        // //MLML
+        let user:any = JSON.parse(localStorage.getItem('currentUser'));
+        console.log("User trovato in localstorage: " + user);
+        if(user){
+            this.currentUser = user;
+            console.log("DENTRO..." + this.currentUser.urlPhoto);
+        }
+
 
         this.isClosed = false;
         this.isFoldedActive = this.foldedByDefault;

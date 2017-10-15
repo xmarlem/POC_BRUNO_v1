@@ -4,18 +4,19 @@ import {
 
 import { CommonModule }      from '@angular/common';
 import { AuthGuardService }       from './users/auth-guard/auth-guard.service';
-import { UsersComponent } from 'app/core/users/users.component';
 import { AuthenticationService } from '../core/users/authentication.service';
+import { UsersService } from 'app/core/users/users.service';
 
 
 
   @NgModule({
     imports:      [ CommonModule ],
-    declarations: [ UsersComponent ],
+    declarations: [ ],
     exports:      [  ],
     providers:    [
         AuthGuardService,
-        AuthenticationService
+        AuthenticationService,
+        UsersService
         
     ]
   })
