@@ -24,8 +24,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { MarkdownModule } from 'angular2-markdown';
 
 //ML
-import { AuthService } from '../services/auth-service.service';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+
 import { GrowlModule, MessagesModule } from 'primeng/primeng';
 
 
@@ -84,8 +85,7 @@ import { GrowlModule, MessagesModule } from 'primeng/primeng';
         CookieService,
         FuseMatchMedia,
         FuseNavbarVerticalService,
-        FuseMdSidenavHelperService,
-        AuthService
+        FuseMdSidenavHelperService
     ]
 })
 

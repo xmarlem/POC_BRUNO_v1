@@ -6,7 +6,7 @@ import { fuseAnimations } from '../../../../../core/animations';
 import { Router } from '@angular/router';
 
 import { MessageService} from 'primeng/components/common/messageservice';
-import { AuthService } from 'app/core/services/auth-service.service';
+import { AuthenticationService } from 'app/core/users/authentication.service';
 
 import {Message} from 'primeng/primeng';
 import { MdSnackBar } from '@angular/material';
@@ -32,7 +32,7 @@ export class FuseLogin2Component implements OnInit
     constructor(
         private fuseConfig: FuseConfigService,
         private formBuilder: FormBuilder,
-        private authService:AuthService,
+        private authService:AuthenticationService,
         private router:Router,
         private messageService: MessageService,
         private snackBar: MdSnackBar
@@ -54,6 +54,10 @@ export class FuseLogin2Component implements OnInit
 
     ngOnInit()
     {
+
+        //Reset login status TODO:
+        this.authService.logout();
+
         this.loginForm = this.formBuilder.group({
             email   : ['', [Validators.required, Validators.email]],
             password: ['', Validators.required]
@@ -94,6 +98,7 @@ export class FuseLogin2Component implements OnInit
             .then( user => {
                 //Here I store the user in the localStorage
                 localStorage.setItem('currentUser', JSON.stringify(user));
+                this.authService.setUser(user);
                 console.log(localStorage.getItem('currentUser'));
                 this.router.navigate(['']);
             })

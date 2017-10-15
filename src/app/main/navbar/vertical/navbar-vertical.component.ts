@@ -8,6 +8,9 @@ import { NavigationEnd, Router } from '@angular/router';
 import { FuseNavigationService } from '../../../core/components/navigation/navigation.service';
 import { FusePerfectScrollbarDirective } from '../../../core/directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
 import { animate, AnimationBuilder, AnimationPlayer, style } from '@angular/animations';
+import { AuthenticationService } from 'app/core/users/authentication.service';
+
+
 
 @Component({
     selector     : 'fuse-navbar-vertical',
@@ -27,7 +30,11 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
 
     matchMediaWatcher: Subscription;
 
-    player: AnimationPlayer;
+    player: AnimationPlayer;  
+
+// //MLML
+//     user:any;
+// //MLML
 
     constructor(
         private fuseMainComponent: FuseMainComponent,
@@ -38,9 +45,12 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
         private router: Router,
         private _renderer: Renderer2,
         private _elementRef: ElementRef,
-        private animationBuilder: AnimationBuilder
+        private animationBuilder: AnimationBuilder,
+        // //MLML
+        // private authService: AuthenticationService
     )
     {
+
         navBarService.setNavBar(this);
 
         this.fuseNavigationService.onNavCollapseToggle.subscribe(() => {
@@ -84,6 +94,11 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
 
     ngOnInit()
     {
+        // //MLML
+        // this.user = this.authService.currentUser;
+        // console.log("Ustente: " + this.user);
+        // //MLML
+
         this.isClosed = false;
         this.isFoldedActive = this.foldedByDefault;
         this.isFoldedOpen = false;

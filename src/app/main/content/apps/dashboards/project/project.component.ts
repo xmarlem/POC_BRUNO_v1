@@ -69,7 +69,7 @@ export class FuseProjectComponent implements OnInit, OnDestroy
 
         //MLMLMLLM
         this.jobs = this.projectsDashboardService.jobs;
-        console.log(this.jobs);
+        //console.log(this.jobs);
         this.tags = [1, 4];
 
         //MLMLMLM END

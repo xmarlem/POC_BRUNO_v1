@@ -12,7 +12,7 @@ import { JobListComponentComponent } from './job-list-component/job-list-compone
 import { ComponentsModule } from '../../../components/components.module';
 import { FusePriceTablesComponent } from 'app/main/content/components/price-tables/price-tables.component';
 //MLML 
-import {AuthGuard} from '../../../../../users/authguard/authguard.service';
+import {AuthGuardService} from '../../../../../core/users/auth-guard/auth-guard.service';
 
 
 
@@ -23,7 +23,7 @@ const routes: Routes = [
         resolve  : {
             data: ProjectsDashboardService
         },
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuardService]
 
     }
 ];
@@ -34,7 +34,7 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         FuseWidgetModule,
         NgxChartsModule,
-        //MLML -- to include prices table component
+        //MLML -- to include prices table component TODO: maybe to remove
         ComponentsModule
     ],
     declarations: [
@@ -46,7 +46,7 @@ const routes: Routes = [
     providers   : [
         ProjectsDashboardService,
         //MLMLML
-        AuthGuard
+        AuthGuardService
 
     ]
 })
