@@ -15,6 +15,7 @@ import { ProjectsDashboardDb } from './projects-dashboard';
 import { ScrumboardFakeDb } from './scrumboard';
 //ML
 import { SkillsFakeDb } from './skills';
+import { JobPositionsFakeDb } from './jobpositions';
 
 export class FuseFakeDbService implements InMemoryDbService
 {
@@ -48,7 +49,9 @@ export class FuseFakeDbService implements InMemoryDbService
             'projects-dashboard-widgets' : ProjectsDashboardDb.widgets,
             'projects-dashboard-jobPositions' : ProjectsDashboardDb.jobPositions,
             'scrumboard-boards'          : ScrumboardFakeDb.boards,
-            'skills'                     : SkillsFakeDb.skills
+            'skills'                     : SkillsFakeDb.skills,
+            //MLML
+            'jobpositions'               : JobPositionsFakeDb.jobs
         };
     }
 }

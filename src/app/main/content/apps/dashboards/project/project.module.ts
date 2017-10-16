@@ -14,6 +14,7 @@ import { FusePriceTablesComponent } from 'app/main/content/components/price-tabl
 //MLML 
 import {AuthGuardService} from '../../../../../core/users/auth-guard/auth-guard.service';
 import { JobcardComponent } from './jobcard/jobcard.component';
+import { JobsService } from 'app/main/content/apps/dashboards/project/jobs.service';
 
 
 
@@ -48,7 +49,8 @@ const routes: Routes = [
     providers   : [
         ProjectsDashboardService,
         //MLMLML
-        AuthGuardService
+        AuthGuardService,
+        JobsService
 
     ]
 })

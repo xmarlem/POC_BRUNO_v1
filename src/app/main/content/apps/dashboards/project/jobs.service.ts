@@ -2,54 +2,21 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-
-import { Job } from './job.model';
-
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { FuseUtils } from '../../../../../core/fuseUtils';
-import { Subject } from 'rxjs/Subject';
-import { Location } from '@angular/common';
-
-
 
 @Injectable()
 export class JobsService implements Resolve<any>
 {
-
-    todos: Job[];
-    selectedTodos: Job[];
-    currentTodo: Job;
-    searchText = '';
-
-    filters: any[];
-    tags: any[];
-    routeParams: any;
-
-    //MLMLML
     jobs: any[];
-    //MLMLML
+    routeParams: any;
+    board: any;
 
+    onJobsChanged: BehaviorSubject<any> = new BehaviorSubject([]);
+    onJobChanged: BehaviorSubject<any> = new BehaviorSubject([]);
 
-    onTodosChanged: BehaviorSubject<any> = new BehaviorSubject([]);
-    onSelectedTodosChanged: BehaviorSubject<any> = new BehaviorSubject([]);
-    onCurrentTodoChanged: BehaviorSubject<any> = new BehaviorSubject([]);
-
-    onFiltersChanged: BehaviorSubject<any> = new BehaviorSubject([]);
-    onTagsChanged: BehaviorSubject<any> = new BehaviorSubject([]);
-    onSearchTextChanged: BehaviorSubject<any> = new BehaviorSubject('');
-    onNewTodoClicked: Subject<any> = new Subject();
-
-
-
-    constructor(
-        private http: HttpClient,
-        private location: Location // Set current todo
-    )
+    constructor(private http: HttpClient)
     {
-        this.selectedTodos = [];       
-
     }
-
 
     /**
      * Resolve
@@ -62,34 +29,10 @@ export class JobsService implements Resolve<any>
         this.routeParams = route.params;
 
         return new Promise((resolve, reject) => {
-
             Promise.all([
-//                this.getFilters(),
-                this.getTags()
-                //this.getJobs()
+                this.getJobs()
             ]).then(
                 () => {
-                    if ( this.routeParams.todoId )
-                    {
-                        this.setCurrentTodo(this.routeParams.todoId);
-                    }
-                    else
-                    {
-                        this.setCurrentTodo(null);
-                    }
-
-                    this.onSearchTextChanged.subscribe(searchText => {
-                        if ( searchText !== '' )
-                        {
-                            this.searchText = searchText;
-                            //this.getJobs();
-                        }
-                        else
-                        {
-                            this.searchText = searchText;
-                            //this.getJobs();
-                        }
-                    });
                     resolve();
                 },
                 reject
@@ -97,186 +40,135 @@ export class JobsService implements Resolve<any>
         });
     }
 
-    /**
-     * Get all tags
-     * @returns {Promise<any>}
-     */
-    getTags(): Promise<any>
+    getJobs(): Promise<any>
     {
         return new Promise((resolve, reject) => {
-            this.http.get('api/todo-tags')
+            this.http.get('api/jobpositions')
                 .subscribe((response: any) => {
-                    this.tags = response.data;
-                    this.onTagsChanged.next(this.tags);
-                    resolve(this.tags);
+                    this.jobs = response.data;
+                    this.onJobsChanged.next(this.jobs);
+                    resolve(this.jobs);
                 }, reject);
         });
     }
 
+    getBoard(boardId): Promise<any>
+    {
+        return new Promise((resolve, reject) => {
+            this.http.get('api/jobpositions/' + boardId)
+                .subscribe((response: any) => {
+                    this.board = response.data;
+                    this.onJobChanged.next(this.board);
+                    resolve(this.board);
+                }, reject);
+        });
+    }
 
-    // /**
-    //  * Get todos
-    //  * @returns {Promise<Todo[]>}
-    //  */
-    // getTodos(): Promise<Todo[]>
+    // addCard(listId, newCard)
     // {
-    //     if ( this.routeParams.tagHandle )
-    //     {
-    //         return this.getTodosByTag(this.routeParams.tagHandle);
-    //     }
+    //     this.board.lists.map((list) => {
+    //         if ( list.id === listId )
+    //         {
+    //             return list.idCards.push(newCard.id);
+    //         }
+    //     });
 
-    //     if ( this.routeParams.filterHandle )
-    //     {
-    //         return this.getTodosByFilter(this.routeParams.filterHandle);
-    //     }
+    //     this.board.cards.push(newCard);
 
-    //     return this.getTodosByParams(this.routeParams);
+    //     return this.updateBoard();
     // }
 
-     
-        /**
-     * Toggle selected todo by id
-     * @param id
-     */
-    toggleSelectedTodo(id)
-    {
-        // First, check if we already have that todo as selected...
-        if ( this.selectedTodos.length > 0 )
-        {
-            for ( const todo of this.selectedTodos )
-            {
-                // ...delete the selected todo
-                if ( todo.id === id )
-                {
-                    const index = this.selectedTodos.indexOf(todo);
+    // addList(newList)
+    // {
 
-                    if ( index !== -1 )
-                    {
-                        this.selectedTodos.splice(index, 1);
+    //     this.board.lists.push(newList);
 
-                        // Trigger the next event
-                        this.onSelectedTodosChanged.next(this.selectedTodos);
+    //     return this.updateBoard();
 
-                        // Return
-                        return;
-                    }
-                }
-            }
-        }
+    // }
 
-        // If we don't have it, push as selected
-        this.selectedTodos.push(
-            this.todos.find(todo => {
-                return todo.id === id;
-            })
-        );
+    // removeList(listId)
+    // {
+    //     const list = this.board.lists.find((_list) => {
+    //         return _list.id === listId;
+    //     });
 
-        // Trigger the next event
-        this.onSelectedTodosChanged.next(this.selectedTodos);
-    }
+    //     for ( const cardId of list.idCards )
+    //     {
+    //         this.removeCard(cardId);
+    //     }
 
-    /**
-     * Toggle select all
-     */
-    toggleSelectAll()
-    {
-        if ( this.selectedTodos.length > 0 )
-        {
-            this.deselectTodos();
-        }
-        else
-        {
-            this.selectTodos();
-        }
+    //     const index = this.board.lists.indexOf(list);
 
-    }
+    //     this.board.lists.splice(index, 1);
 
-    selectTodos(filterParameter?, filterValue?)
-    {
-        this.selectedTodos = [];
+    //     return this.updateBoard();
+    // }
 
-        // If there is no filter, select all todos
-        if ( filterParameter === undefined || filterValue === undefined )
-        {
-            this.selectedTodos = this.todos;
-        }
-        else
-        {
-            this.selectedTodos.push(...
-                this.todos.filter(todo => {
-                    return todo[filterParameter] === filterValue;
-                })
-            );
-        }
+    // removeCard(cardId, listId?)
+    // {
 
-        // Trigger the next event
-        this.onSelectedTodosChanged.next(this.selectedTodos);
-    }
+    //     const card = this.board.cards.find((_card) => {
+    //         return _card.id === cardId;
+    //     });
 
-    deselectTodos()
-    {
-        this.selectedTodos = [];
+    //     if ( listId )
+    //     {
+    //         const list = this.board.lists.find((_list) => {
+    //             return listId === _list.id;
+    //         });
+    //         list.idCards.splice(list.idCards.indexOf(cardId), 1);
+    //     }
 
-        // Trigger the next event
-        this.onSelectedTodosChanged.next(this.selectedTodos);
-    }
+    //     this.board.cards.splice(this.board.cards.indexOf(card), 1);
 
-    /**
-     * Set current todo by id
-     * @param id
-     */
-    setCurrentTodo(id)
-    {
-        this.currentTodo = this.todos.find(todo => {
-            return todo.id === id;
-        });
+    //     this.updateBoard();
+    // }
 
-        this.onCurrentTodoChanged.next([this.currentTodo, 'edit']);
+    // updateBoard()
+    // {
+    //     return new Promise((resolve, reject) => {
+    //         this.http.post('api/scrumboard-boards/' + this.board.id, this.board)
+    //             .subscribe(response => {
+    //                 this.onBoardChanged.next(this.board);
+    //                 resolve(this.board);
+    //             }, reject);
+    //     });
+    // }
 
-        const tagHandle    = this.routeParams.tagHandle,
-              filterHandle = this.routeParams.filterHandle;
+    // updateCard(newCard)
+    // {
+    //     this.board.cards.map((_card) => {
+    //         if ( _card.id === newCard.id )
+    //         {
+    //             return newCard;
+    //         }
+    //     });
 
-        if ( tagHandle )
-        {
-            this.location.go('apps/todo/tag/' + tagHandle + '/' + id);
-        }
-        else if ( filterHandle )
-        {
-            this.location.go('apps/todo/filter/' + filterHandle + '/' + id);
-        }
-        else
-        {
-            this.location.go('apps/todo/all/' + id);
-        }
+    //     this.updateBoard();
+    // }
 
-    }
-
-    /**
-     * Toggle tag on selected todos
-     * @param tagId
-     */
-    toggleTagOnSelectedTodos(tagId)
-    {
-        this.selectedTodos.map(todo => {
-           // this.toggleTagOnTodo(tagId, todo);
-        });
-    }
-
-    toggleTagOnTodo(tagId, todo)
-    {
-
-        const index = todo.tags.indexOf(tagId);
-
-        if ( index !== -1 )
-        {
-            todo.tags.splice(index, 1);
-        }
-        else
-        {
-            todo.tags.push(tagId);
-        }
-       // this.updateTodo(todo);
-    }
-
-
+    // createNewBoard(board)
+    // {
+    //     return new Promise((resolve, reject) => {
+    //         this.http.post('api/scrumboard-boards/' + board.id, board)
+    //             .subscribe(response => {
+    //                 resolve(board);
+    //             }, reject);
+    //     });
+    // }
 }
+
+// @Injectable()
+// export class BoardResolve implements Resolve<any>
+// {
+
+//     constructor(private scrumboardService: JobcardService)
+//     {
+//     }
+
+//     resolve(route: ActivatedRouteSnapshot)
+//     {
+//         return this.scrumboardService.getBoard(route.paramMap.get('boardId'));
+//     }
+// }
