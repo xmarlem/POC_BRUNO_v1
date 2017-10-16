@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { UsersService } from './users.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthenticationService {
@@ -11,6 +12,7 @@ export class AuthenticationService {
     onCurrentUser: BehaviorSubject<any>;
     onCurrentUserValidationErrors: BehaviorSubject<any>;
     currentUser: any;
+    
     
     //MLML
 
@@ -36,7 +38,7 @@ login(email:string, password:string){
                 this.currentUser = this.usersService.getUserByEmail(user.email)
                 localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
                 console.log("AuthService:: firing the next event to subscribers + currentUser: " + this.currentUser);
-                this.onCurrentUser.next(this.currentUser);   
+                //this.onCurrentUser.next(this.currentUser);   
             }
             
         )
@@ -47,6 +49,21 @@ login(email:string, password:string){
         )
 }
         
+login2(email:string, password:string):Observable<any>{
+    console.log("AuthService::login called " );
+    
+    return Observable.fromPromise(this.afAuth.auth.signInWithEmailAndPassword(email, password))
+        .map( user => {
+            console.log("AuthService:: GOT Response from signInWithEmailAndp...setting currentUser also in localStorage " );
+            //first I read from db the full information about the user
+            this.currentUser = this.usersService.getUserByEmail(user.email)
+            localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+            console.log("AuthService:: firing the next event to subscribers + currentUser: " + this.currentUser);
+        } );
+}
+
+
+
 loadCurrentUser(){
     let user = JSON.parse(localStorage.getItem('currentUser'));
     if(user){

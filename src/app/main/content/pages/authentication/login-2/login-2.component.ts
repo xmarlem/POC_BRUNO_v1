@@ -11,6 +11,7 @@ import { AuthenticationService } from 'app/core/users/authentication.service';
 import {Message} from 'primeng/primeng';
 import { MdSnackBar } from '@angular/material';
 import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Observable';
 
 
 
@@ -32,6 +33,7 @@ export class FuseLogin2Component implements OnInit, OnDestroy
     //MLML
     onCurrentUser: Subscription;
     onCurrentUserValidationErrors: Subscription;
+    onLogin: Subscription;
 
     constructor(
         private fuseConfig: FuseConfigService,
@@ -55,37 +57,37 @@ export class FuseLogin2Component implements OnInit, OnDestroy
             password: {}
         };
 
-        //MLML
-        this.authService.onCurrentUser
-            .subscribe(
-                (u) => {
-                    console.log("prima di if(u)");
-                    if(u !== null){
-                        console.log("OnNext event received... in onCurrentUser, am about to navigate to home " +u);
-                        this.router.navigate(['']);                            
-                    }
-                },
-                (err) => {
-                    if(err){
-                        console.log("Errore su onCurrentUser..."+ err);
-                        this.messageService.add({severity:'error', summary:'Error', detail:err});
-                        this.snackBar.open(err,"Error!", {
-                            duration: 2000,
-                        })        
-                    }
-                }
-            )
-        this.authService.onCurrentUserValidationErrors
-            .subscribe(
-                (err) => {
-                    console.log("Errore password!! voglio scatenare un messaggio..."+ err);
-                    this.messageService.add({severity:'error', summary:'Error', detail:err});
-                    this.snackBar.open(err,"Error!", {
-                        duration: 2000,
-                    })    
+        // //MLML
+        // this.authService.onCurrentUser
+        //     .subscribe(
+        //         (u) => {
+        //             console.log("prima di if(u)");
+        //             if(u !== null){
+        //                 console.log("OnNext event received... in onCurrentUser, am about to navigate to home " +u);
+        //                 this.router.navigate(['']);                            
+        //             }
+        //         },
+        //         (err) => {
+        //             if(err){
+        //                 console.log("Errore su onCurrentUser..."+ err);
+        //                 this.messageService.add({severity:'error', summary:'Error', detail:err});
+        //                 this.snackBar.open(err,"Error!", {
+        //                     duration: 2000,
+        //                 })        
+        //             }
+        //         }
+        //     )
+        // this.authService.onCurrentUserValidationErrors
+        //     .subscribe(
+        //         (err) => {
+        //             console.log("Errore password!! voglio scatenare un messaggio..."+ err);
+        //             this.messageService.add({severity:'error', summary:'Error', detail:err});
+        //             this.snackBar.open(err,"Error!", {
+        //                 duration: 2000,
+        //             })    
                     
-                }
-            )
+        //         }
+        //     )
 
     }
 
@@ -127,6 +129,28 @@ export class FuseLogin2Component implements OnInit, OnDestroy
         }
     }
 
+    login2(){
+        let email:string = this.loginForm.get('email').value;
+        let password:string = this.loginForm.get('password').value;
+        this.onLogin = this.authService.login2(email, password)
+            .subscribe(
+                (user) => {
+                    console.log("In onNext ... ");
+                    this.router.navigate(['']);                            
+                },
+                (err) => {
+                    console.log("Errore password!! voglio scatenare un messaggio..."+ err);
+                    this.messageService.add({severity:'error', summary:'Error', detail:err});
+                    this.snackBar.open(err,"Error!", {
+                        duration: 2000,
+                    })    
+                }
+            )
+
+    }
+
+
+
     login(){
         let email:string = this.loginForm.get('email').value;
         let password:string = this.loginForm.get('password').value;
@@ -151,7 +175,7 @@ export class FuseLogin2Component implements OnInit, OnDestroy
     }
 
     ngOnDestroy(){
-        //this.onCurrentUserValidationErrors.unsubscribe;
+        //this.onLogin.unsubscribe;
         //this.onCurrentUser.unsubscribe;
     }
 }

@@ -272,6 +272,6 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
         this.matchMediaWatcher.unsubscribe();
 
         //MLML
-        this.authService.onCurrentUser.unsubscribe();
+        //this.authService.onCurrentUser.unsubscribe();
     }
 }
