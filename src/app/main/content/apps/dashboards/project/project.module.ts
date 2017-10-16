@@ -13,6 +13,7 @@ import { ComponentsModule } from '../../../components/components.module';
 import { FusePriceTablesComponent } from 'app/main/content/components/price-tables/price-tables.component';
 //MLML 
 import {AuthGuardService} from '../../../../../core/users/auth-guard/auth-guard.service';
+import { JobcardComponent } from './jobcard/jobcard.component';
 
 
 
@@ -39,7 +40,8 @@ const routes: Routes = [
     ],
     declarations: [
         FuseProjectComponent,
-        JobListComponentComponent        
+        JobListComponentComponent,
+        JobcardComponent        
 
 
     ],
