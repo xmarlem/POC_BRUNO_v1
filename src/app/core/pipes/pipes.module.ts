@@ -1,3 +1,4 @@
+import { HighlightFirstWord } from './highlightFirstWord';
 import { NgModule } from '@angular/core';
 
 import { KeysPipe } from './keys.pipe';
@@ -12,7 +13,8 @@ import { CamelCaseToDashPipe } from './camelCaseToDash.pipe';
         GetByIdPipe,
         HtmlToPlaintextPipe,
         FilterPipe,
-        CamelCaseToDashPipe
+        CamelCaseToDashPipe,
+        HighlightFirstWord //ML
 
     ],
     imports     : [],
@@ -21,7 +23,8 @@ import { CamelCaseToDashPipe } from './camelCaseToDash.pipe';
         GetByIdPipe,
         HtmlToPlaintextPipe,
         FilterPipe,
-        CamelCaseToDashPipe
+        CamelCaseToDashPipe,
+        HighlightFirstWord //ML
     ]
 })
 

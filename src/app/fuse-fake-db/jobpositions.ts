@@ -8,7 +8,7 @@ export class JobPositionsFakeDb {
             'location': 'India-Bangalore',
             'contracttype': '/ full-time',
             'description': 'Provide technical guidance on proper and efficient application setup on a Hadoop platform. Maintain environments in UNIX/Linux Operating System to provide optimum performance and system availability. Support software vendor to ensure application software is installed correctly and all current maintenance levels have been applied.',
-            'isNew': true,
+            'isNew': false,
             'matching': '80%'
         },
         {

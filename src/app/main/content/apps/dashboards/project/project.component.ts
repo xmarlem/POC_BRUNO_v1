@@ -253,7 +253,21 @@ export class FuseProjectComponent implements OnInit, OnDestroy
 
 
         //TEST MLMLMLLML
-        setTimeout( () => this.snackBar.open("A new position macthing to your job profile is available","Info!", { duration: 5000,}), 5000);
+        setTimeout( 
+            () => {
+                this.snackBar.open("A new position macthing to your job profile is available","Info!", { duration: 5000,});
+                this.jobcards.unshift({
+                    'id': 3,
+                    'title': 'Security Engineer',
+                    'area': 'IT',
+                    'location': 'Poland-Wroclaw',
+                    'contracttype': '/ part-time (80%)',
+                    'description': 'You will be a part of the team of highly qualified engineers spanning across multiple locations (primarily Wroclaw). We provide stable but flexible work environment, career development opportunities and broad range of other benefits available to every permanent Credit Suisse employee.',
+                    'isNew': true,
+                    'matching': '90%'
+                },)
+            }
+            , 5000);
 
 
     }
