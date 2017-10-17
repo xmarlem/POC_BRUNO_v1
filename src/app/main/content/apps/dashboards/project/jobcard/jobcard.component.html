@@ -1,18 +1,19 @@
 <div class="job-table style-1 mat-elevation-z8" fxLayout="column" >
   <div class="package-type md-primary-bg" fxLayout="row">
-      <span>Big Data Architect</span>
-      <div class="badge">NEW</div>
+      <span>{{job.title}}</span>
+      
+      <div *ngIf="job.isNew" class="badge">NEW</div>
       <label fxLayoutAlign="end end" fxFlexAlign="end" class="sale text-boxed-light percentage md-green-bg md-hue-1">
-          <b mdTooltip="How much this position match to your job profile!" mdTooltipPosition="below">80 %</b>
+          <b mdTooltip="How much this position match to your job profile!" mdTooltipPosition="below">{{job.matching}}</b>
       </label>
       <!--                                    <span class="sale md-accent-color md-hue-1">15%</span> -->
   </div>
 
   <div class="job" fxLayout="row" fxLayoutAlign="center start">
-      <div class="area">IT</div>
+      <div class="area">{{job.area | uppercase}}</div>
       <div fxLayout="row" fxLayoutAlign="center end">
-          <div class="value">India-Bangalore</div>
-          <div class="period">/ full-time</div>
+          <div class="value">{{job.location}}</div>
+          <div class="period">{{job.contracttype}}</div>
       </div>
   </div>
 

@@ -6,7 +6,7 @@ export class JobPositionsFakeDb {
             'title': 'Big Data Architect',
             'area': 'IT',
             'location': 'India-Bangalore',
-            'contract-type': '/ full-time',
+            'contracttype': '/ full-time',
             'description': 'Provide technical guidance on proper and efficient application setup on a Hadoop platform. Maintain environments in UNIX/Linux Operating System to provide optimum performance and system availability. Support software vendor to ensure application software is installed correctly and all current maintenance levels have been applied.',
             'isNew': true,
             'matching': '80%'
@@ -16,7 +16,7 @@ export class JobPositionsFakeDb {
             'area': 'IT',
             'title': 'Java Developer',
             'location': 'United States-NC-Raleigh',
-            'contract-type': '/ full-time',
+            'contracttype': '/ full-time',
             'description': 'Provide technical guidance on proper and efficient application setup on a Hadoop platform. Maintain environments in UNIX/Linux Operating System to provide optimum performance and system availability. Support software vendor to ensure application software is installed correctly and all current maintenance levels have been applied.',
             'isNew': false,
             'matching': '65%'            

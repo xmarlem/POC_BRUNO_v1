@@ -1,3 +1,4 @@
+import { JobsService } from './jobs.service';
 import { Component, OnDestroy, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { ProjectsDashboardService } from './projects.service';
 import * as shape from 'd3-shape';
@@ -52,13 +53,17 @@ export class FuseProjectComponent implements OnInit, OnDestroy
     tags: any[];
     @Input() job: Job;
 
+
+
+    jobcards: any[];
     //END ML
 
 
 
 
     constructor(private projectsDashboardService: ProjectsDashboardService,
-                private snackBar: MdSnackBar)
+                private snackBar: MdSnackBar,
+                private jobsService: JobsService)
     {
         this.projects = this.projectsDashboardService.projects;
 
@@ -72,6 +77,9 @@ export class FuseProjectComponent implements OnInit, OnDestroy
         //console.log(this.jobs);
         this.tags = [1, 4];
 
+
+        jobsService.getJobs()
+            .then( jobs => this.jobcards = jobs )
         //MLMLMLM END
 
         /**

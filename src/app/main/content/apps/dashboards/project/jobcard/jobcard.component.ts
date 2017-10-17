@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { JobsService } from 'app/main/content/apps/dashboards/project/jobs.service';
 
 @Component({
@@ -8,21 +8,13 @@ import { JobsService } from 'app/main/content/apps/dashboards/project/jobs.servi
 })
 export class JobcardComponent implements OnInit {
 
-  jobs: any[] = [];
+  @Input() job: any;
 
   constructor(private jobcardService:JobsService) { 
     
   }
 
   ngOnInit() {
-    console.log("in ngOnInit di jobcard.component");
-    this.jobcardService.getJobs()
-      .then(
-        (jobs) =>{
-          console.log("in then "+ jobs);
-          this.jobs = jobs;         
-        }
-      )
   }
 
 }
