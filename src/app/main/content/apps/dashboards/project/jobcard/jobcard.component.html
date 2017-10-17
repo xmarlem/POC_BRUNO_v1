@@ -20,7 +20,9 @@
   <md-divider></md-divider>
 
   <div class="terms" fxLayout="column">
-      <div class="term">
+    {{job.description | highlightfirstword}}
+
+     <div class="term">
           <span class="text-bold">Provide</span>
           technical guidance on proper and efficient application setup on a Hadoop platform
       </div>
