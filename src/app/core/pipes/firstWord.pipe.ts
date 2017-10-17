@@ -1,15 +1,19 @@
+
+
+
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'highlightfirstword',
+    name: 'firstword',
     pure: false
 })
-export class HighlightFirstWord implements PipeTransform
+export class FirstWord implements PipeTransform
 {
     transform(value: string): any
     {
         let firstword:string = this.getFirstWord(value);
-        return value.replace(firstword, firstword.toUpperCase());
+//        return value.replace(firstword, firstword.toUpperCase());
+        return firstword;
     }
 
 

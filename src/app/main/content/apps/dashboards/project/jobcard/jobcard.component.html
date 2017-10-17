@@ -20,7 +20,7 @@
   <md-divider></md-divider>
 
   <div class="terms" fxLayout="column">
-    {{job.description | highlightfirstword}}
+    <span class="text-bold">{{job.description | firstword}}</span>
 
      <div class="term">
           <span class="text-bold">Provide</span>
