@@ -19,7 +19,7 @@ export class CalendarFakeDb
                 {
                     start    : subDays(startOfDay(new Date()), 1),
                     end      : addDays(new Date(), 1),
-                    title    : 'A 3 day event',
+                    title    : 'Workshop for the Puzzle project.',
                     allDay   : false,
                     color    : {
                         primary  : '#ad2121',
@@ -32,12 +32,13 @@ export class CalendarFakeDb
                     draggable: true,
                     meta     : {
                         location: 'Zurich',
-                        notes   : 'Appointment in UH2 with Mr. John Doe'
+                        notes   : 'Appointment in Auditorium UH1'
                     }
                 },
                 {
                     start    : startOfDay(new Date()),
-                    title    : 'An event with no end date',
+                    end      : startOfDay(new Date()),                    
+                    title    : 'Job interview for position as "Jap developer"',
                     allDay   : false,
                     color    : {
                         primary  : '#e3bc08',
@@ -49,14 +50,14 @@ export class CalendarFakeDb
                     },
                     draggable: true,
                     meta     : {
-                        location: 'Los Angeles',
-                        notes   : 'Eos eu verear adipiscing, ex ornatus denique iracundia sed, quodsi oportere appellantur an pri.'
+                        location: 'Zurich',
+                        notes   : 'Appointment in UH2 with Mr. Bruno Sonetto'
                     }
                 },
                 {
                     start    : subDays(endOfMonth(new Date()), 3),
                     end      : addDays(endOfMonth(new Date()), 3),
-                    title    : 'A long event that spans 2 months',
+                    title    : 'Test Data Shop - Sprint 8',
                     allDay   : false,
                     color    : {
                         primary  : '#1e90ff',
@@ -69,7 +70,7 @@ export class CalendarFakeDb
                     draggable: true,
                     meta     : {
                         location: 'Zurich',
-                        notes   : 'Workshop for the Puzzle project.'
+                        notes   : 'Current sprint of Test Data Shop'
                     }
                 },
                 {

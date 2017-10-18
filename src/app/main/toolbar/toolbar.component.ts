@@ -106,6 +106,20 @@ export class FuseToolbarComponent
 
     }
 
+    logout(){
+        this.authenticationService.logout()
+            .then(
+                () => {
+                    this.router.navigate(['pages/auth/login-2'])
+                        // .then(
+                        //     (u) => console.log(u)
+                        // )
+                    //console.log("Logout done!");
+                }
+            )
+            
+    }
+
     search(value)
     {
         // Do your search here...

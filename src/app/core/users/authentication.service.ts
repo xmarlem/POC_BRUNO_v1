@@ -8,14 +8,13 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthenticationService {
     
-    //current user
-    onCurrentUser: BehaviorSubject<any>;
-    onCurrentUserValidationErrors: BehaviorSubject<any>;
-    currentUser: any;
+//current user
+onCurrentUser: BehaviorSubject<any>;
+onCurrentUserValidationErrors: BehaviorSubject<any>;
+currentUser: any;
     
     
-    //MLML
-
+//MLML
 constructor(
         private afAuth:AngularFireAuth,
         private usersService:UsersService
@@ -27,17 +26,18 @@ constructor(
             this.loadCurrentUser();
         }
 
+/** no longer used */
 login(email:string, password:string){
-    console.log("AuthService::login called " );
+    //console.log("AuthService::login called " );
     
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then(
             (user) => {
-                console.log("AuthService:: GOT Response from signInWithEmailAndp...setting currentUser also in localStorage " );
+                //console.log("AuthService:: GOT Response from signInWithEmailAndp...setting currentUser also in localStorage " );
                 //first I read from db the full information about the user
                 this.currentUser = this.usersService.getUserByEmail(user.email)
                 localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-                console.log("AuthService:: firing the next event to subscribers + currentUser: " + this.currentUser);
+                //console.log("AuthService:: firing the next event to subscribers + currentUser: " + this.currentUser);
                 //this.onCurrentUser.next(this.currentUser);   
             }
             
@@ -50,15 +50,16 @@ login(email:string, password:string){
 }
         
 login2(email:string, password:string):Observable<any>{
-    console.log("AuthService::login called " );
+    //console.log("AuthService::login called " );
     
     return Observable.fromPromise(this.afAuth.auth.signInWithEmailAndPassword(email, password))
         .map( user => {
-            console.log("AuthService:: GOT Response from signInWithEmailAndp...setting currentUser also in localStorage " );
+            //console.log("AuthService:: GOT Response from signInWithEmailAndp...setting currentUser also in localStorage " );
             //first I read from db the full information about the user
             this.currentUser = this.usersService.getUserByEmail(user.email)
             localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-            console.log("AuthService:: firing the next event to subscribers + currentUser: " + this.currentUser);
+            //console.log("AuthService:: firing the next event to subscribers + currentUser: " + this.currentUser.role);
+            return this.currentUser;
         } );
 }
 
@@ -71,31 +72,7 @@ loadCurrentUser(){
     }
 }
 
-// login(email:string, password:string):Promise<any>{
-//     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
-// }
 
-// setUser(u){
-// //MLML
-//         let email = u.email;
-//         this.afs.firestore.collection('users').where("email", "==", email).get()
-//         .then((querySnapshot) => {
-//             querySnapshot.forEach( (doc) => {
-//                 if (doc.exists) {
-//                     console.log("Document data:", doc.data().urlPhoto);
-                    
-//                     this.currentUser.urlPhoto = doc.data().urlPhoto;
-
-//                     console.log(this.currentUser);
-//                 } else {
-//                     console.log("No such document!");
-//                 }    
-//             })
-//         })
-//         .catch( (err) => {
-//             console.log("Error getting document:", err);
-//         });
-//   }
 logout():Promise<any> {
     localStorage.removeItem('currentUser');
     return this.afAuth.auth.signOut();

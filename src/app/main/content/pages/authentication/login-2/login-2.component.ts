@@ -57,38 +57,6 @@ export class FuseLogin2Component implements OnInit, OnDestroy
             password: {}
         };
 
-        // //MLML
-        // this.authService.onCurrentUser
-        //     .subscribe(
-        //         (u) => {
-        //             console.log("prima di if(u)");
-        //             if(u !== null){
-        //                 console.log("OnNext event received... in onCurrentUser, am about to navigate to home " +u);
-        //                 this.router.navigate(['']);                            
-        //             }
-        //         },
-        //         (err) => {
-        //             if(err){
-        //                 console.log("Errore su onCurrentUser..."+ err);
-        //                 this.messageService.add({severity:'error', summary:'Error', detail:err});
-        //                 this.snackBar.open(err,"Error!", {
-        //                     duration: 2000,
-        //                 })        
-        //             }
-        //         }
-        //     )
-        // this.authService.onCurrentUserValidationErrors
-        //     .subscribe(
-        //         (err) => {
-        //             console.log("Errore password!! voglio scatenare un messaggio..."+ err);
-        //             this.messageService.add({severity:'error', summary:'Error', detail:err});
-        //             this.snackBar.open(err,"Error!", {
-        //                 duration: 2000,
-        //             })    
-                    
-        //         }
-        //     )
-
     }
 
     ngOnInit()
@@ -135,11 +103,18 @@ export class FuseLogin2Component implements OnInit, OnDestroy
         this.onLogin = this.authService.login2(email, password)
             .subscribe(
                 (user) => {
-                    console.log("In onNext ... ");
-                    this.router.navigate(['']);                            
+                    console.log("In onNext ... " + user.role);
+                    //let role = JSON.parse(localStorage.getItem('currentUser')).role;
+                    
+                    if(user.role === 'user'){
+                        this.router.navigate(['']);                                                    
+                    }
+                    else if(user.role === 'publisher'){
+                        this.router.navigate(['apps/todo/all']);                                                                            
+                    }
                 },
                 (err) => {
-                    console.log("Errore password!! voglio scatenare un messaggio..."+ err);
+                    //console.log("Errore password!! voglio scatenare un messaggio..."+ err);
                     this.messageService.add({severity:'error', summary:'Error', detail:err});
                     this.snackBar.open(err,"Error!", {
                         duration: 2000,
@@ -150,27 +125,11 @@ export class FuseLogin2Component implements OnInit, OnDestroy
     }
 
 
-
+    //no longer used
     login(){
         let email:string = this.loginForm.get('email').value;
         let password:string = this.loginForm.get('password').value;
         this.authService.login(email, password);
-
-        // //console.log('In login:', email, password );
-        // this.authService.login(email,password)
-        //     .then( user => {
-        //         //Here I store the user in the localStorage
-        //         localStorage.setItem('currentUser', JSON.stringify(user));
-        //         //this.authService.setUser(user);
-        //         console.log(localStorage.getItem('currentUser'));
-        //         this.router.navigate(['']);
-        //     })
-        //     .catch( err => {
-        //         this.messageService.add({severity:'error', summary:'Error', detail:err.message});
-        //         this.snackBar.open(err.message,"Error!", {
-        //             duration: 2000,
-        //         })
-        //     });
 
     }
 
