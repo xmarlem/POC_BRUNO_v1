@@ -18,6 +18,13 @@ export class FuseTodoDetailsComponent implements OnInit, OnDestroy
     tags: any[];
     formType: string;
     todoForm: FormGroup;
+    //MLML
+    jobAllocationTypeOptions: any[] = [
+        'Full-time',
+        'Part-time'
+    ];
+
+
     @ViewChild('titleInput') titleInputField;
 
     onFormChange: any;

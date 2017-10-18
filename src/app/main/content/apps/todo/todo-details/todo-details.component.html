@@ -83,11 +83,21 @@
                     <md-datepicker #startDatePicker></md-datepicker>
                 </md-form-field>
 
-                <md-form-field fxFlex>
+
+                <md-form-field>
+                    <input type="text" mdInput placeholder="Allocation type" [mdAutocomplete]="auto">
+                    <md-autocomplete #auto="mdAutocomplete">
+                        <md-option *ngFor="let option of jobAllocationTypeOptions" [value]="option">
+                          {{ option }}
+                        </md-option>
+                      </md-autocomplete>
+                </md-form-field>
+
+                <!-- <md-form-field fxFlex>
                     <input mdInput [mdDatepicker]="dueDatePicker" placeholder="Due Date">
                     <md-datepicker-toggle mdSuffix [for]="dueDatePicker"></md-datepicker-toggle>
                     <md-datepicker #dueDatePicker></md-datepicker>
-                </md-form-field>
+                </md-form-field> -->
 
             </div>
 <!-- JOB POSITION DESCRIPTION -->
