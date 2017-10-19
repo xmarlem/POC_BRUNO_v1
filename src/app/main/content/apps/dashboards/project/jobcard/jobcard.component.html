@@ -19,9 +19,11 @@
 
   <md-divider></md-divider>
 
-  <div class="terms" fxLayout="column">
-    <span class="text-bold">{{job.description | firstword}}</span>
-
+  <div class="terms" fxLayout="column" fusePerfectScrollbar>
+    <div class="term">
+        <span class="text-bold">{{job.description | firstword}}</span> <span> {{job.description | exceptfirstword}}</span>
+    </div>
+<!--
      <div class="term">
           <span class="text-bold">Provide</span>
           technical guidance on proper and efficient application setup on a Hadoop platform
@@ -34,6 +36,8 @@
           <span class="text-bold">Support</span>
           software vendor to ensure application software is installed correctly and all current maintenance levels have been applied.
       </div>
+    -->
+
   </div>
 
   <button md-raised-button class="cta-button" color="accent">APPLY NOW</button>

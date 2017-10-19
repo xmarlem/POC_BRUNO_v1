@@ -32,8 +32,8 @@ export class FuseMailMainSidenavComponent implements OnInit, OnDestroy
     {
         // Data
         this.accounts = {
-            'creapond'    : 'johndoe@creapond.com',
-            'withinpixels': 'johndoe@withinpixels.com'
+            'creapond'    : 'marco@credit-suisse.com',
+            'withinpixels': 'marco@gmail.com'
         };
 
         this.selectedAccount = 'creapond';

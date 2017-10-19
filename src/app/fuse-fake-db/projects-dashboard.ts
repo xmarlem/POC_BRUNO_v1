@@ -112,34 +112,34 @@ export class ProjectsDashboardDb
                 'count': 4,
                 'extra': {
                     'label': 'This month',
-                    'count': 2
+                    'count': 6
                 }
             },
             'detail': 'This is the number of projects recently started in Credit Suisse.'
         },
         'widget3'      : {
-            'title' : 'Issues',
+            'title' : 'N. of recruiters',
             'data'  : {
-                'label': 'OPEN',
-                'count': 32,
+                'label': 'RECRUITERS',
+                'count': 432,
                 'extra': {
-                    'label': 'Closed today',
-                    'count': 0
+                    'label': 'in Zurich',
+                    'count': 15
                 }
             },
-            'detail': 'You can show some detailed information about this widget in here.'
+            'detail': 'Number of CS recruiters looking for resources. Updated to last month.'
         },
         'widget4'      : {
-            'title' : 'Features',
+            'title' : 'N. of job seeker',
             'data'  : {
-                'label': 'PROPOSALS',
-                'count': 42,
+                'label': 'RESOURCES',
+                'count': 1520,
                 'extra': {
-                    'label': 'Implemented',
-                    'count': 8
+                    'label': 'in Zurich',
+                    'count': 170  
                 }
             },
-            'detail': 'You can show some detailed information about this widget in here.'
+            'detail': 'Number of CS employees seeking for a new job position.'
         },
         'widget5'      : {
             'title'     : 'Github Issues',

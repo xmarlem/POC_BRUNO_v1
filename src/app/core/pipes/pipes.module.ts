@@ -1,4 +1,3 @@
-import { FirstWord } from './firstWord.pipe';
 import { HighlightPipe } from './highlightPipe.pipe';
 import { NgModule } from '@angular/core';
 
@@ -7,6 +6,8 @@ import { GetByIdPipe } from './getById.pipe';
 import { HtmlToPlaintextPipe } from './htmlToPlaintext.pipe';
 import { FilterPipe } from './filter.pipe';
 import { CamelCaseToDashPipe } from './camelCaseToDash.pipe';
+import { ExceptFirstWord } from './exceptFirstWord.pipe';
+import { FirstWord } from './firstWord.pipe';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { CamelCaseToDashPipe } from './camelCaseToDash.pipe';
         FilterPipe,
         CamelCaseToDashPipe,
         FirstWord, //ML
-        HighlightPipe //ML
+        HighlightPipe, //ML
+        ExceptFirstWord
 
     ],
     imports     : [],
@@ -27,7 +29,8 @@ import { CamelCaseToDashPipe } from './camelCaseToDash.pipe';
         FilterPipe,
         CamelCaseToDashPipe,
         FirstWord, //ML
-        HighlightPipe //ML
+        HighlightPipe, //ML
+        ExceptFirstWord //ML
     ]
 })
 

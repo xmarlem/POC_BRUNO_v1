@@ -4,46 +4,23 @@ export class MailFakeDb
         {
             'id'            : '15459251a6d6b397565',
             'from'          : {
-                'name'  : 'Alice Freeman',
-                'avatar': 'assets/images/avatars/alice.jpg',
-                'email' : 'alicefreeman@creapond.com'
+                'name'  : 'Bruno Sonetto',
+                'avatar': 'assets/images/avatars/profilo_bruno.jpg',
+                'email' : 'bruno@gmail.com'
             },
             'to'            : [
                 {
                     'name' : 'me',
-                    'email': 'johndoe@creapond.com'
+                    'email': 'marco@gmail.com'
                 }
             ],
-            'subject'       : 'Commits that need to be pushed lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            'message'       : '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lorem diam, pulvinar id nisl non, ultrices maximus nibh. Suspendisse ut justo velit. Nullam ac ultrices risus, quis auctor orci. Vestibulum volutpat nisi et neque porta ullamcorper. Maecenas porttitor porta erat ac suscipit. Sed cursus leo ut elementum fringilla. Maecenas semper viverra erat, vel ullamcorper dui efficitur in. Vestibulum placerat imperdiet tellus, et tincidunt eros posuere eget. Proin sit amet facilisis libero. Nulla eget est ut erat aliquet rhoncus. Quisque ac urna vitae dui hendrerit sollicitudin vel id sem. </p><p> In eget ante sapien. Quisque consequat velit non ante finibus, vel placerat erat ultricies. Aliquam bibendum justo erat, ultrices vehicula dolor elementum a. Mauris eu nisl feugiat ligula molestie eleifend. Aliquam efficitur venenatis velit ac porta. Vivamus vitae pulvinar tellus. Donec odio enim, auctor eget nibh mattis, ultricies dignissim lacus. Phasellus non tincidunt dui. Nulla eu arcu lorem. </p><p> Donec non hendrerit augue, lobortis sollicitudin odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis sit amet euismod enim, eget vestibulum justo. Fusce a placerat lectus, eget feugiat purus. Cras risus ante, faucibus eget justo commodo, volutpat tempor ante. Donec sit amet leo venenatis, gravida quam sit amet, blandit dui. In quam ante, elementum ut faucibus nec, tristique vitae dui. Praesent vel erat at enim placerat luctus vel ut ipsum. In congue tempor mi, non ornare lectus condimentum at. Aenean libero diam, finibus eget sapien et, tristique fermentum lorem. </p>',
-            'time'          : '28 Jun',
+            'subject'       : 'Job interview in UH2 - 15th floor - RED Area.',
+            'message'       : '<p> Hi Marco, I am setting this appointment up for a job interview here in Uetlihof. </p><p> Is this timeslot working for you? If not, please suggest when is feasible for you. Please let me know <b>asap</b>. </p><p>Thanks in advance and Best Regards. </p><p><i>Bruno Sonetto</i>. </p>',
+            'time'          : '16 Oct',
             'read'          : false,
-            'starred'       : false,
+            'starred'       : true,
             'important'     : true,
-            'hasAttachments': true,
-            'attachments'   : [
-                {
-                    'type'    : 'image',
-                    'fileName': 'flowers',
-                    'preview' : 'assets/images/etc/flowers-thumb.jpg',
-                    'url'     : '',
-                    'size'    : '1.1Mb'
-                },
-                {
-                    'type'    : 'image',
-                    'fileName': 'snow',
-                    'preview' : 'assets/images/etc/snow-thumb.jpg',
-                    'url'     : '',
-                    'size'    : '380kb'
-                },
-                {
-                    'type'    : 'image',
-                    'fileName': 'sunrise',
-                    'preview' : 'assets/images/etc/sunrise-thumb.jpg',
-                    'url'     : 'assets/images/etc/early-sunrise.jpg',
-                    'size'    : '17Mb'
-                }
-            ],
+            'hasAttachments': false,
             'labels'        : [
                 1
             ],
@@ -68,7 +45,30 @@ export class MailFakeDb
             'read'          : false,
             'starred'       : false,
             'important'     : false,
-            'hasAttachments': false,
+            'hasAttachments': true,
+            'attachments'   : [
+                {
+                    'type'    : 'image',
+                    'fileName': 'flowers',
+                    'preview' : 'assets/images/etc/flowers-thumb.jpg',
+                    'url'     : '',
+                    'size'    : '1.1Mb'
+                },
+                {
+                    'type'    : 'image',
+                    'fileName': 'snow',
+                    'preview' : 'assets/images/etc/snow-thumb.jpg',
+                    'url'     : '',
+                    'size'    : '380kb'
+                },
+                {
+                    'type'    : 'image',
+                    'fileName': 'sunrise',
+                    'preview' : 'assets/images/etc/sunrise-thumb.jpg',
+                    'url'     : 'assets/images/etc/early-sunrise.jpg',
+                    'size'    : '17Mb'
+                }
+            ],            
             'labels'        : [],
             'folder'        : 0
         },
@@ -461,8 +461,8 @@ export class MailFakeDb
         },
         {
             'id'    : 1,
-            'handle': 'paypal',
-            'title' : 'Paypal',
+            'handle': 'jobinterview',
+            'title' : 'Job Interview',
             'color' : '#d84315'
         },
         {
