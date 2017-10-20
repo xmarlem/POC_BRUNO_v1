@@ -1672,13 +1672,13 @@ export class ProjectsDashboardDb
                         'title': 'Total Budget'
                     },
                     {
-                        'title': 'Spent ($)'
+                        'title': 'Spent (Fr.)'
                     },
                     {
                         'title': 'Spent (%)'
                     },
                     {
-                        'title': 'Remaining ($)'
+                        'title': 'Remaining (Fr.)'
                     },
                     {
                         'title': 'Remaining (%)'
@@ -1692,12 +1692,12 @@ export class ProjectsDashboardDb
                             'icon'   : ''
                         },
                         {
-                            'value'  : '$14,880.00',
+                            'value'  : 'Fr. 14,880.00',
                             'classes': 'text-bold',
                             'icon'   : ''
                         },
                         {
-                            'value'  : '$14,000.00',
+                            'value'  : 'Fr. 14,000.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1707,7 +1707,7 @@ export class ProjectsDashboardDb
                             'icon'   : 'trending_up'
                         },
                         {
-                            'value'  : '$880.00',
+                            'value'  : 'Fr. 880.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1724,12 +1724,12 @@ export class ProjectsDashboardDb
                             'icon'   : ''
                         },
                         {
-                            'value'  : '$21,080.00',
+                            'value'  : 'Fr. 21,080.00',
                             'classes': 'text-bold',
                             'icon'   : ''
                         },
                         {
-                            'value'  : '$17,240.34',
+                            'value'  : 'Fr. 17,240.34',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1739,7 +1739,7 @@ export class ProjectsDashboardDb
                             'icon'   : 'trending_up'
                         },
                         {
-                            'value'  : '$3,839.66',
+                            'value'  : 'Fr. 3,839.66',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1756,12 +1756,12 @@ export class ProjectsDashboardDb
                             'icon'   : ''
                         },
                         {
-                            'value'  : '$34,720.00',
+                            'value'  : 'Fr. 34,720.00',
                             'classes': 'text-bold',
                             'icon'   : ''
                         },
                         {
-                            'value'  : '$3,518.00',
+                            'value'  : 'Fr. 3,518.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1771,7 +1771,7 @@ export class ProjectsDashboardDb
                             'icon'   : 'trending_down'
                         },
                         {
-                            'value'  : '$31,202.00',
+                            'value'  : 'Fr. 31,202.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1788,12 +1788,12 @@ export class ProjectsDashboardDb
                             'icon'   : ''
                         },
                         {
-                            'value'  : '$34,720.00',
+                            'value'  : 'Fr. 34,720.00',
                             'classes': 'text-bold',
                             'icon'   : ''
                         },
                         {
-                            'value'  : '$0.00',
+                            'value'  : 'Fr. 0.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1803,7 +1803,7 @@ export class ProjectsDashboardDb
                             'icon'   : 'trending_flat'
                         },
                         {
-                            'value'  : '$34,720.00',
+                            'value'  : 'Fr. 34,720.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1820,12 +1820,12 @@ export class ProjectsDashboardDb
                             'icon'   : ''
                         },
                         {
-                            'value'  : '$18,600.00',
+                            'value'  : 'Fr. 18,600.00',
                             'classes': 'text-bold',
                             'icon'   : ''
                         },
                         {
-                            'value'  : '$0.00',
+                            'value'  : 'Fr. 0.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1835,7 +1835,7 @@ export class ProjectsDashboardDb
                             'icon'   : 'trending_flat'
                         },
                         {
-                            'value'  : '$34,720.00',
+                            'value'  : 'Fr. 34,720.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -2015,7 +2015,7 @@ export class ProjectsDashboardDb
         },
         'weatherWidget': {
             'locations'      : {
-                'NewYork': {
+                'Zurich': {
                     'name'           : 'Zurich',
                     'icon'           : 'icon-rainy2',
                     'temp'           : {
@@ -2056,7 +2056,7 @@ export class ProjectsDashboardDb
                     ]
                 }
             },
-            'currentLocation': 'NewYork',
+            'currentLocation': 'Zurich',
             'tempUnit'       : 'C',
             'speedUnit'      : 'KMH'
         }

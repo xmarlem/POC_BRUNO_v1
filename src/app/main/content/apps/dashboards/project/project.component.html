@@ -39,7 +39,7 @@
     
                     <mat-tab-group dynamicHeight>
     
-                        <mat-tab label="Open Job positions for you!">
+                        <mat-tab label="Open positions for you!">
     
                             <!-- LATEST OPEN POSITIONS -->
                                 <div class="widget-group p-12" fxLayout="row" fxFlex="100" fxLayoutWrap *fuseIfOnDom >
@@ -466,7 +466,7 @@
                                             <div fxFlex="0 1 auto">
                                                 <div class="h4 secondary-text">{{widgets.widget9.weeklySpent.title}}</div>
                                                 <div class="pt-8 mat-display-1 m-0 font-weight-300 text-nowrap">
-                                                    <span class="secondary-text">$</span>
+                                                    <span class="secondary-text">Fr.</span>
                                                     <span>{{widgets.widget9.weeklySpent.count[widget9.currentRange]}}</span>
                                                 </div>
                                             </div>
@@ -493,7 +493,7 @@
                                             <div fxFlex="0 1 auto">
                                                 <div class="h4 secondary-text">{{widgets.widget9.totalSpent.title}}</div>
                                                 <div class="pt-8 mat-display-1 m-0 font-weight-300 text-nowrap">
-                                                    <span class="secondary-text">$</span>
+                                                    <span class="secondary-text">Fr.</span>
                                                     <span>{{widgets.widget9.totalSpent.count[widget9.currentRange]}}</span>
                                                 </div>
                                             </div>
@@ -520,7 +520,7 @@
                                             <div fxFlex="0 1 auto">
                                                 <div class="h4 secondary-text">{{widgets.widget9.remaining.title}}</div>
                                                 <div class="pt-8 mat-display-1 m-0 font-weight-300 text-nowrap">
-                                                    <span class="secondary-text">$</span>
+                                                    <span class="secondary-text">Fr.</span>
                                                     <span>{{widgets.widget9.remaining.count[widget9.currentRange]}}</span>
                                                 </div>
                                             </div>
@@ -545,7 +545,7 @@
                                         <div class="p-16 border-top">
                                             <div class="h4 secondary-text">{{widgets.widget9.totalBudget.title}}</div>
                                             <div class="pt-8 mat-display-1 m-0 font-weight-300">
-                                                <span class="secondary-text">$</span>
+                                                <span class="secondary-text">Fr.</span>
                                                 <span>{{widgets.widget9.totalBudget.count}}</span>
                                             </div>
                                         </div>
@@ -601,98 +601,6 @@
     
                         </mat-tab>
     
-                        <mat-tab label="Team Members">
-    
-                            <!-- WIDGET GROUP -->
-                            <div class="widget-group" fxLayout="row" fxFlex="100" fxLayoutWrap *fuseIfOnDom [@animateStagger]="{value:'50'}">
-    
-                                <!-- WIDGET 11 -->
-                                <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="row" fxFlex="100">
-    
-                                    <!-- Front -->
-                                    <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
-    
-                                        <div class="p-24 mb-8 border-bottom" fxLayout="row" fxLayoutAlign="space-between center">
-                                            <div class="h2">{{widgets.widget11.title}}</div>
-                                            <div class="text-boxed red-bg white-fg m-0">{{widgets.widget11.table.rows.length}}
-                                                members
-                                            </div>
-                                        </div>
-    
-                                        <mat-table #table [dataSource]="widget11.dataSource">
-    
-                                            <!-- Avatar Column -->
-                                            <ng-container cdkColumnDef="avatar">
-                                                <mat-header-cell fxFlex="64px" *cdkHeaderCellDef></mat-header-cell>
-                                                <mat-cell fxFlex="64px" *cdkCellDef="let contact">
-                                                    <img class="avatar" *ngIf="contact.avatar" [alt]="contact.name"
-                                                         [src]="contact.avatar"/>
-                                                </mat-cell>
-                                            </ng-container>
-    
-                                            <!-- Name Column -->
-                                            <ng-container cdkColumnDef="name">
-                                                <mat-header-cell *cdkHeaderCellDef>Name</mat-header-cell>
-                                                <mat-cell *cdkCellDef="let contact">
-                                                    <p class="text-truncate font-weight-600">{{contact.name}} {{contact.lastName}}</p>
-                                                </mat-cell>
-                                            </ng-container>
-    
-                                            <!-- Position Column -->
-                                            <ng-container cdkColumnDef="position">
-                                                <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-sm>Position</mat-header-cell>
-                                                <mat-cell *cdkCellDef="let contact" fxHide fxShow.gt-sm>
-                                                    <p class="position text-truncate">
-                                                        {{contact.position}}
-                                                    </p>
-                                                </mat-cell>
-                                            </ng-container>
-    
-                                            <!-- Office Column -->
-                                            <ng-container cdkColumnDef="office">
-                                                <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-md>Office</mat-header-cell>
-                                                <mat-cell *cdkCellDef="let contact" fxHide fxShow.gt-md>
-                                                    <p class="office text-truncate">
-                                                        {{contact.office}}
-                                                    </p>
-                                                </mat-cell>
-                                            </ng-container>
-    
-    
-                                            <!-- Email Column -->
-                                            <ng-container cdkColumnDef="email">
-                                                <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-sm>Email</mat-header-cell>
-                                                <mat-cell *cdkCellDef="let contact" fxHide fxShow.gt-sm>
-                                                    <p class="email text-truncate">
-                                                        {{contact.email}}
-                                                    </p>
-                                                </mat-cell>
-                                            </ng-container>
-    
-                                            <!-- Phone Column -->
-                                            <ng-container cdkColumnDef="phone">
-                                                <mat-header-cell *cdkHeaderCellDef fxHide fxShow.gt-md>Phone</mat-header-cell>
-                                                <mat-cell *cdkCellDef="let contact" fxHide fxShow.gt-md>
-                                                    <p class="phone text-truncate">
-                                                        {{contact.phone}}
-                                                    </p>
-                                                </mat-cell>
-                                            </ng-container>
-    
-                                            <mat-header-row *cdkHeaderRowDef="widgets.widget11.table.columns"></mat-header-row>
-                                            <mat-row *cdkRowDef="let contact; columns: widgets.widget11.table.columns;">
-                                            </mat-row>
-                                        </mat-table>
-                                    </div>
-                                    <!-- / Front -->
-    
-                                </fuse-widget>
-                                <!-- / WIDGET 11 -->
-    
-                            </div>
-                            <!-- / WIDGET GROUP -->
-    
-                        </mat-tab>
                     </mat-tab-group>
     
                 </div>

@@ -15,6 +15,7 @@ import { ComponentsModule } from '../../../components/components.module';
 import {AuthGuardService} from '../../../../../core/users/auth-guard/auth-guard.service';
 import { JobcardComponent } from './jobcard/jobcard.component';
 import { JobsService } from 'app/main/content/apps/dashboards/project/jobs.service';
+import { JobcardDialogComponent } from './jobcard/jobcard-dialog/jobcard-dialog.component';
 
 
 
@@ -42,10 +43,12 @@ const routes: Routes = [
     declarations: [
         FuseProjectComponent,
         JobListComponentComponent,
-        JobcardComponent        
+        JobcardComponent,
+        JobcardDialogComponent        
 
 
     ],
+    entryComponents: [JobcardDialogComponent],
     providers   : [
         ProjectsDashboardService,
         //MLMLML
