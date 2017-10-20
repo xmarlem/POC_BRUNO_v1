@@ -29,8 +29,10 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
     @ViewChild(FusePerfectScrollbarDirective) fusePerfectScrollbarDirective;
 
     matchMediaWatcher: Subscription;
+    navigationServiceWatcher: Subscription;
+    fusePerfectScrollbarUpdateTimeout;
 
-    player: AnimationPlayer;  
+    player: AnimationPlayer;
 
 // //MLML
     currentUser:any = {
@@ -59,11 +61,12 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
 
         navBarService.setNavBar(this);
 
-        this.fuseNavigationService.onNavCollapseToggle.subscribe(() => {
-            setTimeout(() => {
-                this.fusePerfectScrollbarDirective.update();
-            }, 310);
-        });
+        this.navigationServiceWatcher =
+            this.fuseNavigationService.onNavCollapseToggle.subscribe(() => {
+                this.fusePerfectScrollbarUpdateTimeout = setTimeout(() => {
+                    this.fusePerfectScrollbarDirective.update();
+                }, 310);
+            });
 
         this.matchMediaWatcher =
             this.fuseMatchMedia.onMediaChange
@@ -141,6 +144,13 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
                 this.activateFolded();
             }
         }
+    }
+
+    ngOnDestroy()
+    {
+        clearTimeout(this.fusePerfectScrollbarUpdateTimeout);
+        this.matchMediaWatcher.unsubscribe();
+        this.navigationServiceWatcher.unsubscribe();
     }
 
     openBar()
@@ -267,11 +277,4 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
         }
     }
 
-    ngOnDestroy()
-    {
-        this.matchMediaWatcher.unsubscribe();
-
-        //MLML
-        //this.authService.onCurrentUser.unsubscribe();
-    }
 }

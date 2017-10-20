@@ -3,10 +3,10 @@
 #profile {
 
     .header {
-        height: 250px;
-        min-height: 250px;
-        max-height: 250px;
-        background: url('/assets/images/backgrounds/cs-1.jpg') no-repeat 0 45%;
+        height: 320px;
+        min-height: 320px;
+        max-height: 320px;
+        background: url('/assets/images/backgrounds/march.jpg') no-repeat 0 45%;
         background-size: 100% auto;
 
         .profile-image {
@@ -41,7 +41,7 @@
     .content {
         flex: 1;
 
-        md-tab-group {
+        mat-tab-group {
             height: 100%;
 
             .mat-tab-body-wrapper {

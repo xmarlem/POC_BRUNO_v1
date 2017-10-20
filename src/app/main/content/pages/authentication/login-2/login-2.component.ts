@@ -9,7 +9,7 @@ import { MessageService} from 'primeng/components/common/messageservice';
 import { AuthenticationService } from 'app/core/users/authentication.service';
 
 import {Message} from 'primeng/primeng';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 
@@ -23,7 +23,7 @@ import { Observable } from 'rxjs/Observable';
     styleUrls  : ['./login-2.component.scss'],
     animations : fuseAnimations
 })
-export class FuseLogin2Component implements OnInit, OnDestroy
+export class FuseLogin2Component implements OnInit
 {
     loginForm: FormGroup;
     loginFormErrors: any;
@@ -41,7 +41,7 @@ export class FuseLogin2Component implements OnInit, OnDestroy
         private authService:AuthenticationService,
         private router:Router,
         private messageService: MessageService,
-        private snackBar: MdSnackBar
+        private snackBar: MatSnackBar
     )
     {
         this.fuseConfig.setSettings({

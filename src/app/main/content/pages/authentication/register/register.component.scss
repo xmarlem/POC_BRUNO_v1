@@ -43,19 +43,19 @@
                     width: 100%;
                     text-align: left;
 
-                    md-input-container {
+                    mat-form-field {
                         width: 100%;
                     }
 
-                    md-checkbox {
+                    mat-checkbox {
                         margin: 0;
                     }
 
                     .terms {
-                        font-size: 13px;
                         margin: 16px 0 32px 0;
 
                         a {
+                            font-size: 16px;
                             margin-left: 4px;
                         }
                     }

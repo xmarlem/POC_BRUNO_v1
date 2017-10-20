@@ -10,7 +10,7 @@ import { JobListComponentComponent } from './job-list-component/job-list-compone
 
 //ML 
 import { ComponentsModule } from '../../../components/components.module';
-import { FusePriceTablesComponent } from 'app/main/content/components/price-tables/price-tables.component';
+//import { FusePriceTablesComponent } from 'app/main/content/components/price-tables/price-tables.component';
 //MLML 
 import {AuthGuardService} from '../../../../../core/users/auth-guard/auth-guard.service';
 import { JobcardComponent } from './jobcard/jobcard.component';

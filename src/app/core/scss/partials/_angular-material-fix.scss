@@ -1,3 +1,4 @@
+// Fix: "Icon button ripple radius is not correct on Edge & Safari"
 .mat-icon-button {
 
     .mat-button-ripple {
@@ -5,11 +6,12 @@
     }
 }
 
-md-sidenav-container {
+// Fix: "Sidenav opening with animations for the first time"
+mat-sidenav-container {
 
-    md-sidenav {
+    mat-sidenav {
 
-        &[md-is-locked-open].md-stop-transition {
+        &[mat-is-locked-open].mat-stop-transition {
             transition: none !important;
             transform: translate3d(0, 0, 0) !important;
             opacity: 0;
@@ -38,4 +40,22 @@ md-sidenav-container {
 
     .mat-drawer-content {
     }
+}
+
+// Fix: "Inconsistent font sizes across elements"
+.mat-input-wrapper {
+    font-size: 16px;
+}
+
+.mat-checkbox {
+    font-size: 16px;
+}
+
+.mat-radio-button {
+    font-size: 16px;
+}
+
+.mat-pseudo-checkbox-checked:after {
+    width: 14px;
+    height: 7px;
 }

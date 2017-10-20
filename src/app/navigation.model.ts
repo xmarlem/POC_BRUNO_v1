@@ -6,11 +6,13 @@ export class NavigationModel
     {
         this.model = [
             {
+                'id'      : 'applications',
                 'title'   : 'Applications',
                 'type'    : 'group',
                 'icon'    : 'apps',
                 'children': [
                     {
+                        'id'   : 'dashboard',
                         'title': 'Dashboard',
                         'type' : 'item',
                         'icon' : 'dashboard',
@@ -23,6 +25,7 @@ export class NavigationModel
                         
                     },
                     {
+                        'id'   : 'my-profile',
                         'title': 'My Profile',
                         'type' : 'item',
                         'icon' : 'web_asset',
@@ -30,6 +33,7 @@ export class NavigationModel
                     },
 
                     {
+                        'id'   : 'my-job-interviews',
                         'title': 'My Job interviews',
                         'type' : 'item',
                         'icon' : 'today',
@@ -41,18 +45,21 @@ export class NavigationModel
                         }
                     },
                     {
+                        'id'   : 'cs-contracts',
                         'title': 'CS Contacts',
                         'type' : 'item',
                         'icon' : 'account_box',
                         'url'  : '/apps/contacts'
                     },
                     {
+                        'id'   : 'manage-job-positions',
                         'title': 'Manage Job positions',
                         'type' : 'item',
                         'icon' : 'check_box',
                         'url'  : '/apps/todo'
                     },                    
                     {
+                        'id'   : 'mail',
                         'title': 'Mail',
                         'type' : 'item',
                         'icon' : 'email',

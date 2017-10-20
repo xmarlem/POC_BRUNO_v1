@@ -18,8 +18,8 @@ import { Job } from './job.model';
 import { fuseAnimations } from '../../../../../core/animations';
 
 
-import { FusePriceTablesComponent } from "../../../components/price-tables/price-tables.component";
-import { MdSnackBar } from '@angular/material';
+//import { FusePriceTablesComponent } from "../../../components/price-tables/price-tables.component";
+import { MatSnackBar } from '@angular/material';
 
 
 
@@ -62,7 +62,7 @@ export class FuseProjectComponent implements OnInit, OnDestroy
 
 
     constructor(private projectsDashboardService: ProjectsDashboardService,
-                private snackBar: MdSnackBar,
+                private snackBar: MatSnackBar,
                 private jobsService: JobsService)
     {
         this.projects = this.projectsDashboardService.projects;
@@ -74,7 +74,7 @@ export class FuseProjectComponent implements OnInit, OnDestroy
 
         //MLMLMLLM
         this.jobs = this.projectsDashboardService.jobs;
-        //console.log(this.jobs);
+        console.log(this.jobs);
         this.tags = [1, 4];
 
 

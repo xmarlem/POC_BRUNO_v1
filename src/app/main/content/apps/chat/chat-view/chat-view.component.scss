@@ -32,6 +32,7 @@
 
         #chat-content {
             background: transparent;
+            overflow: auto;
 
             .message-row {
                 padding: 16px;
@@ -107,7 +108,7 @@
 
             .reply-form {
 
-                md-input-container {
+                mat-form-field {
                     margin: 0;
                     padding-right: 16px;
 
@@ -120,12 +121,12 @@
                         }
                     }
 
-                    .md-errors-spacer {
+                    .mat-errors-spacer {
                         display: none;
                     }
                 }
 
-                .md-button {
+                .mat-button {
                     margin: 0;
                 }
             }

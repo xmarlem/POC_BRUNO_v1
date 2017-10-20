@@ -1,10 +1,10 @@
 <div class="job-table style-1 mat-elevation-z8" fxLayout="column" >
-  <div class="package-type md-primary-bg" fxLayout="row">
+  <div class="package-type mat-primary-bg" fxLayout="row">
       <span>{{job.title}}</span>
       
       <div *ngIf="job.isNew" class="badge">NEW</div>
-      <label fxLayoutAlign="end end" fxFlexAlign="end" class="sale text-boxed-light percentage md-green-bg md-hue-1">
-          <b mdTooltip="How much this position match to your job profile!" mdTooltipPosition="below">{{job.matching}}</b>
+      <label fxLayoutAlign="end end" fxFlexAlign="end" class="sale text-boxed-light percentage mat-green-bg mat-hue-1">
+          <b matTooltip="How much this position match to your job profile!" matTooltipPosition="below">{{job.matching}}</b>
       </label>
       <!--                                    <span class="sale md-accent-color md-hue-1">15%</span> -->
   </div>
@@ -40,5 +40,5 @@
 
   </div>
 
-  <button md-raised-button class="cta-button" color="accent">APPLY NOW</button>
+  <button mat-raised-button class="cta-button" color="accent">APPLY NOW</button>
 </div>

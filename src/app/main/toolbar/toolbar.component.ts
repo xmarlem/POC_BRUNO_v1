@@ -14,7 +14,7 @@ export class FuseToolbarComponent
     userStatusOptions: any[];
     languages: any;
     selectedLanguage: any;
-    showSpinner: boolean;
+    showLoadingBar: boolean;
     horizontalNav: boolean;
 
     //MLML
@@ -62,7 +62,7 @@ export class FuseToolbarComponent
             {
                 'id'   : 'en',
                 'title': 'English',
-                'flag' : 'en'
+                'flag' : 'us'
             },
             {
                 'id'   : 'de',
@@ -92,11 +92,11 @@ export class FuseToolbarComponent
             (event) => {
                 if ( event instanceof NavigationStart )
                 {
-                    this.showSpinner = true;
+                    this.showLoadingBar = true;
                 }
                 if ( event instanceof NavigationEnd )
                 {
-                    this.showSpinner = false;
+                    this.showLoadingBar = false;
                 }
             });
 

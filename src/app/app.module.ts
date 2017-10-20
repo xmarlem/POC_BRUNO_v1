@@ -58,10 +58,6 @@ const appRoutes: Routes = [
         loadChildren: './main/content/apps/contacts/contacts.module#FuseContactsModule'
     },
     // {
-    //     path        : 'apps/scrumboard',
-    //     loadChildren: './main/content/apps/scrumboard/scrumboard.module#FuseScrumboardModule'
-    // },
-    // {
     //      path      : '**',
     //      redirectTo: 'apps/dashboards/project'
     // },

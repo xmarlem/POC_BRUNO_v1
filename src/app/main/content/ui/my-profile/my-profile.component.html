@@ -4,8 +4,8 @@
     <div class="header md-accent-bg p-24 h-160" fxLayout="row" fxLayoutAlign="start center">
         <div fxLayout="column" fxLayoutAlign="center start">
             <div class="black-fg" fxLayout="row" fxLayoutAlign="start center">
-                <md-icon class="secondary-text s-16">home</md-icon>
-                <md-icon class="secondary-text s-16">chevron_right</md-icon>
+                <mat-icon class="secondary-text s-16">home</mat-icon>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
                 <span class="secondary-text">Info</span>
             </div>
             <div class="h1 mt-16">My Profile</div>
@@ -32,65 +32,65 @@
 
                 <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
 
-                    <md-input-container fxFlex="100">
-                        <input mdInput placeholder="Company" value="Credit Suisse">
-                    </md-input-container>
+                    <mat-input-container fxFlex="100">
+                        <input matInput placeholder="Company" value="Credit Suisse">
+                    </mat-input-container>
 
                 </div>
 
                 <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
 
-                    <md-input-container fxFlex="50">
-                        <input mdInput placeholder="First name" value="Marco">
-                        <md-error *ngIf="formErrors.firstName.required">
+                    <mat-input-container fxFlex="50">
+                        <input matInput placeholder="First name" value="Marco">
+                        <mat-error *ngIf="formErrors.firstName.required">
                             Required
-                        </md-error>
-                    </md-input-container>
+                        </mat-error>
+                    </mat-input-container>
 
-                    <md-input-container fxFlex="50">
-                        <input mdInput placeholder="Last name" value="Lembo">
-                        <md-error *ngIf="formErrors.lastName.required">
+                    <mat-input-container fxFlex="50">
+                        <input matInput placeholder="Last name" value="Lembo">
+                        <mat-error *ngIf="formErrors.lastName.required">
                             Required
-                        </md-error>
-                    </md-input-container>
+                        </mat-error>
+                    </mat-input-container>
 
                 </div>
 
                 <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto" fxLayoutWrap>
 
-                    <md-input-container fxFlex="100">
-                        <textarea mdInput placeholder="Office Address">Uetlibergstrasse 233</textarea>
-                        <md-error *ngIf="formErrors.address.required">
+                    <mat-input-container fxFlex="100">
+                        <textarea matInput placeholder="Office Address">Uetlibergstrasse 233</textarea>
+                        <mat-error *ngIf="formErrors.address.required">
                             Required
-                        </md-error>
-                    </md-input-container>
+                        </mat-error>
+                    </mat-input-container>
 
 
                 </div>
 
                 <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
 
-                    <md-input-container fxFlex="33">
-                        <input mdInput placeholder="City" value="Zürich">
-                        <md-error *ngIf="formErrors.city.required">
+                    <mat-input-container fxFlex="33">
+                        <input matInput placeholder="City" value="Zürich">
+                        <mat-error *ngIf="formErrors.city.required">
                             Required
-                        </md-error>
-                    </md-input-container>
+                        </mat-error>
+                    </mat-input-container>
 
-                    <md-input-container fxFlex="34">
-                        <input mdInput placeholder="State" value="Switzerland">
-                        <md-error *ngIf="formErrors.state.required">
+                    <mat-input-container fxFlex="34">
+                        <input matInput placeholder="State" value="Switzerland">
+                        <mat-error *ngIf="formErrors.state.required">
                             Required
-                        </md-error>
-                    </md-input-container>
+                        </mat-error>
+                    </mat-input-container>
 
-                    <md-input-container fxFlex="33">
-                        <input mdInput #postalCode placeholder="Postal Code" value="8070">
-                        <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
-                        <md-error *ngIf="formErrors.postalCode.maxlength">
+                    <mat-input-container fxFlex="33">
+                        <input matInput #postalCode placeholder="Postal Code" value="8070">
+                        <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                        <mat-error *ngIf="formErrors.postalCode.maxlength">
                             Postal Code needs to be max. {{formErrors.postalCode.maxlength.requiredLength}} characters
-                        </md-error>
-                    </md-input-container>
+                        </mat-error>
+                    </mat-input-container>
 
                 </div>
             </form>
@@ -107,7 +107,7 @@
                                 (click)="addCurrentSkill()"
 
                                 aria-label="Add Skill">
-                            <md-icon>add</md-icon>
+                            <mat-icon>add</mat-icon>
                         </button>
                 </div>
                 <!-- / ADD Skill BUTTON -->
@@ -115,30 +115,30 @@
 
                 <div [formGroup]="formCurrentSkills" class="p-10" fxLayoutGap="8px" fxLayout="row" fxLayout.ls-sm="column" fxLayoutWrap fxLayoutAlign="start center" fxFlew="1 0 auto">
                     <div formArrayName="skills" fxLayout="row" fxLayoutWrap fxLayoutGap="8px">
-                        <md-card class="skillCard" *ngFor="let skill of formCurrentSkills.get('skills')['controls']; let i=index;"  >
-                            <md-card-content [formGroupName]="i">
-                                <md-form-field>
-                                    <input type="text" [mdAutocomplete]="auto" placeholder="Skill" mdInput empty formControlName="skillName" >
-                                </md-form-field>
-                                <md-autocomplete #auto="mdAutocomplete">
-                                    <md-option *ngFor="let option of currentSkillsFilteredOptions | async" [value]="option" empty>
+                        <mat-card class="skillCard" *ngFor="let skill of formCurrentSkills.get('skills')['controls']; let i=index;"  >
+                            <mat-card-content [formGroupName]="i">
+                                <mat-form-field>
+                                    <input matInput type="text" [matAutocomplete]="auto" placeholder="Skill"  empty formControlName="skillName" >
+                                </mat-form-field>
+                                <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of currentSkillsFilteredOptions | async" [value]="option" empty>
                                        {{ option }}
-                                    </md-option>
-                                 </md-autocomplete>
+                                    </mat-option>
+                                 </mat-autocomplete>
                                         
 
                                 <div fxLayout="column">
                                     <span class="mat-caption md-primary-100-fg hint-text">Proficiency</span>
-                                    <md-slider placeholder="Proficiency" min="1" max="5" tick-interval="5" value="1" thumb-label="true" formControlName="proficiency">
-                                    </md-slider>
+                                    <mat-slider placeholder="Proficiency" min="1" max="5" tick-interval="5" value="1" thumb-label="true" formControlName="proficiency">
+                                    </mat-slider>
                                 </div>
-                            </md-card-content>
-                            <md-card-actions fxLayoutAlign="end">
+                            </mat-card-content>
+                            <mat-card-actions fxLayoutAlign="end">
                                 <button md-mini-fab color="warn"
-                                class="add-skill-button" (click)="removeCurrentSkill(i)"><md-icon>remove</md-icon></button>
-                            </md-card-actions>
+                                class="add-skill-button" (click)="removeCurrentSkill(i)"><mat-icon>remove</mat-icon></button>
+                            </mat-card-actions>
                                 
-                        </md-card>
+                        </mat-card>
                     </div>
                 </div>
             </form>
@@ -156,7 +156,7 @@
                             (click)="addAspirationalSkill()"
 
                             aria-label="Add Skill">
-                        <md-icon>add</md-icon>
+                        <mat-icon>add</mat-icon>
                     </button>
                 </div>
                 <!-- / ADD Skill BUTTON -->
@@ -164,36 +164,36 @@
 
                 <div [formGroup]="formAspirationalSkills" class="p-10" fxLayoutGap="8px" fxLayout="column" fxLayout.ls-sm="column" fxLayoutWrap fxLayoutAlign="start start" fxFlew="1 0 auto">
                     <div formArrayName="skills" fxLayout="row" fxLayoutWrap fxLayoutGap="8px">
-                        <md-card class="skillCard" *ngFor="let skill of formAspirationalSkills.get('skills')['controls']; let i=index;"  >
-                            <md-card-content [formGroupName]="i">
-                                <md-form-field>
-                                    <input type="text" [mdAutocomplete]="auto" placeholder="Skill" mdInput empty >
-                                </md-form-field>
-                                <md-autocomplete #auto="mdAutocomplete">
-                                    <md-option *ngFor="let option of aspirationalSkillsFilteredOptions | async" [value]="option" empty>
+                        <mat-card class="skillCard" *ngFor="let skill of formAspirationalSkills.get('skills')['controls']; let i=index;"  >
+                            <mat-card-content [formGroupName]="i">
+                                <mat-form-field>
+                                    <input matInput type="text" [matAutocomplete]="auto" placeholder="Skill"  empty >
+                                </mat-form-field>
+                                <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of aspirationalSkillsFilteredOptions | async" [value]="option" empty>
                                         {{ option }}
-                                    </md-option>
-                                </md-autocomplete>
+                                    </mat-option>
+                                </mat-autocomplete>
                                         
 
                                 <div fxLayout="column">
                                     <span class="mat-caption md-primary-100-fg hint-text">Proficiency</span>
-                                    <md-slider placeholder="Proficiency" min="1" max="5" tick-interval="5" value="1" thumb-label="true" formControlName="proficiency">
-                                    </md-slider>
+                                    <mat-slider placeholder="Proficiency" min="1" max="5" tick-interval="5" value="1" thumb-label="true" formControlName="proficiency">
+                                    </mat-slider>
                                 </div>
-                            </md-card-content>
-                            <md-card-actions fxLayoutAlign="end">
+                            </mat-card-content>
+                            <mat-card-actions fxLayoutAlign="end">
                                 <button md-mini-fab color="warn"
-                                class="add-skill-button" (click)="removeAspirationalSkill(i)"><md-icon>remove</md-icon></button>
-                            </md-card-actions>
+                                class="add-skill-button" (click)="removeAspirationalSkill(i)"><mat-icon>remove</mat-icon></button>
+                            </mat-card-actions>
                                 
-                        </md-card>
+                        </mat-card>
                     </div>
                 </div> <hr>
-                <md-divider></md-divider> <hr>
+                <mat-divider></mat-divider> <hr>
                         <span class="mat-caption md-primary-100-fg hint-text" fxFlex="0 0 auto">Available capacity</span>
-                        <md-slider placeholder="Capacity" min="1" max="100" tick-interval="20" value="1" thumb-label="true" #capacity >
-                        </md-slider>
+                        <mat-slider placeholder="Capacity" min="1" max="100" tick-interval="20" value="1" thumb-label="true" #capacity >
+                        </mat-slider>
                         <label fxLayoutAlign="end" class="text-boxed percentage" ><b>{{ capacity.value }} %</b></label>
         </form>
 

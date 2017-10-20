@@ -45,7 +45,7 @@ export class JobsService implements Resolve<any>
         return new Promise((resolve, reject) => {
             this.http.get('api/jobpositions')
                 .subscribe((response: any) => {
-                    this.jobs = response.data;
+                    this.jobs = response;
                     this.onJobsChanged.next(this.jobs);
                     resolve(this.jobs);
                 }, reject);
@@ -57,7 +57,7 @@ export class JobsService implements Resolve<any>
         return new Promise((resolve, reject) => {
             this.http.get('api/jobpositions/' + boardId)
                 .subscribe((response: any) => {
-                    this.board = response.data;
+                    this.board = response;
                     this.onJobChanged.next(this.board);
                     resolve(this.board);
                 }, reject);
