@@ -1,12 +1,10 @@
-<h1 mat-dialog-title>Application for this position: "{{data.title}}"</h1>
-<div mat-dialog-content>
-    <span class="text-boxed" >Full description:</span>
-    <p>{{data.description}}</p>
-</div>
-<div mat-dialog-actions >
-    <button mat-button [mat-dialog-close]="true" tabindex="2">
-        <mat-icon svgIcon="check_circle"></mat-icon> 
-        Apply
-    </button>
-    <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
-</div>
+
+  <h1 mat-dialog-title>Application for this position: "{{data.title}}"</h1>
+  <div mat-dialog-content class="tesssst">
+      <span class="text-boxed" >Ful description:</span>
+      <p>{{data.description}}</p>
+  </div>
+  <div mat-dialog-actions >
+      <button mat-button [mat-dialog-close]="true" tabindex="2">Apply</button>
+      <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+  </div>

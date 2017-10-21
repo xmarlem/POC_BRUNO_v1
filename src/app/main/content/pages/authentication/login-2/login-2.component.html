@@ -30,7 +30,7 @@
             <form name="loginForm" [formGroup]="loginForm" novalidate>
 
                 <mat-form-field>
-                    <input matInput placeholder="Email" formControlName="email" type="password">
+                    <input matInput placeholder="Email" formControlName="email">
                     <mat-error *ngIf="loginFormErrors.email.required">
                         Email is required
                     </mat-error>
@@ -40,7 +40,7 @@
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input matInput placeholder="Password" formControlName="password">
+                    <input matInput placeholder="Password" formControlName="password" type="password">
                     <mat-error *ngIf="loginFormErrors.password.required">
                         Password is required
                     </mat-error>

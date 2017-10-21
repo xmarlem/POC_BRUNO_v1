@@ -1,3 +1,4 @@
+import { TooltipPositionExample } from './../../../../../../../assets/angular-material-examples/tooltip-position/tooltip-position-example';
 import { JobcardDialogComponent } from './jobcard-dialog/jobcard-dialog.component';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatSnackBar } from '@angular/material';
 import { Component, OnInit, Input, Inject } from '@angular/core';
@@ -26,14 +27,19 @@ export class JobcardComponent implements OnInit {
 //    console.log(job);
     let dialogRef = this.dialog.open(JobcardDialogComponent, {
       //height: '400px',
-      width: '600px',
+      //width: '600px',
+      panelClass: 'jobcard-dialog',
       data: job
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed, result: ' + result);
       if(result === true){
-        this.matSnackBar.open("Submitted successfully!", "Info", {duration: 5000, extraClasses: ['mat-accent-900-bg']});
+        this.matSnackBar.open("Submitted successfully!", 
+                              "Info", 
+                              {duration: 5000, 
+                               extraClasses: ['mat-accent-900-bg']
+                              });
       }
     });
   }
