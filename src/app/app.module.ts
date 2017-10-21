@@ -32,6 +32,8 @@ import { MessageService} from 'primeng/components/common/messageservice';
 import { CoreModule } from 'app/core/core.module';
 
 
+
+
 const appRoutes: Routes = [
     {
         path        : 'apps/mail',
