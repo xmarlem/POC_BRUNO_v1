@@ -356,210 +356,97 @@
         
                                     </fuse-widget>
                                     <!-- / WIDGET 8 -->
-
+                                <!-- WIDGET 5 -->
+                                <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="row" fxFlex="100">
+                                    
+                                                                    <!-- Front -->
+                                                                    <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
+                                    
+                                                                        <div class="px-16 border-bottom" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutWrap>
+                                    
+                                                                            <div fxFlex class="py-8 h3">{{widgets.widget5.title}}</div>
+                                    
+                                                                            <div fxFlex="0 1 auto" class="py-8" fxLayout="row">
+                                                                                <button mat-button class="px-16"
+                                                                                        *ngFor="let range of widgets.widget5.ranges | keys"
+                                                                                        (click)="widget5.currentRange = range.key"
+                                                                                        [disabled]="widget5.currentRange == range.key">
+                                                                                    {{range.value}}
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                    
+                                                                        <div fxLayout="row" fxLayoutAlign="start end" fxLayoutWrap>
+                                                                            <div class="h-420 mb-16" fxLayout="row" fxFlex="100" fxFlex.gt-sm="50">
+                                                                                <ngx-charts-bar-vertical-stacked
+                                                                                    *fuseIfOnDom
+                                                                                    [scheme]="widget5.scheme"
+                                                                                    [results]="this.widgets.widget5.mainChart[this.widget5.currentRange]"
+                                                                                    [gradient]="widget5.gradient"
+                                                                                    [xAxis]="widget5.xAxis"
+                                                                                    [yAxis]="widget5.yAxis"
+                                                                                    [legend]="widget5.legend"
+                                                                                    [showXAxisLabel]="widget5.showXAxisLabel"
+                                                                                    [showYAxisLabel]="widget5.showYAxisLabel"
+                                                                                    [xAxisLabel]="widget5.xAxisLabel"
+                                                                                    [yAxisLabel]="widget5.yAxisLabel"
+                                                                                    (select)="widget5.onSelect($event)">
+                                                                                </ngx-charts-bar-vertical-stacked>
+                                                                            </div>
+                                    
+                                                                            <div class="mb-16" fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="row" fxLayoutWrap>
+                                    
+                                                                                <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center"
+                                                                                    *ngFor="let widget of widgets.widget5.supporting | keys">
+                                    
+                                                                                    <div class="px-24">
+                                                                                        <div class="h4 secondary-text">{{widget.value.label}}</div>
+                                                                                        <div class="mat-display-1 m-0">
+                                                                                            {{widget.value.count[widget5.currentRange]}}
+                                                                                        </div>
+                                                                                    </div>
+                                    
+                                                                                    <div class="h-64">
+                                                                                        <ngx-charts-area-chart
+                                                                                            *fuseIfOnDom
+                                                                                            [results]="widget.value.chart[widget5.currentRange]"
+                                                                                            [scheme]="widget5.supporting.scheme"
+                                                                                            [gradient]="widget5.supporting.gradient"
+                                                                                            [xAxis]="widget5.supporting.xAxis"
+                                                                                            [yAxis]="widget5.supporting.yAxis"
+                                                                                            [legend]="widget5.supporting.legend"
+                                                                                            [showXAxisLabel]="widget5.supporting.showXAxisLabel"
+                                                                                            [showYAxisLabel]="widget5.supporting.showYAxisLabel"
+                                                                                            [xAxisLabel]="widget5.supporting.xAxisLabel"
+                                                                                            [yAxisLabel]="widget5.supporting.yAxisLabel"
+                                                                                            [curve]="widget5.supporting.curve">
+                                                                                        </ngx-charts-area-chart>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- / Front -->
+                                    
+                                                                </fuse-widget>
+                            <!-- / WIDGET 5 -->
                                 </div>
                                 <!-- / WIDGET GROUP -->
                             
     
                         </mat-tab>
-    
+<!--
                         <mat-tab label="Budget Summary">
     
-                            <!-- WIDGET GROUP -->
+                            <!== WIDGET GROUP ==>
                             <div class="widget-group" fxLayout="row" fxFlex="100" fxLayoutWrap *fuseIfOnDom [@animateStagger]="{value:'50'}">
     
-                                <!-- WIDGET 5 -->
-                                <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="row" fxFlex="100">
-                                        
-                                                                        <!-- Front -->
-                                                                        <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
-                                        
-                                                                            <div class="px-16 border-bottom" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutWrap>
-                                        
-                                                                                <div fxFlex class="py-8 h3">{{widgets.widget5.title}}</div>
-                                        
-                                                                                <div fxFlex="0 1 auto" class="py-8" fxLayout="row">
-                                                                                    <button mat-button class="px-16"
-                                                                                            *ngFor="let range of widgets.widget5.ranges | keys"
-                                                                                            (click)="widget5.currentRange = range.key"
-                                                                                            [disabled]="widget5.currentRange == range.key">
-                                                                                        {{range.value}}
-                                                                                    </button>
-                                                                                </div>
-                                                                            </div>
-                                        
-                                                                            <div fxLayout="row" fxLayoutAlign="start end" fxLayoutWrap>
-                                                                                <div class="h-420 mb-16" fxLayout="row" fxFlex="100" fxFlex.gt-sm="50">
-                                                                                    <ngx-charts-bar-vertical-stacked
-                                                                                        *fuseIfOnDom
-                                                                                        [scheme]="widget5.scheme"
-                                                                                        [results]="this.widgets.widget5.mainChart[this.widget5.currentRange]"
-                                                                                        [gradient]="widget5.gradient"
-                                                                                        [xAxis]="widget5.xAxis"
-                                                                                        [yAxis]="widget5.yAxis"
-                                                                                        [legend]="widget5.legend"
-                                                                                        [showXAxisLabel]="widget5.showXAxisLabel"
-                                                                                        [showYAxisLabel]="widget5.showYAxisLabel"
-                                                                                        [xAxisLabel]="widget5.xAxisLabel"
-                                                                                        [yAxisLabel]="widget5.yAxisLabel"
-                                                                                        (select)="widget5.onSelect($event)">
-                                                                                    </ngx-charts-bar-vertical-stacked>
-                                                                                </div>
-                                        
-                                                                                <div class="mb-16" fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="row" fxLayoutWrap>
-                                        
-                                                                                    <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center"
-                                                                                        *ngFor="let widget of widgets.widget5.supporting | keys">
-                                        
-                                                                                        <div class="px-24">
-                                                                                            <div class="h4 secondary-text">{{widget.value.label}}</div>
-                                                                                            <div class="mat-display-1 m-0">
-                                                                                                {{widget.value.count[widget5.currentRange]}}
-                                                                                            </div>
-                                                                                        </div>
-                                        
-                                                                                        <div class="h-64">
-                                                                                            <ngx-charts-area-chart
-                                                                                                *fuseIfOnDom
-                                                                                                [results]="widget.value.chart[widget5.currentRange]"
-                                                                                                [scheme]="widget5.supporting.scheme"
-                                                                                                [gradient]="widget5.supporting.gradient"
-                                                                                                [xAxis]="widget5.supporting.xAxis"
-                                                                                                [yAxis]="widget5.supporting.yAxis"
-                                                                                                [legend]="widget5.supporting.legend"
-                                                                                                [showXAxisLabel]="widget5.supporting.showXAxisLabel"
-                                                                                                [showYAxisLabel]="widget5.supporting.showYAxisLabel"
-                                                                                                [xAxisLabel]="widget5.supporting.xAxisLabel"
-                                                                                                [yAxisLabel]="widget5.supporting.yAxisLabel"
-                                                                                                [curve]="widget5.supporting.curve">
-                                                                                            </ngx-charts-area-chart>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!-- / Front -->
-                                        
-                                                                    </fuse-widget>
-                                <!-- / WIDGET 5 -->
 
     
-                                <!-- WIDGET 9 -->
-                                <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="column" fxFlex="100" fxFlex.gt-sm="50">
-    
-                                    <!-- Front -->
-                                    <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
-                                        <div class="px-16 border-bottom" fxLayout="row" fxLayoutAlign="space-between center">
-                                            <div class="h3">{{widgets.widget9.title}}</div>
-                                            <mat-form-field>
-                                                <mat-select [(ngModel)]="widget9.currentRange" aria-label="Change range">
-                                                    <mat-option *ngFor="let range of widgets.widget9.ranges | keys"
-                                                                [value]="range.key">
-                                                        {{range.value}}
-                                                    </mat-option>
-                                                </mat-select>
-                                            </mat-form-field>
-                                        </div>
-    
-                                        <div class="p-16" fxLayout="column" fxLayoutAlign="center" fxLayout.gt-xs="row"
-                                             fxLayoutAlign.gt-xs="space-between end">
-                                            <div fxFlex="0 1 auto">
-                                                <div class="h4 secondary-text">{{widgets.widget9.weeklySpent.title}}</div>
-                                                <div class="pt-8 mat-display-1 m-0 font-weight-300 text-nowrap">
-                                                    <span class="secondary-text">Fr.</span>
-                                                    <span>{{widgets.widget9.weeklySpent.count[widget9.currentRange]}}</span>
-                                                </div>
-                                            </div>
-                                            <div class="h-52" fxFlex>
-                                                <ngx-charts-area-chart
-                                                    *fuseIfOnDom
-                                                    [results]="widgets.widget9.weeklySpent.chart[widget9.currentRange]"
-                                                    [scheme]="widget9.scheme"
-                                                    [gradient]="widget9.gradient"
-                                                    [xAxis]="widget9.xAxis"
-                                                    [yAxis]="widget9.yAxis"
-                                                    [legend]="widget9.legend"
-                                                    [showXAxisLabel]="widget9.showXAxisLabel"
-                                                    [showYAxisLabel]="widget9.showYAxisLabel"
-                                                    [xAxisLabel]="widget9.xAxisLabel"
-                                                    [yAxisLabel]="widget9.yAxisLabel"
-                                                    [curve]="widget9.curve">
-                                                </ngx-charts-area-chart>
-                                            </div>
-                                        </div>
-    
-                                        <div class="p-16" fxLayout="column" fxLayoutAlign="center" fxLayout.gt-xs="row"
-                                             fxLayoutAlign.gt-xs="space-between end">
-                                            <div fxFlex="0 1 auto">
-                                                <div class="h4 secondary-text">{{widgets.widget9.totalSpent.title}}</div>
-                                                <div class="pt-8 mat-display-1 m-0 font-weight-300 text-nowrap">
-                                                    <span class="secondary-text">Fr.</span>
-                                                    <span>{{widgets.widget9.totalSpent.count[widget9.currentRange]}}</span>
-                                                </div>
-                                            </div>
-                                            <div class="h-52" fxFlex>
-                                                <ngx-charts-area-chart
-                                                    *fuseIfOnDom
-                                                    [results]="widgets.widget9.totalSpent.chart[widget9.currentRange]"
-                                                    [scheme]="widget9.scheme"
-                                                    [gradient]="widget9.gradient"
-                                                    [xAxis]="widget9.xAxis"
-                                                    [yAxis]="widget9.yAxis"
-                                                    [legend]="widget9.legend"
-                                                    [showXAxisLabel]="widget9.showXAxisLabel"
-                                                    [showYAxisLabel]="widget9.showYAxisLabel"
-                                                    [xAxisLabel]="widget9.xAxisLabel"
-                                                    [yAxisLabel]="widget9.yAxisLabel"
-                                                    [curve]="widget9.curve">
-                                                </ngx-charts-area-chart>
-                                            </div>
-                                        </div>
-    
-                                        <div class="p-16" fxLayout="column" fxLayoutAlign="center" fxLayout.gt-xs="row"
-                                             fxLayoutAlign.gt-xs="space-between end">
-                                            <div fxFlex="0 1 auto">
-                                                <div class="h4 secondary-text">{{widgets.widget9.remaining.title}}</div>
-                                                <div class="pt-8 mat-display-1 m-0 font-weight-300 text-nowrap">
-                                                    <span class="secondary-text">Fr.</span>
-                                                    <span>{{widgets.widget9.remaining.count[widget9.currentRange]}}</span>
-                                                </div>
-                                            </div>
-                                            <div class="h-52" fxFlex>
-                                                <ngx-charts-area-chart
-                                                    *fuseIfOnDom
-                                                    [results]="widgets.widget9.remaining.chart[widget9.currentRange]"
-                                                    [scheme]="widget9.scheme"
-                                                    [gradient]="widget9.gradient"
-                                                    [xAxis]="widget9.xAxis"
-                                                    [yAxis]="widget9.yAxis"
-                                                    [legend]="widget9.legend"
-                                                    [showXAxisLabel]="widget9.showXAxisLabel"
-                                                    [showYAxisLabel]="widget9.showYAxisLabel"
-                                                    [xAxisLabel]="widget9.xAxisLabel"
-                                                    [yAxisLabel]="widget9.yAxisLabel"
-                                                    [curve]="widget9.curve">
-                                                </ngx-charts-area-chart>
-                                            </div>
-                                        </div>
-    
-                                        <div class="p-16 border-top">
-                                            <div class="h4 secondary-text">{{widgets.widget9.totalBudget.title}}</div>
-                                            <div class="pt-8 mat-display-1 m-0 font-weight-300">
-                                                <span class="secondary-text">Fr.</span>
-                                                <span>{{widgets.widget9.totalBudget.count}}</span>
-                                            </div>
-                                        </div>
-    
-                                    </div>
-                                    <!-- / Front -->
-    
-                                </fuse-widget>
-                                <!-- / WIDGET 9 -->
-    
-                                <!-- WIDGET 10 -->
+                                <!== WIDGET 10 ==>
                                 <fuse-widget [@animate]="{value:'*',params:{y:'100%'}}" class="widget" fxLayout="row" fxFlex="100">
     
-                                    <!-- Front -->
+                                    <!== Front ==>
                                     <div class="fuse-widget-front mat-white-bg mat-elevation-z2">
     
                                         <div class="simple-table-container" ms-responsive-table>
@@ -591,16 +478,16 @@
                                         </div>
     
                                     </div>
-                                    <!-- / Front -->
+                                    <!== / Front ==>
     
                                 </fuse-widget>
-                                <!-- / WIDGET 10 -->
+                                <!== / WIDGET 10 ==>
     
                             </div>
-                            <!-- / WIDGET GROUP -->
+                            <!== / WIDGET GROUP ==>
     
                         </mat-tab>
-    
+-->
                     </mat-tab-group>
     
                 </div>

@@ -142,7 +142,7 @@ export class ProjectsDashboardDb
             'detail': 'Number of CS employees seeking for a new job position.'
         },
         'widget5'      : {
-            'title'     : 'Github Issues',
+            'title'     : 'Job Interviews in Zurich',
             'ranges'    : {
                 'TW': 'This Week',
                 'LW': 'Last Week',
@@ -154,11 +154,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Mon',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 37
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 9
                             }
                         ]
@@ -167,11 +167,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Tue',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 32
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 12
                             }
                         ]
@@ -180,11 +180,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Wed',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 39
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 9
                             }
                         ]
@@ -193,11 +193,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Thu',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 27
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 12
                             }
                         ]
@@ -206,11 +206,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Fri',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 18
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 7
                             }
                         ]
@@ -219,11 +219,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Sat',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 24
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 8
                             }
                         ]
@@ -232,11 +232,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Sun',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 20
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 16
                             }
                         ]
@@ -247,11 +247,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Mon',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 37
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 12
                             }
                         ]
@@ -260,11 +260,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Tue',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 24
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 8
                             }
                         ]
@@ -273,11 +273,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Wed',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 51
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 7
                             }
                         ]
@@ -286,11 +286,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Thu',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 31
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 13
                             }
                         ]
@@ -299,11 +299,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Fri',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 29
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 7
                             }
                         ]
@@ -312,11 +312,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Sat',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 17
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 6
                             }
                         ]
@@ -325,11 +325,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Sun',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 31
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 10
                             }
                         ]
@@ -340,11 +340,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Mon',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 42
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 11
                             }
                         ]
@@ -353,11 +353,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Tue',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 28
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 10
                             }
                         ]
@@ -366,11 +366,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Wed',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 43
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 8
                             }
                         ]
@@ -379,11 +379,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Thu',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 34
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 11
                             }
                         ]
@@ -392,11 +392,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Fri',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 20
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 8
                             }
                         ]
@@ -405,11 +405,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Sat',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 25
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 10
                             }
                         ]
@@ -418,11 +418,11 @@ export class ProjectsDashboardDb
                         'name'  : 'Sun',
                         'series': [
                             {
-                                'name' : 'issues',
+                                'name' : 'total',
                                 'value': 22
                             },
                             {
-                                'name' : 'closed issues',
+                                'name' : 'planned',
                                 'value': 17
                             }
                         ]
@@ -431,7 +431,7 @@ export class ProjectsDashboardDb
             },
             'supporting': {
                 'created'  : {
-                    'label': 'CREATED',
+                    'label': 'UETLIHOF',
                     'count': {
                         '2W': 48,
                         'LW': 46,
@@ -440,7 +440,7 @@ export class ProjectsDashboardDb
                     'chart': {
                         '2W': [
                             {
-                                'name'  : 'CREATED',
+                                'name'  : 'UETLIHOF',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -475,7 +475,7 @@ export class ProjectsDashboardDb
                         ],
                         'LW': [
                             {
-                                'name'  : 'Created',
+                                'name'  : 'UETLIHOF',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -510,7 +510,7 @@ export class ProjectsDashboardDb
                         ],
                         'TW': [
                             {
-                                'name'  : 'Created',
+                                'name'  : 'UETLIHOF',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -546,7 +546,7 @@ export class ProjectsDashboardDb
                     }
                 },
                 'closed'   : {
-                    'label': 'CLOSED',
+                    'label': 'PARADEPLATZ',
                     'count': {
                         '2W': 27,
                         'LW': 31,
@@ -555,7 +555,7 @@ export class ProjectsDashboardDb
                     'chart': {
                         '2W': [
                             {
-                                'name'  : 'CLOSED',
+                                'name'  : 'PARADEPLATZ',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -590,7 +590,7 @@ export class ProjectsDashboardDb
                         ],
                         'LW': [
                             {
-                                'name'  : 'CLOSED',
+                                'name'  : 'PARADEPLATZ',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -625,7 +625,7 @@ export class ProjectsDashboardDb
                         ],
                         'TW': [
                             {
-                                'name'  : 'CLOSED',
+                                'name'  : 'PARADEPLATZ',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -661,7 +661,7 @@ export class ProjectsDashboardDb
                     }
                 },
                 'reOpened' : {
-                    'label': 'RE-OPENED',
+                    'label': 'SIHLCITY',
                     'count': {
                         '2W': 4,
                         'LW': 5,
@@ -670,7 +670,7 @@ export class ProjectsDashboardDb
                     'chart': {
                         '2W': [
                             {
-                                'name'  : 'RE-OPENED',
+                                'name'  : 'SIHLCITY',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -705,7 +705,7 @@ export class ProjectsDashboardDb
                         ],
                         'LW': [
                             {
-                                'name'  : 'RE-OPENED',
+                                'name'  : 'SIHLCITY',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -740,7 +740,7 @@ export class ProjectsDashboardDb
                         ],
                         'TW': [
                             {
-                                'name'  : 'RE-OPENED',
+                                'name'  : 'SIHLCITY',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -776,7 +776,7 @@ export class ProjectsDashboardDb
                     }
                 },
                 'wontFix'  : {
-                    'label': 'WON\'T FIX',
+                    'label': 'GLATTPARK',
                     'count': {
                         '2W': 6,
                         'LW': 3,
@@ -785,7 +785,7 @@ export class ProjectsDashboardDb
                     'chart': {
                         '2W': [
                             {
-                                'name'  : 'WON\'T FIX',
+                                'name'  : 'GLATTPARK',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -820,7 +820,7 @@ export class ProjectsDashboardDb
                         ],
                         'LW': [
                             {
-                                'name'  : 'WON\'T FIX',
+                                'name'  : 'GLATTPARK',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -855,7 +855,7 @@ export class ProjectsDashboardDb
                         ],
                         'TW': [
                             {
-                                'name'  : 'WON\'T FIX',
+                                'name'  : 'GLATTPARK',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -891,7 +891,7 @@ export class ProjectsDashboardDb
                     }
                 },
                 'needsTest': {
-                    'label': 'NEEDS TEST',
+                    'label': 'OERLIKON (Towers)',
                     'count': {
                         '2W': 10,
                         'LW': 7,
@@ -900,7 +900,7 @@ export class ProjectsDashboardDb
                     'chart': {
                         '2W': [
                             {
-                                'name'  : 'NEEDS TEST',
+                                'name'  : 'OERLIKON (Towers)',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -935,7 +935,7 @@ export class ProjectsDashboardDb
                         ],
                         'LW': [
                             {
-                                'name'  : 'NEEDS TEST',
+                                'name'  : 'OERLIKON (Towers)',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -970,7 +970,7 @@ export class ProjectsDashboardDb
                         ],
                         'TW': [
                             {
-                                'name'  : 'NEEDS TEST',
+                                'name'  : 'OERLIKON (Towers)',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -1006,7 +1006,7 @@ export class ProjectsDashboardDb
                     }
                 },
                 'fixed'    : {
-                    'label': 'FIXED',
+                    'label': 'BADENERSTRASSE',
                     'count': {
                         '2W': 21,
                         'LW': 17,
@@ -1015,7 +1015,7 @@ export class ProjectsDashboardDb
                     'chart': {
                         '2W': [
                             {
-                                'name'  : 'FIXED',
+                                'name'  : 'BADENERSTRASSE',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -1050,7 +1050,7 @@ export class ProjectsDashboardDb
                         ],
                         'LW': [
                             {
-                                'name'  : 'FIXED',
+                                'name'  : 'BADENERSTRASSE',
                                 'series': [
                                     {
                                         'name' : 'Mon',
@@ -1085,7 +1085,7 @@ export class ProjectsDashboardDb
                         ],
                         'TW': [
                             {
-                                'name'  : 'FIXED',
+                                'name'  : 'BADENERSTRASSE',
                                 'series': [
                                     {
                                         'name' : 'Mon',
