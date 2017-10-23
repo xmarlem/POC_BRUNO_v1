@@ -8,6 +8,7 @@ import { FilterPipe } from './filter.pipe';
 import { CamelCaseToDashPipe } from './camelCaseToDash.pipe';
 import { ExceptFirstWord } from './exceptFirstWord.pipe';
 import { FirstWord } from './firstWord.pipe';
+import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,7 @@ import { FirstWord } from './firstWord.pipe';
         CamelCaseToDashPipe,
         FirstWord, //ML
         HighlightPipe, //ML
-        ExceptFirstWord
+        ExceptFirstWord, TruncatePipe
 
     ],
     imports     : [],
@@ -30,7 +31,8 @@ import { FirstWord } from './firstWord.pipe';
         CamelCaseToDashPipe,
         FirstWord, //ML
         HighlightPipe, //ML
-        ExceptFirstWord //ML
+        ExceptFirstWord, //ML
+        TruncatePipe //ML
     ]
 })
 

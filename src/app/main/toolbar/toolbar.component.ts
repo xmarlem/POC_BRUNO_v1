@@ -78,11 +78,6 @@ export class FuseToolbarComponent
                 'id'   : 'es',
                 'title': 'Spanish',
                 'flag' : 'es'
-            },
-            {
-                'id'   : 'tr',
-                'title': 'Turkish',
-                'flag' : 'tr'
             }
         ];
 
@@ -120,6 +115,14 @@ export class FuseToolbarComponent
             
     }
 
+    goToMyProfile(){
+        this.router.navigate(['ui/my-profile']);
+    }
+
+
+    goToMails(){
+        this.router.navigate(['apps/mail/inbox']);        
+    }
     search(value)
     {
         // Do your search here...
