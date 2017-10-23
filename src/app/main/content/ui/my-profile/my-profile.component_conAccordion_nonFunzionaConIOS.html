@@ -1,41 +1,49 @@
 <div id="forms" class="page-layout simple fullwidth" fxLayout="column" fusePerfectScrollbar>
-        
-            <!-- HEADER -->
-            <div class="header mat-accent-bg p-24 h-160" fxLayout="row" fxLayoutAlign="start center">
-                <div fxLayout="column" fxLayoutAlign="center start">
-                    <div class="black-fg" fxLayout="row" fxLayoutAlign="start center">
-                        <mat-icon class="secondary-text s-16">home</mat-icon>
-                        <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
-                        <span class="secondary-text">Info</span>
-                    </div>
-                    <div class="h1 mt-16">My Profile</div>
-                </div>
+
+    <!-- HEADER -->
+    <div class="header mat-accent-bg p-24 h-160" fxLayout="row" fxLayoutAlign="start center">
+        <div fxLayout="column" fxLayoutAlign="center start">
+            <div class="black-fg" fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="secondary-text s-16">home</mat-icon>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                <span class="secondary-text">Info</span>
             </div>
-            <!-- / HEADER -->
+            <div class="h1 mt-16">My Profile</div>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+
+<!-- begin ML -->
+
+    <div class="content p-24">
+
+        <p class="mb-32">
+        Here you can enter your personal data, current and aspirational skills.
+        </p>
+
+        <div fxLayout="column" fxLayoutAlign="start start"> <!-- fxLayout.gt-md="row"> -->
         
-            <!-- CONTENT -->
-        
-        <!-- begin ML -->
-        
-            <div class="content p-24">
-        
-                <p class="mb-32">
-                Here you can enter your personal data, current and aspirational skills.
-                </p>
-        
-                <div fxLayout="column" fxLayoutAlign="start start"> <!-- fxLayout.gt-md="row"> -->
+
+            <mat-accordion class="example-headers-align"> 
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Personal Data
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            <mat-icon>account_circle</mat-icon>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    
                     <form class="mat-white-bg mat-elevation-z4 p-24 mr-24 mb-24" fxLayout="column" fxLayoutAlign="start"
-                          fxFlex="1 0 auto" name="form" [formGroup]="form">
-        
-        
-                        <div class="h2 mb-24">Personal Info</div>
-        
-                        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
-        
+                    fxFlex="1 0 auto" name="form" [formGroup]="form">
+                        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">                            
                             <mat-input-container fxFlex="100">
                                 <input matInput placeholder="Company" value="Credit Suisse">
                             </mat-input-container>
-        
+            
                         </div>
         
                         <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
@@ -91,72 +99,89 @@
                                     Postal Code needs to be max. {{formErrors.postalCode.maxlength.requiredLength}} characters
                                 </mat-error>
                             </mat-input-container>
-        
                         </div>
-                    </form>
-        <!-- CURRENT SKILLS -->
-                    <form class="mat-white-bg mat-elevation-z4 p-24 mr-24 mb-24" fxLayout="column" fxLayoutAlign="start"
-                          fxFlex="1 0 auto" name="form" [formGroup]="form">
-        
-                    
-                        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
-                                <div class="h2 mb-24">Current Skills</div>
-                        </div>
-        
-        
-                        <div [formGroup]="formCurrentSkills" class="p-10" fxLayoutGap="8px" fxLayout="row" fxLayout.ls-sm="column" fxLayoutWrap fxLayoutAlign="start center" fxFlew="1 0 auto">
-                            <div formArrayName="skills" fxLayout="row" fxLayoutWrap fxLayoutGap="8px">
-                                <mat-card class="skillCard" *ngFor="let skill of formCurrentSkills.get('skills')['controls']; let i=index;"  >
-                                    <mat-card-content [formGroupName]="i">
-                                        <mat-form-field>
-                                            <input matInput type="text" [matAutocomplete]="auto" placeholder="Skill"  empty formControlName="skillName" >
-                                        </mat-form-field>
-                                        <mat-autocomplete #auto="matAutocomplete">
-                                            <mat-option *ngFor="let option of currentSkillsFilteredOptions | async" [value]="option" empty>
-                                               {{ option }}
-                                            </mat-option>
-                                         </mat-autocomplete>
-                                                
-        
-                                        <div fxLayout="column">
-                                            <span class="mat-caption mat-primary-100-fg hint-text">Proficiency</span>
-                                            <mat-slider placeholder="Proficiency" min="1" max="5" tick-interval="5" value="1" thumb-label="true" formControlName="proficiency">
-                                            </mat-slider>
-                                        </div>
-                                    </mat-card-content>
-                                    <mat-card-actions fxLayoutAlign="end">
-                                        <button mat-mini-fab color="warn"
-                                        class="add-skill-button" (click)="removeCurrentSkill(i)"><mat-icon>remove</mat-icon></button>
-                                    </mat-card-actions>
-                                        
-                                </mat-card>
-                            </div>
-                        </div>
-                        <!-- ADD Skill BUTTON -->
-                        <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
-                                <div class="h2 mb-24 secondary-text">Add new Skills...</div>
-                                <button mat-mini-fab color="green"
-                                        class="add-skill-button"
-                                        (click)="addCurrentSkill()"
-        
-                                        aria-label="Add Skill">
-                                    <mat-icon>add</mat-icon>
-                                </button>
-                        </div>
-                        <!-- / ADD Skill BUTTON -->
-        
-                        
-                    </form>
-        
-        
-        <!-- ASPIRATIONAL SKILLS -->
+                    </form>  
+
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Current Skills
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            <mat-icon>assignment_ind</mat-icon>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
                     <form class="mat-white-bg mat-elevation-z4 p-24 mr-24 mb-24" fxLayout="column" fxLayoutAlign="start"
                     fxFlex="1 0 auto" name="form" [formGroup]="form">
-        
+
+            
+                <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
+                        <div class="h2 mb-24">Current Skills</div>
+                </div>
+
+
+                <div [formGroup]="formCurrentSkills" class="p-10" fxLayoutGap="8px" fxLayout="row" fxLayout.ls-sm="column" fxLayoutWrap fxLayoutAlign="start center" fxFlew="1 0 auto">
+                    <div formArrayName="skills" fxLayout="row" fxLayoutWrap fxLayoutGap="8px">
+                        <mat-card class="skillCard" *ngFor="let skill of formCurrentSkills.get('skills')['controls']; let i=index;"  >
+                            <mat-card-content [formGroupName]="i">
+                                <mat-form-field>
+                                    <input matInput type="text" [matAutocomplete]="auto" placeholder="Skill"  empty formControlName="skillName" >
+                                </mat-form-field>
+                                <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of currentSkillsFilteredOptions | async" [value]="option" empty>
+                                        {{ option }}
+                                    </mat-option>
+                                </mat-autocomplete>
+                                        
+
+                                <div fxLayout="column">
+                                    <span class="mat-caption mat-primary-100-fg hint-text">Proficiency</span>
+                                    <mat-slider placeholder="Proficiency" min="1" max="5" tick-interval="5" value="1" thumb-label="true" formControlName="proficiency">
+                                    </mat-slider>
+                                </div>
+                            </mat-card-content>
+                            <mat-card-actions fxLayoutAlign="end">
+                                <button mat-mini-fab color="warn"
+                                class="add-skill-button" (click)="removeCurrentSkill(i)"><mat-icon>remove</mat-icon></button>
+                            </mat-card-actions>
+                                
+                        </mat-card>
+                    </div>
+                </div>
+                <!-- ADD Skill BUTTON -->
+                <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
+                        <div class="h2 mb-24 secondary-text">Add new Skills...</div>
+                        <button mat-mini-fab color="green"
+                                class="add-skill-button"
+                                (click)="addCurrentSkill()"
+
+                                aria-label="Add Skill">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                </div>
+                <!-- / ADD Skill BUTTON -->              
+            </form>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Current Skills
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            <mat-icon>photo_filter</mat-icon>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <!-- ASPIRATIONAL SKILLS -->
+                    <form class="mat-white-bg mat-elevation-z4 p-24 mr-24 mb-24" fxLayout="column" fxLayoutAlign="start"
+                    fxFlex="1 0 auto" name="form" [formGroup]="form">
+
                         <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
                         <div class="h2 mb-24">Aspirational Skills</div>
                         </div>
-        
+
                         <div [formGroup]="formAspirationalSkills" class="p-10" fxLayoutGap="8px" fxLayout="column" fxLayout.ls-sm="column" fxLayoutWrap fxLayoutAlign="start start" fxFlew="1 0 auto">
                             <div formArrayName="skills" fxLayout="row" fxLayoutWrap fxLayoutGap="8px">
                                 <mat-card class="skillCard" *ngFor="let skill of formAspirationalSkills.get('skills')['controls']; let i=index;"  >
@@ -170,7 +195,7 @@
                                             </mat-option>
                                         </mat-autocomplete>
                                                 
-        
+
                                         <div fxLayout="column">
                                             <span class="mat-caption mat-primary-100-fg hint-text">Proficiency</span>
                                             <mat-slider placeholder="Proficiency" min="1" max="5" tick-interval="5" value="1" thumb-label="true" formControlName="proficiency">
@@ -191,7 +216,7 @@
                                 <button mat-mini-fab color="green"
                                         class="add-skill-button"
                                         (click)="addAspirationalSkill()"
-        
+
                                         aria-label="Add Skill">
                                     <mat-icon>add</mat-icon>
                                 </button>
@@ -203,24 +228,24 @@
                         <mat-slider placeholder="Capacity" min="1" max="100" tick-interval="20" value="1" thumb-label="true" #capacity >
                         </mat-slider>
                         <label fxLayoutAlign="end" class="text-boxed percentage" ><b>{{ capacity.value }} %</b></label>
-                </form>
-        
-                  
-                </div>
-        <!--
-        
-                    <div class="form-errors-model mat-white-bg p-24 mat-elevation-z4">
-        
-                        <div class="h2 mb-24">Reactive Form Errors Model</div>
-        
-                        <pre><code>{{formErrors | json}}</code></pre>
-                    </div>
-        -->
-        
-            </div>
-            <!-- / CONTENT -->
-        
+                    </form>
+                </mat-expansion-panel>            
+            </mat-accordion>
+          
         </div>
-        
-        
-        
+<!--
+
+            <div class="form-errors-model mat-white-bg p-24 mat-elevation-z4">
+
+                <div class="h2 mb-24">Reactive Form Errors Model</div>
+
+                <pre><code>{{formErrors | json}}</code></pre>
+            </div>
+-->
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>
+
+

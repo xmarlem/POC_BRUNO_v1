@@ -1,7 +1,12 @@
 @import "../../../../core/scss/fuse";
 
-:host {
 
+#faq{
+    display: grid;        
+}
+
+:host {
+    
     .header {
         height: 360px;
         background: #1A237E;
@@ -68,4 +73,6 @@
         width: 100%;
         margin: 0 auto;
     }
+
+
 }

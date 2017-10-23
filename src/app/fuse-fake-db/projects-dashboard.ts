@@ -1228,6 +1228,11 @@ export class ProjectsDashboardDb
             'schedule': {
                 'T' : [
                     {
+                        'title': 'The Puzzle Project',
+                        'time' : 'October 16, 2017',
+                        'location': 'SUB'
+                    },
+                    {
                         'title'   : 'Test Data Shop',
                         'time'    : 'June 1, 2017',
                         'location': 'SUB'
@@ -1240,6 +1245,11 @@ export class ProjectsDashboardDb
                     {
                         'title': 'The Puzzle Project',
                         'time' : 'October 16, 2017',
+                        'location': 'SUB'
+                    },
+                    {
+                        'title': 'ISR',
+                        'time' : 'January 23, 2017',
                         'location': 'SUB'
                     }
                 ],
@@ -1287,16 +1297,20 @@ export class ProjectsDashboardDb
                     'value': 17
                 },
                 {
-                    'name' : 'Test Automation Manager',
+                    'name' : 'PL/1 Developer',
                     'value': 28
                 },
                 {
-                    'name' : 'Solution Architect',
+                    'name' : 'Scrum MasterTe',
                     'value': 25
                 },
                 {
                     'name' : 'Sr Oracle DB Developer',
                     'value': 15
+                },
+                {
+                    'name' : 'Solution Architect',
+                    'value': 3                    
                 }
             ]
         },

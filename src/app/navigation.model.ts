@@ -69,6 +69,12 @@ export class NavigationModel
                             'bg'   : '#F44336',
                             'fg'   : '#FFFFFF'
                         }
+                    },
+                    {
+                        'title': 'Faq',
+                        'type' : 'item',
+                        'icon' : 'help',
+                        'url'  : '/pages/faq'
                     }
                 ]
             }
