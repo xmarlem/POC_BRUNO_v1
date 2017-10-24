@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class FuseFooterComponent implements OnInit
 {
 
-    constructor()
+    constructor(private router:Router)
     {
     }
 
     ngOnInit()
     {
+    }
+
+    goToFaq(){
+        this.router.navigate(['pages/faq']);
     }
 
 }
