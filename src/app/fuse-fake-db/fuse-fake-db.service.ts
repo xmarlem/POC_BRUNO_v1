@@ -14,6 +14,7 @@ import { IconsFakeDb } from './icons';
 import { ProjectsDashboardDb } from './projects-dashboard';
 import { ScrumboardFakeDb } from './scrumboard';
 import { FaqFakeDb } from './faq';
+import { KnowledgeBaseFakeDb } from './knowledge-base';
 //ML
 import { SkillsFakeDb } from './skills';
 import { JobPositionsFakeDb } from './jobpositions';
@@ -51,6 +52,7 @@ export class FuseFakeDbService implements InMemoryDbService
             'projects-dashboard-jobPositions' : ProjectsDashboardDb.jobPositions,
             'scrumboard-boards'          : ScrumboardFakeDb.boards,
             'faq'                        : FaqFakeDb.data,
+            'knowledge-base'             : KnowledgeBaseFakeDb.data,
             //MLML
 	    'skills'                     : SkillsFakeDb.skills,
             'jobpositions'               : JobPositionsFakeDb.jobs

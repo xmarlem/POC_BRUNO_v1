@@ -5,13 +5,13 @@ fuse-main {
     flex-direction: column;
     width: 100%;
     height: 100%;
-
+/* FIX sercan: Small adjustment on the layout mode setting
     &.boxed {
         max-width: 1200px;
         margin: 0 auto;
         @include mat-elevation(8);
     }
-
+*/
     > .mat-sidenav-container {
         display: flex;
         flex: 1;
@@ -71,5 +71,11 @@ fuse-main {
                 }
             }
         }
+    }
+    //FIX sercan:  Small adjustment on the layout mode setting
+    &[fuse-layout-mode="boxed"] {
+        max-width: 1200px;
+        margin: 0 auto;
+        @include mat-elevation(8);
     }
 }

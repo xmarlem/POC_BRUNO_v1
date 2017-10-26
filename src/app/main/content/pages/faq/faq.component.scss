@@ -8,7 +8,9 @@
 :host {
     
     .header {
+        flex: 1 0 auto; // FIX sercan: Fixed: FAQ page header shrinks on small heights
         height: 360px;
+        max-height: 360px; //FIX sercan: Small adjustment on the FAQ page header
         background: #1A237E;
         background: linear-gradient(to right, #0E2A3B 0%, #34306B 100%);
 

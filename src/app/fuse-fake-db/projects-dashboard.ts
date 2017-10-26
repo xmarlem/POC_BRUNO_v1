@@ -1125,9 +1125,9 @@ export class ProjectsDashboardDb
         'widget6'      : {
             'title'      : 'Most in-demand Programming languages',
             'ranges'     : {
-                'TW': 'This Week',
-                'LW': 'Last Week',
-                '2W': '2 Weeks Ago'
+                'TW': 'This Year',
+                'LW': '2016',
+                '2W': '2015'
             },
             'mainChart'  : {
                 'TW': [

@@ -9,10 +9,10 @@ export class InvoiceFakeDb
             'website': 'www.fuseinc.com'
         },
         'client'  : {
-            'title'  : 'John Doe',
+            'title'  : 'Marco Lembo',
             'address': '9301 Wood Street Philadelphia, PA 19111',
             'phone'  : '+55 552 455 87',
-            'email'  : 'johndoe@mail.com'
+            'email'  : 'marco@mail.com'
         },
         'number'  : 'P9-0004',
         'date'    : 'Jul 19, 2015',

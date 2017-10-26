@@ -26,7 +26,7 @@ export class NavigationModel
                     },
                     {
                         'id'   : 'my-profile',
-                        'title': 'My Profile',
+                        'title': 'Profile',
                         'type' : 'item',
                         'icon' : 'web_asset',
                         'url'  : '/ui/my-profile'
@@ -34,7 +34,7 @@ export class NavigationModel
 
                     {
                         'id'   : 'my-job-interviews',
-                        'title': 'My Job interviews',
+                        'title': 'Job interviews',
                         'type' : 'item',
                         'icon' : 'today',
                         'url'  : '/apps/calendar',

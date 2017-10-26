@@ -1,8 +1,8 @@
 
   <h1 mat-dialog-title>Apply for: "{{data.title}}"</h1>
-  <div mat-dialog-content class="tesssst">
-      <span class="text-boxed" >Ful description:</span>
-      <p>{{data.description}}</p>
+  <div mat-dialog-content>
+      <span class="text-boxed" >Full description:</span>
+      <div class="content-card mat-white-bg" innerHTML={{data.description}}></div>
   </div>
   <div mat-dialog-actions >
       <button mat-button [mat-dialog-close]="true" tabindex="2">Apply</button>

@@ -19,13 +19,14 @@ import { FuseHljsComponent } from '../components/hljs/hljs.component';
 import { FusePerfectScrollbarDirective } from '../directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
 import { FuseIfOnDomDirective } from '../directives/fuse-if-on-dom/fuse-if-on-dom.directive';
 import { FuseMaterialColorPickerComponent } from '../components/material-color-picker/material-color-picker.component';
+import { FuseTranslationLoaderService } from '../services/translation-loader.service';
 import { CookieService } from 'ngx-cookie-service';
 import { MarkdownModule } from 'angular2-markdown';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 //ML
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
-
 import { GrowlModule, MessagesModule } from 'primeng/primeng';
 
 
@@ -73,7 +74,8 @@ import { GrowlModule, MessagesModule } from 'primeng/primeng';
         NgxDatatableModule,
         FuseIfOnDomDirective,
         FuseMaterialColorPickerComponent,
-        MarkdownModule
+        MarkdownModule,
+        TranslateModule
     ],
     entryComponents: [
         FuseConfirmDialogComponent
@@ -82,7 +84,8 @@ import { GrowlModule, MessagesModule } from 'primeng/primeng';
         CookieService,
         FuseMatchMedia,
         FuseNavbarVerticalService,
-        FuseMatSidenavHelperService
+        FuseMatSidenavHelperService,
+        FuseTranslationLoaderService
     ]
 })
 
