@@ -376,10 +376,13 @@ export class TodoService implements Resolve<any>
     {
         return new Promise((resolve, reject) => {
 
+            //console.log("inside update todo");
+
             this.http.post('api/todo-todos/' + todo.id, {...todo})
                 .subscribe(response => {
 
                     this.getTodos().then(todos => {
+                        //console.log(todos);
 
                         resolve(todos);
 

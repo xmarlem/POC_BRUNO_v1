@@ -1,4 +1,5 @@
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { FuseNavigationService } from './../../../../../../../core/components/navigation/navigation.service';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { Component, OnInit, Inject } from '@angular/core';
 
 @Component({
@@ -10,15 +11,49 @@ export class JobcardDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<JobcardDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any)     
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private navigationService: FuseNavigationService,
+    private matSnackBar: MatSnackBar  
+  )     
   { }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
+  onSubmit(id){
+    console.log(this.data);
+    setTimeout(()=> {
+     this.updateMailBadge(); //MLML add 1 received mail   
+     //play audio
+      //audio
+      let audio = new Audio();
+      audio.src = "assets/audio/mail.m4a";
+      audio.play();
+
+      //snack bar
+      this.matSnackBar.open("A new mail received!", 
+      "Info", 
+      {duration: 5000, 
+       extraClasses: ['mat-light-green-900-bg']
+      });
+
+
+    }
+    , 5000);
+  }
 
   ngOnInit() {
+  }
+
+
+  updateMailBadge()
+  {
+      // Get the mail nav item
+      const mailNavItem = this.navigationService.getNavigationItem('applications.mail');
+  
+      // Update the badge title
+      mailNavItem.badge.title = 26;
   }
 
 }

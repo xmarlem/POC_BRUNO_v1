@@ -18,7 +18,7 @@ export class QuickPanelFakeDb
         },
         {
             'title' : 'Job interview for SUB',
-            'detail': '20.10.2017 11:00 AM'
+            'detail': '10.11.2017 11:00 AM'
         }
     ];
 }

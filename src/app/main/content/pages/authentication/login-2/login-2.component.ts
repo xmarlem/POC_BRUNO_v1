@@ -103,7 +103,7 @@ export class FuseLogin2Component implements OnInit
         this.onLogin = this.authService.login2(email, password)
             .subscribe(
                 (user) => {
-                    console.log("In onNext ... " + user.role);
+                    //console.log("In onNext ... " + user.role);
                     //let role = JSON.parse(localStorage.getItem('currentUser')).role;
                     
                     if(user.role === 'user'){

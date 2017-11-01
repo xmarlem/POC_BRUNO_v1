@@ -4,11 +4,13 @@ export class Todo
     title: string;
     notes: string;
     startDate: string;
-    dueDate: boolean;
+    dueDate: string;
     completed: boolean;
     starred: boolean;
     important: boolean;
     deleted: boolean;
+    allocationType: number;
+    allocationPerc: number;
     tags: [
         {
             'id': number,
@@ -31,6 +33,9 @@ export class Todo
             this.important = todo.important;
             this.deleted = todo.deleted;
             this.tags = todo.tags;
+            //ML
+            this.allocationType = todo.allocationType;
+            this.allocationPerc = todo.allocationPerc;
         }
     }
 

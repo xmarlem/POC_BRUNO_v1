@@ -25,15 +25,15 @@ export class JobcardComponent implements OnInit {
 
   applyForThisPosition(job){
 //    console.log(job);
-    let dialogRef = this.dialog.open(JobcardDialogComponent, {
-      //height: '400px',
+    let dialogRef:MatDialogRef<JobcardDialogComponent> = this.dialog.open(JobcardDialogComponent, {
+      //height: '400px', //ho dovuto commentare perche' altrimenti mi spostava la finestra tutta a sx su mobile 
       //width: '600px',
       panelClass: 'jobcard-dialog',
       data: job
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed, result: ' + result);
+      console.log('The dialog was closed, result: ' + result + " Data: " + dialogRef.id);
       if(result === true){
         this.matSnackBar.open("Submitted successfully!", 
                               "Info", 

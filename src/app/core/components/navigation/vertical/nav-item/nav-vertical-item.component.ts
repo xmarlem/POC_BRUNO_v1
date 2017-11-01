@@ -23,7 +23,7 @@ export class FuseNavVerticalItemComponent implements OnInit
             if(u.email==='marco@gmail.com' && url!== '/apps/todo')
                 return true;
             else 
-                if(u.email==='bruno@gmail.com' && url=== '/apps/todo')
+                if((u.email==='bruno@gmail.com' || u.email==='stefan@gmail.com') && url=== '/apps/todo')
                     return true;
                 else 
                     return false;

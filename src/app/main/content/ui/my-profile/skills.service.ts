@@ -17,7 +17,7 @@ export class SkillsService implements Resolve<any>
 
     constructor(private http: HttpClient)
     {
-      console.log("in Skillsservice... " );
+      //console.log("in Skillsservice... " );
     }
 
     /**
@@ -50,7 +50,7 @@ export class SkillsService implements Resolve<any>
             this.http.get('api/skills')
                 .subscribe((skills: any) => {
                     this.skills = skills.data;
-                    console.log(skills.data);
+                    //console.log(skills.data);
                     this.skillsOnChanged.next(this.skills);
                     resolve(this.skills);
                 }, reject);

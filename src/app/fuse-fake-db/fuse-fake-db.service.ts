@@ -54,7 +54,7 @@ export class FuseFakeDbService implements InMemoryDbService
             'faq'                        : FaqFakeDb.data,
             'knowledge-base'             : KnowledgeBaseFakeDb.data,
             //MLML
-	    'skills'                     : SkillsFakeDb.skills,
+	        'skills'                     : SkillsFakeDb.skills,
             'jobpositions'               : JobPositionsFakeDb.jobs
         };
     }

@@ -15,7 +15,7 @@
                 aria-label="Toggle completed" fxFlex="0 1 auto">
             <mat-icon *ngIf="todo.completed">check_box</mat-icon>
             <mat-icon *ngIf="!todo.completed">check_box_outline_blank</mat-icon>
-            <span>Mark as "Assigned"</span>
+            <span>Mark as "Not Available"</span>
         </button>
 
         <div class="actions" fxLayout="row" fxLayoutAlign="start center">
@@ -78,28 +78,39 @@
             <div class="dates" fxFlexFill fxLayout="column" fxLayout.gt-xs="row">
 
                 <mat-form-field class="mr-sm-24" fxFlex>
-                    <input matInput [matDatepicker]="startDatePicker" placeholder="Start Date">
+                    <input matInput [matDatepicker]="startDatePicker" placeholder="Start Date" formControlName="startDate">
                     <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
                     <mat-datepicker #startDatePicker></mat-datepicker>
                 </mat-form-field>
 
-
                 <mat-form-field fxFlex>
-                    <input type="text" matInput placeholder="Allocation type" [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let option of jobAllocationTypeOptions" [value]="option">
-                          {{ option }}
-                        </mat-option>
-                      </mat-autocomplete>
-                </mat-form-field>
-
-                <!-- <md-form-field fxFlex>
-                    <input matInput [matDatepicker]="dueDatePicker" placeholder="Due Date">
+                    <input matInput [matDatepicker]="dueDatePicker" formControlName="dueDate" placeholder="End Date">
                     <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
                     <mat-datepicker #dueDatePicker></mat-datepicker>
-                </mat-form-field> -->
+                </mat-form-field>
+
+
+
 
             </div>
+            <div class="dates" fxFlexFill fxLayout="column" fxLayout.gt-xs="row">
+
+                <mat-form-field fxFlex>
+<!--                    <input type="text" matInput placeholder="Allocation type" [matAutocomplete]="auto" formControlName="allocationType"> -->
+                    <mat-select placeholder="Allocation Type" formControlName="allocationType" [value]="selectedAllocationType">
+                        <mat-option *ngFor="let option of jobAllocationTypeOptions" [value]="option" >
+                          {{ option }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <div fxLayout="column">
+                    <span class="mat-caption mat-primary-100-fg hint-text">Allocation Percentage</span>
+                    <mat-slider min="0" max="100" step="5" percent value="100" formControlName="allocationPerc" thumb-label="true" #perc [disabled]="disabledPercValue"></mat-slider>
+                   <!-- <label fxLayoutAlign="end center" class="text-boxed percentage" ><b>{{ perc.percent }} %</b></label> -->
+                </div>
+            </div>
+            <hr>
 
             <mat-form-field class="" fxFill>
                 <textarea matInput #notes

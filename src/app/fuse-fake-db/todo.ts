@@ -11,7 +11,9 @@ export class TodoFakeDb
             'starred'  : false,
             'important': false,
             'deleted'  : false,
-            'tags'     : [3, 1, 4]
+            'tags'     : [3, 1, 4],
+            'allocationType': 0,
+            'allocationPerc': 100
         },
         {
             'id'       : '561551bd4ac1e7eb77a3a750',
@@ -23,7 +25,9 @@ export class TodoFakeDb
             'starred'  : false,
             'important': true,
             'deleted'  : false,
-            'tags'     : [1, 3]
+            'tags'     : [1, 3],
+            'allocationType': 0,
+            'allocationPerc': 100            
         },
         {
             'id'       : '561551bd917bfec2ddef2d49',
@@ -35,7 +39,9 @@ export class TodoFakeDb
             'starred'  : true,
             'important': true,
             'deleted'  : false,
-            'tags'     : [3]
+            'tags'     : [3],
+            'allocationType': 0,
+            'allocationPerc': 100
         },
         {
             'id'       : '561551bdeeb2fd6877e18c29',
@@ -47,7 +53,9 @@ export class TodoFakeDb
             'starred'  : true,
             'important': false,
             'deleted'  : false,
-            'tags'     : [1, 3]
+            'tags'     : [1, 3],
+            'allocationType': 0,            
+            'allocationPerc': 100
         },
         {
             'id'       : '561551bdf38eae0134ae43d4',
@@ -59,7 +67,9 @@ export class TodoFakeDb
             'starred'  : false,
             'important': false,
             'deleted'  : false,
-            'tags'     : [5, 3]
+            'tags'     : [5, 3],
+            'allocationType': 0,            
+            'allocationPerc': 100
         },
         {
             'id'       : '561551bd32f1588c814a0ccd',
@@ -71,7 +81,9 @@ export class TodoFakeDb
             'starred'  : true,
             'important': false,
             'deleted'  : false,
-            'tags'     : [2, 3]
+            'tags'     : [2, 3],
+            'allocationType': 0,
+            'allocationPerc': 100            
         },
         {
             'id'       : '561551bd0bb4b08ca77038ef',

@@ -24,6 +24,9 @@ export class FuseTodoDetailsComponent implements OnInit, OnDestroy
         'Part-time'
     ];
 
+    selectedAllocationType: string;
+    disabledPercValue: boolean = true;
+
 
     @ViewChild('titleInput') titleInputField;
 
@@ -55,10 +58,27 @@ export class FuseTodoDetailsComponent implements OnInit, OnDestroy
 
                         this.todoForm = this.createTodoForm();
 
+                        console.log("in createTodoForm");    
+                        
+                        //MLMLML
+                        //this.todoForm.get('startDate').setValue(this.todo.startDate);
+                        //console.log(this.todoForm.get('startDate').setValue(this.todo.startDate));    
+
+                        
+
                         this.onFormChange = this.todoForm.valueChanges
                                                 .debounceTime(500)
                                                 .distinctUntilChanged()
                                                 .subscribe(data => {
+                                                    //ML
+                                                    if(data.allocationType==='Full-time'){
+                                                        this.disabledPercValue = true;
+                                                        this.todoForm.get('allocationPerc').setValue(100);
+                                                    }
+                                                    else
+                                                    {
+                                                        this.disabledPercValue = false;
+                                                    }
                                                     this.todoService.updateTodo(data);
                                                 });
                     }
@@ -77,7 +97,7 @@ export class FuseTodoDetailsComponent implements OnInit, OnDestroy
                                         this.todo = new Todo({});
                                         this.todo.id = FuseUtils.generateGUID();
                                         this.formType = 'new';
-                                        this.todoForm = this.createTodoForm();
+                                        this.todoForm = this.createTodoForm();                                        
                                         this.focusTitleField();
                                         this.todoService.onCurrentTodoChanged.next([this.todo, 'new']);
                                     });
@@ -92,17 +112,23 @@ export class FuseTodoDetailsComponent implements OnInit, OnDestroy
 
     createTodoForm()
     {
+        console.log(this.jobAllocationTypeOptions[this.todo.allocationType]);
+        console.log(this.todo.notes);
+        
+        
         return this.formBuilder.group({
             'id'       : [this.todo.id],
             'title'    : [this.todo.title],
             'notes'    : [this.todo.notes],
-            'startDate': [this.todo.startDate],
-            'dueDate'  : [this.todo.dueDate],
+            'startDate': [new Date(this.todo.startDate)],
+            'dueDate'  : [new Date(this.todo.dueDate)],
             'completed': [this.todo.completed],
             'starred'  : [this.todo.starred],
             'important': [this.todo.important],
             'deleted'  : [this.todo.deleted],
-            'tags'     : [this.todo.tags]
+            'tags'     : [this.todo.tags],
+            'allocationType': [this.jobAllocationTypeOptions[this.todo.allocationType]],
+            'allocationPerc': [this.todo.allocationPerc]
         });
     }
 

@@ -21,7 +21,7 @@
 
   <div class="terms" fxLayout="column" fusePerfectScrollbar>
     <div class="term">
-        <span class="text-bold">{{job.description | firstword}}</span> <span>  {{job.description | exceptfirstword | truncate: [200, '...']}}</span>
+        <span class="text-bold" innerHTML="{{job.description | firstword}}"></span> <span innerHTML="{{job.description | exceptfirstword | truncate: [200, '...']}}">  </span>
     </div>
 <!--
      <div class="term">

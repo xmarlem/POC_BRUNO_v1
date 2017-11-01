@@ -130,7 +130,7 @@ export class ProjectsDashboardDb
             'detail': 'Number of CS recruiters looking for resources. Updated to last month.'
         },
         'widget4'      : {
-            'title' : 'N. of job seeker',
+            'title' : 'N. of job seekers',
             'data'  : {
                 'label': 'RESOURCES',
                 'count': 1520,
@@ -1222,8 +1222,8 @@ export class ProjectsDashboardDb
         'widget7'      : {
             'title'   : 'Recently started projects',
             'ranges'  : {
-                'T' : 'Today',
-                'TM': 'Tomorrow'
+                'T' : 'Last Q',
+                'TM': 'This year'
             },
             'schedule': {
                 'T' : [
@@ -1249,38 +1249,44 @@ export class ProjectsDashboardDb
                     },
                     {
                         'title': 'ISR',
-                        'time' : 'January 23, 2017',
+                        'time' : 'July 23, 2017',
                         'location': 'SUB'
                     }
                 ],
                 'TM': [
                     {
-                        'title': 'Marketing Meeting',
-                        'time' : '09:00 AM'
+                        'title': 'The Puzzle Project',
+                        'time' : 'October 16, 2017',
+                        'location': 'SUB'
                     },
                     {
-                        'title': 'Public Announcement',
-                        'time' : '11:00 AM'
+                        'title'   : 'Test Data Shop',
+                        'time'    : 'June 1, 2017',
+                        'location': 'SUB'
                     },
                     {
-                        'title': 'Lunch',
-                        'time' : '12:10 PM'
+                        'title': 'Service Virtualization',
+                        'time'    : 'May 1, 2017',
+                        'location': 'SUB'
                     },
                     {
-                        'title': 'Meeting with Beta Testers',
-                        'time' : '15:00 AM'
+                        'title': 'The Puzzle Project',
+                        'time' : 'October 16, 2017',
+                        'location': 'SUB'
                     },
                     {
-                        'title': 'Live Stream',
-                        'time' : '17:30 PM'
+                        'title': 'ISR',
+                        'time' : 'July 23, 2017',
+                        'location': 'IWM'
                     },
                     {
-                        'title': 'Release Party',
-                        'time' : '19:30 PM'
+                        'title': 'BFA',
+                        'time' : 'February 23, 2017',
+                        'location': 'SUB'
                     },
                     {
-                        'title': 'CEO\'s Party',
-                        'time' : '22:30 PM'
+                        'title': 'DWH',
+                        'time' : 'January 23, 2017',
                     }
                 ]
             }

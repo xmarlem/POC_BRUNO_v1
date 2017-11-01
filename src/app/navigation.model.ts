@@ -31,7 +31,37 @@ export class NavigationModel
                         'icon' : 'web_asset',
                         'url'  : '/ui/my-profile'
                     },
-
+                    {
+                        'id'   : 'chat',
+                        'title': 'Chat',
+                        'type' : 'item',
+                        'icon' : 'chat',
+                        'url'  : '/apps/chat',
+                        'badge': {
+                            'title': 13,
+                            'bg'   : '#09d261',
+                            'fg'   : '#FFFFFF'
+                        }
+                    },
+                    {
+                        'id'   : 'cs-contracts',
+                        'title': 'CS Contacts',
+                        'type' : 'item',
+                        'icon' : 'account_box',
+                        'url'  : '/apps/contacts'
+                    },
+                    {
+                        'id'   : 'mail',
+                        'title': 'Mail',
+                        'type' : 'item',
+                        'icon' : 'email',
+                        'url'  : '/apps/mail',
+                        'badge': {
+                            'title': 25,
+                            'bg'   : '#F44336',
+                            'fg'   : '#FFFFFF'
+                        }
+                    },
                     {
                         'id'   : 'my-job-interviews',
                         'title': 'Job interviews',
@@ -45,31 +75,12 @@ export class NavigationModel
                         }
                     },
                     {
-                        'id'   : 'cs-contracts',
-                        'title': 'CS Contacts',
-                        'type' : 'item',
-                        'icon' : 'account_box',
-                        'url'  : '/apps/contacts'
-                    },
-                    {
                         'id'   : 'manage-job-positions',
                         'title': 'Manage Job positions',
                         'type' : 'item',
                         'icon' : 'check_box',
                         'url'  : '/apps/todo'
                     },                    
-                    {
-                        'id'   : 'mail',
-                        'title': 'Mail',
-                        'type' : 'item',
-                        'icon' : 'email',
-                        'url'  : '/apps/mail',
-                        'badge': {
-                            'title': 25,
-                            'bg'   : '#F44336',
-                            'fg'   : '#FFFFFF'
-                        }
-                    },
                     {
                         'title': 'Faq',
                         'type' : 'item',

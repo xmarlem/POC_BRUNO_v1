@@ -28,7 +28,7 @@ export class FuseMailComposeDialogComponent implements OnInit
     {
         return new FormGroup({
             from   : new FormControl({
-                value   : 'johndoe@creapond.com',
+                value   : 'marco@gmail.com',
                 disabled: true
             }),
             to     : new FormControl(''),

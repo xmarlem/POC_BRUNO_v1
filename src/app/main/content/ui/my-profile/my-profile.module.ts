@@ -3,6 +3,7 @@ import { SharedModule } from '../../../../core/modules/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MyProfileComponent } from './my-profile.component';
+import { AuthGuardService } from 'app/core/users/auth-guard/auth-guard.service';
 //import { SkillComponent } from './skill/skill.component';
 
 
@@ -15,6 +16,8 @@ const routes: Routes = [
 //        resolve: {
 //            skills: SkillsService
 //        }
+        canActivate: [AuthGuardService]
+
     }
 ];
 

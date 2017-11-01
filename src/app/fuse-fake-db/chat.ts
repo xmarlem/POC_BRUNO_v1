@@ -174,8 +174,8 @@ export class ChatFakeDb
         },
         {
             'id'    : '5725a6809413bf8a0a5272b1',
-            'name'  : 'Velazquez',
-            'avatar': 'assets/images/avatars/Velazquez.jpg',
+            'name'  : 'Bruno Sonetto',
+            'avatar': 'assets/images/avatars/profilo_bruno.jpg',
             'status': 'online',
             'mood'  : 'Modulation in all things.'
         }
@@ -282,8 +282,8 @@ export class ChatFakeDb
             'dialog': [
                 {
                     'who'    : '5725a6809413bf8a0a5272b1',
-                    'message': 'Quickly come to the meeting room 1B, we have a big server issue',
-                    'time'   : '2017-04-22T02:10:00.299Z'
+                    'message': 'Ciao Marco...sto provando a contattarti. Ti ho appena inviato un email per proporti un colloquio',
+                    'time'   : '2017-11-03T02:10:00.299Z'
                 }
             ]
         }
@@ -293,7 +293,7 @@ export class ChatFakeDb
         {
             'id'      : '5725a6802d10e277a0f35724',
             'name'    : 'Marco Lembo',
-            'avatar'  : 'assets/images/avatars/profile.jpg',
+            'avatar'  : 'assets/images/avatars/profilo_marco.jpg',
             'status'  : 'online',
             'mood'    : 'it\'s a status....not your diary...',
             'chatList': [
@@ -307,14 +307,14 @@ export class ChatFakeDb
                 {
                     'id'             : '2725a680b8d240c011dd2243',
                     'contactId'      : '5725a680b8d240c011dd224b',
-                    'name'           : 'Josefina',
+                    'name'           : 'Josefina White',
                     'unread'         : null,
                     'lastMessageTime': '2017-02-18T10:30:18.931Z'
                 },
                 {
                     'id'             : '3725a6809413bf8a0a5272b4',
                     'contactId'      : '5725a6809413bf8a0a5272b1',
-                    'name'           : 'Velazquez',
+                    'name'           : 'Bruno Sonetto',
                     'unread'         : 2,
                     'lastMessageTime': '2017-03-18T12:30:18.931Z'
                 }
