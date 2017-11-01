@@ -9,7 +9,7 @@ export class Todo
     starred: boolean;
     important: boolean;
     deleted: boolean;
-    allocationType: number;
+    allocationType: string;
     allocationPerc: number;
     tags: [
         {

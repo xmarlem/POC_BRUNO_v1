@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FuseUtils } from '../../../../../core/fuseUtils';
 import { fuseAnimations } from '../../../../../core/animations';
+import { DateAdapter } from '@angular/material';
 
 @Component({
     selector   : 'fuse-todo-details',
@@ -37,10 +38,11 @@ export class FuseTodoDetailsComponent implements OnInit, OnDestroy
 
     constructor(
         private todoService: TodoService,
-        private formBuilder: FormBuilder
+        private formBuilder: FormBuilder,
+        private dateAdapter:DateAdapter<Date> //ML
     )
     {
-
+        this.dateAdapter.setLocale('en-GB');
     }
 
     ngOnInit()
@@ -58,7 +60,7 @@ export class FuseTodoDetailsComponent implements OnInit, OnDestroy
 
                         this.todoForm = this.createTodoForm();
 
-                        console.log("in createTodoForm");    
+                        //console.log("in createTodoForm");    
                         
                         //MLMLML
                         //this.todoForm.get('startDate').setValue(this.todo.startDate);
@@ -70,7 +72,7 @@ export class FuseTodoDetailsComponent implements OnInit, OnDestroy
                                                 .debounceTime(500)
                                                 .distinctUntilChanged()
                                                 .subscribe(data => {
-                                                    //ML
+                                                    //ML --- disabilito/abilito la percentuale se selezionato full
                                                     if(data.allocationType==='Full-time'){
                                                         this.disabledPercValue = true;
                                                         this.todoForm.get('allocationPerc').setValue(100);
@@ -79,6 +81,8 @@ export class FuseTodoDetailsComponent implements OnInit, OnDestroy
                                                     {
                                                         this.disabledPercValue = false;
                                                     }
+                                                    //end ML
+                                                    
                                                     this.todoService.updateTodo(data);
                                                 });
                     }
@@ -97,7 +101,17 @@ export class FuseTodoDetailsComponent implements OnInit, OnDestroy
                                         this.todo = new Todo({});
                                         this.todo.id = FuseUtils.generateGUID();
                                         this.formType = 'new';
-                                        this.todoForm = this.createTodoForm();                                        
+                                        this.todoForm = this.createTodoForm();
+                                        //ML --- disabilito/abilito la percentuale se selezionato full
+                                        if(this.todo.allocationType==='Full-time'){
+                                            this.disabledPercValue = true;
+                                            this.todoForm.get('allocationPerc').setValue(100);
+                                        }
+                                        else
+                                        {
+                                            this.disabledPercValue = false;
+                                        }
+                                        //end ML                                                                               
                                         this.focusTitleField();
                                         this.todoService.onCurrentTodoChanged.next([this.todo, 'new']);
                                     });
@@ -112,8 +126,8 @@ export class FuseTodoDetailsComponent implements OnInit, OnDestroy
 
     createTodoForm()
     {
-        console.log(this.jobAllocationTypeOptions[this.todo.allocationType]);
-        console.log(this.todo.notes);
+        //console.log(this.todo.allocationType);
+        //console.log(this.todo.notes);
         
         
         return this.formBuilder.group({
@@ -127,7 +141,7 @@ export class FuseTodoDetailsComponent implements OnInit, OnDestroy
             'important': [this.todo.important],
             'deleted'  : [this.todo.deleted],
             'tags'     : [this.todo.tags],
-            'allocationType': [this.jobAllocationTypeOptions[this.todo.allocationType]],
+            'allocationType': [this.todo.allocationType],
             'allocationPerc': [this.todo.allocationPerc]
         });
     }

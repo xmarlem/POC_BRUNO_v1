@@ -74,7 +74,7 @@ export class FuseProjectComponent implements OnInit, OnDestroy
 
         //MLMLMLLM
         this.jobs = this.projectsDashboardService.jobs;
-        console.log(this.jobs);
+        //console.log(this.jobs);
         this.tags = [1, 4];
 
 
@@ -255,7 +255,7 @@ export class FuseProjectComponent implements OnInit, OnDestroy
         //TEST MLMLMLLML
         setTimeout( 
             () => {
-                this.snackBar.open("A new position macthing to your job profile is available","Info!", { duration: 5000,});
+                this.snackBar.open("A new position macthing to your job profile is available","Info!", { duration: 3000,});
                 this.jobcards.unshift({
                     'id': 3,
                     'title': 'Security Engineer',

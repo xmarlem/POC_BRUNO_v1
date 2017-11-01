@@ -155,6 +155,11 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
 
     openBar()
     {
+
+        if ( !this.isClosed )
+        {
+            return;
+        }        
         this.isClosed = false;
         this.updateCssClasses();
         if ( this.media.isActive('lt-lg') )
@@ -165,6 +170,11 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
 
     closeBar()
     {
+        if ( this.isClosed )
+        {
+            return;
+        }        
+
         this.isClosed = true;
         this.updateCssClasses();
         this._detachBackdrop();
