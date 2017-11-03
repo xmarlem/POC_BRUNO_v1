@@ -19,7 +19,7 @@
         <div id="wrapper">
 
             <!-- NAVBAR: Left -->
-            <fuse-navbar-vertical [folded]="false"
+            <fuse-navbar-vertical [folded]="fuseSettings.layout.navigationFolded"
                                   class="left-navbar"
                                   [class]="fuseSettings.colorClasses.navbar"
                                   *ngIf="fuseSettings.layout.navigation === 'left' || fuseSettings.layout.navigation === 'top'">
@@ -45,7 +45,7 @@
             </div>
 
             <!-- NAVBAR: Right -->
-            <fuse-navbar-vertical [folded]="false"
+            <fuse-navbar-vertical [folded]="fuseSettings.layout.navigationFolded"
                                   class="right-navbar"
                                   [class]="fuseSettings.colorClasses.navbar"
                                   *ngIf="fuseSettings.layout.navigation === 'right'">

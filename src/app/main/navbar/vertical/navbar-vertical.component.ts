@@ -21,12 +21,34 @@ import { AuthenticationService } from 'app/core/users/authentication.service';  
 export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
 {
     private _backdropElement: HTMLElement | null = null;
+    private _folded = false;
+
     @HostBinding('class.close') isClosed: boolean;
     @HostBinding('class.folded') isFoldedActive: boolean;
     @HostBinding('class.folded-open') isFoldedOpen: boolean;
     @HostBinding('class.initialized') initialized: boolean;
-    @Input('folded') foldedByDefault = false;
     @ViewChild(FusePerfectScrollbarDirective) fusePerfectScrollbarDirective;
+
+    @Input()
+    set folded(value: boolean)
+    {
+        this._folded = value;
+
+        if ( this._folded )
+        {
+            this.activateFolded();
+        }
+        else
+        {
+            this.deActivateFolded();
+        }
+    }
+
+    get folded(): boolean
+    {
+        return this._folded;
+    }
+
 
     matchMediaWatcher: Subscription;
     navigationServiceWatcher: Subscription;
@@ -119,7 +141,7 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
 
 
         this.isClosed = false;
-        this.isFoldedActive = this.foldedByDefault;
+        this.isFoldedActive = this._folded;
         this.isFoldedOpen = false;
         this.initialized = false;
         this.updateCssClasses();
@@ -135,7 +157,7 @@ export class FuseNavbarVerticalComponent implements OnInit, OnDestroy
         }
         else
         {
-            if ( !this.foldedByDefault )
+            if ( !this._folded )
             {
                 this.deActivateFolded();
             }
