@@ -18,6 +18,8 @@ import { KnowledgeBaseFakeDb } from './knowledge-base';
 //ML
 import { SkillsFakeDb } from './skills';
 import { JobPositionsFakeDb } from './jobpositions';
+import { ECommerceFakeDb } from './e-commerce';
+
 
 export class FuseFakeDbService implements InMemoryDbService
 {
@@ -55,7 +57,10 @@ export class FuseFakeDbService implements InMemoryDbService
             'knowledge-base'             : KnowledgeBaseFakeDb.data,
             //MLML
 	        'skills'                     : SkillsFakeDb.skills,
-            'jobpositions'               : JobPositionsFakeDb.jobs
+            'jobpositions'               : JobPositionsFakeDb.jobs,
+	    'e-commerce-dashboard'       : ECommerceFakeDb.dashboard,
+            'e-commerce-products'        : ECommerceFakeDb.products,
+            'e-commerce-orders'          : ECommerceFakeDb.orders
         };
     }
 }
