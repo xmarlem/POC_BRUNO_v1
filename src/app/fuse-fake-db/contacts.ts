@@ -61,7 +61,7 @@ export class ContactsFakeDb
             'id'      : '5725a68007920cf75051da64',
             'name'    : 'Bruno',
             'lastName': 'Sonetto',
-            'avatar'  : 'assets/images/avatars/Boyle.jpg',
+            'avatar'  : 'assets/images/avatars/profilo_bruno.jpg',
             'nickname': 'Bruno',
             'company' : 'Credit Suisse',
             'jobTitle': 'Line Manager',

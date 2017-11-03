@@ -38,6 +38,9 @@ export class JobcardDialogComponent implements OnInit {
        extraClasses: ['mat-light-green-900-bg']
       });
 
+      const chatNavItem = this.navigationService.getNavigationItem('applications.chat');
+      chatNavItem.badge.title = 6;
+
 
     }
     , 5000);
@@ -53,7 +56,9 @@ export class JobcardDialogComponent implements OnInit {
       const mailNavItem = this.navigationService.getNavigationItem('applications.mail');
   
       // Update the badge title
-      mailNavItem.badge.title = 26;
+      mailNavItem.badge.title = 1;
+      mailNavItem.badge.bg = '#09d261';
+      mailNavItem.badge.fg = '#FFFFFF';
   }
 
 }

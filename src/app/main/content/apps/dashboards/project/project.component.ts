@@ -1,3 +1,4 @@
+import { FuseNavigationService } from './../../../../../core/components/navigation/navigation.service';
 import { JobsService } from './jobs.service';
 import { Component, OnDestroy, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { ProjectsDashboardService } from './projects.service';
@@ -63,7 +64,9 @@ export class FuseProjectComponent implements OnInit, OnDestroy
 
     constructor(private projectsDashboardService: ProjectsDashboardService,
                 private snackBar: MatSnackBar,
-                private jobsService: JobsService)
+                private jobsService: JobsService,
+                private navigationService: FuseNavigationService
+            )
     {
         this.projects = this.projectsDashboardService.projects;
 
@@ -260,7 +263,7 @@ export class FuseProjectComponent implements OnInit, OnDestroy
                     'id': 3,
                     'title': 'Security Engineer',
                     'area': 'IT',
-                    'location': 'Poland-Wroclaw',
+                    'location': 'Switzerland-Zurich',
                     'contracttype': '/ part-time (80%)',
                     'description': "<br> <u><b>We use the latest and the most sophisticated security software</b></u> to protect our infrastructure and data across the globe. We are seeking for a skilled individual who has the passion to work with vastly scaled client security IT systems and who would help us keep the highest level of security required by the global financial enterprise.<br /> \
                     This role includes engineering of Tanium endpoint security solution for monitoring, detection and response to security threats related to ten thousands of end points based on Windows OS (Windows 7 and Windows 10). The scope of duties covers also continuous improvement of existing environment, engineering of changes, finding and fixing security issues in IT systems, responding to security incidents and delivering new functionalities and upgrades. <br /> \
@@ -280,6 +283,13 @@ export class FuseProjectComponent implements OnInit, OnDestroy
                 let audio = new Audio();
                 audio.src = "assets/audio/popup.m4a";
                 audio.play();
+
+                const dashNavItem = this.navigationService.getNavigationItem('applications.dashboard');
+                //console.log(mailNavItem.badge);
+                // Update the badge title
+                dashNavItem.badge.title = 3;
+              
+
             }
             , 5000);
 

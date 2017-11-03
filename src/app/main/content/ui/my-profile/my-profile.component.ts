@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material';
 import { Component, OnInit, ViewChild, ElementRef, ViewContainerRef, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormArray} from '@angular/forms';
 import { fuseAnimations } from '../../../../core/animations';
@@ -42,7 +43,10 @@ export class MyProfileComponent implements OnInit
         this.step--;
     }
 
-
+    //MLML --- location
+    lat = 47.356419;
+    lng = 8.515304;
+    zoomLocation = 12;
     //==========================
     //
     //for CURRENT SKILLS
@@ -105,7 +109,9 @@ export class MyProfileComponent implements OnInit
 
     //end ML
 
-    constructor(private formBuilder: FormBuilder)
+    constructor(private formBuilder: FormBuilder,
+                private snackBar:MatSnackBar
+    )
     {
         this.formErrors = {
             company   : {},
@@ -242,4 +248,13 @@ export class MyProfileComponent implements OnInit
             }
         }
     }
+
+    //MLMLMLL SAVE
+    saveProfile(){
+        this.snackBar.open("Your profile has been saved successfully!", 
+                           "Info!", 
+                           { duration: 2000, extraClasses: ['mat-accent-900-bg']});
+    }
+
+
 }

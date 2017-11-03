@@ -18,7 +18,7 @@ export class NavigationModel
                         'icon' : 'dashboard',
                         'url'  : '/apps/dashboards/project',
                         'badge': {
-                            'title': 3,
+                            'title': 2,
                             'bg'   : '#F44336',
                             'fg'   : '#FFFFFF'
                         }
@@ -38,7 +38,7 @@ export class NavigationModel
                         'icon' : 'chat',
                         'url'  : '/apps/chat',
                         'badge': {
-                            'title': 13,
+                            'title': 4,
                             'bg'   : '#09d261',
                             'fg'   : '#FFFFFF'
                         }
@@ -57,7 +57,7 @@ export class NavigationModel
                         'icon' : 'email',
                         'url'  : '/apps/mail',
                         'badge': {
-                            'title': 25,
+                            'title': 0,
                             'bg'   : '#F44336',
                             'fg'   : '#FFFFFF'
                         }
@@ -82,7 +82,7 @@ export class NavigationModel
                         'url'  : '/apps/todo'
                     },                    
                     {
-                        'title': 'Faq',
+                        'title': 'FAQ',
                         'type' : 'item',
                         'icon' : 'help',
                         'url'  : '/pages/faq'

@@ -13,8 +13,8 @@ export class QuickPanelFakeDb
 
     public static events = [
         {
-            'title' : 'Job interview for SJSF (Jap position)',
-            'detail': 'In 32 Minutes, UH2 15th floor Red'
+            'title' : 'Job interview for SJSF as Security Engineer)',
+            'detail': '05.11.2017 11:00 AM, UH2 15th floor Red'
         },
         {
             'title' : 'Job interview for SUB',

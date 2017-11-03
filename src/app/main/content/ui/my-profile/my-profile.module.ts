@@ -1,3 +1,4 @@
+import { AgmCoreModule } from '@agm/core';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../../../core/modules/shared.module';
 import { RouterModule, Routes } from '@angular/router';
@@ -25,12 +26,17 @@ const routes: Routes = [
 @NgModule({
     imports     : [
         SharedModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyDqoMIE5UL8UXdrrTaN00kd-DbDdNB41jk'
+        })
     ],
     declarations: [
         MyProfileComponent
     ],
 //    providers: [SkillsService]
+
+
 })
 export class UIMyProfileModule 
 {

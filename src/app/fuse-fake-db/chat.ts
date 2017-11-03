@@ -177,7 +177,7 @@ export class ChatFakeDb
             'name'  : 'Bruno Sonetto',
             'avatar': 'assets/images/avatars/profilo_bruno.jpg',
             'status': 'online',
-            'mood'  : 'Modulation in all things.'
+            'mood'  : 'Music is Life!!'
         }
     ];
 
@@ -283,6 +283,11 @@ export class ChatFakeDb
                 {
                     'who'    : '5725a6809413bf8a0a5272b1',
                     'message': 'Ciao Marco...sto provando a contattarti. Ti ho appena inviato un email per proporti un colloquio',
+                    'time'   : '2017-11-03T02:10:00.299Z'
+                },
+                {
+                    'who'    : '5725a6809413bf8a0a5272b1',
+                    'message': 'Fammi sapere al più presto!',
                     'time'   : '2017-11-03T02:10:00.299Z'
                 }
             ]
