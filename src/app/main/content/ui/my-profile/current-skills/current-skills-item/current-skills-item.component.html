@@ -1,0 +1,25 @@
+<mat-card class="skillCard" >
+    <mat-card-content [formGroup]="skillCardGroup">
+        <mat-form-field>
+            <input matInput type="text" placeholder="Skill" [matAutocomplete]="auto"  empty formControlName="skillName" >
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of currentSkillsFilteredOptions | async" [value]="option" empty>
+                   {{ option }}
+                </mat-option>
+             </mat-autocomplete>
+
+        </mat-form-field>
+                
+
+        <div fxLayout="column">
+            <span class="mat-caption mat-primary-100-fg hint-text">Proficiency</span>
+            <mat-slider placeholder="Proficiency" min="1" max="5" tick-interval="5" value="1" thumb-label="true" formControlName="proficiency">
+            </mat-slider>
+        </div>
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="end">
+        <button mat-mini-fab color="warn"
+        class="add-skill-button" (click)="removeCurrentSkill()"><mat-icon>remove</mat-icon></button>
+    </mat-card-actions>
+        
+</mat-card>

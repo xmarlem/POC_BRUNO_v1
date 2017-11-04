@@ -20,10 +20,10 @@ export class FuseNavVerticalItemComponent implements OnInit
         let u = this.user;
         if(u){
             //console.log(url);
-            if(u.email==='marco@gmail.com' && url!== '/apps/todo')
+            if(u.email==='marco@gmail.com' && url!== '/apps/job')
                 return true;
             else 
-                if((u.email==='bruno@gmail.com' || u.email==='stefan@gmail.com') && url=== '/apps/todo')
+                if((u.email==='bruno@gmail.com' || u.email==='stefan@gmail.com') && url=== '/apps/job')
                     return true;
                 else 
                     return false;

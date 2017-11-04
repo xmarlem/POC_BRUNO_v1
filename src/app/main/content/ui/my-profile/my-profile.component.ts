@@ -60,7 +60,7 @@ export class MyProfileComponent implements OnInit
 
     currentSkillsInputItemArray: Array<FormControl>;
 //    aspirationalSkills = [];
-    options = ['C++', 'Java', 'Angular', 'Oracle', 'Credit Risk', 'Problem Solving', 'SAS', 'Global Markets', 'Front Office', 'SCRUM', 'Agile development', 'Python' ];
+    options = ['C++', 'Java', 'Angular', 'Oracle', 'Credit Risk', 'Problem Solving', 'SAS', 'Global Markets', 'Front Office', 'SCRUM', 'Payments', 'TAX', 'Agile development', 'Python' ];
     myCurrentSkillsControl: FormControl = new FormControl();
     myAspirationalSkillsControl: FormControl = new FormControl();
 

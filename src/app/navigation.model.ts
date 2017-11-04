@@ -14,15 +14,23 @@ export class NavigationModel
                     {
                         'id'   : 'dashboard',
                         'title': 'Dashboard',
-                        'type' : 'item',
+                        'type'    : 'collapse',                        
                         'icon' : 'dashboard',
                         'url'  : '/apps/dashboards/project',
                         'badge': {
                             'title': 2,
                             'bg'   : '#F44336',
                             'fg'   : '#FFFFFF'
-                        }
-                        
+                        },
+                        'children': [
+                            {
+                                'id'   : 'dashboard',
+                                'title': 'Search for Job Positions',
+                                'type' : 'item',
+                                'icon' : 'search',
+                                'url'  : '/apps/e-commerce/orders'
+                            }
+                        ]    
                     },
                     {
                         'id'   : 'my-profile',
@@ -79,7 +87,7 @@ export class NavigationModel
                         'title': 'Manage Job positions',
                         'type' : 'item',
                         'icon' : 'check_box',
-                        'url'  : '/apps/todo'
+                        'url'  : '/apps/job'
                     },                    
                     {
                         'title': 'FAQ',

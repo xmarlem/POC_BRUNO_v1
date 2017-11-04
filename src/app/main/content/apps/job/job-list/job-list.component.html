@@ -1,0 +1,14 @@
+<div *ngIf="jobs.length === 0" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+    <span class="no-jobs-text  hint-text">There are no job positions!</span>
+</div>
+<div class="job-list" ngxDroppable [model]="jobs" (out)="onDrop($event)" *fuseIfOnDom [@animateStagger]="{value:'50'}">
+    <fuse-job-list-item class="job-list-item has-handle"
+                         *ngFor="let job of jobs" [job]="job"
+                         ngxDraggable
+                         [model]="job"
+                         (click)="readJob(job.id)"
+                         [ngClass]="{'current-job':job?.id == currentJob?.id}"
+                         matRipple
+                         [@animate]="{value:'*',params:{y:'100%'}}">
+    </fuse-job-list-item>
+</div>

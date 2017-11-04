@@ -31,3 +31,19 @@ export class JobPositionsFakeDb {
        
     ]
 }
+
+//////
+//TODO: convergere todo database con jobpositions....da Manage Job Positions...
+
+// 'id'       : '561551bd7fe2ff461101c192',
+// 'title'    : 'IT Business Analyst - Credit Risk',
+// 'notes'    : 'India-Bangalore-Bangalore |   Full-time | Technology [IT] | Job ID 095940.',
+// 'startDate': 'Wednesday, November 20, 2017 3:17 PM',
+// 'dueDate'  : 'Wednesday, December 31, 2017 3:17 PM',
+// 'completed': false,
+// 'starred'  : false,
+// 'important': false,
+// 'deleted'  : false,
+// 'tags'     : [3, 1, 4],
+// 'allocationType': 'Full-time',
+// 'allocationPerc': 100

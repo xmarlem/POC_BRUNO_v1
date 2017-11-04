@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { MyProfileComponent } from './my-profile.component';
 import { AuthGuardService } from 'app/core/users/auth-guard/auth-guard.service';
+import { CurrentSkillsComponent } from './current-skills/current-skills.component';
+import { CurrentSkillsItemComponent } from './current-skills/current-skills-item/current-skills-item.component';
 //import { SkillComponent } from './skill/skill.component';
 
 
@@ -32,7 +34,9 @@ const routes: Routes = [
         })
     ],
     declarations: [
-        MyProfileComponent
+        MyProfileComponent,
+        CurrentSkillsComponent,
+        CurrentSkillsItemComponent
     ],
 //    providers: [SkillsService]
 
