@@ -11,6 +11,8 @@ export class Job
     deleted: boolean;
     allocationType: string;
     allocationPerc: number;
+    location: string;
+    skills: string[];
     tags: [
         {
             'id': number,
@@ -36,6 +38,8 @@ export class Job
             //ML
             this.allocationType = job.allocationType;
             this.allocationPerc = job.allocationPerc;
+            this.location = job.location;
+            this.skills = job.skills;
         }
     }
 

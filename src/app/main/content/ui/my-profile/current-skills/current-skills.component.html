@@ -2,7 +2,10 @@
 <button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button>
 
 -->
-<div class="mat-white-bg mat-elevation-z4 p-24 mr-24 mb-24" fxFill >
+<div class="mat-white-bg mat-elevation-z4 p-24 mr-24 mb-24"  >
+  <div class="h2 mb-24">Personal Skills</div>
+    
+
   <mat-vertical-stepper [linear]="isLinear"  
     
   >
@@ -56,7 +59,7 @@
     <mat-step>
       <ng-template matStepLabel>Technical Skills</ng-template>
 
-      <div class="skillCard"  fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="start center" >
+      <div class="skillCard"  fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="start center" fxLayoutGap="8px">
           <current-skills-item *ngFor="let s of currentSkills" [skillModel]="s"
             (elementRemoved)="onSkillRemoved($event)"
           ></current-skills-item>          
@@ -85,9 +88,9 @@
     <mat-step>
       <ng-template matStepLabel>Aspirational Skills</ng-template>
 
-      <div class="skillCard"  fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="start center" >
-          <current-skills-item *ngFor="let s of currentSkills" [skillModel]="s"
-            (elementRemoved)="onSkillRemoved($event)"
+      <div class="skillCard"  fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="start center" fxLayoutGap="8px" >
+          <current-skills-item *ngFor="let s of aspirationalSkills" [skillModel]="s"
+            (elementRemoved)="onAspirationalSkillRemoved($event)"
           ></current-skills-item>          
       </div>
           
@@ -96,7 +99,7 @@
           <div class="h2 mb-24 secondary-text">Add new skill...</div>
           <button mat-mini-fab color="green"
                   class="add-skill-button"
-                  (click)="addCurrentSkill()"
+                  (click)="addAspirationalSkill()"
 
                   aria-label="Add Skill">
               <mat-icon>add</mat-icon>
@@ -107,8 +110,52 @@
 
       <div>
         <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
       </div>
     </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Capacity</ng-template>
+      <hr>
+
+      <div fxLayout="column"  >
+        <div class="capacity_container" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start" fxLayoutAlign.lt-sm="start start" fxLayoutGap="20px">
+          <!== START DATE ==>
+          <mat-card fxFlex="100%" fxFill.lt-sm>
+            <mat-form-field fxFill>
+                <input matInput [matDatepicker]="picker" placeholder="Start date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>      
+          </mat-card>
+    
+          <mat-card fxFlex="50%" fxFill.lt-sm >
+            <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+                <!== END DATE ==>
+                <mat-form-field fxFlex="60%">
+                  <input matInput [matDatepicker]="picker2" placeholder="End date" [disabled]="unlimited">
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2 [disabled]="unlimited"></mat-datepicker>
+                </mat-form-field>
+                <!== unlimited ==>
+                <mat-checkbox fxFlex="40%" [(ngModel)]="unlimited">Unlimited</mat-checkbox>    
+            </div>
+          </mat-card>
+        </div>
+        <hr>
+        <!== CAPACITY PERC ==>
+        <span class="mat-caption mat-primary-100-fg hint-text" >Available capacity</span>
+        <div fxLayout="row" fxLayoutGap="8px">
+          <mat-slider placeholder="Capacity" min="0" max="100" tick-interval="25" value="0" thumb-label="true" #capacity fxFlex="1 1 95"  >
+          </mat-slider>
+          <label fxLayoutAlign="end" class="text-boxed percentage" fxFlex="1 0 5" ><b>{{ capacity.value }} %</b></label>    
+        </div>
+      </div>
+      <div>
+          <button mat-button matStepperPrevious>Back</button>
+        </div>        
+    </mat-step>
+
 
   </mat-vertical-stepper>
 

@@ -63,7 +63,12 @@ export class CurrentSkillsComponent implements OnInit {
   
 
   currentSkills: any[] = [];
+  aspirationalSkills: any[] = [];
+  
 
+  //Capacity
+  //========
+  unlimited: boolean;
 
   constructor(private _formBuilder: FormBuilder) { 
     this.roleCtrl = new FormControl();
@@ -112,12 +117,26 @@ export class CurrentSkillsComponent implements OnInit {
 
   }
 
+  //add empty element to the array...
+  addAspirationalSkill(){
+    this.aspirationalSkills.push({id: Date.now(), skillName: '', proficiency:0});
+
+  }
+
 
   //getting removed event from child and removing the corresponding element in the parent array
   onSkillRemoved(skillData: {id:number, _skillName:string, _proficiency: number})
   {
     let index= this.currentSkills.indexOf(skillData.id);
     this.currentSkills.splice(index);
+    
+  }
+
+  //getting removed event from child and removing the corresponding element in the parent array
+  onAspirationalSkillRemoved(skillData: {id:number, _skillName:string, _proficiency: number})
+  {
+    let index= this.aspirationalSkills.indexOf(skillData.id);
+    this.aspirationalSkills.splice(index);
     
   }
 

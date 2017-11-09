@@ -7,6 +7,7 @@ import { FuseJobMainSidenavComponent } from './sidenavs/main/main-sidenav.compon
 import { FuseJobListItemComponent } from './job-list/job-list-item/job-list-item.component';
 import { FuseJobListComponent } from './job-list/job-list.component';
 import { FuseJobDetailsComponent } from './job-details/job-details.component';
+import { AgmCoreModule } from '@agm/core';
 
 const routes: Routes = [
     {
@@ -67,7 +68,13 @@ const routes: Routes = [
     ],
     imports     : [
         SharedModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        AgmCoreModule.forRoot({   //MLMLML
+            libraries: ["places"],
+            language: "en", //TODO: QUANDO si fara' l'internazionalizzazione farlo diventare parametrico 
+            apiKey: 'AIzaSyDqoMIE5UL8UXdrrTaN00kd-DbDdNB41jk'
+        })
+
     ],
     providers   : [
         JobService

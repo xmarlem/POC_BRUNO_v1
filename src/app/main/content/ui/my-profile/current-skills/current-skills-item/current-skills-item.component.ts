@@ -46,7 +46,7 @@ export class CurrentSkillsItemComponent implements OnInit {
   }
 
   //the current element is going to be removed... notify this to the parent
-  removeCurrentSkill(){
+  removeSkill(){
     this.elementRemoved.emit(this.skillModel);
   }
 

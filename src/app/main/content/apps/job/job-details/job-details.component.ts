@@ -1,11 +1,22 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { JobService } from '../job.service';
 import { Job } from '../job.model';
 import { Subscription } from 'rxjs/Subscription';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { FuseUtils } from '../../../../../core/fuseUtils';
 import { fuseAnimations } from '../../../../../core/animations';
 import { DateAdapter } from '@angular/material';
+
+//MLMLML
+import {MatChipInputEvent} from '@angular/material';
+import {ENTER} from '@angular/cdk/keycodes';
+import { MapsAPILoader } from '@agm/core';
+//MLML nb. ho dovuto installare types googlemaps "npm install @types/googlemaps --save-dev"
+import {} from 'googlemaps'; //MLML questo è necessario per poter usare l'oggetto google
+
+const COMMA = 188;
+
+
 
 @Component({
     selector   : 'fuse-job-details',
@@ -15,6 +26,61 @@ import { DateAdapter } from '@angular/material';
 })
 export class FuseJobDetailsComponent implements OnInit, OnDestroy
 {
+    //CHIPS (SKILLS)
+    visible: boolean = true;
+    selectable: boolean = true;
+    removable: boolean = true;
+    addOnBlur: boolean = true;
+
+    // Enter, comma
+    separatorKeysCodes = [ENTER, COMMA];
+    
+    // skills = [
+    //     //{ name: 'Example' 
+    //     //}
+    //   ];
+    
+    add(event: MatChipInputEvent): void {
+        let input = event.input;
+        let value = event.value;
+
+        console.log(this.job.skills);
+
+        // Add our person
+        if ((value || '').trim()) {
+            this.job.skills.push(value.trim());
+        }
+        
+        // Reset the input value
+        if (input) {
+            input.value = '';
+        }
+    }
+
+    remove(fruit: any): void {
+        let index = this.job.skills.indexOf(fruit);
+
+        if (index >= 0) {
+            this.job.skills.splice(index, 1);
+        }
+    }
+    //END CHIPS
+
+    //LOCATION (MAPS)
+    public latitude: number;
+    public longitude: number;
+    //public location: string;
+    //public searchControl: FormControl;
+    public zoom: number;
+    @ViewChild("searchControl") public searchElementRef: ElementRef;
+  
+
+
+
+    //END LOCATION
+
+
+
     job: Job;
     tags: any[];
     formType: string;
@@ -39,7 +105,9 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
     constructor(
         private jobService: JobService,
         private formBuilder: FormBuilder,
-        private dateAdapter:DateAdapter<Date> //ML
+        private dateAdapter:DateAdapter<Date>, //ML
+        private mapsAPILoader: MapsAPILoader, //ML
+        private ngZone: NgZone  //ML
     )
     {
         this.dateAdapter.setLocale('en-GB');
@@ -47,6 +115,7 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
 
     ngOnInit()
     {
+
         // Subscribe to update the current job
         this.onCurrentJobChanged =
             this.jobService.onCurrentJobChanged
@@ -57,21 +126,24 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
                         this.formType = 'edit';
 
                         this.job = job;
+                        // console.log("in onCurrentJobChanged");
+                        // console.log(this.job.location);
 
                         this.jobForm = this.createJobForm();
 
+                        this.loadMapStuff();
                         //console.log("in createJobForm");    
                         
                         //MLMLML
                         //this.jobForm.get('startDate').setValue(this.job.startDate);
                         //console.log(this.jobForm.get('startDate').setValue(this.job.startDate));    
 
-                        
-
                         this.onFormChange = this.jobForm.valueChanges
                                                 .debounceTime(500)
                                                 .distinctUntilChanged()
                                                 .subscribe(data => {
+                                                    console.log("in onFormChange");
+                                                    
                                                     //ML --- disabilito/abilito la percentuale se selezionato full
                                                     if(data.allocationType==='Full-time'){
                                                         this.disabledPercValue = true;
@@ -81,6 +153,13 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
                                                     {
                                                         this.disabledPercValue = false;
                                                     }
+
+                                                    //PATCH
+                                                    data.location= this.searchElementRef.nativeElement.value;
+                                                    // console.log("Data location: " + data.location);
+                                                    // console.log("Data title: " + data.title);
+                                                    // console.log("Data test: " + data.test);
+                                    
                                                     //end ML
                                                     
                                                     this.jobService.updateJob(data);
@@ -111,10 +190,14 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
                                         {
                                             this.disabledPercValue = false;
                                         }
+                                        
                                         //end ML                                                                               
                                         this.focusTitleField();
                                         this.jobService.onCurrentJobChanged.next([this.job, 'new']);
                                     });
+
+
+
     }
 
     focusTitleField()
@@ -124,10 +207,58 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
         });
     }
 
+    loadMapStuff(){
+        //after having created the form... to make sure!
+                //MLML LOCATION (MAPS)
+                //create search FormControl
+        //        this.searchControl = new FormControl();
+        this.zoom = 4;
+        this.latitude = 39.8282;
+        this.longitude = -98.5795;
+
+        //load Places Autocomplete
+        this.mapsAPILoader.load().then(() => { 
+        //            let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+            let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+                    types: ["address"]
+            });
+            autocomplete.addListener("place_changed", () => {
+            this.ngZone.run(() => {
+                //get the place result
+            
+                let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+
+                //verify result
+                if (place.geometry === undefined || place.geometry === null) {
+                return;
+                }
+                
+                //set latitude, longitude and zoom
+                // console.log(place);
+                // console.log(place.formatted_address);
+                // console.log(place.adr_address);
+                // console.log("Place: " + JSON.stringify(place) );
+                // console.log(place.address_components[1]);
+                // console.log(place.address_components[2]);
+                // console.log(place.address_components[3]);
+                //this.job.location = place.formatted_address;
+
+                //if required later...I should put also these as persistent.
+                this.latitude = place.geometry.location.lat();
+                this.longitude = place.geometry.location.lng();
+                this.zoom = 12;
+            });
+            });
+        });
+        //MLML END LOCATION
+
+    }
+
     createJobForm()
     {
         //console.log(this.job.allocationType);
         //console.log(this.job.notes);
+        //console.log("In CreateJob: " + this.job.location);
         
         
         return this.formBuilder.group({
@@ -142,7 +273,10 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
             'deleted'  : [this.job.deleted],
             'tags'     : [this.job.tags],
             'allocationType': [this.job.allocationType],
-            'allocationPerc': [this.job.allocationPerc]
+            'allocationPerc': [this.job.allocationPerc],
+            'searchControl': [this.job.location],
+            'skills'       : [this.job.skills]
+            //'test': [this.job.location]
         });
     }
 

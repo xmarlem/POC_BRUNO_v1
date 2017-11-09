@@ -4,6 +4,7 @@ import { MailFakeDb } from './mail';
 import { ChatFakeDb } from './chat';
 import { CalendarFakeDb } from './calendar';
 import { TodoFakeDb } from './todo';
+import { JobFakeDb } from './job'; //ML
 import { ProfileFakeDb } from './profile';
 import { ContactsFakeDb } from './contacts';
 import { InvoiceFakeDb } from './invoice';
@@ -19,6 +20,7 @@ import { KnowledgeBaseFakeDb } from './knowledge-base';
 import { SkillsFakeDb } from './skills';
 import { JobPositionsFakeDb } from './jobpositions';
 import { ECommerceFakeDb } from './e-commerce';
+import { SearchJobFakeDb } from './search-job';
 
 
 export class FuseFakeDbService implements InMemoryDbService
@@ -37,6 +39,9 @@ export class FuseFakeDbService implements InMemoryDbService
             'todo-todos'                 : TodoFakeDb.todos,
             'todo-filters'               : TodoFakeDb.filters,
             'todo-tags'                  : TodoFakeDb.tags,
+            'job-jobs'                   : JobFakeDb.jobs,
+            'job-filters'                : JobFakeDb.filters,
+            'job-tags'                   : JobFakeDb.tags,
             'profile-timeline'           : ProfileFakeDb.timeline,
             'profile-photos-videos'      : ProfileFakeDb.photosVideos,
             'profile-about'              : ProfileFakeDb.about,
@@ -58,9 +63,12 @@ export class FuseFakeDbService implements InMemoryDbService
             //MLML
 	        'skills'                     : SkillsFakeDb.skills,
             'jobpositions'               : JobPositionsFakeDb.jobs,
-	    'e-commerce-dashboard'       : ECommerceFakeDb.dashboard,
+	        'e-commerce-dashboard'       : ECommerceFakeDb.dashboard,
             'e-commerce-products'        : ECommerceFakeDb.products,
-            'e-commerce-orders'          : ECommerceFakeDb.orders
+            'e-commerce-orders'          : ECommerceFakeDb.orders,
+	        'search-job-dashboard'       : SearchJobFakeDb.dashboard,
+            'search-job-jobs'            : SearchJobFakeDb.jobs,
+            'search-job-orders'          : SearchJobFakeDb.orders
         };
     }
 }

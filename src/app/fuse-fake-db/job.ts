@@ -4,15 +4,16 @@
 //     'area': 'IT',
 //     'location': 'India-Bangalore',
 //     'contracttype': '/ full-time',
-//     'description': 'Provide technical guidance on proper and efficient application setup on a Hadoop platform. Maintain environments in UNIX/Linux Operating System to provide optimum performance and system availability. Support software vendor to ensure application software is installed correctly and all current maintenance levels have been applied.',
+//     'notes': 'Provide technical guidance on proper and efficient application setup on a Hadoop platform. Maintain environments in UNIX/Linux Operating System to provide optimum performance and system availability. Support software vendor to ensure application software is installed correctly and all current maintenance levels have been applied.',
 //     'isNew': false,
 //     'matching': '80%'
 // },
 
 
-export class TodoFakeDb
+
+export class JobFakeDb
 {
-    public static todos = [
+    public static jobs = [
         {
             'id'       : '561551bd7fe2ff461101c192',
             'title'    : 'IT Business Analyst - Credit Risk',
@@ -25,7 +26,9 @@ export class TodoFakeDb
             'deleted'  : false,
             'tags'     : [3, 1, 4],
             'allocationType': 'Full-time',
-            'allocationPerc': 100
+            'allocationPerc': 100,
+            'location' : 'Bangalore Nilgiri Road, Lashkar Mohalla, Doora, Mysuru, Karnataka, India',
+            'skills'   : ['Credit Risk', 'Problem Solving', 'Team Worker', 'SCRUM', 'Requirement Engineering']
         },
         {
             'id'       : '561551bd4ac1e7eb77a3a750',
@@ -39,7 +42,10 @@ export class TodoFakeDb
             'deleted'  : false,
             'tags'     : [1, 3],
             'allocationType': 'Full-time',
-            'allocationPerc': 100            
+            'allocationPerc': 100,
+            'location' : 'Paradeplatz, Zürich, Switzerland',
+            'skills'   : ['Java', 'Problem Solving', 'Team Worker', 'SCRUM', 'SSL protocol']
+            
         },
         {
             'id'       : '561551bd917bfec2ddef2d49',

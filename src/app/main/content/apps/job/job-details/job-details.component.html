@@ -1,3 +1,4 @@
+
 <div *ngIf="!job" fxLayout="column" fxLayoutAlign="center center" fxFlex>
     <mat-icon class="s-120 mb-12 select-job-icon" *fuseIfOnDom
               [@animate]="{value:'*',params:{delay:'300ms',scale:'0.2'}}">check_box
@@ -11,6 +12,7 @@
 
     <div class="job-header" fxLayout="row" fxLayoutAlign="space-between center">
 
+        <!== MARK as "Not available" ==>                        
         <button mat-button class="toggle-complete-button p-0" (click)="toggleCompleted($event)"
                 aria-label="Toggle completed" fxFlex="0 1 auto">
             <mat-icon *ngIf="job.completed">check_box</mat-icon>
@@ -18,6 +20,7 @@
             <span>Mark as "Not Available"</span>
         </button>
 
+        <!== ACTIONS ==>                    
         <div class="actions" fxLayout="row" fxLayoutAlign="start center">
 
             <button mat-button class="mat-icon-button" (click)="toggleDeleted($event)" aria-label="Toggle delete">
@@ -52,7 +55,7 @@
     <div class="job-content">
 
         <form [formGroup]="jobForm" (submit)="addJob()">
-
+            <!== Job TITLE ==>                            
             <mat-form-field class="title mt-8" floatPlaceholder="never" fxFill>
                 <textarea matInput
                           #titleInput
@@ -66,6 +69,14 @@
                 </textarea>
             </mat-form-field>
 
+            <!-- <!== TESTTTTTT ==>            
+            <mat-form-field fxFill>
+                <input matInput  placeholder="Test" aria-label="Location" formControlName="test">
+            </mat-form-field> -->
+
+
+
+            <!== TAGS ==>            
             <div class="tags mb-24" fxFlexFill fxLayout="row" fxLayoutWrap>
                 <div class="tag" fxLayout="row" fxLayoutAlign="start center" *ngFor="let tagId of job.tags">
 
@@ -75,6 +86,7 @@
                 </div>
             </div>
 
+            <!== ALLOCATION TIME and TYPE ==>            
             <div class="dates" fxFlexFill fxLayout="column" fxLayout.gt-xs="row">
 
                 <mat-form-field class="mr-sm-24" fxFlex>
@@ -89,10 +101,10 @@
                     <mat-datepicker #dueDatePicker></mat-datepicker>
                 </mat-form-field>
 
-
-
-
             </div>
+
+            <!== ALLOCATION TYPE ==>
+            
             <div class="dates" fxFlexFill fxLayout="column" fxLayout.gt-xs="row">
 
                 <mat-form-field fxFlex>
@@ -110,8 +122,35 @@
                    <!-- <label fxLayoutAlign="end center" class="text-boxed percentage" ><b>{{ perc.percent }} %</b></label> -->
                 </div>
             </div>
-            <hr>
 
+            <div class="skills" fxFill fxLayout="row">
+                <!== Required SKILLS ==>
+                <mat-form-field fxFlex>
+                        <mat-chip-list #chipList>
+                        <mat-chip *ngFor="let skill of job.skills" [selectable]="selectable"
+                                [removable]="removable" (remove)="remove(skill)">
+                            {{skill}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="Required skill..."
+                                [matChipInputFor]="chipList"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                [matChipInputAddOnBlur]="addOnBlur"
+                                (matChipInputTokenEnd)="add($event)" />
+                        </mat-chip-list>
+                </mat-form-field> 
+            </div>
+            <br>
+            <!== LOCATION (MAP) ==>            
+            <mat-form-field fxFill>
+                <input matInput  placeholder="Search for location" aria-label="Location" #searchControl formControlName="searchControl">
+            </mat-form-field>
+            <br>
+            <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="true" [zoom]="zoom">
+            <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+            </agm-map>
+        
+            <!== JOB DESCRIPTION ==>
             <mat-form-field class="" fxFill>
                 <textarea matInput #notes
                           name="notes"

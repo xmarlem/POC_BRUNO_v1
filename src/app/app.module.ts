@@ -51,11 +51,16 @@ const appRoutes: Routes = [
         path        : 'apps/e-commerce',
         loadChildren: './main/content/apps/e-commerce/e-commerce.module#FuseEcommerceModule'
     },
+    //MLML duplicated ecommerce module and renamed as SearchJob
+    {
+        path        : 'apps/search-job',
+        loadChildren: './main/content/apps/search-job/search-job.module#FuseSearchJobModule'
+    },
     //switch to the Job module (riscritto il modulo Todo e sostituito)
-    // {
-    //     path        : 'apps/todo',
-    //     loadChildren: './main/content/apps/todo/todo.module#FuseTodoModule'
-    // },
+     {
+         path        : 'apps/todo',
+         loadChildren: './main/content/apps/todo/todo.module#FuseTodoModule'
+     },
     {
         path        : 'apps/job',
         loadChildren: './main/content/apps/job/job.module#FuseJobModule'
