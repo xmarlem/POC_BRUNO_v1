@@ -7,8 +7,8 @@ export class Job
     name: string;
     handle: string;
     description: string;
-    categories: string[];
     skills: string[];
+    categories: string[];
     tags: string[];
     images: {
         default: boolean,
@@ -36,8 +36,8 @@ export class Job
         this.name = job.name || '';
         this.handle = job.handle || FuseUtils.handleize(this.name);
         this.description = job.description || '';
-        this.categories = job.categories || [];
         this.skills = job.skills || [];
+        this.categories = job.categories || [];
         this.tags = job.tags || [];
         this.images = job.images || [];
         this.priceTaxExcl = job.priceTaxExcl || 0;
@@ -54,7 +54,7 @@ export class Job
         this.active = job.active || true;
     }
 
-    addCategory(event: MatChipInputEvent): void
+    addSkill(event: MatChipInputEvent): void
     {
         const input = event.input;
         const value = event.value;
@@ -62,7 +62,7 @@ export class Job
         // Add category
         if ( value )
         {
-            this.categories.push(value);
+            this.skills.push(value);
         }
 
         // Reset the input value
@@ -72,13 +72,13 @@ export class Job
         }
     }
 
-    removeCategory(category)
+    removeSkill(category)
     {
-        const index = this.categories.indexOf(category);
+        const index = this.skills.indexOf(category);
 
         if ( index >= 0 )
         {
-            this.categories.splice(index, 1);
+            this.skills.splice(index, 1);
         }
     }
 

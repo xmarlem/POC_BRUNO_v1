@@ -30,6 +30,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from 'environments/environment';
 import { MessageService} from 'primeng/components/common/messageservice';
 import { CoreModule } from 'app/core/core.module';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -116,14 +117,19 @@ const appRoutes: Routes = [
         //MLML
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule.enablePersistence(),
-        CoreModule
+        CoreModule,
+        //MLML
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyD81ecsCj4yYpcXSLFcYU97PvRsE_X8Bx8'
+        })
+
     ],
     providers   : [
         FuseSplashScreenService,
         FuseConfigService,
         FuseNavigationService,
         //MLMMLML
-        MessageService
+        MessageService, AgmCoreModule
         
     ],
     bootstrap   : [

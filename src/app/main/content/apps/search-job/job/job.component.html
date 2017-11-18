@@ -44,12 +44,13 @@
                 <span>ADD</span>
             </button>
 
-            <button mat-raised-button
+            <!-- <button mat-raised-button
                     class="save-job-button mat-white-bg mt-16 mt-sm-0"
                     [disabled]="jobForm.invalid || jobForm.pristine"
                     *ngIf="pageType ==='edit'" (click)="saveProduct()">
                 <span>SAVE</span>
-            </button>
+            </button> -->
+            
         </div>
         <!-- / HEADER -->
 
@@ -79,30 +80,34 @@
                                               name="description"
                                               formControlName="description"
                                               placeholder="Job Description"
-                                              rows="5">
+                                              rows="5"
+                                              >
                                     </textarea>
                                 </mat-form-field>
 
                                 <h3 class="mb-0">Required skills</h3>
                                 <mat-form-field class="w-100-p" floatPlaceholder="never">
-                                    <mat-chip-list matPrefix #categoryList
-                                                   name="categories"
-                                                   formControlName="categories">
+                                    <mat-chip-list matPrefix #skillList
+                                                   name="skills"
+                                                   formControlName="skills"
+                                                   >
 
-                                        <mat-chip *ngFor="let category of job.skills"
-                                                  removable="true" (remove)="job.removeCategory(category)">
-                                            {{category}}
+                                        <mat-chip *ngFor="let s of job.skills"
+                                                  removable="true" (remove)="this.jobForm.markAsDirty(); job.removeSkill(s)">
+                                            {{s}}
                                             <mat-icon matChipRemove>cancel</mat-icon>
                                         </mat-chip>
                                     </mat-chip-list>
                                     <input matInput
                                            matChipInputAddOnBlur="true"
-                                           (matChipInputTokenEnd)="job.addCategory($event)"
-                                           placeholder="Add category..."
-                                           [matChipInputFor]="categoryList"/>
+                                           (matChipInputTokenEnd)="this.jobForm.markAsDirty(); job.addSkill($event)"
+                                           placeholder="Add skill..."
+                                           [matChipInputFor]="skillList"
+                                           (valueChange)="this.jobForm.markAsDirty()"
+                                           />
                                 </mat-form-field>
-
-                                <!-- <h3 class="mb-0">Tags</h3>
+                        <!--
+                                 <h3 class="mb-0">Tags</h3>
                                 <mat-form-field class="w-100-p" floatPlaceholder="never">
                                     <mat-chip-list matPrefix #tagList
                                                    name="tags"
@@ -118,9 +123,11 @@
                                            matChipInputAddOnBlur="true"
                                            (matChipInputTokenEnd)="job.addTag($event)"
                                            placeholder="Add tag..."
-                                           [matChipInputFor]="tagList"/>
+                                           [matChipInputFor]="tagList"
+                                           (input)="logMe()"
+                                           />
                                 </mat-form-field> -->
-                                
+
                             </div>
                         </mat-tab>
 

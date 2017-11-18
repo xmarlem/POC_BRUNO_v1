@@ -520,7 +520,7 @@ export class SearchJobFakeDb
             'name'            : 'IT Business Analyst - Credit Risk',
             'handle'          : 'printed-dress',
             'description'     : 'Officia amet eiusmod eu sunt tempor voluptate laboris velit nisi amet enim proident et. Consequat laborum non eiusmod cillum eu exercitation. Qui adipisicing est fugiat eiusmod esse. Sint aliqua cupidatat pariatur mollit ad est proident reprehenderit. Eiusmod adipisicing laborum incididunt sit aliqua ullamco.',
-            'skills'   : ['Credit Risk', 'Problem Solving', 'Team Worker', 'SCRUM', 'Requirement Engineering'],            
+            'skills'          : ['Credit Risk', 'Problem Solving', 'Team Worker', 'SCRUM', 'Requirement Engineering'],            
             'categories'      : [
                 'Full-time',
                 'Women'

@@ -112,7 +112,7 @@
                         </div>
 
                         <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">                                
-                            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoomLocation">
+                            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoomLocation" disableDefaultUI="true" [zoomControl]="false">
                                 <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
                             </agm-map>
                         </div> 

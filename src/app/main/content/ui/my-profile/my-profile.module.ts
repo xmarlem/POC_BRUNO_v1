@@ -29,9 +29,10 @@ const routes: Routes = [
     imports     : [
         SharedModule,
         RouterModule.forChild(routes),
-        AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyDqoMIE5UL8UXdrrTaN00kd-DbDdNB41jk'
-        })
+        AgmCoreModule
+        // AgmCoreModule.forRoot({
+        //     apiKey: 'AIzaSyD81ecsCj4yYpcXSLFcYU97PvRsE_X8Bx8'
+        // })
     ],
     declarations: [
         MyProfileComponent,
