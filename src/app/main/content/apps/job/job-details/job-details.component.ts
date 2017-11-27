@@ -44,7 +44,7 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
         let input = event.input;
         let value = event.value;
 
-        console.log(this.job.skills);
+        //console.log(this.job.skills);
 
         // Add our person
         if ((value || '').trim()) {
@@ -67,8 +67,8 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
     //END CHIPS
 
     //LOCATION (MAPS)
-    public latitude: number;
-    public longitude: number;
+//    public latitude: number; //TO REMOVE
+//    public longitude: number; //TO REMOVE
     //public location: string;
     //public searchControl: FormControl;
     public zoom: number;
@@ -110,6 +110,7 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
         private ngZone: NgZone  //ML
     )
     {
+        //mi serve per avere le date nel formato corretto
         this.dateAdapter.setLocale('en-GB');
     }
 
@@ -126,6 +127,16 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
                         this.formType = 'edit';
 
                         this.job = job;
+
+
+
+                        if (!this.job.latitude || !this.job.longitude){
+                            this.job.latitude = 47.355614;
+                            this.job.longitude = 8.515962;
+                            this.job.location = "Uetlihof 2, Uetlibergstrasse, Zurigo";
+                        }
+
+
                         // console.log("in onCurrentJobChanged");
                         // console.log(this.job.location);
 
@@ -138,11 +149,12 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
                         //this.jobForm.get('startDate').setValue(this.job.startDate);
                         //console.log(this.jobForm.get('startDate').setValue(this.job.startDate));    
 
+                        //Qui metto la gestione dell'evento VALUE CHANGES (triggerato il subscribe ogni volta che cambia un elemento nel form)
                         this.onFormChange = this.jobForm.valueChanges
                                                 .debounceTime(500)
                                                 .distinctUntilChanged()
                                                 .subscribe(data => {
-                                                    console.log("in onFormChange");
+                                                    //console.log("in onFormChange");
                                                     
                                                     //ML --- disabilito/abilito la percentuale se selezionato full
                                                     if(data.allocationType==='Full-time'){
@@ -155,11 +167,11 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
                                                     }
 
                                                     //PATCH
-                                                    data.location= this.searchElementRef.nativeElement.value;
+                                                    data.location = this.searchElementRef.nativeElement.value;
                                                     // console.log("Data location: " + data.location);
                                                     // console.log("Data title: " + data.title);
                                                     // console.log("Data test: " + data.test);
-                                    
+                                                
                                                     //end ML
                                                     
                                                     this.jobService.updateJob(data);
@@ -209,12 +221,13 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
 
     loadMapStuff(){
         //after having created the form... to make sure!
-                //MLML LOCATION (MAPS)
-                //create search FormControl
-        //        this.searchControl = new FormControl();
-        this.zoom = 4;
-        this.latitude = 39.8282;
-        this.longitude = -98.5795;
+
+        this.zoom = 12;
+        //this.latitude = 39.8282;
+        //this.longitude = -98.5795;
+
+
+
 
         //load Places Autocomplete
         this.mapsAPILoader.load().then(() => { 
@@ -244,8 +257,10 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
                 //this.job.location = place.formatted_address;
 
                 //if required later...I should put also these as persistent.
-                this.latitude = place.geometry.location.lat();
-                this.longitude = place.geometry.location.lng();
+                this.job.latitude = place.geometry.location.lat();
+                this.job.longitude = place.geometry.location.lng();
+
+                //console.log("Lat e Long: "+ this.job.latitude + " " + this.job.longitude);
                 this.zoom = 12;
             });
             });
@@ -264,7 +279,7 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
         return this.formBuilder.group({
             'id'       : [this.job.id],
             'title'    : [this.job.title],
-            'notes'    : [this.job.notes],
+            'description'    : [this.job.description],
             'startDate': [new Date(this.job.startDate)],
             'dueDate'  : [new Date(this.job.dueDate)],
             'completed': [this.job.completed],

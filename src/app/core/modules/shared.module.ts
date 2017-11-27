@@ -1,3 +1,4 @@
+import { ContactsService } from './../../main/content/apps/contacts/contacts.service';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -28,6 +29,9 @@ import { TranslateModule } from '@ngx-translate/core';
 //ML
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { GrowlModule, MessagesModule } from 'primeng/primeng';
+import { AgmCoreModule } from '@agm/core';
+
+import { RatingModule } from "ngx-rating";
 
 
 @NgModule({
@@ -52,9 +56,19 @@ import { GrowlModule, MessagesModule } from 'primeng/primeng';
         NgxDnDModule,
         NgxDatatableModule,
         MarkdownModule,
+        RatingModule,
 	 //ML
         AngularFireAuthModule,
-        GrowlModule
+        GrowlModule,
+        AgmCoreModule.forRoot({   //MLMLML
+            libraries: ["places"],
+            language: "en", //TODO: QUANDO si fara' l'internazionalizzazione farlo diventare parametrico 
+            apiKey: 'AIzaSyD81ecsCj4yYpcXSLFcYU97PvRsE_X8Bx8'
+        })
+        // //MLML
+        // AgmCoreModule.forRoot({
+        //     apiKey: 'AIzaSyD81ecsCj4yYpcXSLFcYU97PvRsE_X8Bx8'
+        // })
         
     ],
     exports        : [
@@ -75,7 +89,8 @@ import { GrowlModule, MessagesModule } from 'primeng/primeng';
         FuseIfOnDomDirective,
         FuseMaterialColorPickerComponent,
         MarkdownModule,
-        TranslateModule
+        TranslateModule,
+        AgmCoreModule
     ],
     entryComponents: [
         FuseConfirmDialogComponent
@@ -85,7 +100,9 @@ import { GrowlModule, MessagesModule } from 'primeng/primeng';
         FuseMatchMedia,
         FuseNavbarVerticalService,
         FuseMatSidenavHelperService,
-        FuseTranslationLoaderService
+        FuseTranslationLoaderService,
+        ContactsService
+        
     ]
 })
 

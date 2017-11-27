@@ -12,23 +12,26 @@
   <!== Role ==>        
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Your ROLE</ng-template>
-        <mat-form-field>
+        <ng-template matStepLabel>Your ROLES</ng-template>
+        <mat-form-field fxFlex>
 <!--          <input matInput placeholder="Current Role" formControlName="roleCtrl" required> -->
 
-          <input matInput placeholder="Role" aria-label="Role" [matAutocomplete]="auto" [formControl]="roleCtrl" required>
+          <!-- <input matInput placeholder="Role" aria-label="Role" [matAutocomplete]="auto" [formControl]="roleCtrl" required>
           <mat-autocomplete #auto="matAutocomplete" >
-            <mat-option *ngFor="let role of filteredRoles | async" [value]="role.name">
+            <mat-option *ngFor="let role of filteredRoles | async" [value]="role.name" >
               <span>{{ role.name }}</span> 
             </mat-option>
           </mat-autocomplete>
-
+ -->
+            <mat-select placeholder="Role" [formControl]="roleCtrl" multiple>
+              <mat-option *ngFor="let role of roles" [value]="role.name">{{role.name}}</mat-option>
+            </mat-select>
 
 
         </mat-form-field>
-        <div>
+        <!-- <div>
           <button mat-button matStepperNext>Next</button>
-        </div>
+        </div> -->
       </form>
     </mat-step>
 
@@ -36,22 +39,25 @@
     <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Business AREA</ng-template>
-        <mat-form-field>
+        <mat-form-field fxFlex>
 <!--          <input matInput placeholder="Address" formControlName="secondCtrl" required> -->
 
-        <input matInput placeholder="Business Area" aria-label="Business Area" [matAutocomplete]="autoArea" [formControl]="areaCtrl" required>
+        <!-- <input matInput placeholder="Business Area" aria-label="Business Area" [matAutocomplete]="autoArea" [formControl]="areaCtrl" required>
         <mat-autocomplete #autoArea="matAutocomplete">
           <mat-option *ngFor="let area of filteredAreas | async" [value]="area.name">
             <span>{{area.name}}</span>  
           </mat-option>  
-        </mat-autocomplete> 
+        </mat-autocomplete>  -->
 
+        <mat-select placeholder="Business Areas" [formControl]="roleCtrl" multiple>
+            <mat-option *ngFor="let area of areas" [value]="area.name">{{area.name}}</mat-option>
+        </mat-select>
 
         </mat-form-field>
-        <div>
+        <!-- <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
-        </div>
+        </div> -->
       </form>
     </mat-step>
 
@@ -79,10 +85,10 @@
 
 
 
-      <div>
+      <!-- <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
-      </div>
+      </div> -->
     </mat-step>
 <!== ASPIRATIONAL SKILLS ==>
     <mat-step>
@@ -108,10 +114,10 @@
 
 
 
-      <div>
+      <!-- <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
-      </div>
+      </div> -->
     </mat-step>
 
     <mat-step>

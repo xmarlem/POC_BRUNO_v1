@@ -146,22 +146,22 @@
                 <input matInput  placeholder="Search for location" aria-label="Location" #searchControl formControlName="searchControl">
             </mat-form-field>
             <br>
-            <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="true" [zoom]="zoom">
-            <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+            <agm-map [latitude]="job.latitude" [longitude]="job.longitude" [scrollwheel]="true" [zoom]="zoom">
+            <agm-marker [latitude]="job.latitude" [longitude]="job.longitude"></agm-marker>
             </agm-map>
         
             <!== JOB DESCRIPTION ==>
             <mat-form-field class="" fxFill>
-                <textarea matInput #notes
-                          name="notes"
-                          formControlName="notes"
+                <textarea matInput #description
+                          name="description"
+                          formControlName="description"
                           placeholder="Job description"
                           maxlength="500"
                           matTextareaAutosize
                           matAutosizeMinRows="1"
                           matAutosizeMaxRows="6">
                 </textarea>
-                <mat-hint align="end">{{notes.value.length}} / 500</mat-hint>
+                <mat-hint align="end">{{description.value.length}} / 500</mat-hint>
             </mat-form-field>
 
             <button *ngIf="formType === 'new'"

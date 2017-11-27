@@ -1,4 +1,5 @@
-import { MatSnackBar } from '@angular/material';
+import { MyProfileService } from './my-profile.service';
+import { MatSnackBar, MatDialog, MatDialogRef } from '@angular/material';
 import { Component, OnInit, ViewChild, ElementRef, ViewContainerRef, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormArray} from '@angular/forms';
 import { fuseAnimations } from '../../../../core/animations';
@@ -6,6 +7,9 @@ import { fuseAnimations } from '../../../../core/animations';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
+
+import {RatingModule} from "ngx-rating";
+import { Ask4recommendationComponent } from 'app/main/content/ui/my-profile/ask4recommendation/ask4recommendation.component';
 
 //ML
 //import { SkillsService } from './skills.service';
@@ -20,6 +24,12 @@ export class MyProfileComponent implements OnInit
     form: FormGroup;
     formErrors: any;
 
+
+    //DIALOG BOXES
+    dialogRef: any;
+    
+
+    //=============
 
     //begin ML
 
@@ -56,6 +66,7 @@ export class MyProfileComponent implements OnInit
     formCurrentSkills: FormGroup;
     formAspirationalSkills: FormGroup;
 
+    jobPositionsLocations: Array<{latitude: number, longitude: number, location: string}> = [];
 
 
     currentSkillsInputItemArray: Array<FormControl>;
@@ -67,6 +78,7 @@ export class MyProfileComponent implements OnInit
     currentSkillsFilteredOptions: Observable<string[]>;
     aspirationalSkillsFilteredOptions: Observable<string[]>;
 
+    starsCount: number = 4;
    
     addCurrentSkill(){
         //prendo i current skills dal FormArray nel FormGroup e gli aggiungo un nuovo elemento
@@ -110,7 +122,10 @@ export class MyProfileComponent implements OnInit
     //end ML
 
     constructor(private formBuilder: FormBuilder,
-                private snackBar:MatSnackBar
+                private snackBar:MatSnackBar,
+                private myProfService: MyProfileService,
+                public dialog: MatDialog
+                
     )
     {
         this.formErrors = {
@@ -140,6 +155,22 @@ export class MyProfileComponent implements OnInit
 
     ngOnInit()
     {
+
+        //MLML
+        this.myProfService.getJobs()
+        .then(
+            (jobs) =>
+            {
+
+                jobs.forEach(j => {
+                    this.jobPositionsLocations.push({'latitude': j.latitude, 'longitude': j.longitude, 'location': j.location });
+                    
+                });
+            }
+        );
+
+        //console.log(this.jobPositionsLocations);
+
         this.currentSkillsInputItemArray = new Array<FormControl>();
         
       //form group SKILLS ------- 
@@ -160,7 +191,7 @@ export class MyProfileComponent implements OnInit
             
         }
 
-        console.log("Array of Form Control: " + this.currentSkillsInputItemArray);
+        //console.log("Array of Form Control: " + this.currentSkillsInputItemArray);
 
         
 
@@ -256,5 +287,23 @@ export class MyProfileComponent implements OnInit
                            { duration: 2000, extraClasses: ['mat-accent-900-bg']});
     }
 
+
+    //MLMLMLML
+    askForRecommendation(){
+        this.dialogRef = this.dialog.open(Ask4recommendationComponent, {
+            panelClass: 'recommendation-form-dialog',
+            data      : {
+                contact: "test",
+                action : 'edit'
+            }
+        });
+        this.dialogRef.afterClosed()
+        .subscribe((response) => {
+            this.snackBar.open("Your recommendation message has been sent successfully!", 
+            "Info!", 
+            { duration: 2000, extraClasses: ['mat-accent-900-bg']});
+        });
+
+    }
 
 }

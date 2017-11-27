@@ -68,12 +68,13 @@ const routes: Routes = [
     ],
     imports     : [
         SharedModule,
-        RouterModule.forChild(routes),
-        AgmCoreModule.forRoot({   //MLMLML
-            libraries: ["places"],
-            language: "en", //TODO: QUANDO si fara' l'internazionalizzazione farlo diventare parametrico 
-            apiKey: 'AIzaSyDqoMIE5UL8UXdrrTaN00kd-DbDdNB41jk'
-        })
+        RouterModule.forChild(routes)
+    
+        // AgmCoreModule.forRoot({   //MLMLML
+        //     libraries: ["places"],
+        //     language: "en", //TODO: QUANDO si fara' l'internazionalizzazione farlo diventare parametrico 
+        //     apiKey: 'AIzaSyD81ecsCj4yYpcXSLFcYU97PvRsE_X8Bx8'
+        // })
 
     ],
     providers   : [

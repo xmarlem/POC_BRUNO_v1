@@ -2,7 +2,7 @@ export class Job
 {
     id: string;
     title: string;
-    notes: string;
+    description: string;
     startDate: string;
     dueDate: string;
     completed: boolean;
@@ -12,6 +12,8 @@ export class Job
     allocationType: string;
     allocationPerc: number;
     location: string;
+    latitude: number;
+    longitude: number;
     skills: string[];
     tags: [
         {
@@ -27,7 +29,7 @@ export class Job
         {
             this.id = job.id;
             this.title = job.title;
-            this.notes = job.notes;
+            this.description = job.description;
             this.startDate = job.startDate;
             this.dueDate = job.dueDate;
             this.completed = job.completed;
@@ -39,6 +41,8 @@ export class Job
             this.allocationType = job.allocationType;
             this.allocationPerc = job.allocationPerc;
             this.location = job.location;
+            this.latitude = job.latitude;
+            this.longitude = job.longitude;
             this.skills = job.skills;
         }
     }

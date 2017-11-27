@@ -52,7 +52,7 @@
         background: #EEEEEE;
 
         .title,
-        .notes {
+        .description {
             color: rgba(0, 0, 0, 0.54);
             text-decoration: line-through;
         }
@@ -70,7 +70,7 @@
             font-weight: 500;
         }
 
-        .notes {
+        .description {
             margin-top: 4px;
         }
     }

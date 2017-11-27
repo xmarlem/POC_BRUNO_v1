@@ -17,7 +17,7 @@ export class JobFakeDb
         {
             'id'       : '561551bd7fe2ff461101c192',
             'title'    : 'IT Business Analyst - Credit Risk',
-            'notes'    : 'India-Bangalore-Bangalore |   Full-time | Technology [IT] | Job ID 095940.',
+            'description'    : 'India-Bangalore-Bangalore |   Full-time | Technology [IT] | Job ID 095940.',
             'startDate': 'Wednesday, November 20, 2017 3:17 PM',
             'dueDate'  : 'Wednesday, December 31, 2017 3:17 PM',
             'completed': false,
@@ -28,12 +28,14 @@ export class JobFakeDb
             'allocationType': 'Full-time',
             'allocationPerc': 100,
             'location' : 'Bangalore Nilgiri Road, Lashkar Mohalla, Doora, Mysuru, Karnataka, India',
+            'latitude' : 12.311949,
+            'longitude': 76.658876,
             'skills'   : ['Credit Risk', 'Problem Solving', 'Team Worker', 'SCRUM', 'Requirement Engineering']
         },
         {
             'id'       : '561551bd4ac1e7eb77a3a750',
             'title'    : 'Senior Software Engineer (SE) / Solution Architect (SA) in an Agile Team 80 - 100 %',
-            'notes'    : 'Switzerland-Region Zurich-Zürich |   Full-time | Technology [IT] | Job ID 100763',
+            'description'    : 'Switzerland-Region Zurich-Zürich |   Full-time | Technology [IT] | Job ID 100763',
             'startDate': 'Sunday, February 1, 2017 1:30 PM',
             'dueDate'  : 'Friday, December 30, 2017 10:07 AM',
             'completed': false,
@@ -44,13 +46,15 @@ export class JobFakeDb
             'allocationType': 'Full-time',
             'allocationPerc': 100,
             'location' : 'Paradeplatz, Zürich, Switzerland',
+            'latitude' : 47.370051,
+            'longitude': 8.538691,
             'skills'   : ['Java', 'Problem Solving', 'Team Worker', 'SCRUM', 'SSL protocol']
             
         },
         {
             'id'       : '561551bd917bfec2ddef2d49',
             'title'    : 'Risk Management Reporter',
-            'notes'    : 'India-Mumbai-Mumbai |   Full-time | Corporate Functions | Job ID 100939',
+            'description'    : 'Switzerland-Region Zurich |   Full-time | Corporate Functions | Job ID 100939',
             'startDate': 'Friday, April 11, 2017 3:43 AM',
             'dueDate'  : 'Wednesday, July 26, 2017 11:14 AM',
             'completed': false,
@@ -59,12 +63,15 @@ export class JobFakeDb
             'deleted'  : false,
             'tags'     : [3],
             'allocationType': 'Full-time',
-            'allocationPerc': 100
+            'allocationPerc': 100,
+            'location' : 'Badenerstrasse, Zürich, Switzerland',
+            'latitude' : 47.374902,
+            'longitude': 8.527919           
         },
         {
             'id'       : '561551bdeeb2fd6877e18c29',
             'title'    : 'JAP Consultant',
-            'notes'    : 'Poland-Warsaw-Warsaw |   Full-time | Technology [IT] | Job ID 093381',
+            'description'    : 'Poland-Warsaw-Warsaw |   Full-time | Technology [IT] | Job ID 093381',
             'startDate': 'Wednesday, May 7, 2014 4:14 AM',
             'dueDate'  : 'Friday, December 15, 2017 4:01 AM',
             'completed': true,
@@ -78,7 +85,7 @@ export class JobFakeDb
         {
             'id'       : '561551bdf38eae0134ae43d4',
             'title'    : 'Front Office Developer',
-            'notes'    : 'Hong Kong-Hong Kong-Hong Kong | Singapore | Full-time | Technology [IT] | Job ID 103578',
+            'description'    : 'Hong Kong-Hong Kong-Hong Kong | Singapore | Full-time | Technology [IT] | Job ID 103578',
             'startDate': 'Sunday, August 23, 2017 11:19 PM',
             'dueDate'  : 'Friday, July 8, 2016 10:49 AM',
             'completed': false,
@@ -92,7 +99,7 @@ export class JobFakeDb
         {
             'id'       : '561551bd32f1588c814a0ccd',
             'title'    : 'C# Database Developer',
-            'notes'    : 'United States-NY-New York |   Full-time | Technology [IT] | Job ID 095667',
+            'description'    : 'United States-NY-New York |   Full-time | Technology [IT] | Job ID 095667',
             'startDate': 'Sunday, June 7, 2015 10:49 AM',
             'dueDate'  : 'Monday, January 9, 2017 8:34 AM',
             'completed': false,
@@ -106,7 +113,7 @@ export class JobFakeDb
         {
             'id'       : '561551bd0bb4b08ca77038ef',
             'title'    : 'Officia voluptate tempor ut mollit ea cillum',
-            'notes'    : 'Deserunt veniam reprehenderit do elit magna ut.',
+            'description'    : 'Deserunt veniam reprehenderit do elit magna ut.',
             'startDate': 'Saturday, October 18, 2014 4:25 AM',
             'dueDate'  : 'Sunday, August 21, 2016 10:48 PM',
             'completed': true,
@@ -118,7 +125,7 @@ export class JobFakeDb
         {
             'id'       : '561551bdf84eec913835ebe5',
             'title'    : 'Sit exercitation cupidatat minim est ipsum excepteur',
-            'notes'    : '',
+            'description'    : '',
             'startDate': 'Friday, August 8, 2014 5:45 AM',
             'dueDate'  : 'Wednesday, June 15, 2016 1:53 PM',
             'completed': true,
@@ -130,7 +137,7 @@ export class JobFakeDb
         {
             'id'       : '561551bd2047cc709af0f670',
             'title'    : 'Sunt fugiat officia nisi minim sunt duis',
-            'notes'    : 'Eiusmod eiusmod sint aliquip exercitation cillum. Magna nulla officia ex consectetur ea ad excepteur in qui.',
+            'description'    : 'Eiusmod eiusmod sint aliquip exercitation cillum. Magna nulla officia ex consectetur ea ad excepteur in qui.',
             'startDate': 'Monday, July 13, 2015 1:55 PM',
             'dueDate'  : 'Thursday, March 3, 2016 2:26 PM',
             'completed': false,
@@ -149,7 +156,7 @@ export class JobFakeDb
         {
             'id'       : '561551bd73d1a627e97005ce',
             'title'    : 'Non cupidatat enim quis aliquip minim laborum',
-            'notes'    : 'Qui cillum eiusmod nostrud sunt dolore velit nostrud labore voluptate ad dolore. Eu Lorem anim pariatur aliqua. Ullamco ut dolor velit esse occaecat dolore eu cillum commodo qui. Nulla dolor consequat voluptate magna ut commodo magna consectetur non aute proident.',
+            'description'    : 'Qui cillum eiusmod nostrud sunt dolore velit nostrud labore voluptate ad dolore. Eu Lorem anim pariatur aliqua. Ullamco ut dolor velit esse occaecat dolore eu cillum commodo qui. Nulla dolor consequat voluptate magna ut commodo magna consectetur non aute proident.',
             'startDate': 'Tuesday, November 11, 2014 6:36 PM',
             'dueDate'  : 'Tuesday, August 9, 2016 7:18 AM',
             'completed': false,
@@ -161,7 +168,7 @@ export class JobFakeDb
         {
             'id'       : '561551bd8f7d793ded0a2353',
             'title'    : 'Dolor ex occaecat magna labore laboris qui',
-            'notes'    : 'Incididunt qui excepteur eiusmod elit cillum occaecat voluptate cillum nostrud. Dolor ullamco ullamco eiusmod do sunt adipisicing pariatur. In esse esse labore id reprehenderit sint do. Pariatur culpa dolor tempor qui excepteur duis do anim minim ipsum.',
+            'description'    : 'Incididunt qui excepteur eiusmod elit cillum occaecat voluptate cillum nostrud. Dolor ullamco ullamco eiusmod do sunt adipisicing pariatur. In esse esse labore id reprehenderit sint do. Pariatur culpa dolor tempor qui excepteur duis do anim minim ipsum.',
             'startDate': 'Monday, June 9, 2014 3:15 PM',
             'dueDate'  : 'Wednesday, October 19, 2016 3:38 PM',
             'completed': false,
@@ -173,7 +180,7 @@ export class JobFakeDb
         {
             'id'       : '561551bdaa586f72d0be02cc',
             'title'    : 'Ex nisi amet id dolore nostrud esse',
-            'notes'    : '',
+            'description'    : '',
             'startDate': 'Thursday, January 15, 2015 6:11 PM',
             'dueDate'  : 'Sunday, August 20, 2017 10:02 AM',
             'completed': false,
@@ -185,7 +192,7 @@ export class JobFakeDb
         {
             'id'       : '561551bd9f1c2de5b27f537b',
             'title'    : 'In dolor velit labore dolore ex eiusmod',
-            'notes'    : '',
+            'description'    : '',
             'startDate': 'Monday, March 10, 2014 12:50 AM',
             'dueDate'  : 'Thursday, January 26, 2017 3:10 PM',
             'completed': false,
@@ -197,7 +204,7 @@ export class JobFakeDb
         {
             'id'       : '561551bd26e21bb5e85b35cb',
             'title'    : 'Sunt voluptate aliquip exercitation minim magna sit',
-            'notes'    : '',
+            'description'    : '',
             'startDate': 'Tuesday, March 24, 2015 10:54 PM',
             'dueDate'  : 'Wednesday, August 23, 2017 5:35 PM',
             'completed': false,
@@ -209,7 +216,7 @@ export class JobFakeDb
         {
             'id'       : '561551bd719860cf0ad2011a',
             'title'    : 'Nisi et ullamco minim ea proident tempor',
-            'notes'    : 'Dolor veniam dolor cillum Lorem magna nisi in occaecat nulla dolor ea eiusmod.',
+            'description'    : 'Dolor veniam dolor cillum Lorem magna nisi in occaecat nulla dolor ea eiusmod.',
             'startDate': 'Friday, February 14, 2014 10:03 AM',
             'dueDate'  : 'Saturday, July 8, 2017 11:54 PM',
             'completed': false,
@@ -221,7 +228,7 @@ export class JobFakeDb
         {
             'id'       : '561551bd49d800c243264a91',
             'title'    : 'Sit ipsum mollit cupidatat adipisicing officia aliquip',
-            'notes'    : '',
+            'description'    : '',
             'startDate': 'Wednesday, December 10, 2014 9:25 AM',
             'dueDate'  : 'Friday, March 25, 2016 12:29 AM',
             'completed': true,
@@ -233,7 +240,7 @@ export class JobFakeDb
         {
             'id'       : '561551bd061990eaf40fb64f',
             'title'    : 'Amet sunt et quis amet commodo quis',
-            'notes'    : 'Nulla dolore consequat aliqua sint consequat elit qui occaecat et.',
+            'description'    : 'Nulla dolore consequat aliqua sint consequat elit qui occaecat et.',
             'startDate': 'Saturday, March 1, 2014 3:59 PM',
             'dueDate'  : 'Saturday, November 7, 2015 2:00 PM',
             'completed': false,
@@ -245,7 +252,7 @@ export class JobFakeDb
         {
             'id'       : '561551be81d05fa94711e7f3',
             'title'    : 'Ut eiusmod ex ea eiusmod culpa incididunt',
-            'notes'    : 'Fugiat non incididunt officia ex incididunt occaecat. Voluptate nostrud culpa aliquip mollit incididunt non dolore.',
+            'description'    : 'Fugiat non incididunt officia ex incididunt occaecat. Voluptate nostrud culpa aliquip mollit incididunt non dolore.',
             'startDate': 'Monday, February 2, 2015 3:07 PM',
             'dueDate'  : 'Saturday, October 14, 2017 6:57 AM',
             'completed': false,
@@ -257,7 +264,7 @@ export class JobFakeDb
         {
             'id'       : '561551be05c093a80e0c8d05',
             'title'    : 'Proident reprehenderit laboris pariatur ut et nisi',
-            'notes'    : 'Reprehenderit proident ut ad cillum quis velit quis aliqua ut aliquip tempor ullamco.',
+            'description'    : 'Reprehenderit proident ut ad cillum quis velit quis aliqua ut aliquip tempor ullamco.',
             'startDate': 'Sunday, June 14, 2015 4:40 AM',
             'dueDate'  : 'Wednesday, February 10, 2016 10:47 AM',
             'completed': true,
@@ -269,7 +276,7 @@ export class JobFakeDb
         {
             'id'       : '561551be3bb43a5bd431c2fc',
             'title'    : 'Aliqua aliquip aliquip aliquip et exercitation aute',
-            'notes'    : 'Adipisicing Lorem tempor ex anim. Labore tempor laboris nostrud dolore voluptate ullamco. Fugiat ex deserunt anim minim esse velit laboris aute ea duis incididunt. Elit irure id Lorem incididunt laborum aliquip consectetur est irure sunt. Ut labore anim nisi aliqua tempor laborum nulla cillum. Duis irure consequat cillum magna cillum eiusmod ut. Et exercitation voluptate quis deserunt elit quis dolor deserunt ex ex esse ex.',
+            'description'    : 'Adipisicing Lorem tempor ex anim. Labore tempor laboris nostrud dolore voluptate ullamco. Fugiat ex deserunt anim minim esse velit laboris aute ea duis incididunt. Elit irure id Lorem incididunt laborum aliquip consectetur est irure sunt. Ut labore anim nisi aliqua tempor laborum nulla cillum. Duis irure consequat cillum magna cillum eiusmod ut. Et exercitation voluptate quis deserunt elit quis dolor deserunt ex ex esse ex.',
             'startDate': 'Saturday, May 3, 2014 1:32 AM',
             'dueDate'  : 'Monday, September 12, 2016 9:16 PM',
             'completed': true,

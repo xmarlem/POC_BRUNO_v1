@@ -117,11 +117,7 @@ const appRoutes: Routes = [
         //MLML
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule.enablePersistence(),
-        CoreModule,
-        //MLML
-        AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyD81ecsCj4yYpcXSLFcYU97PvRsE_X8Bx8'
-        })
+        CoreModule
 
     ],
     providers   : [
@@ -129,7 +125,7 @@ const appRoutes: Routes = [
         FuseConfigService,
         FuseNavigationService,
         //MLMMLML
-        MessageService, AgmCoreModule
+        MessageService
         
     ],
     bootstrap   : [

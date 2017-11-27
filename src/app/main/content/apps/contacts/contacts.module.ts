@@ -28,7 +28,7 @@ const routes: Routes = [
         FuseContactsContactListComponent,
         FuseContactsSelectedBarComponent,
         FuseContactsMainSidenavComponent,
-        FuseContactsContactFormDialogComponent
+        FuseContactsContactFormDialogComponent                
     ],
     providers      : [
         ContactsService

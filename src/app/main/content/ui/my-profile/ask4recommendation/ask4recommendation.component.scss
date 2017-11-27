@@ -1,0 +1,24 @@
+.recommendation-form-dialog {
+    .mat-dialog-container {
+        padding: 0;
+        width: 720px;
+
+        .contacts-form {
+            min-width: 150px;
+            max-width: 500px;
+            width: 100%;
+
+            .mat-form-field {
+                width: 100%;
+            }
+
+
+        }
+    }
+
+    .dialog-content-wrapper {
+        max-height: 85vh;
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -4,14 +4,19 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
+
+
 @Injectable()
-export class SkillsService implements Resolve<any>
+export class MyProfileService implements Resolve<any>
 {
     skills: any;
+    jobs: any;
+
     about: any;
     photosVideos: any;
 
     skillsOnChanged: BehaviorSubject<any> = new BehaviorSubject({});
+    jobsOnChanged: BehaviorSubject<any> = new BehaviorSubject({});
     aboutOnChanged: BehaviorSubject<any> = new BehaviorSubject({});
     photosVideosOnChanged: BehaviorSubject<any> = new BehaviorSubject({});
 
@@ -53,6 +58,18 @@ export class SkillsService implements Resolve<any>
                     //console.log(skills.data);
                     this.skillsOnChanged.next(this.skills);
                     resolve(this.skills);
+                }, reject);
+        });
+    }
+
+    getJobs(): Promise<any>
+    {
+        return new Promise((resolve, reject) => {
+            this.http.get('api/job-jobs')
+                .subscribe((response: any) => {
+                    this.jobs = response;
+                    this.jobsOnChanged.next(this.jobs);
+                    resolve(response);
                 }, reject);
         });
     }
