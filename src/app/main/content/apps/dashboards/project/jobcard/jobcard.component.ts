@@ -1,8 +1,10 @@
 import { TooltipPositionExample } from './../../../../../../../assets/angular-material-examples/tooltip-position/tooltip-position-example';
 import { JobcardDialogComponent } from './jobcard-dialog/jobcard-dialog.component';
-import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatSnackBar } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatSnackBar, MatSnackBarRef } from '@angular/material';
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { JobsService } from 'app/main/content/apps/dashboards/project/jobs.service';
+import { FuseNavigationService } from 'app/core/components/navigation/navigation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ml-jobcard',
@@ -13,9 +15,13 @@ export class JobcardComponent implements OnInit {
 
   @Input() job: any;
 
+  snackBarRef: MatSnackBarRef<any>;
+
+
   constructor(private jobcardService:JobsService,
               public dialog:MatDialog,
-              private matSnackBar: MatSnackBar  
+              private matSnackBar: MatSnackBar,
+              private router: Router          
             ) { 
     
   }
@@ -35,11 +41,13 @@ export class JobcardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed, result: ' + result + " Data: " + dialogRef.id);
       if(result === true){
-        this.matSnackBar.open("Submitted successfully!", 
+        this.snackBarRef = this.matSnackBar.open("Submitted successfully!", 
                               "Info", 
                               {duration: 5000, 
                                extraClasses: ['mat-accent-900-bg']
                               });
+
+
       }
     });
   }

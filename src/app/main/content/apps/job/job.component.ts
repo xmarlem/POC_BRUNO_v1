@@ -89,7 +89,7 @@ export class FuseJobComponent implements OnInit, OnDestroy
 
 
         
-
+        //upon the click (action) from the user --> it opens the dialog box
         this.snackBarRef.onAction().subscribe(
             () => {
                 this.recommendEmployee();

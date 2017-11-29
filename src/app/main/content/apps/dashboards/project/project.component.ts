@@ -54,7 +54,7 @@ export class FuseProjectComponent implements OnInit, OnDestroy
     tags: any[];
     @Input() job: Job;
 
-
+    normalUser: boolean;
 
     jobcards: any[];
     //END ML
@@ -185,6 +185,11 @@ export class FuseProjectComponent implements OnInit, OnDestroy
         setInterval(() => {
             this.dateNow = Date.now();
         }, 1000);
+
+
+        //MLMLML
+        this.normalUser = (JSON.parse(localStorage.getItem('currentUser')).role === "user");
+
 
     }
 

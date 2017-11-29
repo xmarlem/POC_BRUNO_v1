@@ -39,7 +39,7 @@
     
                     <mat-tab-group dynamicHeight>
     
-                        <mat-tab label="Open positions for you!">
+                        <mat-tab label="Open positions for you!" *ngIf="normalUser">
     
                             <!-- LATEST OPEN POSITIONS -->
                                 <div class="widget-group p-12" fxLayout="row" fxFlex="100" fxLayoutWrap *fuseIfOnDom >

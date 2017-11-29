@@ -65,13 +65,13 @@ export class RecommendEmployeeComponent implements OnInit {
   }
 
   fillMessage(event){
-    this.messageCtrl.setValue("Hi " + event.option.value + ", can you please recommend me?");
-    console.log(event.option.value); 
+    this.messageCtrl.setValue("Dear " + event.option.value + ", I am glad to recommend you ... ");
+    //console.log(event.option.value); 
   }
 
 
   rated(){
-    console.log("rated with: "+ this.starsCount);
+    //console.log("rated with: "+ this.starsCount);
   }
 
   // ratingComponetClick(clickObj: any): void {

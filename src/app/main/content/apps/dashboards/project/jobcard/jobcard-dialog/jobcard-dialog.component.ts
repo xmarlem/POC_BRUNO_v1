@@ -1,6 +1,7 @@
 import { FuseNavigationService } from './../../../../../../../core/components/navigation/navigation.service';
-import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatSnackBarRef } from '@angular/material';
 import { Component, OnInit, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-jobcard-dialog',
@@ -9,11 +10,14 @@ import { Component, OnInit, Inject } from '@angular/core';
 })
 export class JobcardDialogComponent implements OnInit {
 
+  snackBarRef: MatSnackBarRef<any>;
+
   constructor(
     public dialogRef: MatDialogRef<JobcardDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private navigationService: FuseNavigationService,
-    private matSnackBar: MatSnackBar  
+    private matSnackBar: MatSnackBar,
+    private router:Router
   )     
   { }
 
@@ -37,6 +41,13 @@ export class JobcardDialogComponent implements OnInit {
       {duration: 5000, 
        extraClasses: ['mat-light-green-900-bg']
       });
+
+      this.snackBarRef.onAction().subscribe(
+        () => {
+          this.router.navigate(['apps/mail/inbox']);    
+        }
+      );
+
 
       const chatNavItem = this.navigationService.getNavigationItem('applications.chat');
       chatNavItem.badge.title = 6;
