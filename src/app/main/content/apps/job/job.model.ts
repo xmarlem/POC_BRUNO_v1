@@ -3,6 +3,8 @@ export class Job
     id: string;
     title: string;
     description: string;
+    role:string;
+    area:string;
     startDate: string;
     dueDate: string;
     completed: boolean;
@@ -30,6 +32,8 @@ export class Job
             this.id = job.id;
             this.title = job.title;
             this.description = job.description;
+            this.role = job.role;
+            this.area = job.area;  
             this.startDate = job.startDate;
             this.dueDate = job.dueDate;
             this.completed = job.completed;

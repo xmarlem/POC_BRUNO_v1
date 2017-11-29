@@ -248,7 +248,7 @@ export class MyProfileComponent implements OnInit
 
         //begin ML
             this.firstFormGroup = this.formBuilder.group({
-              firstCtrl: ['Marco Lembo', Validators.required],
+              firstCtrl: ['Stefan Geiser', Validators.required],
               divisionCtrl: [{value: 'SJSF 4', disabled: true}]
             });
             this.secondFormGroup = this.formBuilder.group({

@@ -39,6 +39,42 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
     //     //{ name: 'Example' 
     //     //}
     //   ];
+
+    roles: any[] = [
+        {
+          name: 'Project Manager'
+        },
+        {
+          name: 'Developer'
+        },
+        {
+          name: 'Senior Developer'
+        },
+        {
+          name: 'Line Manager'
+        },
+        {
+          name: 'Solution Architect'
+        }
+      ];
+
+    areas: any[] = [
+    {
+        name: 'Payments'
+    },
+    {
+        name: 'TAX'
+    },
+    {
+        name: 'Credit Risk'
+    },
+    {
+        name: 'Accounting'
+    }
+
+    ];
+    
+    
     
     add(event: MatChipInputEvent): void {
         let input = event.input;
@@ -66,19 +102,10 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
     }
     //END CHIPS
 
-    //LOCATION (MAPS)
-//    public latitude: number; //TO REMOVE
-//    public longitude: number; //TO REMOVE
-    //public location: string;
-    //public searchControl: FormControl;
     public zoom: number;
     @ViewChild("searchControl") public searchElementRef: ElementRef;
-  
-
-
 
     //END LOCATION
-
 
 
     job: Job;
@@ -142,6 +169,13 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
 
                         this.jobForm = this.createJobForm();
 
+                        //set the ROLE
+//                        console.log(this.job.role);
+//                        console.log("VALORE: "+ this.jobForm.get('roleCtrl').value);
+//                        this.jobForm.get('roleCtrl').setValue(this.job.role);
+//                        console.log("VALORE: "+ this.jobForm.get('roleCtrl').value);
+                        
+
                         this.loadMapStuff();
                         //console.log("in createJobForm");    
                         
@@ -166,6 +200,9 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
                                                         this.disabledPercValue = false;
                                                     }
 
+                                                    //data.role = this.job.role;
+                                                    //console.log("VALORE ROLE in data: " + data.role );
+                                                    
                                                     //PATCH
                                                     data.location = this.searchElementRef.nativeElement.value;
                                                     // console.log("Data location: " + data.location);
@@ -193,6 +230,7 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
                                         this.job.id = FuseUtils.generateGUID();
                                         this.formType = 'new';
                                         this.jobForm = this.createJobForm();
+
                                         //ML --- disabilito/abilito la percentuale se selezionato full
                                         if(this.job.allocationType==='Full-time'){
                                             this.disabledPercValue = true;
@@ -274,12 +312,14 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
         //console.log(this.job.allocationType);
         //console.log(this.job.notes);
         //console.log("In CreateJob: " + this.job.location);
-        
+        console.log(this.job.role);
         
         return this.formBuilder.group({
             'id'       : [this.job.id],
             'title'    : [this.job.title],
             'description'    : [this.job.description],
+            'role'     : [this.job.role],
+            'area'     : [this.job.area],
             'startDate': [new Date(this.job.startDate)],
             'dueDate'  : [new Date(this.job.dueDate)],
             'completed': [this.job.completed],

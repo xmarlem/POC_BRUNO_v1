@@ -135,8 +135,8 @@
             </mat-form-field>      
           </mat-card>
     
-          <mat-card fxFlex="50%" fxFill.lt-sm >
-            <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+          <mat-card fxFlex="50%"  >
+            <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-evenly center" >
                 <!== END DATE ==>
                 <mat-form-field fxFlex="60%">
                   <input matInput [matDatepicker]="picker2" placeholder="End date" [disabled]="unlimited">

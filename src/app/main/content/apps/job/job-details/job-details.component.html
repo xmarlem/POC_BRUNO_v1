@@ -86,7 +86,39 @@
                 </div>
             </div>
 
-            <!== ALLOCATION TIME and TYPE ==>            
+            <!== ROLE ==>
+            <div class="tags mb-24" fxFlexFill fxLayout="row" fxLayoutWrap>
+                <mat-form-field fxFlex>
+                    <input placeholder="Role" type="text" matInput formControlName="role" [matAutocomplete]="auto">
+                 </mat-form-field>
+                 
+                 <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let role of roles" [value]="role.name">
+                       {{ role.name }}
+                    </mat-option>
+                 </mat-autocomplete>
+                 <!== AREA ==>
+                 <mat-form-field fxFlex>
+                    <input placeholder="AREA" type="text" matInput formControlName="area" [matAutocomplete]="auto">
+                 </mat-form-field>
+                 
+                 <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let area of areas" [value]="area.name">
+                       {{ area.name }}
+                    </mat-option>
+                 </mat-autocomplete>
+
+
+
+
+            </div>
+        
+            <div class="tags mb-24" fxFlexFill fxLayout="row" fxLayoutWrap>
+            </div>
+        
+
+
+            <!== ALLOCATION PERIOD ==>            
             <div class="dates" fxFlexFill fxLayout="column" fxLayout.gt-xs="row">
 
                 <mat-form-field class="mr-sm-24" fxFlex>

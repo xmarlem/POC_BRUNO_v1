@@ -356,8 +356,8 @@ export class ContactsFakeDb
     public static user = [
         {
             'id'              : '5725a6802d10e277a0f35724',
-            'name'            : 'Marco Lembo',
-            'avatar'          : 'assets/images/avatars/profilo_marco.jpg',
+            'name'            : 'Stefan Geiser',
+            'avatar'          : 'assets/images/avatars/profilo_stefan.jpg',
             'starred'         : [
                 '5725a680ae1ae9a3c960d487',
                 '5725a6801146cce777df2a08',

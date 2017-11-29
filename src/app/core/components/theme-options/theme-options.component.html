@@ -36,13 +36,13 @@
             <mat-radio-button class="mr-8 mb-8" value="none">None</mat-radio-button>
         </mat-radio-group>
 
-        <h3 class="mt-24">Footer:</h3>
+        <!-- <h3 class="mt-24">Footer:</h3>
         <mat-radio-group [(ngModel)]="fuseSettings.layout.footer" (ngModelChange)="onSettingsChange()"
                          fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="start start" fxLayoutWrap>
             <mat-radio-button class="mr-8 mb-8" value="below">Below</mat-radio-button>
             <mat-radio-button class="mr-8 mb-8" value="above">Above</mat-radio-button>
             <mat-radio-button class="mr-8 mb-8" value="none">None</mat-radio-button>
-        </mat-radio-group>
+        </mat-radio-group> -->
 
         <h3 class="mt-24">Layout Mode:</h3>
         <mat-radio-group [(ngModel)]="fuseSettings.layout.mode" (ngModelChange)="onSettingsChange()"
@@ -68,11 +68,11 @@
                                             (onValueChange)="onSettingsChange()"></fuse-material-color-picker>
             </div>
 
-            <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+            <!-- <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
                 <h4 class="mr-8">Footer Color</h4>
                 <fuse-material-color-picker [(selectedClass)]="fuseSettings.colorClasses.footer"
                                             (onValueChange)="onSettingsChange()"></fuse-material-color-picker>
-            </div>
+            </div> -->
 
         </div>
 

@@ -3,8 +3,8 @@ export class ChatFakeDb
     public static contacts = [
         {
             'id'    : '5725a680b3249760ea21de52',
-            'name'  : 'Alice Freeman',
-            'avatar': 'assets/images/avatars/alice.jpg',
+            'name'  : 'Marco Lembo',
+            'avatar': 'assets/images/avatars/profilo_marco.jpg',
             'status': 'online',
             'mood'  : 'I never sign anything until I pretend to read it first..'
         },
@@ -82,8 +82,8 @@ export class ChatFakeDb
         },
         {
             'id'    : '5725a680b8d240c011dd224b',
-            'name'  : 'Josefina',
-            'avatar': 'assets/images/avatars/Josefina.jpg',
+            'name'  : 'Bruno Sonetto',
+            'avatar': 'assets/images/avatars/profilo_bruno.jpg',
             'status': 'online',
             'mood'  : 'The fastest way to being happy is to make other people happy. You go first'
         },
@@ -174,10 +174,10 @@ export class ChatFakeDb
         },
         {
             'id'    : '5725a6809413bf8a0a5272b1',
-            'name'  : 'Bruno Sonetto',
-            'avatar': 'assets/images/avatars/profilo_bruno.jpg',
+            'name'  : 'Daniel Eggenschwiler',
+            'avatar': 'assets/images/avatars/profilo_daniel.png',
             'status': 'online',
-            'mood'  : 'Music is Life!!'
+            'mood'  : 'Good morning CS!!'
         }
     ];
 
@@ -207,53 +207,8 @@ export class ChatFakeDb
                 },
                 {
                     'who'    : '5725a680b3249760ea21de52',
-                    'message': 'You are the worst!',
+                    'message': 'Please, come ASAP!',
                     'time'   : '2017-03-22T09:05:28.299Z'
-                },
-                {
-                    'who'    : '5725a680b3249760ea21de52',
-                    'message': 'We are losing money! Quick!',
-                    'time'   : '2017-03-22T09:15:28.299Z'
-                },
-                {
-                    'who'    : '5725a6802d10e277a0f35724',
-                    'message': 'It’s not my money, you know. I will eat my breakfast and then I will come to the meeting room.',
-                    'time'   : '2017-03-22T09:20:28.299Z'
-                },
-                {
-                    'who'    : '5725a680b3249760ea21de52',
-                    'message': 'You are the worst!',
-                    'time'   : '2017-03-22T09:22:28.299Z'
-                },
-                {
-                    'who'    : '5725a680b3249760ea21de52',
-                    'message': 'We are losing money! Quick!',
-                    'time'   : '2017-03-22T09:25:28.299Z'
-                },
-                {
-                    'who'    : '5725a6802d10e277a0f35724',
-                    'message': 'It’s not my money, you know. I will eat my breakfast and then I will come to the meeting room.',
-                    'time'   : '2017-03-22T09:27:28.299Z'
-                },
-                {
-                    'who'    : '5725a680b3249760ea21de52',
-                    'message': 'You are the worst!',
-                    'time'   : '2017-03-22T09:33:28.299Z'
-                },
-                {
-                    'who'    : '5725a680b3249760ea21de52',
-                    'message': 'We are losing money! Quick!',
-                    'time'   : '2017-03-22T09:35:28.299Z'
-                },
-                {
-                    'who'    : '5725a6802d10e277a0f35724',
-                    'message': 'It’s not my money, you know. I will eat my breakfast and then I will come to the meeting room.',
-                    'time'   : '2017-03-22T09:45:28.299Z'
-                },
-                {
-                    'who'    : '5725a680b3249760ea21de52',
-                    'message': 'You are the worst!',
-                    'time'   : '2017-03-22T10:00:28.299Z'
                 }
             ]
         },
@@ -282,12 +237,12 @@ export class ChatFakeDb
             'dialog': [
                 {
                     'who'    : '5725a6809413bf8a0a5272b1',
-                    'message': 'Ciao Marco...sto provando a contattarti. Ti ho appena inviato un email per proporti un colloquio',
+                    'message': 'Hi Stefan...I am trying to contact you. I have just sent you a mail to propose you a job interview',
                     'time'   : '2017-11-03T02:10:00.299Z'
                 },
                 {
                     'who'    : '5725a6809413bf8a0a5272b1',
-                    'message': 'Fammi sapere al più presto!',
+                    'message': 'Please, let me know ASAP!',
                     'time'   : '2017-11-03T02:10:00.299Z'
                 }
             ]
@@ -297,31 +252,31 @@ export class ChatFakeDb
     public static user = [
         {
             'id'      : '5725a6802d10e277a0f35724',
-            'name'    : 'Marco Lembo',
-            'avatar'  : 'assets/images/avatars/profilo_marco.jpg',
+            'name'    : 'Stefan Geiser',
+            'avatar'  : 'assets/images/avatars/profilo_stefan.jpg',
             'status'  : 'online',
             'mood'    : 'it\'s a status....not your diary...',
             'chatList': [
                 {
                     'id'             : '1725a680b3249760ea21de52',
                     'contactId'      : '5725a680b3249760ea21de52',
-                    'name'           : 'Alice Freeman',
+                    'name'           : 'Marco Lembo',
                     'unread'         : 4,
-                    'lastMessageTime': '2017-06-12T02:10:18.931Z'
+                    'lastMessageTime': '2017-11-12T02:10:18.931Z'
                 },
                 {
                     'id'             : '2725a680b8d240c011dd2243',
                     'contactId'      : '5725a680b8d240c011dd224b',
-                    'name'           : 'Josefina White',
+                    'name'           : 'Bruno Sonetto',
                     'unread'         : null,
-                    'lastMessageTime': '2017-02-18T10:30:18.931Z'
+                    'lastMessageTime': '2017-11-18T10:30:18.931Z'
                 },
                 {
                     'id'             : '3725a6809413bf8a0a5272b4',
                     'contactId'      : '5725a6809413bf8a0a5272b1',
-                    'name'           : 'Bruno Sonetto',
+                    'name'           : 'Daniel Eggenschwiler',
                     'unread'         : 2,
-                    'lastMessageTime': '2017-03-18T12:30:18.931Z'
+                    'lastMessageTime': '2017-12-05T12:30:18.931Z'
                 }
             ]
         }

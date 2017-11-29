@@ -110,7 +110,7 @@ export class FuseLogin2Component implements OnInit
                         this.router.navigate(['']);                                                    
                     }
                     else if(user.role === 'publisher'){
-                        this.router.navigate(['apps/todo/all']);                                                                            
+                        this.router.navigate(['apps/job/all']);                                                                            
                     }
                 },
                 (err) => {

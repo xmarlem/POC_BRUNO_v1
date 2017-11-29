@@ -21,7 +21,7 @@ export class NavigationModel
                             'title': 2,
                             'bg'   : '#F44336',
                             'fg'   : '#FFFFFF'
-                        }        
+                       }        
                     },
                     {
                         'id'   : 'search',

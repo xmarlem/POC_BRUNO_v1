@@ -19,11 +19,11 @@ export class FuseNavVerticalItemComponent implements OnInit
     checkMenuItem(url):boolean{
         let u = this.user;
         if(u){
-            //console.log(url);
-            if(u.email==='marco@gmail.com' && url!== '/apps/job')
+//            console.log(u.email);
+            if(u.email==='stefan@gmx.ch' && url!== '/apps/job')
                 return true;
             else 
-                if((u.email==='bruno@gmail.com' || u.email==='stefan@gmail.com') && url=== '/apps/job')
+                if((u.email==='bruno@gmx.ch' || u.email==='daniel@gmx.ch') && url=== '/apps/job')
                     return true;
                 else 
                     return false;

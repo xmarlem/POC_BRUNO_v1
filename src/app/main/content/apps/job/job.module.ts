@@ -1,3 +1,4 @@
+import { RatingModule } from 'ngx-rating';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../../../core/modules/shared.module';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,6 +9,8 @@ import { FuseJobListItemComponent } from './job-list/job-list-item/job-list-item
 import { FuseJobListComponent } from './job-list/job-list.component';
 import { FuseJobDetailsComponent } from './job-details/job-details.component';
 import { AgmCoreModule } from '@agm/core';
+import { RecommendEmployeeComponent } from './recommend-employee/recommend-employee.component';
+import { RatingComponent } from './rating/rating.component';
 
 const routes: Routes = [
     {
@@ -64,11 +67,14 @@ const routes: Routes = [
         FuseJobMainSidenavComponent,
         FuseJobListItemComponent,
         FuseJobListComponent,
-        FuseJobDetailsComponent
+        FuseJobDetailsComponent,
+        RecommendEmployeeComponent,
+        RatingComponent
     ],
     imports     : [
         SharedModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        RatingModule
     
         // AgmCoreModule.forRoot({   //MLMLML
         //     libraries: ["places"],
@@ -77,6 +83,10 @@ const routes: Routes = [
         // })
 
     ],
+    entryComponents: [
+        RecommendEmployeeComponent
+    ],
+    
     providers   : [
         JobService
     ]
