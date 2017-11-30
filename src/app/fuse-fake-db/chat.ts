@@ -6,7 +6,7 @@ export class ChatFakeDb
             'name'  : 'Marco Lembo',
             'avatar': 'assets/images/avatars/profilo_marco.jpg',
             'status': 'online',
-            'mood'  : 'I never sign anything until I pretend to read it first..'
+            'mood'  : 'Most of the successful people I\'ve known are the ones who do more listening than talking.'
         },
         {
             'id'    : '5725a680606588342058356d',
@@ -237,13 +237,13 @@ export class ChatFakeDb
             'dialog': [
                 {
                     'who'    : '5725a6809413bf8a0a5272b1',
-                    'message': 'Hi Stefan...I am trying to contact you. I have just sent you a mail to propose you a job interview',
-                    'time'   : '2017-11-03T02:10:00.299Z'
+                    'message': 'Hi Stefan...I am trying to contact you. I have just sent you a mail to invite you for a job interview',
+                    'time'   : '2017-11-30T02:10:00.299Z'
                 },
                 {
                     'who'    : '5725a6809413bf8a0a5272b1',
                     'message': 'Please, let me know ASAP!',
-                    'time'   : '2017-11-03T02:10:00.299Z'
+                    'time'   : '2017-11-30T02:10:00.299Z'
                 }
             ]
         }

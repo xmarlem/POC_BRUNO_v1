@@ -38,7 +38,7 @@ export class JobcardDialogComponent implements OnInit {
       //snack bar
       this.snackBarRef = this.matSnackBar.open("A new mail received!", 
       "Info", 
-      {duration: 5000, 
+      {//duration: 5000, 
        extraClasses: ['mat-light-green-900-bg']
       });
 

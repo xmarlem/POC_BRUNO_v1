@@ -15,7 +15,7 @@ export class MailFakeDb
                 }
             ],
             'subject'       : 'Job interview in UH2 - 15th floor - RED Area.',
-            'message'       : '<p> Hi Stefan, I am setting this appointment up for a job interview here in Uetlihof. </p><p> Is this timeslot working for you? If not, please let me know when you are available <b>asap</b>. </p><p>Thanks in advance and Best Regards. </p><p><i>Daniel Eggenschwiler</i>. </p>',
+            'message'       : '<p> Hi Stefan, I am setting this appointment for a job interview here in Uetlihof. </p><p> Is this timeslot working for you? If not, please let me know when you are available <b>asap</b>. </p><p>Thanks in advance and Best Regards. </p><p><i>Daniel Eggenschwiler</i>. </p>',
             'time'          : '16 Oct',
             'read'          : false,
             'starred'       : true,
@@ -119,7 +119,6 @@ export class MailFakeDb
             'important'     : false,
             'hasAttachments': false,
             'labels'        : [
-                1,
                 3
             ],
             'folder'        : 0
