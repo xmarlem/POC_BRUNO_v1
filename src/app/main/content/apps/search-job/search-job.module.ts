@@ -67,7 +67,7 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         FuseWidgetModule,
         NgxChartsModule,
-        AgmCoreModule
+        //AgmCoreModule
     ],
     declarations: [
         FuseEcommerceDashboardComponent,

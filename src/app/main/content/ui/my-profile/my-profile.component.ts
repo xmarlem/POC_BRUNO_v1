@@ -29,6 +29,9 @@ export class MyProfileComponent implements OnInit
     dialogRef: any;
     
 
+    currentUser: any;
+
+
     //=============
 
     //begin ML
@@ -71,7 +74,25 @@ export class MyProfileComponent implements OnInit
 
     currentSkillsInputItemArray: Array<FormControl>;
 //    aspirationalSkills = [];
-    options = ['C++', 'Java', 'Angular', 'Oracle', 'Credit Risk', 'Problem Solving', 'SAS', 'Global Markets', 'Front Office', 'SCRUM', 'Payments', 'TAX', 'Agile development', 'Python' ];
+    options = [
+        'C++', 
+        'Java', 
+        'Angular', 
+        'Oracle', 
+        'Credit Risk', 
+        'Problem Solving', 
+        'SAS', 
+        'Front Office', 
+        'SCRUM', 
+        'Agile development', 
+        'Python',
+        'Empathetic',
+        'Independent',
+        'Innovator',
+        'Resilient',
+        'Team Player'
+    ];
+
     myCurrentSkillsControl: FormControl = new FormControl();
     myAspirationalSkillsControl: FormControl = new FormControl();
 
@@ -138,6 +159,10 @@ export class MyProfileComponent implements OnInit
             state     : {},
             postalCode: {}
         };
+
+        //leggo il current user
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
     }
 
     //SKILLS
@@ -227,12 +252,12 @@ export class MyProfileComponent implements OnInit
         this.form = this.formBuilder.group({
             company   : [
                 {
-                    value   : 'Google',
-                    disabled: true
+                    value   : 'Credit Suisse',
+                    disabled: false
                 }, Validators.required
             ],
-            firstName : ['', Validators.required],
-            lastName  : ['', Validators.required],
+            firstName : [this.currentUser.name, Validators.required],
+            lastName  : [this.currentUser.surname, Validators.required],
             address   : ['', Validators.required],
             address2  : ['', Validators.required],
             city      : ['', Validators.required],

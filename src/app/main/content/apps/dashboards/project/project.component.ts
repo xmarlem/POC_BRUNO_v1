@@ -296,7 +296,7 @@ export class FuseProjectComponent implements OnInit, OnDestroy
               
 
             }
-            , 5000);
+            , 10000);
 
 
     }

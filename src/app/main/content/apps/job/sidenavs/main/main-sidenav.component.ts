@@ -18,6 +18,8 @@ export class FuseJobMainSidenavComponent implements OnInit, OnDestroy
     accounts: object;
     selectedAccount: string;
 
+    currentUser:any;
+
     onFiltersChanged: Subscription;
     onTagsChanged: Subscription;
 
@@ -30,6 +32,8 @@ export class FuseJobMainSidenavComponent implements OnInit, OnDestroy
         };
 
         this.selectedAccount = 'creapond';
+
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
     ngOnInit()

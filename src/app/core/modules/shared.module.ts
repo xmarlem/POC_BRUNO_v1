@@ -63,7 +63,7 @@ import { RatingModule } from "ngx-rating";
         AgmCoreModule.forRoot({   //MLMLML
             libraries: ["places"],
             language: "en", //TODO: QUANDO si fara' l'internazionalizzazione farlo diventare parametrico 
-            apiKey: 'AIzaSyD81ecsCj4yYpcXSLFcYU97PvRsE_X8Bx8'
+           // apiKey: 'AIzaSyD81ecsCj4yYpcXSLFcYU97PvRsE_X8Bx8'
         })
         // //MLML
         // AgmCoreModule.forRoot({

@@ -40,7 +40,7 @@
         
                             <!== Company Name ==>
                             <mat-input-container fxFlex="100">
-                                <input matInput placeholder="Company" value="Credit Suisse">
+                                <input matInput placeholder="Company"  formControlName="company">
                             </mat-input-container>
 
                             <!== Org Unit Name ==>
@@ -57,21 +57,21 @@
                         <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
         
                             <mat-input-container fxFlex="50">
-                                <input matInput placeholder="First name" value="Stefan">
+                                <input matInput placeholder="First name" formControlName="firstName">
                                 <mat-error *ngIf="formErrors.firstName.required">
                                     Required
                                 </mat-error>
                             </mat-input-container>
         
                             <mat-input-container fxFlex="50">
-                                <input matInput placeholder="Last name" value="Geiser">
+                                <input matInput placeholder="Last name" formControlName="lastName">
                                 <mat-error *ngIf="formErrors.lastName.required">
                                     Required
                                 </mat-error>
                             </mat-input-container>
 
                             <mat-input-container fxFlex="30">
-                                    <input matInput placeholder="Personal ID" value="F197023">
+                                    <input matInput placeholder="Personal ID" value="A123456">
                                     <mat-error *ngIf="formErrors.lastName.required">
                                         Required
                                     </mat-error>

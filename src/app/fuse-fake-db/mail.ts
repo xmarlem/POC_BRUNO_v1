@@ -15,7 +15,7 @@ export class MailFakeDb
                 }
             ],
             'subject'       : 'Job interview in UH2 - 15th floor - RED Area.',
-            'message'       : '<p> Hi Stefan, I am setting this appointment up for a job interview here in Uetlihof. </p><p> Is this timeslot working for you? If not, please let me know when you are available <b>asap</b>. </p><p>Thanks in advance and Best Regards. </p><p><i>Bruno Sonetto</i>. </p>',
+            'message'       : '<p> Hi Stefan, I am setting this appointment up for a job interview here in Uetlihof. </p><p> Is this timeslot working for you? If not, please let me know when you are available <b>asap</b>. </p><p>Thanks in advance and Best Regards. </p><p><i>Daniel Eggenschwiler</i>. </p>',
             'time'          : '16 Oct',
             'read'          : false,
             'starred'       : true,
@@ -467,14 +467,14 @@ export class MailFakeDb
         },
         {
             'id'    : 2,
-            'handle': 'invoice',
-            'title' : 'Invoice',
+            'handle': 'task',
+            'title' : 'Task',
             'color' : '#607d8b'
         },
         {
             'id'    : 3,
-            'handle': 'amazon',
-            'title' : 'Amazon',
+            'handle': 'puzzle',
+            'title' : 'Puzzle Project',
             'color' : '#03a9f4'
         }
     ];

@@ -26,7 +26,7 @@ export class FuseTodoMainSidenavComponent implements OnInit, OnDestroy
         // Data
         this.accounts = {
             'creapond'    : 'stefan.geiser@credit-suisse.com',
-            'withinpixels': 'stefan@gmail.com'
+            'withinpixels': 'stefan@gmx.ch'
         };
 
         this.selectedAccount = 'creapond';

@@ -49,6 +49,9 @@ export class CurrentSkillsComponent implements OnInit {
     },
     {
       name: 'Accounting'
+    },
+    {
+      name: 'Global Markets'
     }
 
   ];
@@ -59,8 +62,6 @@ export class CurrentSkillsComponent implements OnInit {
   //
   //==========================
   //form group per gruppo di skills
-  options = ['C++', 'Java', 'Angular', 'Oracle', 'Credit Risk', 'Problem Solving', 'SAS', 'Global Markets', 'Front Office', 'SCRUM', 'Payments', 'TAX', 'Agile development', 'Python' ];
-  
 
   currentSkills: any[] = [];
   aspirationalSkills: any[] = [];

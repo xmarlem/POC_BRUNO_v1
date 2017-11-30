@@ -36,7 +36,7 @@ export class JobcardDialogComponent implements OnInit {
       audio.play();
 
       //snack bar
-      this.matSnackBar.open("A new mail received!", 
+      this.snackBarRef = this.matSnackBar.open("A new mail received!", 
       "Info", 
       {duration: 5000, 
        extraClasses: ['mat-light-green-900-bg']

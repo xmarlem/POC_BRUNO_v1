@@ -32,7 +32,7 @@ export class FuseMailMainSidenavComponent implements OnInit, OnDestroy
     {
         // Data
         this.accounts = {
-            'personal'    : 'stefan@gmail.com',
+            'personal'    : 'stefan@gmx.com',
             'cs': 'stefan.geiser@credit-suisse.com'
         };
 

@@ -51,7 +51,7 @@ export class CalendarFakeDb
                     draggable: true,
                     meta     : {
                         location: 'Zurich',
-                        notes   : 'Appointment in UH2 with Mr. Bruno Sonetto'
+                        notes   : 'Appointment in UH2 with Mr. Daniel Eggenschwiler'
                     }
                 },
                 {

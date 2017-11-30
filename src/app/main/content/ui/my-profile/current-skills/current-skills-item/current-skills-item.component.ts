@@ -10,9 +10,25 @@ import { Observable } from 'rxjs/Observable';
 export class CurrentSkillsItemComponent implements OnInit {
   //per gestire l'autocomplete
   currentSkillsFilteredOptions: Observable<string[]>;
-  skillsOptions = ['C++', 'Java', 'Angular', 'Oracle', 'Credit Risk', 'Problem Solving', 'SAS', 'Global Markets', 'Front Office', 'SCRUM', 'Payments', 'TAX', 'Agile development', 'Python' ];
   
-
+  skillsOptions = [
+    'C++', 
+    'Java', 
+    'Angular', 
+    'Oracle', 
+    'Credit Risk', 
+    'Problem Solving', 
+    'SAS', 
+    'Front Office', 
+    'SCRUM', 
+    'Agile development', 
+    'Python',
+    'Empathetic',
+    'Independent',
+    'Innovator',
+    'Resilient',
+    'Team Player'
+];
 
   @Input() skillModel: {id:number, skillName: string, proficiency: number};
 

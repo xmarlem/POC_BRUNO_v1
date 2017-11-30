@@ -25,7 +25,7 @@ export class SearchJobJobService implements Resolve<any>
      */
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any
     {
-        console.log("in Resolve 1: " + JSON.stringify(route.params));        
+        //console.log("in Resolve 1: " + JSON.stringify(route.params));        
         this.routeParams = route.params;
 
         return new Promise((resolve, reject) => {
@@ -65,7 +65,7 @@ export class SearchJobJobService implements Resolve<any>
 
     saveProduct(job)
     {
-        console.log("in SaveProduct 1: " + JSON.stringify(job));        
+        //console.log("in SaveProduct 1: " + JSON.stringify(job));        
         
         return new Promise((resolve, reject) => {
             this.http.post('api/search-job-jobs/' + job.id, job)

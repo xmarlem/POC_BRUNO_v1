@@ -316,7 +316,7 @@ export class JobFakeDb
         {
             'id'    : 2,
             'handle': 'dueDate',
-            'title' : 'Sheduled',
+            'title' : 'Scheduled',
             'icon'  : 'schedule'
         },
         {
