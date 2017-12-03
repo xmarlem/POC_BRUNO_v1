@@ -154,7 +154,9 @@
                    <!-- <label fxLayoutAlign="end center" class="text-boxed percentage" ><b>{{ perc.percent }} %</b></label> -->
                 </div>
             </div>
-
+            <br>
+            <br>
+            
             <div class="skills" fxFlexFill fxLayout="row">
                 <!== Required SKILLS ==>
                 <mat-form-field fxFlex>
@@ -174,7 +176,7 @@
             </div>
             <br>
             <!== LOCATION (MAP) ==>            
-            <mat-form-field fxFill>
+            <mat-form-field fxFlexFill>
                 <input matInput  placeholder="Search for location" aria-label="Location" #searchControl formControlName="searchControl">
             </mat-form-field>
             <br>
@@ -188,7 +190,7 @@
             </agm-map>
         
             <!== JOB DESCRIPTION ==>
-            <mat-form-field class="" fxFill>
+            <mat-form-field class="" fxFlexFill>
                 <textarea matInput #description
                           name="description"
                           formControlName="description"

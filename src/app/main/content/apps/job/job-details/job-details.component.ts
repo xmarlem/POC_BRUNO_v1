@@ -99,7 +99,7 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
     @ViewChild("searchControl", {read: ElementRef}) public searchElementRef: ElementRef;
 //    @ViewChild("searchControl") public searchElementRef: ElementRef;
     
-    //END LOCATION
+//END LOCATION
 
 
     job: Job;
@@ -137,16 +137,7 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
 
 
     ngAfterViewInit(){
-            //console.log("searchElementRef not null: " + this.searchElementRef);
-        //if(this.searchElementRef) console.log("searchElementRef not null: " + this.searchElementRef);
-
-            //console.log("loadMapStuff Before loading!");  
-            // setTimeout(() => {
-            //     console.log("SearchElementRef: "+this.searchElementRef);
-            //     this.loadMapStuff();  
-            // }, 1000);
-            
-            //console.log("loadMapStuff LOADED!");  
+       // this.loadMapStuff();
     }
 
     ngAfterContentInit(){
@@ -155,10 +146,7 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
 
     ngOnInit()
     {
-
-        this.loadMapStuff();  
         
-
         // Subscribe to update the current job
         this.onCurrentJobChanged =
             this.jobService.onCurrentJobChanged
@@ -183,17 +171,17 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
                         // console.log(this.job.location);
 
                         this.jobForm = this.createJobForm();
+                        
+                        
+                        
+                        this.loadMapStuff();
 
                         //set the ROLE
 //                        console.log(this.job.role);
 //                        console.log("VALORE: "+ this.jobForm.get('roleCtrl').value);
 //                        this.jobForm.get('roleCtrl').setValue(this.job.role);
 //                        console.log("VALORE: "+ this.jobForm.get('roleCtrl').value);
-                        
-
-                        //this.loadMapStuff(); // --> moved to onViewInitCompleted
-                        //console.log("in createJobForm");    
-                        
+                                                
                         //MLMLML
                         //this.jobForm.get('startDate').setValue(this.job.startDate);
                         //console.log(this.jobForm.get('startDate').setValue(this.job.startDate));    
@@ -219,10 +207,10 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
                                                     //console.log("VALORE ROLE in data: " + data.role );
                                                     
                                                     //PATCH
-                                                    console.log("Before the searchElementRef: "+this.searchElementRef);
+                                                    //console.log("Before the searchElementRef 1: "+this.searchElementRef);
                                                     
                                                     if(this.searchElementRef){
-                                                        console.log("in onInit: "+ this.searchElementRef);
+                                                        //console.log("in onInit: "+ this.searchElementRef);
                                                         data.location = this.searchElementRef.nativeElement.value;
                                                         // console.log("Data location: " + data.location);
                                                         // console.log("Data title: " + data.title);
@@ -266,7 +254,9 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
                                         this.jobService.onCurrentJobChanged.next([this.job, 'new']);
                                     });
 
-
+        //this.loadMapStuff(); // --> moved to onViewInitCompleted
+        //console.log("in createJobForm");    
+            
 
     }
 
@@ -277,50 +267,63 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
         });
     }
 
+
+    private setCurrentPosition() {
+        if ("geolocation" in navigator) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            this.job.latitude = position.coords.latitude;
+            this.job.longitude = position.coords.longitude;
+            this.zoom = 12;
+          });
+        }
+      }
+    
+
     loadMapStuff(){
+
+        this.setCurrentPosition();
         //load Places Autocomplete
-        this.zoom = 12;
-        
         this.mapsAPILoader.load().then(() => { 
         //            let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-            console.log("Before the searchElementRef: "+this.searchElementRef);
+            //console.log("Before the searchElementRef: "+this.searchElementRef);
             
-            
-            let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+            if(this.searchElementRef){
+                let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
                     types: ["address"]
-            });
+                });
 
 
-            console.log("After the searchElementRef");
+                //console.log("After the searchElementRef");
 
-            autocomplete.addListener("place_changed", () => {
-            this.ngZone.run(() => {
-                //get the place result
-                console.log("place changed!");
-                let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+                autocomplete.addListener("place_changed", () => {
+                    this.ngZone.run(() => {
+                        //get the place result
+                        console.log("place changed!");
+                        let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+                        //verify result
+                        if (place.geometry === undefined || place.geometry === null) {
+                        return;
+                        }                    
+                        //set latitude, longitude and zoom
+                        // console.log(place);
+                        // console.log(place.formatted_address);
+                        // console.log(place.adr_address);
+                        // console.log("Place: " + JSON.stringify(place) );
+                        // console.log(place.address_components[1]);
+                        // console.log(place.address_components[2]);
+                        // console.log(place.address_components[3]);
+                        this.job.location = place.formatted_address;
 
-                //verify result
-                if (place.geometry === undefined || place.geometry === null) {
-                return;
-                }
-                
-                //set latitude, longitude and zoom
-                // console.log(place);
-                // console.log(place.formatted_address);
-                // console.log(place.adr_address);
-                // console.log("Place: " + JSON.stringify(place) );
-                // console.log(place.address_components[1]);
-                // console.log(place.address_components[2]);
-                // console.log(place.address_components[3]);
-                this.job.location = place.formatted_address;
+                        //if required later...I should put also these as persistent.
+                        this.job.latitude = place.geometry.location.lat();
+                        this.job.longitude = place.geometry.location.lng();
+                        this.zoom = 12;
+                        
+                        //console.log("Lat e Long: "+ this.job.latitude + " " + this.job.longitude);
+                    });
+                });
 
-                //if required later...I should put also these as persistent.
-                this.job.latitude = place.geometry.location.lat();
-                this.job.longitude = place.geometry.location.lng();
-
-                //console.log("Lat e Long: "+ this.job.latitude + " " + this.job.longitude);
-            });
-            });
+            }
         });
         //MLML END LOCATION
 
