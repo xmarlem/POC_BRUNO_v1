@@ -41,7 +41,7 @@ export class RecommendEmployeeComponent implements OnInit {
     .then( (contacts) => {
         this.contacts = contacts;
 //        console.log(JSON.stringify(this.contacts));
-        this.contactsCtrl.enable();        
+        //this.contactsCtrl.enable();        
 
     } );
 

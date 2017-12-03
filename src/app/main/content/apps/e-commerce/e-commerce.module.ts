@@ -13,7 +13,6 @@ import { FuseEcommerceOrdersComponent } from './orders/orders.component';
 import { EcommerceOrdersService } from './orders/orders.service';
 import { FuseEcommerceOrderComponent } from './order/order.component';
 import { EcommerceOrderService } from './order/order.service';
-import { AgmCoreModule } from '@agm/core';
 
 const routes: Routes = [
     {
@@ -66,10 +65,7 @@ const routes: Routes = [
         SharedModule,
         RouterModule.forChild(routes),
         FuseWidgetModule,
-        NgxChartsModule,
-        AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyD81ecsCj4yYpcXSLFcYU97PvRsE_X8Bx8'
-        })
+        NgxChartsModule
     ],
     declarations: [
         FuseEcommerceDashboardComponent,

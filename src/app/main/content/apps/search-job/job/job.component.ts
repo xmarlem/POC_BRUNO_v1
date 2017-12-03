@@ -47,9 +47,9 @@ export class FuseSearchJobJobComponent implements OnInit, OnDestroy
 
                     if ( job )
                     {
-                        console.log("in INIT- before: " + job.skills);
+                        //console.log("in INIT- before: " + job.skills);
                         this.job = new Job(job);
-                        console.log("in INIT- after: " + job.skills);
+                        //console.log("in INIT- after: " + job.skills);
                         this.pageType = 'edit';
                     }
                     else
@@ -99,7 +99,7 @@ export class FuseSearchJobJobComponent implements OnInit, OnDestroy
 
                 // Trigger the subscription with new data
                 this.jobService.onProductChanged.next(data);
-                console.log("After: " + JSON.stringify(data));
+                //console.log("After: " + JSON.stringify(data));
                 
                 // Show the success message
                 this.snackBar.open('Job position saved', 'OK', {
@@ -110,7 +110,7 @@ export class FuseSearchJobJobComponent implements OnInit, OnDestroy
     }
 
     logMe(){
-        console.log(this.jobForm.pristine);
+        //console.log(this.jobForm.pristine);
     }
 
     addProduct()

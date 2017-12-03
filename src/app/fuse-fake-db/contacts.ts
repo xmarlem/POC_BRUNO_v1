@@ -362,7 +362,6 @@ export class ContactsFakeDb
                 '5725a680ae1ae9a3c960d487',
                 '5725a6801146cce777df2a08',
                 '5725a680bbcec3cc32a8488a',
-                '5725a680bc670af746c435e2',
                 '5725a68009e20d0a9e9acf2a'
             ],
             'frequentContacts': [

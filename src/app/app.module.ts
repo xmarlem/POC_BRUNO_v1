@@ -30,7 +30,6 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from 'environments/environment';
 import { MessageService} from 'primeng/components/common/messageservice';
 import { CoreModule } from 'app/core/core.module';
-import { AgmCoreModule } from '@agm/core';
 
 
 

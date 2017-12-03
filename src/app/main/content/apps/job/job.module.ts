@@ -74,7 +74,7 @@ const routes: Routes = [
     imports     : [
         SharedModule,
         RouterModule.forChild(routes),
-        RatingModule
+        RatingModule,
     
         // AgmCoreModule.forRoot({   //MLMLML
         //     libraries: ["places"],

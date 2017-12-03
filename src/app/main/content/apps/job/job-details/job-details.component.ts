@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, ElementRef, NgZone, AfterViewInit, AfterContentInit } from '@angular/core';
 import { JobService } from '../job.service';
 import { Job } from '../job.model';
 import { Subscription } from 'rxjs/Subscription';
@@ -24,7 +24,7 @@ const COMMA = 188;
     styleUrls  : ['./job-details.component.scss'],
     animations : fuseAnimations
 })
-export class FuseJobDetailsComponent implements OnInit, OnDestroy
+export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterContentInit, OnDestroy
 {
     //CHIPS (SKILLS)
     visible: boolean = true;
@@ -34,11 +34,6 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
 
     // Enter, comma
     separatorKeysCodes = [ENTER, COMMA];
-    
-    // skills = [
-    //     //{ name: 'Example' 
-    //     //}
-    //   ];
 
     roles: any[] = [
         {
@@ -74,8 +69,6 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
 
     ];
     
-    
-    
     add(event: MatChipInputEvent): void {
         let input = event.input;
         let value = event.value;
@@ -103,8 +96,9 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
     //END CHIPS
 
     public zoom: number;
-    @ViewChild("searchControl") public searchElementRef: ElementRef;
-
+    @ViewChild("searchControl", {read: ElementRef}) public searchElementRef: ElementRef;
+//    @ViewChild("searchControl") public searchElementRef: ElementRef;
+    
     //END LOCATION
 
 
@@ -141,8 +135,29 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
         this.dateAdapter.setLocale('en-GB');
     }
 
+
+    ngAfterViewInit(){
+            //console.log("searchElementRef not null: " + this.searchElementRef);
+        //if(this.searchElementRef) console.log("searchElementRef not null: " + this.searchElementRef);
+
+            //console.log("loadMapStuff Before loading!");  
+            // setTimeout(() => {
+            //     console.log("SearchElementRef: "+this.searchElementRef);
+            //     this.loadMapStuff();  
+            // }, 1000);
+            
+            //console.log("loadMapStuff LOADED!");  
+    }
+
+    ngAfterContentInit(){
+     //   this.loadMapStuff(); 
+    }
+
     ngOnInit()
     {
+
+        this.loadMapStuff();  
+        
 
         // Subscribe to update the current job
         this.onCurrentJobChanged =
@@ -176,7 +191,7 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
 //                        console.log("VALORE: "+ this.jobForm.get('roleCtrl').value);
                         
 
-                        this.loadMapStuff();
+                        //this.loadMapStuff(); // --> moved to onViewInitCompleted
                         //console.log("in createJobForm");    
                         
                         //MLMLML
@@ -204,10 +219,15 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
                                                     //console.log("VALORE ROLE in data: " + data.role );
                                                     
                                                     //PATCH
-                                                    data.location = this.searchElementRef.nativeElement.value;
-                                                    // console.log("Data location: " + data.location);
-                                                    // console.log("Data title: " + data.title);
-                                                    // console.log("Data test: " + data.test);
+                                                    console.log("Before the searchElementRef: "+this.searchElementRef);
+                                                    
+                                                    if(this.searchElementRef){
+                                                        console.log("in onInit: "+ this.searchElementRef);
+                                                        data.location = this.searchElementRef.nativeElement.value;
+                                                        // console.log("Data location: " + data.location);
+                                                        // console.log("Data title: " + data.title);
+                                                        // console.log("Data test: " + data.test);    
+                                                    }
                                                 
                                                     //end ML
                                                     
@@ -258,25 +278,25 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
     }
 
     loadMapStuff(){
-        //after having created the form... to make sure!
-
-        this.zoom = 12;
-        //this.latitude = 39.8282;
-        //this.longitude = -98.5795;
-
-
-
-
         //load Places Autocomplete
+        this.zoom = 12;
+        
         this.mapsAPILoader.load().then(() => { 
         //            let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+            console.log("Before the searchElementRef: "+this.searchElementRef);
+            
+            
             let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
                     types: ["address"]
             });
+
+
+            console.log("After the searchElementRef");
+
             autocomplete.addListener("place_changed", () => {
             this.ngZone.run(() => {
                 //get the place result
-            
+                console.log("place changed!");
                 let place: google.maps.places.PlaceResult = autocomplete.getPlace();
 
                 //verify result
@@ -292,14 +312,13 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
                 // console.log(place.address_components[1]);
                 // console.log(place.address_components[2]);
                 // console.log(place.address_components[3]);
-                //this.job.location = place.formatted_address;
+                this.job.location = place.formatted_address;
 
                 //if required later...I should put also these as persistent.
                 this.job.latitude = place.geometry.location.lat();
                 this.job.longitude = place.geometry.location.lng();
 
                 //console.log("Lat e Long: "+ this.job.latitude + " " + this.job.longitude);
-                this.zoom = 12;
             });
             });
         });
@@ -309,10 +328,10 @@ export class FuseJobDetailsComponent implements OnInit, OnDestroy
 
     createJobForm()
     {
-        //console.log(this.job.allocationType);
+        //c.log(this.job.allocationType);
         //console.log(this.job.notes);
         //console.log("In CreateJob: " + this.job.location);
-        console.log(this.job.role);
+        //console.log(this.job.role);
         
         return this.formBuilder.group({
             'id'       : [this.job.id],

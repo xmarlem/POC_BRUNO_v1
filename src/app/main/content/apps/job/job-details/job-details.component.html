@@ -155,7 +155,7 @@
                 </div>
             </div>
 
-            <div class="skills" fxFill fxLayout="row">
+            <div class="skills" fxFlexFill fxLayout="row">
                 <!== Required SKILLS ==>
                 <mat-form-field fxFlex>
                         <mat-chip-list #chipList>
@@ -178,6 +178,11 @@
                 <input matInput  placeholder="Search for location" aria-label="Location" #searchControl formControlName="searchControl">
             </mat-form-field>
             <br>
+
+            <!== FAKE MAP ==>
+            <!-- <img src="assets/images/zurich_badener_map.png"> -->
+
+
             <agm-map [latitude]="job.latitude" [longitude]="job.longitude" [scrollwheel]="true" [zoom]="zoom">
             <agm-marker [latitude]="job.latitude" [longitude]="job.longitude"></agm-marker>
             </agm-map>
