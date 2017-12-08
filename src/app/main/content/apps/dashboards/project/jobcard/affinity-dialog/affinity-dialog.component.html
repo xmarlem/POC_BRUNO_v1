@@ -1,0 +1,48 @@
+
+  <div mat-dialog-title class="mat-display-1 mat-light-blue-500-bg text-center">Affinity Percentage</div>
+  <div mat-dialog-content>
+      <div class="content-card mat-white-bg">
+        <b>Legend:</b> <span class="text-italic">this percentage is computed by considering two elements:</span> <br> 
+            <ul>
+              <li> <span class="text-bold">Skills:</span> your skills matching on the required skills for this job position</li>
+              <li> <span class="text-bold">Availability period:</span> how much your availability overlaps this job position</li>
+            </ul>
+
+            <span fxFlexFill class="text-bold mat-primary-bg text-center block">Results</span>
+            <!-- <p>
+              <span class="text-bold">Skills:</span> 
+              <span class="blue-900-fg" >100%</span>
+            </p>
+            <p>
+                <span class="text-bold">Availability Period:</span> 
+                <span class="blue-900-fg" >80%</span>
+            </p>
+
+            <p>
+                <span class="text-bold text-italic"><u>Final Affinity:</u></span> 
+                <span class="green-800-fg" >90%</span>
+            </p> -->
+
+            <table id="affinityTable">
+              <tr>
+                <td><span class="text-bold">Skills:</span></td>
+                <td><span class="light-blue-900-fg text-bold" >100%</span></td>
+              </tr>
+              <tr>
+                  <td><span class="text-bold">Availability Period:</span></td>
+                  <td><span class="light-blue-900-fg text-bold" >80%</span></td>
+              </tr>
+              <tr>
+                  <td><span class="font-size-16 text-bold text-italic"><u>Final Affinity:</u></span></td>
+                  <td><span class="green-800-fg text-bold font-size-20" >90%</span></td>
+              </tr>
+              
+            </table>
+
+
+      </div>
+  </div>
+  <div mat-dialog-actions >
+      <!-- <button mat-button [mat-dialog-close]="true" tabindex="2" (click)="onSubmit(data.id)">Apply</button> -->
+      <button mat-raised-button class="cta-button" color="accent" (click)="onNoClick()" tabindex="-1">Done</button>
+  </div>

@@ -55,6 +55,7 @@ export class FuseProjectComponent implements OnInit, OnDestroy
     @Input() job: Job;
 
     normalUser: boolean;
+    currentUser: any;
 
     jobcards: any[];
     //END ML
@@ -189,7 +190,7 @@ export class FuseProjectComponent implements OnInit, OnDestroy
 
         //MLMLML
         this.normalUser = (JSON.parse(localStorage.getItem('currentUser')).role === "user");
-
+        this.currentUser = (JSON.parse(localStorage.getItem('currentUser')));
 
     }
 
@@ -273,7 +274,7 @@ export class FuseProjectComponent implements OnInit, OnDestroy
                     'description': "<br> <u><b>We use the latest and the most sophisticated security software</b></u> to protect our infrastructure and data across the globe. We are seeking for a skilled individual who has the passion to work with vastly scaled client security IT systems and who would help us keep the highest level of security required by the global financial enterprise.<br /> \
                     This role includes engineering of Tanium endpoint security solution for monitoring, detection and response to security threats related to ten thousands of end points based on Windows OS (Windows 7 and Windows 10). The scope of duties covers also continuous improvement of existing environment, engineering of changes, finding and fixing security issues in IT systems, responding to security incidents and delivering new functionalities and upgrades. <br /> \
                     <blockquote>You will be a part of the team of highly qualified engineers spanning across multiple locations (primarily Wroclaw). We provide stable but flexible work environment, career development opportunities and broad range of other benefits available to every permanent Credit Suisse employee.<br /></blockquote> \
-                    <b>Required from</b>: <i>01.01.2018</i> to <i>31.01.2018</i> \
+                    <h2><u><b>Required from</b></u>: 01.01.2018  <u><b>to</b></u>  31.01.2018  </h2> <br>\
                     <u><b>Responsibilities include:</b></u> <br /> <ul> <li>Work with Tanium endpoint security product</li> \
                     <li>Security requirements analysis</li> \
                     <li>Respond to production incidents</li> \

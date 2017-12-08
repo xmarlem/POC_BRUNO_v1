@@ -5,6 +5,7 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 import { JobsService } from 'app/main/content/apps/dashboards/project/jobs.service';
 import { FuseNavigationService } from 'app/core/components/navigation/navigation.service';
 import { Router } from '@angular/router';
+import { AffinityDialogComponent } from 'app/main/content/apps/dashboards/project/jobcard/affinity-dialog/affinity-dialog.component';
 
 @Component({
   selector: 'ml-jobcard',
@@ -50,6 +51,14 @@ export class JobcardComponent implements OnInit {
 
       }
     });
+  }
+
+
+  openAffinityToolTipDialogBox(){
+    let dialogRef:MatDialogRef<AffinityDialogComponent> = this.dialog.open(AffinityDialogComponent, {    
+      panelClass: 'jobcard-dialog',
+    });
+  
   }
 
 }

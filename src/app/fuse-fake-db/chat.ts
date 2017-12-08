@@ -237,7 +237,7 @@ export class ChatFakeDb
             'dialog': [
                 {
                     'who'    : '5725a6809413bf8a0a5272b1',
-                    'message': 'Hi Stefan...I am trying to contact you. I have just sent you a mail to invite you for a job interview',
+                    'message': 'Hi Stefan...I am trying to contact you. I have just sent a mail to invite you for a job interview',
                     'time'   : '2017-11-30T02:10:00.299Z'
                 },
                 {

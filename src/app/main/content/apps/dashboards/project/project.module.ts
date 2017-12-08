@@ -1,3 +1,4 @@
+import { AffinityDialogComponent } from 'app/main/content/apps/dashboards/project/jobcard/affinity-dialog/affinity-dialog.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FuseProjectComponent } from './project.component';
@@ -44,11 +45,12 @@ const routes: Routes = [
         FuseProjectComponent,
         JobListComponentComponent,
         JobcardComponent,
-        JobcardDialogComponent        
+        JobcardDialogComponent,
+        AffinityDialogComponent        
 
 
     ],
-    entryComponents: [JobcardDialogComponent],
+    entryComponents: [JobcardDialogComponent, AffinityDialogComponent],
     providers   : [
         ProjectsDashboardService,
         //MLMLML

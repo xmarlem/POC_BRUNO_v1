@@ -15,7 +15,6 @@ export class FuseNavVerticalItemComponent implements OnInit
         "/apps/job",
         "/apps/dashboards/project",
         "/apps/search-job/jobs",
-        "/ui/my-profile",
         "/apps/chat",
         "/apps/contacts",
         "/apps/mail",

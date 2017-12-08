@@ -3,8 +3,8 @@
       <span>{{job.title}}</span>
       
       <div *ngIf="job.isNew" class="badge">NEW</div>
-      <label fxLayoutAlign="end end" fxFlexAlign="end" class="sale text-boxed-light percentage mat-green-bg mat-hue-1">
-          <span matTooltip="How much this position match to your job profile!" matTooltipPosition="below">{{job.matching}}</span>
+      <label fxLayoutAlign="end end" fxFlexAlign="end" class="sale text-boxed-light percentage mat-green-bg mat-hue-1" (click)="openAffinityToolTipDialogBox()">
+          <span matTooltip="Affinity percentage to your job profile => click for more details!" matTooltipPosition="below">{{job.matching}}</span>
       </label>
       <!--                                    <span class="sale md-accent-color md-hue-1">15%</span> -->
   </div>

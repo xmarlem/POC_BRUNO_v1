@@ -16,7 +16,7 @@
             
             <form class="contacts-form">
                 <mat-form-field class="example-full-width" >
-                    <input matInput disabled placeholder="Employee to recommend" aria-label="Contact" [matAutocomplete]="auto" [formControl]="contactsCtrl">
+                    <input matInput placeholder="Employee to recommend" aria-label="Contact" [matAutocomplete]="auto" [formControl]="contactsCtrl">
                     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="fillMessage($event)" >
                         <mat-option *ngFor="let c of filteredContacts | async" [value]="c.name + ' ' + c.lastName">
                         <img style="vertical-align:middle;" class="avatar" aria-hidden src="{{c.avatar}}" height="25" />
