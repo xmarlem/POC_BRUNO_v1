@@ -20,17 +20,21 @@ export class CurrentSkillsComponent implements OnInit {
       name: 'Project Manager'
     },
     {
-      name: 'Developer'
+      name: 'Business Engineer'
     },
     {
-      name: 'Senior Developer'
+      name: 'Requirements Engineer'
     },
     {
-      name: 'Line Manager'
+      name: 'Application Support'
+    },
+    {
+      name: 'Application Developer'
     },
     {
       name: 'Solution Architect'
     }
+
   ];
 
 

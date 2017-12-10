@@ -88,7 +88,10 @@ export class JobFakeDb
             'deleted'  : false,
             'tags'     : [1, 3],
             'allocationType': 'Full-time',            
-            'allocationPerc': 100
+            'allocationPerc': 100,
+            'location' : 'Sihlcity, Zürich, Switzerland',
+            'latitude' : 47.359319,
+            'longitude': 8.522836           
         },
         {
             'id'       : '561551bdf38eae0134ae43d4',

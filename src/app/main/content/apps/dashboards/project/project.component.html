@@ -58,9 +58,9 @@
                             <!== LOCATION MAP ==> 
                                 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoomLocation" disableDefaultUI="true" zoomControl="true" #map>
                                     <agm-marker iconUrl="assets/images/markers/you.png" [latitude]="lat" [longitude]="lng"></agm-marker>
-                                    <!-- <agm-marker iconUrl="assets/images/markers/job.png" *ngFor="let location of jobPositionsLocations" [latitude]="location.latitude" [longitude]="location.longitude" >
+                                    <agm-marker iconUrl="assets/images/markers/job.png" *ngFor="let location of jobPositionsLocations" [latitude]="location.latitude" [longitude]="location.longitude" >
                                         <agm-info-window>{{location.location}}</agm-info-window>
-                                    </agm-marker> -->
+                                    </agm-marker>
                                 </agm-map>
                         </mat-tab>
                         <mat-tab label="Statistics">        

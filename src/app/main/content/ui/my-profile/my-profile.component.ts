@@ -27,19 +27,15 @@ export class MyProfileComponent implements OnInit
 
     //DIALOG BOXES
     dialogRef: any;
-    
-
     currentUser: any;
 
 
     //=============
 
     //begin ML
-
     isLinear = false;
     firstFormGroup: FormGroup;
     secondFormGroup: FormGroup;
-
 
     //for Accordion
     step = 0;
@@ -99,8 +95,9 @@ export class MyProfileComponent implements OnInit
     currentSkillsFilteredOptions: Observable<string[]>;
     aspirationalSkillsFilteredOptions: Observable<string[]>;
 
-    starsCount: number = 4;
-   
+    starsCountProfessionalSkills: number = 5;
+    starsCountSoftSkills: number = 5   ;
+    
     addCurrentSkill(){
         //prendo i current skills dal FormArray nel FormGroup e gli aggiungo un nuovo elemento
         let skills = <FormArray>this.currentSkills;
@@ -168,10 +165,11 @@ export class MyProfileComponent implements OnInit
     //SKILLS
     filter(val: string): string[] 
     {
-      //console.log("in filter.. "+ val);
-      //questo e' l'operazione di filtering on a typescript array. The argument is the filtering criteria, as anonymous function.
-      return this.options.filter(option =>
-        option.toLowerCase().indexOf(val.toLowerCase()) === 0);
+        //console.log("in filter.. "+ val);
+        //questo e' l'operazione di filtering on a typescript array. The argument is the filtering criteria, as anonymous function.
+        return this.options.filter(
+            option => option.toLowerCase().indexOf(val.toLowerCase()) === 0
+        );
     }
 
     //property for getSkills
@@ -198,7 +196,7 @@ export class MyProfileComponent implements OnInit
 
         this.currentSkillsInputItemArray = new Array<FormControl>();
         
-      //form group SKILLS ------- 
+        //form group SKILLS ------- 
         this.formCurrentSkills = this.formBuilder.group({
             skills: this.formBuilder.array([
                 this.formBuilder.group({
@@ -215,11 +213,6 @@ export class MyProfileComponent implements OnInit
             this.currentSkillsInputItemArray.push(a.at(index).get('skillName') as FormControl);
             
         }
-
-        //console.log("Array of Form Control: " + this.currentSkillsInputItemArray);
-
-        
-
 //        console.log(this.formCurrentSkills);
 
         this.formAspirationalSkills = this.formBuilder.group({
@@ -240,13 +233,10 @@ export class MyProfileComponent implements OnInit
             console.log(element);
             element.valueChanges.startWith(null).map(val => val ? this.filter(val) : this.options.slice());
         }
-
-
-
         this.currentSkillsFilteredOptions = this.myCurrentSkillsControl.valueChanges.startWith(null).map(val => val ? this.filter(val) : this.options.slice());
         this.aspirationalSkillsFilteredOptions = this.myAspirationalSkillsControl.valueChanges.startWith(null).map(val => val ? this.filter(val) : this.options.slice());
 
-      // ==============
+        // ==============
 
 
         this.form = this.formBuilder.group({
@@ -273,11 +263,11 @@ export class MyProfileComponent implements OnInit
 
         //begin ML
             this.firstFormGroup = this.formBuilder.group({
-              firstCtrl: ['Stefan Geiser', Validators.required],
-              divisionCtrl: [{value: 'SJSF 4', disabled: true}]
+                firstCtrl: ['Stefan Geiser', Validators.required],
+                divisionCtrl: [{value: 'SJSF 4', disabled: true}]
             });
             this.secondFormGroup = this.formBuilder.group({
-              secondCtrl: ['', Validators.required]
+                secondCtrl: ['', Validators.required]
             });
 
         // end ML
@@ -307,9 +297,9 @@ export class MyProfileComponent implements OnInit
 
     //MLMLMLL SAVE
     saveProfile(){
-        this.snackBar.open("Your profile has been saved successfully!", 
-                           "Info!", 
-                           { duration: 2000, extraClasses: ['mat-accent-900-bg']});
+        this.snackBar.open( "Your profile has been saved successfully!", 
+                            "Info!", 
+                            { duration: 2000, extraClasses: ['mat-accent-900-bg']});
     }
 
 

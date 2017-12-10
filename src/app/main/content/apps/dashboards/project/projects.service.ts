@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class ProjectsDashboardService implements Resolve<any>
@@ -11,6 +12,7 @@ export class ProjectsDashboardService implements Resolve<any>
 
     //MLMLML
     jobs: any[];
+    jobsOnChanged: BehaviorSubject<any> = new BehaviorSubject({});
     //MLMLML
 
     constructor(
@@ -80,7 +82,18 @@ export class ProjectsDashboardService implements Resolve<any>
 
     }
 
-
+//inserito per la mappa....
+    getJobs(): Promise<any>
+    {
+        return new Promise((resolve, reject) => {
+            this.http.get('api/job-jobs')
+                .subscribe((response: any) => {
+                    this.jobs = response;
+                    this.jobsOnChanged.next(this.jobs);
+                    resolve(response);
+                }, reject);
+        });
+    }
 
 
 

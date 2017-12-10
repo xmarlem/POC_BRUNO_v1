@@ -68,6 +68,9 @@ export class FuseProjectComponent implements OnInit, OnDestroy
 
     @ViewChild('map') 
     public mappa:AgmMap; 
+
+    jobPositionsLocations: Array<{latitude: number, longitude: number, location: string}> = [];
+    
 //END ML
 
 
@@ -271,6 +274,21 @@ export class FuseProjectComponent implements OnInit, OnDestroy
 // END ML --- OPEN POSITIONS --- JOBS --- 
     ngOnInit()
     {
+        //MLMLML per mappa
+        this.projectsDashboardService.getJobs()
+        .then(
+            (jobs) =>
+            {
+                //console.log("in job");
+                jobs.forEach(j => {
+                    this.jobPositionsLocations.push({'latitude': j.latitude, 'longitude': j.longitude, 'location': j.location });
+                });
+                //console.log(this.jobPositionsLocations);
+            }
+        );
+
+
+
         /**
          * Widget 11
          */
