@@ -37,36 +37,55 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
 
     roles: any[] = [
         {
-          name: 'Project Manager'
+            name: 'Project Manager'
         },
         {
-          name: 'Developer'
+            name: 'Developer'
         },
         {
-          name: 'Senior Developer'
+            name: 'Senior Developer'
         },
         {
-          name: 'Line Manager'
+            name: 'Line Manager'
         },
         {
-          name: 'Solution Architect'
+            name: 'Solution Architect'
         }
-      ];
+    ];
 
     areas: any[] = [
-    {
-        name: 'Payments'
-    },
-    {
-        name: 'TAX'
-    },
-    {
-        name: 'Credit Risk'
-    },
-    {
-        name: 'Accounting'
-    }
+        {
+            name: 'Payments'
+        },
+        {
+            name: 'TAX'
+        },
+        {
+            name: 'Credit Risk'
+        },
+        {
+            name: 'Accounting'
+        }
+    ];
 
+    skillsList: any[] = [
+        'C++', 
+        'Java', 
+        'Angular', 
+        'Oracle', 
+        'Credit Risk', 
+        'Problem Solving', 
+        'SAS', 
+        'Front Office', 
+        'SCRUM', 
+        'Agile development', 
+        'Python',
+        'Empathetic',
+        'Independent',
+        'Innovator',
+        'Resilient',
+        'Team Player',
+        'Requirement Engineering'        
     ];
     
     add(event: MatChipInputEvent): void {
@@ -137,11 +156,11 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
 
 
     ngAfterViewInit(){
-       // this.loadMapStuff();
+        // this.loadMapStuff();
     }
 
     ngAfterContentInit(){
-     //   this.loadMapStuff(); 
+        //   this.loadMapStuff(); 
     }
 
     ngOnInit()
@@ -166,13 +185,12 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
                             this.job.location = "Uetlihof 2, Uetlibergstrasse, Zurigo";
                         }
 
-
                         // console.log("in onCurrentJobChanged");
                         // console.log(this.job.location);
 
                         this.jobForm = this.createJobForm();
                         
-                        
+                        //debugger;
                         
                         this.loadMapStuff();
 
@@ -192,17 +210,7 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
                                                 .distinctUntilChanged()
                                                 .subscribe(data => {
                                                     //console.log("in onFormChange");
-                                                    
-                                                    //ML --- disabilito/abilito la percentuale se selezionato full
-                                                    if(data.allocationType==='Full-time'){
-                                                        this.disabledPercValue = true;
-                                                        this.jobForm.get('allocationPerc').setValue(100);
-                                                    }
-                                                    else
-                                                    {
-                                                        this.disabledPercValue = false;
-                                                    }
-
+                                                    //debugger;
                                                     //data.role = this.job.role;
                                                     //console.log("VALORE ROLE in data: " + data.role );
                                                     
@@ -238,18 +246,7 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
                                         this.job.id = FuseUtils.generateGUID();
                                         this.formType = 'new';
                                         this.jobForm = this.createJobForm();
-
-                                        //ML --- disabilito/abilito la percentuale se selezionato full
-                                        if(this.job.allocationType==='Full-time'){
-                                            this.disabledPercValue = true;
-                                            this.jobForm.get('allocationPerc').setValue(100);
-                                        }
-                                        else
-                                        {
-                                            this.disabledPercValue = false;
-                                        }
-                                        
-                                        //end ML                                                                               
+                                                                        
                                         this.focusTitleField();
                                         this.jobService.onCurrentJobChanged.next([this.job, 'new']);
                                     });
@@ -270,14 +267,28 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
 
     private setCurrentPosition() {
         if ("geolocation" in navigator) {
-          navigator.geolocation.getCurrentPosition((position) => {
+            navigator.geolocation.getCurrentPosition((position) => {
             this.job.latitude = position.coords.latitude;
             this.job.longitude = position.coords.longitude;
             this.zoom = 12;
-          });
+            });
         }
-      }
+    }
     
+
+    //Change in "AllocationType" --> disable/enable Allocation Percentage
+    allocationTypeChanged(e){
+        //console.log(e);
+        if(e.value === 'Full-time'){
+            this.disabledPercValue = true;
+            this.jobForm.get('allocationPerc').setValue(100);
+        }
+        else
+        {
+            this.disabledPercValue = false;
+        }
+
+    }
 
     loadMapStuff(){
 

@@ -142,7 +142,7 @@ export class ProjectsDashboardDb
             'detail': 'Number of CS employees seeking for a new job position.'
         },
         'widget5'      : {
-            'title'     : 'Job Interviews in Zurich',
+            'title'     : 'Job Proposals in Zurich',
             'ranges'    : {
                 'TW': 'This Week',
                 'LW': 'Last Week',
@@ -1292,26 +1292,26 @@ export class ProjectsDashboardDb
             }
         },
         'widget8'      : {
-            'title'    : 'Most in-demand job positions',
+            'title'    : 'Most in-demand job families',
             'mainChart': [
                 {
-                    'name' : 'Jap Developer',
+                    'name' : 'Project Manager',
                     'value': 12
                 },
                 {
-                    'name' : 'Financial Analyst',
+                    'name' : 'Business Engineer',
                     'value': 17
                 },
                 {
-                    'name' : 'PL/1 Developer',
+                    'name' : 'Requirements Engineer',
                     'value': 28
                 },
                 {
-                    'name' : 'Scrum MasterTe',
+                    'name' : 'Application Support',
                     'value': 25
                 },
                 {
-                    'name' : 'Sr Oracle DB Developer',
+                    'name' : 'Application Developer',
                     'value': 15
                 },
                 {

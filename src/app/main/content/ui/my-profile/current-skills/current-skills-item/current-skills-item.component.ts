@@ -27,7 +27,8 @@ export class CurrentSkillsItemComponent implements OnInit {
     'Independent',
     'Innovator',
     'Resilient',
-    'Team Player'
+    'Team Player',
+    'Requirement Engineering'
 ];
 
   @Input() skillModel: {id:number, skillName: string, proficiency: number};

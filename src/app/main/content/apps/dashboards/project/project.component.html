@@ -37,9 +37,9 @@
                 <!-- CONTENT -->
                 <div class="content">
     
-                    <mat-tab-group dynamicHeight>
+                    <mat-tab-group dynamicHeight (selectedTabChange)="onLinkClick($event)">
     
-                        <mat-tab label="Open positions for you!" *ngIf="normalUser">
+                        <mat-tab label="Matching positions" *ngIf="normalUser">
     
                             <!-- LATEST OPEN POSITIONS -->
                                 <div class="widget-group p-12" fxLayout="row" fxFlex="100" fxLayoutWrap *fuseIfOnDom >
@@ -53,6 +53,15 @@
                                             <ml-jobcard *ngFor="let job of jobcards" [job]="job" ></ml-jobcard>
                                         </div>  
                                 </div>  
+                        </mat-tab>
+                        <mat-tab label="Open positions by Location"  *ngIf="normalUser">   
+                            <!== LOCATION MAP ==> 
+                                <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoomLocation" disableDefaultUI="true" zoomControl="true" #map>
+                                    <agm-marker iconUrl="assets/images/markers/you.png" [latitude]="lat" [longitude]="lng"></agm-marker>
+                                    <!-- <agm-marker iconUrl="assets/images/markers/job.png" *ngFor="let location of jobPositionsLocations" [latitude]="location.latitude" [longitude]="location.longitude" >
+                                        <agm-info-window>{{location.location}}</agm-info-window>
+                                    </agm-marker> -->
+                                </agm-map>
                         </mat-tab>
                         <mat-tab label="Statistics">        
 

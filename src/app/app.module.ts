@@ -47,28 +47,28 @@ const appRoutes: Routes = [
         path        : 'apps/calendar',
         loadChildren: './main/content/apps/calendar/calendar.module#FuseCalendarModule'
     },
-    {
-        path        : 'apps/e-commerce',
-        loadChildren: './main/content/apps/e-commerce/e-commerce.module#FuseEcommerceModule'
-    },
+    // {
+    //     path        : 'apps/e-commerce',
+    //     loadChildren: './main/content/apps/e-commerce/e-commerce.module#FuseEcommerceModule'
+    // },
     //MLML duplicated ecommerce module and renamed as SearchJob
     {
         path        : 'apps/search-job',
         loadChildren: './main/content/apps/search-job/search-job.module#FuseSearchJobModule'
     },
     //switch to the Job module (riscritto il modulo Todo e sostituito)
-     {
-         path        : 'apps/todo',
-         loadChildren: './main/content/apps/todo/todo.module#FuseTodoModule'
-     },
+    // {
+    //     path        : 'apps/todo',
+    //     loadChildren: './main/content/apps/todo/todo.module#FuseTodoModule'
+    // },
     {
         path        : 'apps/job',
         loadChildren: './main/content/apps/job/job.module#FuseJobModule'
     },
-    {
-        path        : 'apps/file-manager',
-        loadChildren: './main/content/apps/file-manager/file-manager.module#FuseFileManagerModule'
-    },
+    // {
+    //     path        : 'apps/file-manager',
+    //     loadChildren: './main/content/apps/file-manager/file-manager.module#FuseFileManagerModule'
+    // },
     {
         path        : 'apps/contacts',
         loadChildren: './main/content/apps/contacts/contacts.module#FuseContactsModule'
@@ -79,7 +79,7 @@ const appRoutes: Routes = [
     // },
     {
         path      : '**',
-        redirectTo: 'ui/my-profile'
+        redirectTo: 'apps/dashboards/project'
     }
 
 ];

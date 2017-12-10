@@ -58,14 +58,14 @@
             <!== Job TITLE ==>                            
             <mat-form-field class="title mt-8" floatPlaceholder="never" fxFill>
                 <textarea matInput
-                          #titleInput
-                          name="title"
-                          formControlName="title"
-                          placeholder="Title"
-                          matTextareaAutosize
-                          matAutosizeMinRows="1"
-                          matAutosizeMaxRows="2"
-                          required>
+                        #titleInput
+                        name="title"
+                        formControlName="title"
+                        placeholder="Title"
+                        matTextareaAutosize
+                        matAutosizeMinRows="1"
+                        matAutosizeMaxRows="2"
+                        required>
                 </textarea>
             </mat-form-field>
 
@@ -89,24 +89,24 @@
             <!== ROLE ==>
             <div class="tags mb-24" fxFlexFill fxLayout="row" fxLayoutWrap>
                 <mat-form-field fxFlex>
-                    <input placeholder="Role" type="text" matInput formControlName="role" [matAutocomplete]="auto">
-                 </mat-form-field>
-                 
-                 <mat-autocomplete #auto="matAutocomplete">
+                    <input placeholder="Role" type="text" matInput formControlName="role" [matAutocomplete]="autoRoles">
+                </mat-form-field>
+                
+                <mat-autocomplete #autoRoles="matAutocomplete">
                     <mat-option *ngFor="let role of roles" [value]="role.name">
-                       {{ role.name }}
+                    {{ role.name }}
                     </mat-option>
-                 </mat-autocomplete>
-                 <!== AREA ==>
-                 <mat-form-field fxFlex>
-                    <input placeholder="Area" type="text" matInput formControlName="area" [matAutocomplete]="auto">
-                 </mat-form-field>
-                 
-                 <mat-autocomplete #auto="matAutocomplete">
+                </mat-autocomplete>
+                <!== AREA ==>
+                <mat-form-field fxFlex>
+                    <input placeholder="Area" type="text" matInput formControlName="area" [matAutocomplete]="autoAreas">
+                </mat-form-field>
+                
+                <mat-autocomplete #autoAreas="matAutocomplete">
                     <mat-option *ngFor="let area of areas" [value]="area.name">
-                       {{ area.name }}
+                    {{ area.name }}
                     </mat-option>
-                 </mat-autocomplete>
+                </mat-autocomplete>
 
 
 
@@ -139,28 +139,27 @@
             
             <div class="dates" fxFlexFill fxLayout="column" fxLayout.gt-xs="row">
 
-                <mat-form-field fxFlex>
+                <mat-form-field fxFlex="30">
 <!--                    <input type="text" matInput placeholder="Allocation type" [matAutocomplete]="auto" formControlName="allocationType"> -->
-                    <mat-select placeholder="Allocation Type" formControlName="allocationType" [value]="selectedAllocationType">
+                    <mat-select placeholder="Allocation Type" formControlName="allocationType" [value]="selectedAllocationType" (change)="allocationTypeChanged($event)">
                         <mat-option *ngFor="let option of jobAllocationTypeOptions" [value]="option" >
-                          {{ option }}
+                            {{ option }}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
 
-                <div fxLayout="column">
+                <div fxLayout="column" fxFlex="70">
                     <span class="mat-caption mat-primary-100-fg hint-text">Allocation Percentage (%)</span>
                     <mat-slider min="0" max="100" step="5" percent value="100" formControlName="allocationPerc" thumb-label="true" #perc [disabled]="disabledPercValue"></mat-slider>
-                   <!-- <label fxLayoutAlign="end center" class="text-boxed percentage" ><b>{{ perc.percent }} %</b></label> -->
+                    <!-- <label fxLayoutAlign="end center" class="text-boxed percentage" ><b>{{ perc.percent }} %</b></label> -->
                 </div>
             </div>
-            <br>
             <br>
             <br>
             
             <div class="skills" fxFlexFill fxLayout="row">
                 <!== Required SKILLS ==>
-                <mat-form-field fxFlex>
+                <!-- <mat-form-field fxFlex>
                         <mat-chip-list #chipList>
                         <mat-chip *ngFor="let skill of job.skills" [selectable]="selectable"
                                 [removable]="removable" (remove)="remove(skill)">
@@ -173,34 +172,39 @@
                                 [matChipInputAddOnBlur]="addOnBlur"
                                 (matChipInputTokenEnd)="add($event)" />
                         </mat-chip-list>
-                </mat-form-field> 
+                </mat-form-field>  -->
+                <div fxLayout="column" fxFlex="70">
+                    <span class="mat-caption mat-primary-100-fg hint-text">Required Skills</span>
+                    <mat-select placeholder="Business Areas" formControlName="skills" multiple shouldLabelFloat="true">
+                            <mat-option *ngFor="let skill of skillsList" [value]="skill">{{skill}}</mat-option>
+                    </mat-select>    
+                </div>                    
             </div>
+            <br>
             <br>
             <!== LOCATION (MAP) ==>            
             <mat-form-field fxFlexFill>
-                <input matInput  placeholder="Search for location" aria-label="Location" #searchControl formControlName="searchControl">
+                <input matInput  placeholder="Job location" aria-label="Location" #searchControl formControlName="searchControl">
             </mat-form-field>
             <br>
 
-            <!== FAKE MAP ==>
-            <!-- <img src="assets/images/zurich_badener_map.png"> -->
-
-
-            <agm-map [latitude]="job.latitude" [longitude]="job.longitude" [scrollwheel]="true" [zoom]="zoom">
+<!== 8dec17 ==>
+            <!-- <agm-map [latitude]="job.latitude" [longitude]="job.longitude" [scrollwheel]="true" [zoom]="zoom">
             <agm-marker [latitude]="job.latitude" [longitude]="job.longitude"></agm-marker>
             </agm-map>
+            <br> -->
             <br>
-            
+            <br>
             <!== JOB DESCRIPTION ==>
             <mat-form-field class="" fxFlexFill>
                 <textarea matInput #description
-                          name="description"
-                          formControlName="description"
-                          placeholder="Job description"
-                          maxlength="500"
-                          matTextareaAutosize
-                          matAutosizeMinRows="1"
-                          matAutosizeMaxRows="6">
+                        name="description"
+                        formControlName="description"
+                        placeholder="Job description"
+                        maxlength="500"
+                        matTextareaAutosize
+                        matAutosizeMinRows="4"
+                        matAutosizeMaxRows="10">
                 </textarea>
                 <mat-hint align="end">{{description.value.length}} / 500</mat-hint>
             </mat-form-field>

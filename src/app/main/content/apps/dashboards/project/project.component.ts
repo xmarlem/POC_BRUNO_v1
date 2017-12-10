@@ -1,6 +1,6 @@
 import { FuseNavigationService } from './../../../../../core/components/navigation/navigation.service';
 import { JobsService } from './jobs.service';
-import { Component, OnDestroy, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation, Input, ElementRef, ViewChild } from '@angular/core';
 import { ProjectsDashboardService } from './projects.service';
 import * as shape from 'd3-shape';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -21,6 +21,7 @@ import { fuseAnimations } from '../../../../../core/animations';
 
 //import { FusePriceTablesComponent } from "../../../components/price-tables/price-tables.component";
 import { MatSnackBar } from '@angular/material';
+import { AgmMap } from '@agm/core';
 
 
 
@@ -58,7 +59,16 @@ export class FuseProjectComponent implements OnInit, OnDestroy
     currentUser: any;
 
     jobcards: any[];
-    //END ML
+
+// --- MAP ---
+    //MLML --- location
+    lat = 47.356419;
+    lng = 8.515304;
+    zoomLocation = 12;
+
+    @ViewChild('map') 
+    public mappa:AgmMap; 
+//END ML
 
 
 
@@ -248,7 +258,15 @@ export class FuseProjectComponent implements OnInit, OnDestroy
         //this.todoService.deselectTodos();
     }
 
-
+//MLMLMLML refresh
+    onLinkClick(e){
+        //console.log(e.index);
+        if(e.index === 1)
+        {
+            this.mappa.triggerResize();
+          //  console.log("Mappa aggiornata");            
+        }
+    }
 
 // END ML --- OPEN POSITIONS --- JOBS --- 
     ngOnInit()
