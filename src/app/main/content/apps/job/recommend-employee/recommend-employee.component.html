@@ -37,15 +37,19 @@
                 </div>
                 <br />
             </form>
-            <div fxLayout="row" fxLayoutAlign="center center">
-                    <span class="text-italic pr-8 secondary-text">Rating:   </span>
-                    <rating [(ngModel)]="starsCount" [float]="true" (click)="rated()" >
+
+            <div fxLayout="column" fxLayoutAlign="center start">    
+                <u><span class="text-bold pr-8 pb-8 secondary-text">Rating:   </span></u>                    
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <span class="text-italic pr-8 secondary-text nowrap">Professional skills:</span>
+                    <rating [(ngModel)]="starsCountProfessionalSkills" [float]="true" (click)="rated()" >
                     </rating>
-
-
-                    <!-- <app-rating [rating]='0' [itemId]='0' (ratingClick)='ratingComponetClick($event)'></app-rating> -->
-                    
-
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <span class="text-italic pr-8 secondary-text nowrap">Soft skills:</span>
+                    <rating [(ngModel)]="starsCountSoftSkills" [float]="true" (click)="rated()" >
+                    </rating>                    
+                </div>
             </div>
 
             <br />

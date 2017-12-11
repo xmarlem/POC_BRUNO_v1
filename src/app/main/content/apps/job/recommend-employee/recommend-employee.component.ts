@@ -19,7 +19,8 @@ export class RecommendEmployeeComponent implements OnInit {
 
   filteredContacts: Observable<any[]>;
 
-  starsCount: number = 0;
+  starsCountProfessionalSkills: number = 0;
+  starsCountSoftSkills: number = 0;
   
   contacts: any[];
 
