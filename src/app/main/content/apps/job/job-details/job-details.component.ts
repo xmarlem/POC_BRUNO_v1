@@ -113,31 +113,6 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
         'Requirement Engineering'        
     ];
     
-    add(event: MatChipInputEvent): void {
-        let input = event.input;
-        let value = event.value;
-
-        //console.log(this.job.skills);
-
-        // Add our person
-        if ((value || '').trim()) {
-            this.job.skills.push(value.trim());
-        }
-        
-        // Reset the input value
-        if (input) {
-            input.value = '';
-        }
-    }
-
-    remove(fruit: any): void {
-        let index = this.job.skills.indexOf(fruit);
-
-        if (index >= 0) {
-            this.job.skills.splice(index, 1);
-        }
-    }
-    //END CHIPS
 
     public zoom: number;
     @ViewChild("searchControl", {read: ElementRef}) public searchElementRef: ElementRef;
@@ -191,6 +166,7 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
     ngOnInit()
     {
         
+        //ON JOB SELECTED --> entering in EDIT MODE
         //raised once the user click on an item (job)
         // Subscribe to update the current job
         this.onCurrentJobChanged =
@@ -215,13 +191,13 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
 
                         this.jobForm = this.createJobForm();
                         
-                        console.log("edit");
+                        //REFRESH UI status
                         this.allocationTypeChanged({value: this.job.allocationType});
 
 
                         //debugger;
                         
-                        this.loadMapStuff();
+                        //this.loadMapStuff();
 
                         //set the ROLE
 //                        console.log(this.job.role);
@@ -238,24 +214,20 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
                                                 .debounceTime(500)
                                                 .distinctUntilChanged()
                                                 .subscribe(data => {
-                                                    //console.log("in onFormChange");
-                                                    //debugger;
                                                     //data.role = this.job.role;
                                                     //console.log("VALORE ROLE in data: " + data.role );
                                                     
-                                                    //PATCH
-                                                    //console.log("Before the searchElementRef 1: "+this.searchElementRef);
-                                                    
-                                                    if(this.searchElementRef){
-                                                        //console.log("in onInit: "+ this.searchElementRef);
-                                                        data.location = this.searchElementRef.nativeElement.value;
-                                                        // console.log("Data location: " + data.location);
-                                                        // console.log("Data title: " + data.title);
-                                                        // console.log("Data test: " + data.test);    
-                                                    }
+                                                    // //PATCH                                                    
+                                                    // if(this.searchElementRef){
+                                                    //     //console.log("in onInit: "+ this.searchElementRef);
+                                                    //     data.location = this.searchElementRef.nativeElement.value;
+                                                    //     // console.log("Data location: " + data.location);
+                                                    //     // console.log("Data title: " + data.title);
+                                                    //     // console.log("Data test: " + data.test);    
+                                                    // }
                                                 
                                                     //end ML
-                                                    
+                                                    console.log(this.jobForm.invalid);
                                                     this.jobService.updateJob(data);
                                                 });
                     }
@@ -464,4 +436,10 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
 
         this.onNewJobClicked.unsubscribe();
     }
+
+
+
+    // logga(){
+    //     console.log(this.jobForm.invalid);
+    // }
 }

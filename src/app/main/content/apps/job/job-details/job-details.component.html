@@ -17,7 +17,7 @@
                 aria-label="Toggle completed" fxFlex="0 1 auto">
             <mat-icon *ngIf="job.completed">check_box</mat-icon>
             <mat-icon *ngIf="!job.completed">check_box_outline_blank</mat-icon>
-            <span>Mark as "Not Available"</span>
+            <span>Assigned</span>
         </button>
 
         <!== ACTIONS ==>                    
@@ -176,7 +176,7 @@
                 </mat-form-field>  -->
                 <div fxLayout="column" fxFlex="70">
                     <span class="mat-caption mat-primary-100-fg hint-text">Required Skills</span>
-                    <mat-select placeholder="Business Areas" formControlName="skills" multiple shouldLabelFloat="true">
+                    <mat-select placeholder="Business Areas" formControlName="skills" multiple shouldLabelFloat="true" >
                             <mat-option *ngFor="let skill of skillsList" [value]="skill">{{skill}}</mat-option>
                     </mat-select>    
                 </div>                    
@@ -185,7 +185,7 @@
             <br>
             <!== LOCATION (MAP) ==>            
             <mat-form-field fxFlexFill>
-                <input matInput  placeholder="Job location" aria-label="Location" #searchControl formControlName="searchControl">
+                <input matInput  placeholder="Job location" aria-label="Location" #searchControl formControlName="searchControl" >
             </mat-form-field>
             <br>
 
