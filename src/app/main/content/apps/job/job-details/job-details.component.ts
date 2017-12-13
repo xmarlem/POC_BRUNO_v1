@@ -191,6 +191,7 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
     ngOnInit()
     {
         
+        //raised once the user click on an item (job)
         // Subscribe to update the current job
         this.onCurrentJobChanged =
             this.jobService.onCurrentJobChanged
@@ -201,7 +202,6 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
                         this.formType = 'edit';
 
                         this.job = job;
-
 
 
                         if (!this.job.latitude || !this.job.longitude){
@@ -215,6 +215,10 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
 
                         this.jobForm = this.createJobForm();
                         
+                        console.log("edit");
+                        this.allocationTypeChanged({value: this.job.allocationType});
+
+
                         //debugger;
                         
                         this.loadMapStuff();
@@ -303,7 +307,7 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
 
     //Change in "AllocationType" --> disable/enable Allocation Percentage
     allocationTypeChanged(e){
-        //console.log(e);
+        console.log("Allocation Type Changed");
         if(e.value === 'Full-time'){
             this.disabledPercValue = true;
             this.jobForm.get('allocationPerc').setValue(100);
@@ -372,6 +376,8 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
         //console.log("In CreateJob: " + this.job.location);
         //console.log(this.job.role);
         
+        //refresh
+
         return this.formBuilder.group({
             'id'       : [this.job.id],
             'title'    : [this.job.title],
