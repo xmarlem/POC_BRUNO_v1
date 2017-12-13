@@ -35,23 +35,48 @@ export class FuseJobDetailsComponent implements OnInit, AfterViewInit, AfterCont
     // Enter, comma
     separatorKeysCodes = [ENTER, COMMA];
 
+    // roles: any[] = [
+    //     {
+    //         name: 'Project Manager'
+    //     },
+    //     {
+    //         name: 'Developer'
+    //     },
+    //     {
+    //         name: 'Senior Developer'
+    //     },
+    //     {
+    //         name: 'Line Manager'
+    //     },
+    //     {
+    //         name: 'Solution Architect'
+    //     }
+    // ];
+
     roles: any[] = [
         {
-            name: 'Project Manager'
+          name: 'Project Manager'
         },
         {
-            name: 'Developer'
+          name: 'Business Engineer'
         },
         {
-            name: 'Senior Developer'
+          name: 'Requirements Engineer'
         },
         {
-            name: 'Line Manager'
+          name: 'Application Support'
         },
         {
-            name: 'Solution Architect'
+          name: 'Application Developer'
+        },
+        {
+          name: 'Solution Architect'
         }
-    ];
+    
+      ];
+
+
+
 
     areas: any[] = [
         {
